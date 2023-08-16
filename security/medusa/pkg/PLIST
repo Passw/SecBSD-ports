@@ -1,0 +1,26 @@
+@bin bin/medusa
+lib/medusa/
+lib/medusa/modules/
+@bin lib/medusa/modules/cvs.mod
+@bin lib/medusa/modules/ftp.mod
+@bin lib/medusa/modules/http.mod
+@bin lib/medusa/modules/imap.mod
+@bin lib/medusa/modules/mssql.mod
+@bin lib/medusa/modules/mysql.mod
+@bin lib/medusa/modules/nntp.mod
+@bin lib/medusa/modules/pcanywhere.mod
+@bin lib/medusa/modules/pop3.mod
+@bin lib/medusa/modules/rexec.mod
+@bin lib/medusa/modules/rlogin.mod
+@bin lib/medusa/modules/rsh.mod
+@bin lib/medusa/modules/smbnt.mod
+@bin lib/medusa/modules/smtp-vrfy.mod
+@bin lib/medusa/modules/smtp.mod
+@bin lib/medusa/modules/snmp.mod
+@bin lib/medusa/modules/ssh.mod
+@bin lib/medusa/modules/telnet.mod
+@bin lib/medusa/modules/vmauthd.mod
+@bin lib/medusa/modules/vnc.mod
+@bin lib/medusa/modules/web-form.mod
+@bin lib/medusa/modules/wrapper.mod
+@man man/man1/medusa.1

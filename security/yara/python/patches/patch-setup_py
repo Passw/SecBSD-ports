@@ -1,0 +1,14 @@
+Index: setup.py
+--- setup.py.orig
++++ setup.py
+@@ -245,6 +245,10 @@ class BuildExtCommand(build_ext):
+     if has_header('stdbool.h'):
+       module.define_macros.append(('HAVE_STDBOOL_H', '1'))
+ 
++    if 'openbsd' in self.plat_name:
++      module.include_dirs.append('${LOCALBASE}/include')
++      module.library_dirs.append('${LOCALBASE}/lib')
++
+     if has_function('memmem'):
+       module.define_macros.append(('HAVE_MEMMEM', '1'))
+     if has_function('strlcpy'):

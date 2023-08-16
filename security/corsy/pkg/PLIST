@@ -1,0 +1,14 @@
+bin/corsy
+share/corsy/
+share/corsy/CHANGELOG.md
+share/corsy/LICENSE
+share/corsy/README.md
+share/corsy/core/
+share/corsy/core/__init__.py
+share/corsy/core/colors.py
+share/corsy/core/requester.py
+share/corsy/core/tests.py
+share/corsy/core/utils.py
+share/corsy/corsy.py
+share/corsy/db/
+share/corsy/db/details.json

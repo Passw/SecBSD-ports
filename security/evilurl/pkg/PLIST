@@ -1,0 +1,6 @@
+bin/evilurl
+share/evilurl/
+share/evilurl/LICENSE
+share/evilurl/README.md
+share/evilurl/evilurl.py
+share/evilurl/test.txt

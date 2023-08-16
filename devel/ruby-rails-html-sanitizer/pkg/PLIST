@@ -1,0 +1,17 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/CHANGELOG.md
+${GEM_LIB}/gems/${DISTNAME}/MIT-LICENSE
+${GEM_LIB}/gems/${DISTNAME}/README.md
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/rails/
+${GEM_LIB}/gems/${DISTNAME}/lib/rails-html-sanitizer.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/
+${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/sanitizer/
+${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/sanitizer.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/sanitizer/version.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/scrubbers.rb
+${GEM_LIB}/gems/${DISTNAME}/test/
+${GEM_LIB}/gems/${DISTNAME}/test/sanitizer_test.rb
+${GEM_LIB}/gems/${DISTNAME}/test/scrubbers_test.rb
+${GEM_LIB}/specifications/${DISTNAME}.gemspec

@@ -1,0 +1,6 @@
+
+SMTP user enum tool.
+
+Help:
+
+$ smtp-user-enum.pl -h

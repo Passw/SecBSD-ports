@@ -1,0 +1,4 @@
+DalFox is a fast, powerful parameter analysis and XSS scanner, based on a
+golang/DOM parser. supports friendly Pipeline, CI/CD and testing of different
+types of XSS. I talk about naming. Dal is the Korean pronunciation of moon and
+fox was made into Fox.

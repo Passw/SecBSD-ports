@@ -1,0 +1,13 @@
+Removed hardcoded optimizations.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -236,7 +236,6 @@ esac
+ tryflag CFLAGS -pipe
+ 
+ # Try flags to optimize binary size
+-tryflag CFLAGS -O2
+ tryflag CFLAGS -ffunction-sections
+ tryflag CFLAGS -fdata-sections
+ tryldflag LDFLAGS_AUTO -Wl,--gc-sections

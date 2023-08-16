@@ -1,0 +1,12 @@
+Index: CMakeLists.txt
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -270,7 +270,7 @@ ADD_CUSTOM_TARGET(experiments)
+ 
+ ADD_SUBDIRECTORY(src)
+ ADD_SUBDIRECTORY(test)
+-ADD_SUBDIRECTORY(docsrc)
++#ADD_SUBDIRECTORY(docsrc)
+ 
+ IF(WITH_VIGRANUMPY)
+     ADD_SUBDIRECTORY(vigranumpy)

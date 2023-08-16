@@ -1,0 +1,29 @@
+$OpenBSD$
+
+Index: maps_api_scanner_python3.py
+--- maps_api_scanner_python3.py.orig
++++ maps_api_scanner_python3.py
+@@ -1,3 +1,5 @@
++#!/usr/bin/env python3
++
+ import requests
+ import warnings
+ import json
+@@ -265,12 +267,12 @@ if len(sys.argv) > 1:
+ 			scan_gmaps(sys.argv[2])
+ 		else:
+ 			print("Missing api key, aborting.")
+-			print("Either use --api-key as argument such \"python maps_api_scanner.py --api-key KEY\" or directly run script as \"python maps_api_scanner.py\" and supply API key via input.")
++			print("usage: $ gmapsapiscanner --api-key KEY")
+ 	elif sys.argv[1] == "--help" or sys.argv[1] == "-h":
+-		print("Either use --api-key as argument such \"python maps_api_scanner.py --api-key KEY\" or directly run script as \"python maps_api_scanner.py\" and supply API key via input.")
++		print("usage: $ gmapsapiscanner --api-key KEY")
+ 	else:
+ 		print("Invalid arguments, aborting.")
+-		print("Either use --api-key as argument such \"python maps_api_scanner.py --api-key KEY\" or directly run script as \"python maps_api_scanner.py\" and supply API key via input.")
++		print("usage: $ gmapsapiscanner --api-key KEY")
+ else:
+ 	apikey = input("Please enter the Google Maps API key you wanted to test: ")
+-	scan_gmaps(apikey)
+\ No newline at end of file
++	scan_gmaps(apikey)

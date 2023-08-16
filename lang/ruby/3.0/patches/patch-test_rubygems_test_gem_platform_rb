@@ -1,0 +1,11 @@
+Index: test/rubygems/test_gem_platform.rb
+--- test/rubygems/test_gem_platform.rb.orig
++++ test/rubygems/test_gem_platform.rb
+@@ -138,6 +138,7 @@ class TestGemPlatform < Gem::TestCase
+       'x86_64-linux-musl'      => ['x86_64',    'linux',     'musl'],
+       'x86_64-openbsd3.9'      => ['x86_64',    'openbsd',   '3.9'],
+       'x86_64-openbsd4.0'      => ['x86_64',    'openbsd',   '4.0'],
++      'x86_64-secbsd'          => ['x86_64',    'secbsd',   nil],
+       'x86_64-openbsd'         => ['x86_64',    'openbsd',   nil],
+     }
+ 

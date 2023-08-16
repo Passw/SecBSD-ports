@@ -1,0 +1,18 @@
+This is the libraries module for the Greenbone Vulnerability Management
+Solution.
+
+It is used for the Greenbone Security Manager appliances and provides various
+functionalities to support the integrated service daemons.
+
+The "gvm-libs" module consists of the following libraries:
+
+base: All basic modules which require only the "glib" library as a dependency.
+
+util: All modules that require more than the "glib" library as dependency.
+
+gmp: API support for the Greenbone Management Protocol (GMP).
+
+osp: API support for the Open Scanner Protocol (OSP).
+
+For more information on using the functionality provided by the "gvm-libs"
+module please refer to the source code documentation.

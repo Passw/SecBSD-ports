@@ -1,0 +1,67 @@
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -35,8 +35,10 @@ DEFINES   = -DVERSION=\"$(GIT_VERSION)\"
+ # for dynamic linking
+ LIBS      = -lssl -lcrypto
+ ifneq ($(OS), FreeBSD)
++ifneq ($(OS), OpenBSD)
+ 	LIBS += -ldl
+ endif
++endif
+ ifeq ($(OS), SunOS)
+ 	CFLAGS += -m64
+ 	LIBS   += -lsocket -lnsl
+@@ -45,14 +47,16 @@ endif
+ # Enable checks for buffer overflows, add stack protectors, generate position
+ # independent code, mark the relocation table read-only, and mark the global
+ # offset table read-only.
+-CFLAGS  += -D_FORTIFY_SOURCE=2 -fstack-protector-all -fPIE
++CFLAGS  += -D_FORTIFY_SOURCE=2 -fstack-protector-all
+ 
+ # Don't enable some hardening flags on OS X because it uses an old version of Clang
+ ifneq ($(OS), Darwin)
+ ifneq ($(OS), SunOS)
++ifneq ($(OS), OpenBSD)
+ 	LDFLAGS += -pie -z relro -z now
+ endif
+ endif
++endif
+ 
+ # Force C11 mode to fix the build on very old version of GCC
+ CFLAGS += -std=gnu11
+@@ -68,8 +72,10 @@ else
+ LIBS         = -lssl -lcrypto -lz -lpthread
+ endif
+ ifneq ($(OS), FreeBSD)
++ifneq ($(OS), OpenBSD)
+ 	LIBS += -ldl
+ endif
++endif
+ ifeq ($(OS), SunOS)
+ 	LIBS += -lsocket -lnsl
+ endif
+@@ -123,6 +129,7 @@ uninstall:
+ 	rm -f $(DESTDIR)$(BINDIR)/sslscan
+ 	rm -f $(DESTDIR)$(MAN1DIR)/sslscan.1
+ 
++ifneq ($(OS), OpenBSD)
+ .openssl.is.fresh: opensslpull
+ 	true
+ opensslpull:
+@@ -131,6 +138,7 @@ opensslpull:
+ 	else \
+ 		git clone --depth 1 -b OpenSSL_1_1_1-stable https://github.com/openssl/openssl ./openssl && cd ./openssl && touch ../.openssl.is.fresh ; \
+ 	fi
++endif
+ 
+ # Need to build OpenSSL differently on OSX
+ ifeq ($(OS), Darwin)
+@@ -145,6 +153,7 @@ openssl/Makefile: .openssl.is.fresh
+ else
+ openssl/Makefile: .openssl.is.fresh
+ 	cd ./openssl; ./config -v -fstack-protector-all -D_FORTIFY_SOURCE=2 -fPIC no-shared enable-weak-ssl-ciphers zlib
++# XXX had no-cast here
+ endif
+ 
+ openssl/libcrypto.a: openssl/Makefile

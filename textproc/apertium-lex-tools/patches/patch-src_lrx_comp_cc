@@ -1,0 +1,23 @@
+Index: src/lrx_comp.cc
+--- src/lrx_comp.cc.orig
++++ src/lrx_comp.cc
+@@ -16,6 +16,7 @@
+  */
+ 
+ #include <lrx_compiler.h>
++#include <unistd.h>
+ 
+ using namespace std;
+ 
+@@ -31,6 +32,11 @@ void endProgram(char *name)
+ 
+ int main (int argc, char **argv)
+ {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    cerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   LRXCompiler compiler;
+ 
+   if(argc != 3 && argc != 4)

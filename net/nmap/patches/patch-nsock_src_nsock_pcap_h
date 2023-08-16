@@ -1,0 +1,12 @@
+Index: nsock/src/nsock_pcap.h
+--- nsock/src/nsock_pcap.h.orig
++++ nsock/src/nsock_pcap.h
+@@ -115,7 +115,7 @@
+  * work correctly on BPF devices, so the workaround isn't necessary, although it
+  * does no harm.)
+  */
+-#if defined(MACOSX) || defined(FREEBSD) || defined(OPENBSD)
++#if defined(MACOSX) || defined(FREEBSD) || defined(OPENBSD) || defined(SECBSD)
+ /* Well, now select() is not receiving any pcap events on MACOSX, but maybe it
+  * will someday :) in both cases. It never hurts to enable this feature. It just
+  * has performance penalty. */

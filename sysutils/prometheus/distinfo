@@ -1,0 +1,6 @@
+SHA256 (prometheus-2.37.8.tar.gz) = Y/Bd3/RTc5zp9lI8lZzvgTt5Rh2uGGNn0AET9xXG62Q=
+SHA256 (prometheus-vendor-2.37.8.tar.gz) = iKshx0M3y9za1XKHKfzy4f5OVBVzTSRTA3MAhVUkbRs=
+SHA256 (prometheus-web-ui-2.37.8.tar.gz) = LSAdhpDopPsmxrolIky+Vp3GyKp29wB8xILnCK0tDZs=
+SIZE (prometheus-2.37.8.tar.gz) = 6049022
+SIZE (prometheus-vendor-2.37.8.tar.gz) = 11758451
+SIZE (prometheus-web-ui-2.37.8.tar.gz) = 2386391

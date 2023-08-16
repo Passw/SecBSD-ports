@@ -1,0 +1,12 @@
+Index: src/bin/jp2/convert.c
+--- src/bin/jp2/convert.c.orig
++++ src/bin/jp2/convert.c
+@@ -662,7 +662,7 @@ static int tga_readheader(FILE *fp, unsigned int *bits
+     return 1;
+ }
+ 
+-#ifdef OPJ_BIG_ENDIAN
++#if defined(OPJ_BIG_ENDIAN) && !defined(swap16)
+ 
+ static INLINE OPJ_UINT16 swap16(OPJ_UINT16 x)
+ {

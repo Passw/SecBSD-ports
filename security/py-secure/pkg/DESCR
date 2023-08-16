@@ -1,0 +1,2 @@
+A lightweight package that adds optional security headers
+and cookie attributes for Python web frameworks.

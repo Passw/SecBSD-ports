@@ -1,0 +1,8 @@
+bin/spoofcheck
+share/spoofcheck/
+share/spoofcheck/LICENSE
+share/spoofcheck/README.md
+share/spoofcheck/libs/
+share/spoofcheck/libs/PrettyOutput.py
+share/spoofcheck/libs/__init__.py
+share/spoofcheck/spoofcheck.py

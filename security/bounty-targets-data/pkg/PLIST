@@ -1,0 +1,10 @@
+share/bounty-targets-data/
+share/bounty-targets-data/bugcrowd_data.json
+share/bounty-targets-data/domains.txt
+share/bounty-targets-data/federacy_data.json
+share/bounty-targets-data/hackenproof_data.json
+share/bounty-targets-data/hackerone_data.json
+share/bounty-targets-data/hackerone_schema.graphql
+share/bounty-targets-data/intigriti_data.json
+share/bounty-targets-data/wildcards.txt
+share/bounty-targets-data/yeswehack_data.json

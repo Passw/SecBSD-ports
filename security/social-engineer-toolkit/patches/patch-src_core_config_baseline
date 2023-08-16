@@ -1,0 +1,41 @@
+Index: src/core/config.baseline
+--- src/core/config.baseline.orig
++++ src/core/config.baseline
+@@ -29,8 +29,8 @@
+ ##################################################################################################
+ ##################################################################################################
+ #
+-### Define the path to Metasploit. For example: /opt/metasploit/apps/pro/msf3
+-METASPLOIT_PATH=/opt/metasploit/apps/pro/msf3
++### Define the path to Metasploit on SecBSD.
++METASPLOIT_PATH=/usr/local/share/metasploit
+ #
+ ### This will tell what database to use when using Metasploit. The default is PostgreSQL.
+ METASPLOIT_DATABASE=postgresql
+@@ -66,7 +66,7 @@ METASPLOIT_IFRAME_PORT=8080
+ ETTERCAP=OFF
+ #
+ ### Ettercap home directory (needed for DNS_spoof).
+-ETTERCAP_PATH=/usr/share/ettercap
++ETTERCAP_PATH=/usr/local/share/ettercap
+ #
+ ### Specify what interface you want Ettercap or dsniff to listen on.
+ ETTERCAP_INTERFACE=eth0
+@@ -95,7 +95,7 @@ TIME_DELAY_EMAIL=1
+ APACHE_SERVER=OFF
+ #
+ ### Path to the Apache web root.
+-APACHE_DIRECTORY=/var/www/html
++APACHE_DIRECTORY=/var/www/htdocs
+ #
+ ### Specify what port to run the HTTP server on that serves the Java applet attack
+ ### or Metasploit exploit. The default is port 80. If you are using Apache, you
+@@ -160,7 +160,7 @@ HARVESTER_URL=http://thisisasite
+ #
+ ### This will allow you to specify where the harvester log file goes when you use Apache. 
+ ### By default, this will be in the "/var/www" directory.
+-HARVESTER_LOG=/var/www
++HARVESTER_LOG=/var/www/logs
+ #
+ ### This will turn off the ability to log passwords in the credential harvester. Note that this isn't always
+ ### reliable. It will only not present content that is password oriented. Otherwise, it will still

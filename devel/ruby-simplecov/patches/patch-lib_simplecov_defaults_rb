@@ -1,0 +1,11 @@
+Index: lib/simplecov/defaults.rb
+--- lib/simplecov/defaults.rb.orig
++++ lib/simplecov/defaults.rb
+@@ -1,7 +1,6 @@
+ # frozen_string_literal: true
+ 
+ # Load default formatter gem
+-require "simplecov-html"
+ require "pathname"
+ require "simplecov/profiles/root_filter"
+ require "simplecov/profiles/test_frameworks"

@@ -1,0 +1,9 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/README.md
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/rspec-rerun/
+${GEM_LIB}/gems/${DISTNAME}/lib/rspec-rerun/formatter.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rspec-rerun/tasks.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rspec-rerun/version.rb
+${GEM_LIB}/specifications/${DISTNAME}.gemspec

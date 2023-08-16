@@ -1,0 +1,27 @@
+Index: conf/mime.types
+--- conf/mime.types.orig
++++ conf/mime.types
+@@ -58,6 +58,7 @@ types {
+     application/x-java-archive-diff                  jardiff;
+     application/x-java-jnlp-file                     jnlp;
+     application/x-makeself                           run;
++    application/x-ns-proxy-autoconfig                pac;
+     application/x-perl                               pl pm;
+     application/x-pilot                              prc pdb;
+     application/x-rar-compressed                     rar;
+@@ -78,6 +79,7 @@ types {
+     application/octet-stream                         iso img;
+     application/octet-stream                         msi msp msm;
+ 
++    audio/basic                                      au snd;
+     audio/midi                                       mid midi kar;
+     audio/mpeg                                       mp3;
+     audio/ogg                                        ogg;
+@@ -92,6 +94,7 @@ types {
+     video/webm                                       webm;
+     video/x-flv                                      flv;
+     video/x-m4v                                      m4v;
++    video/x-matroska                                 mkv;
+     video/x-mng                                      mng;
+     video/x-ms-asf                                   asx asf;
+     video/x-ms-wmv                                   wmv;

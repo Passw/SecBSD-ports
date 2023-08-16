@@ -1,0 +1,20 @@
+Index: meson.build
+--- meson.build.orig
++++ meson.build
+@@ -1135,7 +1135,7 @@ endif
+ 
+ ## Lua
+ 
+-lua = find_program('luajit', required: get_option('lua'))
++lua = find_program('luajit${LUAJIT_V}', required: get_option('lua'))
+ have_lua = get_option('lua').enabled() or (lua.found() and get_option('lua').auto())
+ if not lua.found() and have_lua
+   lua_warning = '''
+@@ -1483,6 +1483,7 @@ conf.set('NO_FD_SET',
+   not platform_windows
+   and not cc.compiles('''
+     #include <sys/types.h>
++    #include <sys/select.h>
+     int main() { fd_set readMask, writeMask; return 0; }
+   ''')
+ )

@@ -1,0 +1,6 @@
+include/utfcpp/
+include/utfcpp/utf8/
+include/utfcpp/utf8.h
+include/utfcpp/utf8/checked.h
+include/utfcpp/utf8/core.h
+include/utfcpp/utf8/unchecked.h

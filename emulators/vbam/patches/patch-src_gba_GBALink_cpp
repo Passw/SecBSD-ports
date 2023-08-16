@@ -1,0 +1,12 @@
+Index: src/gba/GBALink.cpp
+--- src/gba/GBALink.cpp.orig
++++ src/gba/GBALink.cpp
+@@ -4,7 +4,7 @@
+ #include <string.h>
+ 
+ // malloc.h does not seem to exist on Mac OS 10.7 and is an error on FreeBSD
+-#if defined(__APPLE__) || defined(__FreeBSD__) || defined(__NetBSD__)
++#if defined(__APPLE__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+ #include <stdlib.h>
+ #else
+ #include <malloc.h>

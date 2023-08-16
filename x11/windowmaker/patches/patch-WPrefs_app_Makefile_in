@@ -1,0 +1,11 @@
+Index: WPrefs.app/Makefile.in
+--- WPrefs.app/Makefile.in.orig
++++ WPrefs.app/Makefile.in
+@@ -481,6 +481,7 @@ WPrefs_SOURCES = \
+ #	Themes.c
+ AM_CFLAGS = 
+ AM_CPPFLAGS = -DRESOURCE_PATH=\"$(wpdatadir)\" -DWMAKER_RESOURCE_PATH=\"$(pkgdatadir)\" \
++	 -DPREFIX=\"$(prefix)\" \
+ 	 -I$(top_srcdir)/wrlib -I$(top_srcdir)/WINGs @HEADER_SEARCH_PATH@ 
+ 
+ WPrefs_DEPENDENCIES = $(top_builddir)/WINGs/libWINGs.la

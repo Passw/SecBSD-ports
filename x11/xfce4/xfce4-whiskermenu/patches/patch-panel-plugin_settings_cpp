@@ -1,0 +1,13 @@
+Dont show switchuser & menueditor by default since they wont work on openbsd
+Index: panel-plugin/settings.cpp
+--- panel-plugin/settings.cpp.orig
++++ panel-plugin/settings.cpp
+@@ -185,6 +185,8 @@ void Settings::load(gchar* file)
+ {
+ 	if (!file)
+ 	{
++		command[CommandSwitchUser]->set_shown(false);
++		command[CommandMenuEditor]->set_shown(false);
+ 		return;
+ 	}
+ 

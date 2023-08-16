@@ -1,0 +1,113 @@
+COMMENT-main =		low-latency voice chat client
+COMMENT-server =	low-latency voice chat server
+
+VERSION =		1.4.287
+DISTNAME =		mumble-${VERSION}
+PKGNAME-server =	murmur-${VERSION}
+REVISION-main =		4
+REVISION-server =	4
+
+CATEGORIES =		audio net
+
+HOMEPAGE =		https://www.mumble.info/
+
+MASTER_SITES =		https://github.com/mumble-voip/mumble/releases/download/v${VERSION}/
+
+MASTER_SITES0 =		https://github.com/mumble-voip/mumble/commit/
+# "Bug fixes on master missing in 1.4.x branch"
+# https://github.com/mumble-voip/mumble/issues/5888
+PATCHFILES =		mumble-kvm_getprocs-ALL_arg-{}42ad5ed.patch:0 \
+			mumble-kvm_getprocs-pass-elemsize-{}ccbacbf.patch:0 \
+			mumble-struct_procinfo-member_prefix-{}a707213.patch:0 \
+			mumble-audiowizard-fix_Werror-{}0c769d8.patch:0 \
+			mumble-enable-xinput2-{}904bae1.patch:0
+
+# pending "BUILD(cmake): Build/install celt as module"
+# https://github.com/mumble-voip/mumble/pull/5592
+PATCHFILES +=		mumble-celt-module-{}43176a1.patch:0
+
+PATCH_DIST_STRIP =	-p1
+
+# BSD3
+PERMIT_PACKAGE =	Yes
+
+WANTLIB-main += ${COMPILER_LIBCXX} PocoFoundation PocoUtil PocoXML
+WANTLIB-main += PocoZip Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network
+WANTLIB-main += Qt5Sql Qt5Svg Qt5Widgets Qt5Xml X11 Xext Xi c crypto kvm
+WANTLIB-main += m protobuf sndfile speex speexdsp ssl
+
+# dlopen()'ed
+WANTLIB-main += opus portaudio
+
+WANTLIB-server += ${COMPILER_LIBCXX} Qt5Core Qt5DBus Qt5Network Qt5Sql
+WANTLIB-server += Qt5Xml c crypto m protobuf ssl
+
+WRKDIST =		${WRKDIR}/mumble-${VERSION}.src
+
+MULTI_PACKAGES =	-main -server
+
+DEBUG_PACKAGES =	${BUILD_PACKAGES}
+
+MODULES =		devel/cmake \
+			lang/python \
+			x11/qt5
+
+BUILD_DEPENDS =		devel/boost
+
+LIB_DEPENDS-main =	audio/libsndfile>=1.0.25p0 \
+			audio/opus \
+			audio/portaudio-svn \
+			audio/speex \
+			devel/protobuf \
+			net/poco \
+			x11/qt5/qtsvg
+LIB_DEPENDS-server =	devel/protobuf \
+			x11/qt5/qtbase
+TEST_DEPENDS =		x11/qt5/qtbase
+
+RUN_DEPENDS-main =	devel/desktop-file-utils \
+			x11/gtk+4,-guic
+
+# silence noisy cmake messages during configure
+CONFIGURE_ARGS +=	-Wno-dev
+
+# ${WRKSRC}/docs/dev/build-instructions/cmake_options.md
+CONFIGURE_ARGS +=	-Dbundled-opus=OFF \
+			-Dbundled-speex=OFF \
+			-Dice=OFF \
+			-Djackaudio=OFF \
+			-Doverlay=OFF \
+			-Dupdate=OFF \
+			-Dzeroconf=OFF
+
+.ifdef DEBUG
+CONFIGURE_ARGS +=	-Dplugin-debug=ON \
+			-Dplugin-callback-debug=ON \
+			-Dsymbols=ON
+.endif
+
+CONFIGURE_ARGS +=	-Dtests=ON
+
+SERVER_CONFIG_FILE =	${WRKSRC}/scripts/murmur.ini
+SERVER_EXAMPLES_DIR =	${PREFIX}/share/examples/murmur
+
+# everything except tests
+ALL_TARGET =			mumble mumble-server
+
+pre-configure:
+	${SUBST_CMD} ${SERVER_CONFIG_FILE}
+
+# build whatever is left (ca. 63 C++ test files)
+pre-test:
+	@${MODCMAKE_BUILD_TARGET}
+
+post-install:
+	${INSTALL_DATA_DIR} ${SERVER_EXAMPLES_DIR}
+	${INSTALL_DATA} ${SERVER_CONFIG_FILE} ${SERVER_EXAMPLES_DIR}/
+	# "[DRAFT] Rename "murmur" to "mumble-server" across the project"
+	# https://github.com/mumble-voip/mumble/pull/4695
+	ln -f ${PREFIX}/bin/{mumble-server,murmurd}
+	# remove manual for uninstalled linux specific wrapper
+	rm -f ${PREFIX}/man/man1/mumble-server-user-wrapper.1
+
+.include <bsd.port.mk>

@@ -1,0 +1,8 @@
+bin/enum4BSD.pl
+share/enum4BSD/
+share/enum4BSD/CHANGELOG
+share/enum4BSD/COPYING.ENUM4LINUX
+share/enum4BSD/COPYING.GPL
+share/enum4BSD/README.md
+share/enum4BSD/enum4BSD.pl
+share/enum4BSD/share-list.txt

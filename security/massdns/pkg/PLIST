@@ -1,0 +1,24 @@
+@bin bin/massdns
+@man man/man1/massdns.1
+share/massdns/
+share/massdns/LICENSE
+share/massdns/README.md
+share/massdns/doc/
+share/massdns/doc/massdns.1
+share/massdns/lists/
+share/massdns/lists/names.txt
+share/massdns/lists/names_small.txt
+share/massdns/lists/resolvers.txt
+share/massdns/scripts/
+share/massdns/scripts/auth-addrs.sh
+share/massdns/scripts/censys-extract.py
+share/massdns/scripts/ct.py
+share/massdns/scripts/dnsparse.py
+share/massdns/scripts/get-resolvers.py
+share/massdns/scripts/get-resolvers.sh
+share/massdns/scripts/massdnsA.jq
+share/massdns/scripts/massdnsAAAA.jq
+share/massdns/scripts/ptr.py
+share/massdns/scripts/recon.py
+share/massdns/scripts/requirements.txt
+share/massdns/scripts/subbrute.py

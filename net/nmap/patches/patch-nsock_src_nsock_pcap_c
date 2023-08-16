@@ -1,0 +1,21 @@
+Index: nsock/src/nsock_pcap.c
+--- nsock/src/nsock_pcap.c.orig
++++ nsock/src/nsock_pcap.c
+@@ -171,7 +171,7 @@ static int nsock_pcap_get_l3_offset(pcap_t *pt, int *d
+     #ifdef DLT_PPP_ETHER
+     case DLT_PPP_ETHER:
+     #endif
+-    #if (FREEBSD || OPENBSD || NETBSD || BSDI || MACOSX)
++    #if (FREEBSD || OPENBSD || SECBSD || NETBSD || BSDI || MACOSX)
+     offset = 4;break;
+     #else
+       #ifdef SOLARIS
+@@ -179,7 +179,7 @@ static int nsock_pcap_get_l3_offset(pcap_t *pt, int *d
+       #else
+         offset = 24;break; /* Anyone use this? */
+       #endif /* ifdef solaris */
+-    #endif /* if freebsd || openbsd || netbsd || bsdi */
++    #endif /* if freebsd || openbsd || secbsd || netbsd || bsdi */
+     #ifdef DLT_RAW
+     case DLT_RAW: offset = 0; break;
+     #endif /* DLT_RAW */

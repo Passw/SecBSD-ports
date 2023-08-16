@@ -1,0 +1,43 @@
+Index: libs.mk
+--- libs.mk.orig
++++ libs.mk
+@@ -335,22 +335,17 @@ EXPORT_FILE             := libvpx.def
+ LIBVPX_SO_SYMLINKS      :=
+ LIBVPX_SO_IMPLIB        := libvpx_dll.a
+ else
+-LIBVPX_SO               := libvpx.so.$(SO_VERSION_MAJOR).$(SO_VERSION_MINOR).$(SO_VERSION_PATCH)
++LIBVPX_SO               := libvpx.so.$(LIBVPX_VERSION)
+ SHARED_LIB_SUF          := .so
+ EXPORT_FILE             := libvpx.ver
+-LIBVPX_SO_SYMLINKS      := $(addprefix $(LIBSUBDIR)/, \
+-                             libvpx.so libvpx.so.$(SO_VERSION_MAJOR) \
+-                             libvpx.so.$(SO_VERSION_MAJOR).$(SO_VERSION_MINOR))
+ endif
+ endif
+ endif
+ 
+ LIBS-$(CONFIG_SHARED) += $(BUILD_PFX)$(LIBVPX_SO)\
+-                           $(notdir $(LIBVPX_SO_SYMLINKS)) \
+                            $(if $(LIBVPX_SO_IMPLIB), $(BUILD_PFX)$(LIBVPX_SO_IMPLIB))
+ $(BUILD_PFX)$(LIBVPX_SO): $(LIBVPX_OBJS) $(EXPORT_FILE)
+ $(BUILD_PFX)$(LIBVPX_SO): extralibs += -lm
+-$(BUILD_PFX)$(LIBVPX_SO): SONAME = libvpx.so.$(SO_VERSION_MAJOR)
+ $(BUILD_PFX)$(LIBVPX_SO): EXPORTS_FILE = $(EXPORT_FILE)
+ 
+ libvpx.def: $(call enabled,CODEC_EXPORTS)
+@@ -373,15 +368,7 @@ $(1): $(2)
+ 	$(qexec)ln -sf $(2) $$@
+ endef
+ 
+-$(eval $(call libvpx_symlink_template,\
+-    $(addprefix $(BUILD_PFX),$(notdir $(LIBVPX_SO_SYMLINKS))),\
+-    $(BUILD_PFX)$(LIBVPX_SO)))
+-$(eval $(call libvpx_symlink_template,\
+-    $(addprefix $(DIST_DIR)/,$(LIBVPX_SO_SYMLINKS)),\
+-    $(LIBVPX_SO)))
+ 
+-
+-INSTALL-LIBS-$(CONFIG_SHARED) += $(LIBVPX_SO_SYMLINKS)
+ INSTALL-LIBS-$(CONFIG_SHARED) += $(LIBSUBDIR)/$(LIBVPX_SO)
+ INSTALL-LIBS-$(CONFIG_SHARED) += $(if $(LIBVPX_SO_IMPLIB),$(LIBSUBDIR)/$(LIBVPX_SO_IMPLIB))
+ 

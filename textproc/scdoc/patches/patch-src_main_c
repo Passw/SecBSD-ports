@@ -1,0 +1,27 @@
+Simple software acting as an stdio filter, no third party libraries,
+not big churn, so this is a good candidate for pledge.
+
+Index: src/main.c
+--- src/main.c.orig
++++ src/main.c
+@@ -15,6 +15,7 @@
+ 
+ char *strstr(const char *haystack, const char *needle);
+ char *strerror(int errnum);
++int pledge(const char *, const char *);
+ 
+ static struct str *parse_section(struct parser *p) {
+ 	struct str *section = str_create();
+@@ -770,6 +771,12 @@ int main(int argc, char **argv) {
+ 		fprintf(stderr, "Usage: scdoc < input.scd > output.roff\n");
+ 		return 1;
+ 	}
++
++	if (pledge("stdio", NULL) == -1) {
++		fprintf(stderr, "pledge: %s", strerror(errno));
++		exit(EXIT_FAILURE);
++	}
++
+ 	struct parser p = {
+ 		.input = stdin,
+ 		.output = stdout,

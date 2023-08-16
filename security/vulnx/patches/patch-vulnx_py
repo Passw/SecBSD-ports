@@ -1,0 +1,12 @@
+$OpenBSD$
+
+Index: vulnx.py
+--- vulnx.py.orig
++++ vulnx.py
+@@ -1,5 +1,4 @@
+-
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ from __future__ import (absolute_import, division, print_function)
+ 

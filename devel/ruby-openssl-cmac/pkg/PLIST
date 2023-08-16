@@ -1,0 +1,16 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/.rubocop.yml
+${GEM_LIB}/gems/${DISTNAME}/.yardopts
+${GEM_LIB}/gems/${DISTNAME}/Gemfile
+${GEM_LIB}/gems/${DISTNAME}/LICENSE
+${GEM_LIB}/gems/${DISTNAME}/README.md
+${GEM_LIB}/gems/${DISTNAME}/Rakefile
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/openssl/
+${GEM_LIB}/gems/${DISTNAME}/lib/openssl/cmac/
+${GEM_LIB}/gems/${DISTNAME}/lib/openssl/cmac.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/openssl/cmac/version.rb
+${GEM_LIB}/gems/${DISTNAME}/test/
+${GEM_LIB}/gems/${DISTNAME}/test/test_cmac.rb
+${GEM_LIB}/specifications/${DISTNAME}.gemspec

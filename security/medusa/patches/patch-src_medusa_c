@@ -1,0 +1,671 @@
+Index: src/medusa.c
+--- src/medusa.c.orig
++++ src/medusa.c
+@@ -15,7 +15,7 @@
+  *
+  *    http://www.gnu.org/licenses/gpl.txt
+  *
+- *    This program is released under the GPL with the additional exemption 
++ *    This program is released under the GPL with the additional exemption
+  *    that compiling, linking, and/or using OpenSSL is allowed.
+  *
+  * Based on ideas from Hydra 3.1 by VanHauser [vh@thc.org]
+@@ -23,12 +23,14 @@
+  *
+ */
+ 
+-#define VERSION_SVN "$Id: medusa.c 9217 2015-05-07 18:07:03Z jmk $" 
++#define VERSION_SVN "$Id: medusa.c 9217 2015-05-07 18:07:03Z jmk $"
+ 
+ #include <dlfcn.h>
+ #include "medusa.h"
+ #include "modsrc/module.h"
+ 
++pthread_mutex_t ptmFileMutex = PTHREAD_MUTEX_INITIALIZER;
++
+ char* szModuleName;
+ char* szTempModuleParam;
+ char* szModulePaths[3] = {"a", "b", "c"};         // will look at 3 different locations for modules if possible
+@@ -66,14 +68,14 @@ void usage()
+   writeVerbose(VB_NONE, "  -O [FILE]    : File to append log information to");
+   writeVerbose(VB_NONE, "  -e [n/s/ns]  : Additional password checks ([n] No Password, [s] Password = Username)");
+   writeVerbose(VB_NONE, "  -M [TEXT]    : Name of the module to execute (without the .mod extension)");
+-  writeVerbose(VB_NONE, "  -m [TEXT]    : Parameter to pass to the module. This can be passed multiple times with a"); 
++  writeVerbose(VB_NONE, "  -m [TEXT]    : Parameter to pass to the module. This can be passed multiple times with a");
+   writeVerbose(VB_NONE, "                 different parameter each time and they will all be sent to the module (i.e.");
+-  writeVerbose(VB_NONE, "                 -m Param1 -m Param2, etc.)"); 
++  writeVerbose(VB_NONE, "                 -m Param1 -m Param2, etc.)");
+   writeVerbose(VB_NONE, "  -d           : Dump all known modules");
+   writeVerbose(VB_NONE, "  -n [NUM]     : Use for non-default TCP port number");
+   writeVerbose(VB_NONE, "  -s           : Enable SSL");
+-  writeVerbose(VB_NONE, "  -g [NUM]     : Give up after trying to connect for NUM seconds (default 3)"); 
+-  writeVerbose(VB_NONE, "  -r [NUM]     : Sleep NUM seconds between retry attempts (default 3)");   
++  writeVerbose(VB_NONE, "  -g [NUM]     : Give up after trying to connect for NUM seconds (default 3)");
++  writeVerbose(VB_NONE, "  -r [NUM]     : Sleep NUM seconds between retry attempts (default 3)");
+   writeVerbose(VB_NONE, "  -R [NUM]     : Attempt NUM retries before giving up. The total number of attempts will be NUM + 1.");
+   writeVerbose(VB_NONE, "  -c [NUM]     : Time to wait in usec to verify socket is available (default 500 usec).");
+   writeVerbose(VB_NONE, "  -t [NUM]     : Total number of logins to be tested concurrently");
+@@ -117,6 +119,7 @@ int checkOptions(int argc, char **argv, sAudit *_psAud
+   _psAudit->iShowModuleHelp = 0;
+   iVerboseLevel = 5;
+   iErrorLevel = 5;
++  FILE *pOutputFile = NULL;
+ 
+   for (i =0; i < argc; i++)
+   {
+@@ -253,7 +256,7 @@ int checkOptions(int argc, char **argv, sAudit *_psAud
+       }
+       break;
+     case 's':
+-      _psAudit->iUseSSL = 1;  
++      _psAudit->iUseSSL = 1;
+       break;
+     case 'L':
+       _psAudit->iParallelLoginFlag = PARALLEL_LOGINS_USER;
+@@ -331,7 +334,7 @@ int checkOptions(int argc, char **argv, sAudit *_psAud
+   if (argc <= 1) {
+     ret = EXIT_FAILURE;
+   }
+-  
++
+   if (_psAudit->iShowModuleHelp)
+   {
+     ret = invokeModule(_psAudit->pModuleName, NULL, 0, NULL);
+@@ -411,9 +414,9 @@ int invokeModule(char* pModuleName, sLogin* pLogin, in
+       else if (!pLogin)
+       {
+         pUsage = (function_showUsage)dlsym(pLibrary, "showUsage");
+-       
++
+         writeError(ERR_DEBUG, "Attempting to display usage information for module: %s", modPath);
+-        
++
+         if (pUsage == NULL)
+         {
+           writeError(ERR_ALERT, "Couldn't get a pointer to \"showUsage\" for module %s [%s]", modPath, dlerror());
+@@ -575,7 +578,7 @@ int processComboFile(sAudit **_psAudit)
+       iColonCount++;
+       pComboTmp++;
+     }
+-    else 
++    else
+     {
+       pComboTmp++;
+     }
+@@ -660,7 +663,7 @@ int processComboFile(sAudit **_psAudit)
+   if (*pComboTmp == '\0')
+   {             /* no password specified */
+     writeError(ERR_DEBUG, "[processComboFile] No password combo field specified.");
+-    if (((*_psAudit)->PassType != L_SINGLE) && ((*_psAudit)->PassType != L_FILE) && 
++    if (((*_psAudit)->PassType != L_SINGLE) && ((*_psAudit)->PassType != L_FILE) &&
+         ((*_psAudit)->iPasswordBlankFlag == FALSE) && ((*_psAudit)->iPasswordUsernameFlag == FALSE))
+     {
+       writeError(ERR_FATAL, "Combo format used requires password information via (-p/-P).");
+@@ -966,7 +969,7 @@ int loadLoginInfo(sAudit *_psAudit)
+       psHost->iRetryWait = _psAudit->iRetryWait;
+       psHost->iRetries = _psAudit->iRetries;
+       psHost->iUserCnt = 0;
+-      psHost->iId = _psAudit->iHostCnt; 
++      psHost->iId = _psAudit->iHostCnt;
+     }
+ 
+     while ((pUser = findNextUser(_psAudit, pUser)))
+@@ -1068,7 +1071,7 @@ char* getNextPass(sLogin *_psLogin)
+     if (_psUser->iPassStatus == PL_UNSET)
+       _psUser->iPassStatus = PL_NULL;
+ 
+-    /* process blank password or password matching username */ 
++    /* process blank password or password matching username */
+     if ((_psUser->iPassStatus == PL_NULL) || (_psUser->iPassStatus == PL_USERNAME))
+     {
+       if ((_psUser->iPassStatus == PL_NULL) && (_psAudit->iPasswordBlankFlag))
+@@ -1136,7 +1139,7 @@ char* getNextPass(sLogin *_psLogin)
+ }
+ 
+ 
+-/* 
++/*
+   Generates the next credential set for login module to test. The module is
+   responsible for allocating and releasing memory used for the credential set.
+ */
+@@ -1153,7 +1156,7 @@ int getNextNormalCredSet(sLogin *_psLogin, sCredential
+ 
+     _psLogin->psServer->psHost->iUserStatus = UL_NORMAL;
+     _psCredSet->iStatus = CREDENTIAL_NEW_USER;
+-    
++
+     /* multiple login threads of same user */
+     if (_psLogin->psServer->psAudit->iParallelLoginFlag == PARALLEL_LOGINS_PASSWORD)
+     {
+@@ -1161,7 +1164,7 @@ int getNextNormalCredSet(sLogin *_psLogin, sCredential
+         _psLogin->psServer->psHost->psUserCurrent = _psLogin->psServer->psHost->psUser;
+ 
+       _psLogin->psUser = _psLogin->psServer->psHost->psUserCurrent;
+-      
++
+       if (_psLogin->psUser)
+         writeError(ERR_DEBUG, "[getNextNormalCred] (PARALLEL_LOGINS_PASSWORD) setting user: %s", _psLogin->psUser->pUser);
+     }
+@@ -1194,8 +1197,8 @@ int getNextNormalCredSet(sLogin *_psLogin, sCredential
+     /* is password testing for user complete */
+     if ((_psLogin->psUser->iPassStatus == PL_DONE) || (_psLogin->psUser->iPassStatus == PASS_AUDIT_COMPLETE))
+     {
+-      writeError(ERR_INFO, "Login Module: %d - Current user password list is complete, selecting next user.", _psLogin->iId);  
+-    
++      writeError(ERR_INFO, "Login Module: %d - Current user password list is complete, selecting next user.", _psLogin->iId);
++
+       if (_psLogin->psServer->psHost->psUserCurrent == NULL)
+       {
+         _psLogin->psUser = NULL;
+@@ -1210,21 +1213,21 @@ int getNextNormalCredSet(sLogin *_psLogin, sCredential
+       {
+         /* end of list - check entire list for unfinished credentials */
+         if (nUserListChecked == FALSE)
+-        { 
+-          writeError(ERR_INFO, "Login Module: %d - Current user password list is complete, rescanning userlist for unfinished credentials.", _psLogin->iId);  
++        {
++          writeError(ERR_INFO, "Login Module: %d - Current user password list is complete, rescanning userlist for unfinished credentials.", _psLogin->iId);
+           _psLogin->psUser = _psLogin->psServer->psHost->psUser;
+           _psLogin->psServer->psHost->psUserCurrent = _psLogin->psUser;
+           nUserListChecked = TRUE;
+         }
+         else
+         {
+-          writeError(ERR_INFO, "Login Module: %d - No more user accounts available for testing.", _psLogin->iId);  
++          writeError(ERR_INFO, "Login Module: %d - No more user accounts available for testing.", _psLogin->iId);
+           _psCredSet->iStatus = CREDENTIAL_DONE;
+         }
+       }
+       else
+       {
+-        writeError(ERR_INFO, "Login Module: %d - Selecting next password for user: %s", _psLogin->iId, _psLogin->psUser->pUser);  
++        writeError(ERR_INFO, "Login Module: %d - Selecting next password for user: %s", _psLogin->iId, _psLogin->psUser->pUser);
+         _psCredSet->iStatus = CREDENTIAL_NEW_USER;
+       }
+     }
+@@ -1248,7 +1251,7 @@ int getNextNormalCredSet(sLogin *_psLogin, sCredential
+   login threads targetting a specific service. For example, MSDE's workload
+   governor limits the service to no more than 5 concurrent connections. If
+   the user kicked-off 10 parallel login threads, 5 of those are going to
+-  fail and terminate. The challenge is that each of those threads was 
++  fail and terminate. The challenge is that each of those threads was
+   already assigned a credential set to test.
+ 
+   The addMissedCredSet() function creates a linked list of credentials
+@@ -1265,7 +1268,7 @@ int getNextMissedCredSet(sLogin *_psLogin, sCredential
+   psCredSetMissed = _psLogin->psServer->psCredentialSetMissedCurrent;
+   while ((psCredSetMissed) && (psCredSetMissed->psUser->iPassStatus == PASS_AUDIT_COMPLETE))
+   {
+-    psCredSetMissed = _psLogin->psServer->psCredentialSetMissedCurrent->psCredentialSetNext; 
++    psCredSetMissed = _psLogin->psServer->psCredentialSetMissedCurrent->psCredentialSetNext;
+     _psLogin->psServer->psCredentialSetMissedCurrent = psCredSetMissed;
+   }
+ 
+@@ -1274,8 +1277,8 @@ int getNextMissedCredSet(sLogin *_psLogin, sCredential
+   {
+     _psCredSet->psUser = psCredSetMissed->psUser;
+     _psCredSet->pPass = psCredSetMissed->pPass;
+-    _psLogin->psServer->psCredentialSetMissedCurrent = psCredSetMissed->psCredentialSetNext; 
+-    
++    _psLogin->psServer->psCredentialSetMissedCurrent = psCredSetMissed->psCredentialSetNext;
++
+     if (_psLogin->psUser == _psCredSet->psUser)
+       _psCredSet->iStatus = CREDENTIAL_SAME_USER;
+     else
+@@ -1291,7 +1294,7 @@ int getNextMissedCredSet(sLogin *_psLogin, sCredential
+     _psCredSet->iStatus = CREDENTIAL_DONE;
+     _psLogin->psServer->psHost->iUserStatus = UL_DONE;
+   }
+-    
++
+   _psLogin->psUser = _psCredSet->psUser;
+ 
+   return SUCCESS;
+@@ -1301,22 +1304,22 @@ int getNextMissedCredSet(sLogin *_psLogin, sCredential
+   Function returns next available username and password to module for testing.
+   The normal host's list of users and their respective passwords (local, global, etc)
+   are tested first. If any credential sets were not successfully tested (module
+-  instance died for some reason) they re-checked after all normal tests are done. 
++  instance died for some reason) they re-checked after all normal tests are done.
+ */
+ int getNextCredSet(sLogin *_psLogin, sCredentialSet *_psCredSet)
+ {
+   if (_psCredSet == NULL)
+     writeError(ERR_FATAL, "getNextCredSet() called, but not supplied allocated memory for _psCredSet");
+-  
++
+   memset(_psCredSet, 0, sizeof(sCredentialSet));
+   pthread_mutex_lock(&_psLogin->psServer->ptmMutex);
+- 
++
+   /* terminate all login threads */
+   if (_psLogin->psServer->psAudit->iStatus == AUDIT_ABORT)
+   {
+     writeError(ERR_INFO, "Audit aborting... notifying login module: %d", _psLogin->iId);
+     _psCredSet->iStatus = CREDENTIAL_DONE;
+-  } 
++  }
+   /* valid credential set found -- exit host flag set */
+   else if ((_psLogin->psServer->iValidPairFound) && (_psLogin->psServer->psAudit->iFoundPairExitFlag == FOUND_PAIR_EXIT_HOST))
+   {
+@@ -1343,7 +1346,7 @@ int getNextCredSet(sLogin *_psLogin, sCredentialSet *_
+         if (_psLogin->psServer->psHost->iUserStatus == UL_MISSED)
+           if (getNextMissedCredSet(_psLogin, _psCredSet) != SUCCESS)
+             writeError(ERR_FATAL, "getNextMissedCredSet() function call failed.");
+-        
++
+         break;
+       case UL_MISSED:
+         /* check for next available login missed during normal testing */
+@@ -1359,9 +1362,9 @@ int getNextCredSet(sLogin *_psLogin, sCredentialSet *_
+         break;
+     }
+   }
+- 
++
+   pthread_mutex_unlock(&_psLogin->psServer->ptmMutex);
+-  
++
+   return SUCCESS;
+ }
+ 
+@@ -1402,7 +1405,7 @@ void setPassResult(sLogin *_psLogin, char *_pPass)
+     }
+     else
+       writeVerbose(VB_FOUND, "[%s] Host: %s User: %s Password: %s [SUCCESS]", _psLogin->psServer->psAudit->pModuleName, _psLogin->psServer->psHost->pHost, _psLogin->psUser->pUser, _pPass);
+-    
++
+     _psLogin->psServer->psAudit->iValidPairFound = TRUE;
+     _psLogin->psServer->iValidPairFound = TRUE;
+     _psLogin->psUser->iPassStatus = PASS_AUDIT_COMPLETE;
+@@ -1416,7 +1419,7 @@ void setPassResult(sLogin *_psLogin, char *_pPass)
+     }
+     else
+       writeError(ERR_INFO, "[%s] Host: %s User: %s [FAILED]", _psLogin->psServer->psAudit->pModuleName, _psLogin->psServer->psHost->pHost, _psLogin->psUser->pUser);
+-    
++
+     break;
+   case LOGIN_RESULT_ERROR:
+     if (_psLogin->pErrorMsg) {
+@@ -1426,7 +1429,7 @@ void setPassResult(sLogin *_psLogin, char *_pPass)
+     }
+     else
+       writeVerbose(VB_FOUND, "[%s] Host: %s User: %s Password: %s [ERROR]", _psLogin->psServer->psAudit->pModuleName, _psLogin->psServer->psHost->pHost, _psLogin->psUser->pUser, _pPass);
+-    
++
+     _psLogin->psUser->iPassStatus = PASS_AUDIT_COMPLETE;
+     _psLogin->psServer->psHost->iUsersDone++;
+     break;
+@@ -1444,10 +1447,10 @@ void setPassResult(sLogin *_psLogin, char *_pPass)
+   login threads targetting a specific service. For example, MSDE's workload
+   governor limits the service to no more than 5 concurrent connections. If
+   the user kicked-off 10 parallel login threads, 5 of those are going to
+-  fail and terminate. The challenge is that each of those threads was 
+-  already assigned a credential set to test. This function creates a 
+-  list of those credentials so that they can be tested by the remaining 
+-  threads at the end of their current run. 
++  fail and terminate. The challenge is that each of those threads was
++  already assigned a credential set to test. This function creates a
++  list of those credentials so that they can be tested by the remaining
++  threads at the end of their current run.
+ */
+ int addMissedCredSet(sLogin *_psLogin, sCredentialSet *_psCredSet)
+ {
+@@ -1463,18 +1466,18 @@ int addMissedCredSet(sLogin *_psLogin, sCredentialSet 
+ 
+   if (_psLogin->psServer->iLoginCnt > 1)
+     _psLogin->psServer->iLoginCnt--;
+-  
++
+   writeError(ERR_NOTICE, "[%s] Host: %s User: %s Password: %s - The noted credentials have been added to the end of the queue for testing.",
+                _psLogin->psServer->psAudit->pModuleName,
+                _psLogin->psServer->psHost->pHost,
+                _psCredSet->psUser->pUser,
+                _psCredSet->pPass
+             );
+-  
++
+   /* build structure for missed credential set */
+   psCredSetMissed = malloc(sizeof(sCredentialSet));
+   memset(psCredSetMissed, 0, sizeof(sCredentialSet));
+-  
++
+   psCredSetMissed->psUser = _psCredSet->psUser;
+ 
+   psCredSetMissed->pPass = malloc(strlen(_psCredSet->pPass) + 1);
+@@ -1511,7 +1514,7 @@ void startModule(void* pParams)
+   }
+ 
+   writeError(ERR_DEBUG, "startModule iId: %d pLogin: %X modParams->argv: %X modParams: %X", modParams->pLogin->iId, modParams->pLogin, modParams->argv, modParams);
+-  
++
+   nRet = invokeModule(modParams->szModuleName, modParams->pLogin, modParams->argc, modParams->argv);
+   if (nRet < 0)
+     writeVerbose(VB_EXIT, "invokeModule failed - see previous errors for an explanation");
+@@ -1522,7 +1525,7 @@ void startModule(void* pParams)
+ 
+ /*
+   Initiate and manage host-specific thread pool for logins. Each target host
+-  has a single thread for this purpose. The thread spawns multiple child 
++  has a single thread for this purpose. The thread spawns multiple child
+   threads which each initiate the selected module to perform the actual logons.
+ */
+ void startLoginThreadPool(void *arg)
+@@ -1533,13 +1536,13 @@ void startLoginThreadPool(void *arg)
+   sModuleStart modParams[_psServer->psAudit->iLoginCnt];
+   int iLoginId = 0;
+   int iLoginCnt = _psServer->psAudit->iLoginCnt;
+- 
++
+   struct addrinfo hints, *res;
+   int errcode;
+   void *ptr;
+ 
+   writeError(ERR_DEBUG_SERVER, "Server ID: %d Host: %s iUserPassCnt: %d iLoginCnt: %d", _psServer->iId, _psServer->psHost->pHost, _psServer->psHost->iUserPassCnt, iLoginCnt);
+-  
++
+   /* create thread pool - min threads, max threads, linger time, attributes */
+   if (iLoginCnt > _psServer->psHost->iUserPassCnt)
+     iLoginCnt = _psServer->psHost->iUserPassCnt;
+@@ -1548,7 +1551,7 @@ void startLoginThreadPool(void *arg)
+   {
+     writeError(ERR_FATAL, "Failed to create root login thread pool for host: %s", _psServer->psHost->pHost);
+   }
+-  
++
+   /* resolve host name */
+   _psServer->pHostIP = malloc(100);
+   memset(_psServer->pHostIP, 0, 100);
+@@ -1612,27 +1615,27 @@ void startLoginThreadPool(void *arg)
+   writeError(ERR_DEBUG_SERVER, "waiting for server %d login pool to end", _psServer->iId);
+   thr_pool_wait(login_pool);
+ 
+-  /* 
++  /*
+     In certain situations we need to scale back the number of concurrent
+     login threads targetting a specific service. For example, MSDE's workload
+     governor limits the service to no more than 5 concurrent connections. If
+     the user kicked-off 10 parallel login threads, 5 of those are going to
+-    fail and terminate. The challenge is that each of those threads was 
++    fail and terminate. The challenge is that each of those threads was
+     already assigned a credential set to test.
+ 
+     When these threads failed, we pushed the missed credentials into a queue
+-    assigned to the target host. This queue may already have been taken care of 
+-    by running threads when they finished their normal tasks. However, if the 
++    assigned to the target host. This queue may already have been taken care of
++    by running threads when they finished their normal tasks. However, if the
+     missed logons were pushed to the queue by exiting threads after the other
+-    threads had terminated, they are still sitting there. To deal with this 
++    threads had terminated, they are still sitting there. To deal with this
+     problem, we kick off a single thread to run through these.
+   */
+   iLoginId = 0;
+   if ((_psServer->psAudit->iStatus != AUDIT_ABORT) && (_psServer->iCredentialsMissed > 0))
+   {
+     writeError(ERR_DEBUG_SERVER, "Adding new clean-up login task to server queue (%d) for %d missed logins", _psServer->iId, _psServer->iCredentialsMissed);
+-   
+-    _psServer->psHost->iUserStatus = UL_MISSED; 
++
++    _psServer->psHost->iUserStatus = UL_MISSED;
+     psLogin[iLoginId].iResult = LOGIN_RESULT_UNKNOWN;
+     psLogin[iLoginId].pErrorMsg = NULL;
+     psLogin[iLoginId].psUser = NULL;
+@@ -1642,12 +1645,12 @@ void startLoginThreadPool(void *arg)
+       writeError(ERR_CRITICAL, "Failed to add module launch task to login thread pool for server queue: %d.", _psServer->iId);
+       return;
+     }
+-  
++
+     /* wait for login thread pool to finish */
+     writeError(ERR_DEBUG_SERVER, "waiting for server %d login pool to end", _psServer->iId);
+     thr_pool_wait(login_pool);
+   }
+-  
++
+   writeError(ERR_DEBUG_SERVER, "destroying server %d login pool", _psServer->iId);
+   thr_pool_destroy(login_pool);
+ 
+@@ -1655,21 +1658,21 @@ void startLoginThreadPool(void *arg)
+   pthread_mutex_lock(&_psServer->psAudit->ptmMutex);
+   _psServer->psAudit->iHostsDone++;
+   pthread_mutex_unlock(&_psServer->psAudit->ptmMutex);
+-    
++
+   /* The logon modules for server have all terminated, however, the server's userlist is not marked
+-     as completed. This may be due to the module exiting prematurely (e.g. the service being tested 
++     as completed. This may be due to the module exiting prematurely (e.g. the service being tested
+      became unavailable). We mark the host as UL_ERROR to avoid having it added to the resume list.
+   */
+   if ((_psServer->psAudit->iStatus != AUDIT_ABORT) && ((_psServer->psHost->iUserStatus == UL_NORMAL) || (_psServer->psHost->iUserStatus == UL_MISSED)))
+   {
+      writeError(ERR_DEBUG_SERVER, "Server thread exiting and server's userlist testing was marked as in progress. Was this host prematurely aborted?");
+-    _psServer->psHost->iUserStatus = UL_ERROR; 
++    _psServer->psHost->iUserStatus = UL_ERROR;
+   }
+ 
+   writeError(ERR_DEBUG_SERVER, "exiting server: %d", _psServer->iId);
+ 
+-  free(_psServer->pHostIP); 
+- 
++  free(_psServer->pHostIP);
++
+   return;
+ }
+ 
+@@ -1736,7 +1739,7 @@ int startServerThreadPool(sAudit *_psAudit)
+       snprintf(szTmp1, 10, "h%du", psHost->iId);
+ 
+       if (nFirstNewHostFound == TRUE)
+-      {    
++      {
+         writeError(ERR_DEBUG_SERVER, "[Host Resume] Adding host: %d (we've passed the point of the previous run)", psHost->iId);
+       }
+       else if ((szResumeMap = strstr(_psAudit->pOptResume, szTmp1)))
+@@ -1749,7 +1752,7 @@ int startServerThreadPool(sAudit *_psAudit)
+         else if (index(szResumeMap + 1, 0x2e))
+           nUserMapSize = index(szResumeMap + 1, 0x2e) - szResumeMap; /* calculate length of host resume map from start to the terminating "." */
+         else
+-          nUserMapSize = strlen(szResumeMap); /* single, or last, host resume */ 
++          nUserMapSize = strlen(szResumeMap); /* single, or last, host resume */
+ 
+         if (nUserMapSize < 4)
+           writeError(ERR_FATAL, "Error extacting user resume map for host: %d", psHost->iId);
+@@ -1808,7 +1811,7 @@ int startServerThreadPool(sAudit *_psAudit)
+     if (nAddHost)
+     {
+       writeError(ERR_DEBUG_AUDIT, "adding new server (%d) to queue", iServerId);
+-      
++
+       if (pthread_mutex_init(&(psServer[iServerId].ptmMutex), NULL) != 0)
+         writeError(ERR_FATAL, "Server (%d) mutex initialization failed - %s\n", iServerId, strerror( errno ) );
+ 
+@@ -1818,7 +1821,7 @@ int startServerThreadPool(sAudit *_psAudit)
+       psServer[iServerId].iLoginCnt = _psAudit->iLoginCnt;
+       psServer[iServerId].iLoginsDone = 0;
+       psServer[iServerId].iCredentialsMissed = 0;
+-    
++
+       if ( thr_pool_queue(_psAudit->server_pool, startLoginThreadPool, (void *) &psServer[iServerId]) < 0 )
+       {
+         writeError(ERR_ERROR, "Failed to add host task to server thread pool.");
+@@ -1834,23 +1837,23 @@ int startServerThreadPool(sAudit *_psAudit)
+   thr_pool_wait(_psAudit->server_pool);
+   writeError(ERR_DEBUG_AUDIT, "destroying server pool");
+   thr_pool_destroy(_psAudit->server_pool);
+-  
++
+   /* destroy and clean-up server objects */
+   for (iServerId = 0; iServerId < _psAudit->iHostCnt; iServerId++)
+   {
+     if (pthread_mutex_init(&(psServer[iServerId].ptmMutex), NULL) != 0)
+       writeError(ERR_FATAL, "Server (%d) mutex destroy call failed - %s\n", iServerId, strerror( errno ) );
+   }
+-  
++
+   kill_crypto_locks();
+ 
+   return SUCCESS;
+-} 
++}
+ 
+ /*
+   Function called on SIGINT. We process the host and user tables and generate
+   a map representing their current state. This map can then be supplied to
+-  Medusa to essentially resume the run. It should be noted, however, that users 
++  Medusa to essentially resume the run. It should be noted, however, that users
+   which were partially tested will be resumed from the start of their password
+   list.
+ */
+@@ -1863,9 +1866,9 @@ void sigint_handler(int sig __attribute__((unused)))
+   int nResumeMapSize = 0;
+   int nItemByteSize = 0;
+   struct sigaction sig_action;
+- 
++
+   /* SIGINT is blocked by default within the handler. We explicitly unblock it here.
+-     This allows us to hit CTRL-C a second time and really quit the application 
++     This allows us to hit CTRL-C a second time and really quit the application
+      without waiting for the threads to complete their work.
+   */
+   sig_action.sa_flags = 0;
+@@ -1877,7 +1880,7 @@ void sigint_handler(int sig __attribute__((unused)))
+ 
+   /* notify threads that they should be exiting and then wait for them to finish */
+   writeError(ERR_ALERT, "Medusa received SIGINT - Sending notification to login threads that we are are aborting.");
+-  psAudit->iStatus = AUDIT_ABORT; 
++  psAudit->iStatus = AUDIT_ABORT;
+ 
+   writeError(ERR_INFO, "Waiting for login threads to terminate...");
+   thr_pool_wait(psAudit->server_pool);
+@@ -1885,11 +1888,11 @@ void sigint_handler(int sig __attribute__((unused)))
+   /*
+     We note each partially finished host and the first new host for which
+     testing has not started. We do the same for each partially completed
+-    host's user list. The number of partially completed hosts likely 
++    host's user list. The number of partially completed hosts likely
+     matches the number of parallel hosts being tested (T). The number of
+     partially completed users for a given host likely matches the number
+     of parallel logins being performed (t). This results in us reporting
+-    T(t + 1) + 1 items. Let's assume each item will require X bytes to 
++    T(t + 1) + 1 items. Let's assume each item will require X bytes to
+     report, which leads us to X(Tt + T + 1) bytes needed.
+ 
+     Example: h6u1u2h7u3u4h8.
+@@ -1902,9 +1905,9 @@ void sigint_handler(int sig __attribute__((unused)))
+   /* base our byte count on the largest number we may need to record - ex: h1236\0 */
+   if (psAudit->iHostCnt > psAudit->iUserCnt)
+     nItemByteSize = 1 + (int)log10(psAudit->iHostCnt) + 1;
+-  else  
++  else
+     nItemByteSize = 1 + (int)log10(psAudit->iUserCnt) + 1;
+- 
++
+   nResumeMapSize = nItemByteSize * (psAudit->iServerCnt * psAudit->iLoginCnt + psAudit->iServerCnt + 1) + 1; /* include terminating "." */
+   szResumeMap = malloc(nResumeMapSize + 1);
+   memset(szResumeMap, 0, nResumeMapSize + 1);
+@@ -1927,13 +1930,13 @@ void sigint_handler(int sig __attribute__((unused)))
+       {
+         if ((psUser->iPassStatus == PL_DONE) || (psUser->iPassStatus == PASS_AUDIT_COMPLETE))
+           writeError(ERR_DEBUG, "Complete User: %d", psUser->iId);
+-        else 
+-        {    
++        else
++        {
+           writeError(ERR_DEBUG, "Incomplete User: %d", psUser->iId);
+           memset(szTmp, 0, 10 + 1);
+           snprintf(szTmp, 10, "u%d", psUser->iId);
+           strncat(szResumeMap, szTmp, 10);
+-        } 
++        }
+ 
+         psUser = psUser->psUserNext;
+       }
+@@ -1950,11 +1953,11 @@ void sigint_handler(int sig __attribute__((unused)))
+     else
+     {
+       writeError(ERR_DEBUG, "Complete Host: %d", psHost->iId);
+-    }    
++    }
+ 
+     psHost = psHost->psHostNext;
+   }
+-  
++
+   /* identify the first untouched host */
+   if ((psHost) && (psHost->iUserStatus == UL_UNSET))
+   {
+@@ -1966,9 +1969,9 @@ void sigint_handler(int sig __attribute__((unused)))
+ 
+   /* terminate resume map */
+   strncat(szResumeMap, ".", 1);
+-  
++
+   writeError(ERR_ALERT, "To resume scan, add the following to your original command: \"-Z %s\"", szResumeMap);
+-      
++
+   free(szResumeMap);
+ 
+   exit(0);
+@@ -1991,8 +1994,8 @@ int main(int argc, char **argv, char *envp[] __attribu
+   sig_action.sa_handler = sigint_handler;
+   sigaction(SIGINT, &sig_action, 0);
+ 
+-  /* initial module settings and parameters 
+-     Don't worry if there are NULL or blank values here 
++  /* initial module settings and parameters
++     Don't worry if there are NULL or blank values here
+      (they will be checked when loading the module)
+   */
+   szModuleName = NULL;
+@@ -2083,10 +2086,10 @@ int main(int argc, char **argv, char *envp[] __attribu
+       if (pthread_mutex_init((&ptmFileMutex), NULL) != 0)
+         writeError(ERR_FATAL, "File mutex initialization failed - %s\n", strerror( errno ) );
+ 
+-      /* write start time and user options to log */ 
++      /* write start time and user options to log */
+       (void) time(&the_time);
+       tm_ptr = localtime(&the_time);
+-      strftime(time_buf, 256, "%Y-%m-%d %H:%M:%S", tm_ptr); 
++      strftime(time_buf, 256, "%Y-%m-%d %H:%M:%S", tm_ptr);
+       writeVerbose(VB_NONE_FILE, "# Medusa v.%s (%s)\n", VERSION, time_buf);
+       writeVerbose(VB_NONE_FILE, "# ");
+ 
+@@ -2101,22 +2104,22 @@ int main(int argc, char **argv, char *envp[] __attribu
+   /* launch actually password auditing threads */
+   if ( startServerThreadPool(psAudit) == SUCCESS )
+   {
+-    /* stop time */ 
++    /* stop time */
+     (void) time(&the_time);
+     tm_ptr = localtime(&the_time);
+-    strftime(time_buf, 256, "%Y-%m-%d %H:%M:%S", tm_ptr); 
+-    
++    strftime(time_buf, 256, "%Y-%m-%d %H:%M:%S", tm_ptr);
++
+     writeVerbose(VB_NONE_FILE, "# Medusa has finished (%s).\n", time_buf);
+     writeVerbose(VB_GENERAL, "Medusa has finished.");
+     iExitStatus = EXIT_SUCCESS;
+   }
+   else
+   {
+-    /* stop time */ 
++    /* stop time */
+     (void) time(&the_time);
+     tm_ptr = localtime(&the_time);
+-    strftime(time_buf, 256, "%Y-%m-%d %H:%M:%S", tm_ptr); 
+-    
++    strftime(time_buf, 256, "%Y-%m-%d %H:%M:%S", tm_ptr);
++
+     writeVerbose(VB_NONE_FILE, "# Medusa failed (%s).\n", time_buf);
+     writeError(ERR_CRITICAL, "Medusa failed.");
+     iExitStatus = EXIT_FAILURE;
+@@ -2125,7 +2128,7 @@ int main(int argc, char **argv, char *envp[] __attribu
+   /* general memory clean-up */
+   if ((psAudit->pOptOutput != NULL) && (pthread_mutex_destroy(&ptmFileMutex) != 0))
+     writeError(ERR_FATAL, "File mutex destroy call failed - %s\n", strerror( errno ) );
+-  
++
+   if (pthread_mutex_destroy(&(psAudit->ptmMutex)) != 0)
+     writeError(ERR_FATAL, "Audit mutex destroy call failed - %s\n", strerror( errno ) );
+ 

@@ -1,0 +1,24 @@
+Index: base/networking.h
+--- base/networking.h.orig
++++ base/networking.h
+@@ -90,7 +90,7 @@ char *
+ addr6_as_str (const struct in6_addr *);
+ 
+ void
+-sockaddr_as_str (const struct sockaddr_storage *, char *);
++sockaddr_as_str (const struct sockaddr_in *, char *);
+ 
+ int
+ gvm_resolve (const char *, void *, int);
+@@ -114,9 +114,9 @@ int
+ ipv6_is_enabled (void);
+ 
+ gchar *
+-gvm_routethrough (struct sockaddr_storage *, struct sockaddr_storage *);
++gvm_routethrough (struct sockaddr_in *, struct sockaddr_in *);
+ 
+ char *
+-gvm_get_outgoing_iface (struct sockaddr_storage *);
++gvm_get_outgoing_iface (struct sockaddr_in *);
+ 
+ #endif /* not _GVM_NETWORKING_H */

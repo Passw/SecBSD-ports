@@ -1,0 +1,5 @@
+bin/secretfinder
+share/secret-finder/
+share/secret-finder/LICENSE
+share/secret-finder/README.md
+share/secret-finder/SecretFinder.py

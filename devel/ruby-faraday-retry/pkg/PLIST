@@ -1,0 +1,13 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/CHANGELOG.md
+${GEM_LIB}/gems/${DISTNAME}/LICENSE.md
+${GEM_LIB}/gems/${DISTNAME}/README.md
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/faraday/
+${GEM_LIB}/gems/${DISTNAME}/lib/faraday/retriable_response.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/faraday/retry/
+${GEM_LIB}/gems/${DISTNAME}/lib/faraday/retry.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/faraday/retry/middleware.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/faraday/retry/version.rb
+${GEM_LIB}/specifications/${DISTNAME}.gemspec

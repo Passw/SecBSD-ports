@@ -1,0 +1,23 @@
+Index: lttoolbox/lt_proc.cc
+--- lttoolbox/lt_proc.cc.orig
++++ lttoolbox/lt_proc.cc
+@@ -22,6 +22,7 @@
+ #include <getopt.h>
+ #include <iostream>
+ #include <libgen.h>
++#include <unistd.h>
+ 
+ #ifdef _MSC_VER
+ #include <io.h>
+@@ -104,6 +105,11 @@ void checkValidity(FSTProcessor const &fstp)
+ 
+ int main(int argc, char *argv[])
+ {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    wcerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   int cmd = 0;
+   int maxAnalyses;
+   int maxWeightClasses;

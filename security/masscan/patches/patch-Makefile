@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -121,6 +121,7 @@ regress: bin/masscan
+ test: regress
+ 
+ install: bin/masscan
+-	install $(INSTALL_DATA) bin/masscan $(DESTDIR)$(BINDIR)/masscan
++	install $(INSTALL_DATA) bin/masscan ${PREFIX}/bin
++	install $(INSTALL_DATA) doc/masscan.8 ${PREFIX}/man/man8/
+ 	
+ default: bin/masscan

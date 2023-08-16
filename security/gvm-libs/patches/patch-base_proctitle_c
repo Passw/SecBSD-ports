@@ -1,0 +1,11 @@
+Index: base/proctitle.c
+--- base/proctitle.c.orig
++++ base/proctitle.c
+@@ -28,7 +28,6 @@
+ #include <stdio.h>
+ #include <string.h> /* for strlen, strdup, bzero, strncpy */
+ #include <sys/param.h>
+-#include <sys/prctl.h>
+ 
+ #undef G_LOG_DOMAIN
+ /**

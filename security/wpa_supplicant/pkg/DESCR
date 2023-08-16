@@ -1,0 +1,2 @@
+wpa_supplicant is the implementation of an IEEE 802.1X supplicant for
+wired (Ethernet PAE) and wireless (WPA/WPA2) authentication.

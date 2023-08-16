@@ -1,0 +1,8 @@
+bin/corstest
+share/corstest/
+share/corstest/LICENSE
+share/corstest/README.md
+share/corstest/alexa.cors
+share/corstest/corstest.py
+share/corstest/sonar.cors
+share/corstest/tldlist.dat

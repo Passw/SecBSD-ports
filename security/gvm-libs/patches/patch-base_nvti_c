@@ -1,0 +1,12 @@
+Index: base/nvti.c
+--- base/nvti.c.orig
++++ base/nvti.c
+@@ -46,7 +46,7 @@
+ 
+ /* For strptime in time.h. */
+ #undef _XOPEN_SOURCE
+-#define _XOPEN_SOURCE
++#define _XOPEN_SOURCE 700
+ #include "nvti.h"
+ 
+ #include <stdio.h>   // for sscanf

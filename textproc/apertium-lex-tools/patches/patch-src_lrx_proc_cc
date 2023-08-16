@@ -1,0 +1,23 @@
+Index: src/lrx_proc.cc
+--- src/lrx_proc.cc.orig
++++ src/lrx_proc.cc
+@@ -20,6 +20,7 @@
+ #include <getopt.h>
+ #include <iostream>
+ #include <libgen.h>
++#include <unistd.h>
+ 
+ #ifdef _MSC_VER
+ #include <io.h>
+@@ -47,6 +48,11 @@ void endProgram(char *name)
+ 
+ int main(int argc, char *argv[])
+ {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    wcerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   LRXProcessor lrxp;
+ 
+ #if HAVE_GETOPT_LONG

@@ -1,0 +1,29 @@
+Index: Common/Base/Ogre/BaseManager.cpp
+--- Common/Base/Ogre/BaseManager.cpp.orig
++++ Common/Base/Ogre/BaseManager.cpp
+@@ -59,19 +59,23 @@ namespace base
+ 		#if MYGUI_PLATFORM == MYGUI_PLATFORM_APPLE
+ 			mResourcePath = macBundlePath() + "/Contents/Resources/";
+ 		#else
+-			mResourcePath = "";
++			mResourcePath = "${SYSCONFDIR}/MYGUI/";
+ 		#endif
+ 	}
+ 
+ 	bool BaseManager::create(int _width, int _height)
+ 	{
+ 		Ogre::String pluginsPath;
++		char *homedir;
++		homedir = getenv("HOME");
++		std::string homePath;
++		homePath = homedir;	
+ 
+ 		#ifndef OGRE_STATIC_LIB
+ 			pluginsPath = mResourcePath + mPluginCfgName;
+ 		#endif
+ 
+-		mRoot = new Ogre::Root(pluginsPath, mResourcePath + "ogre.cfg", mResourcePath + "Ogre.log");
++		mRoot = new Ogre::Root(pluginsPath, homePath + "/mygui-ogre.cfg", homePath + "/mygui-Ogre.log");
+ 
+ 		setupResources();
+ 

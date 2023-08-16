@@ -1,0 +1,41 @@
+--- Makefile.in.orig	Thu Jan 23 01:28:45 2014
++++ Makefile.in	Thu Jan 23 01:32:15 2014
+@@ -166,14 +166,14 @@ install-libmxml.a:
+ 	$(INSTALL_LIB) libmxml.a $(BUILDROOT)$(libdir)
+ 	$(RANLIB) $(BUILDROOT)$(libdir)/libmxml.a
+ 
+-install-libmxml.so.1.5:
++install-libmxml.so.$(LIBmxml_VERSION):
+ 	echo Installing libmxml.so to $(BUILDROOT)$(libdir)...
+ 	$(INSTALL_DIR) $(BUILDROOT)$(libdir)
+-	$(INSTALL_LIB) libmxml.so.1.5 $(BUILDROOT)$(libdir)
+-	$(RM) $(BUILDROOT)$(libdir)/libmxml.so
+-	$(LN) libmxml.so.1.5 $(BUILDROOT)$(libdir)/libmxml.so
+-	$(RM) $(BUILDROOT)$(libdir)/libmxml.so.1
+-	$(LN) libmxml.so.1.5 $(BUILDROOT)$(libdir)/libmxml.so.1
++	$(INSTALL_LIB) libmxml.so.$(LIBmxml_VERSION) $(BUILDROOT)$(libdir)
++#	$(RM) $(BUILDROOT)$(libdir)/libmxml.so
++#	$(LN) libmxml.so.1.5 $(BUILDROOT)$(libdir)/libmxml.so
++#	$(RM) $(BUILDROOT)$(libdir)/libmxml.so.1
++#	$(LN) libmxml.so.1.5 $(BUILDROOT)$(libdir)/libmxml.so.1
+ 
+ install-libmxml.sl.1:
+ 	echo Installing libmxml.sl to $(BUILDROOT)$(libdir)...
+@@ -295,12 +295,12 @@ mxml-entity.o mxml-file.o mxml-private.o: mxml-private
+ # libmxml.so.1.5
+ #
+ 
+-libmxml.so.1.5:	$(LIBOBJS)
++libmxml.so.$(LIBmxml_VERSION):	$(LIBOBJS)
+ 	echo Creating $@...
+-	$(DSO) $(DSOFLAGS) -o libmxml.so.1.5 $(LIBOBJS)
+-	$(RM) libmxml.so libmxml.so.1
+-	$(LN) libmxml.so.1.5 libmxml.so
+-	$(LN) libmxml.so.1.5 libmxml.so.1
++	$(DSO) $(DSOFLAGS) -o libmxml.so.$(LIBmxml_VERSION) $(LIBOBJS)
++#	$(RM) libmxml.so libmxml.so.1
++#	$(LN) libmxml.so.1.5 libmxml.so
++#	$(LN) libmxml.so.1.5 libmxml.so.1
+ 
+ 
+ #

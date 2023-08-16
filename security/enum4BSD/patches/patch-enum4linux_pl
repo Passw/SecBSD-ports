@@ -1,0 +1,70 @@
+$OpenBSD$
+
+Index: enum4linux.pl
+--- enum4linux.pl.orig
++++ enum4linux.pl
+@@ -1,5 +1,5 @@
+-#!/usr/bin/perl
+-# enum4linux - Windows enumeration tool for Linux
++#!/usr/bin/env perl
++# enum4BSD - Windows enumeration tool for BSD
+ # Copyright (C) 2011  Mark Lowe
+ # 
+ # This tool may be used for legal purposes only.  Users take full responsibility
+@@ -134,7 +134,7 @@ my @nbt_info = (
+ ####################### end of nbtscan-derrived code ############################
+ 
+ my $usage =<<USAGE;
+-enum4linux v$VERSION \(http://labs.portcullis.co.uk/application/enum4linux/\)
++enum4BSD v$VERSION \(http://labs.portcullis.co.uk/application/enum4linux/\)
+ Copyright \(C\) 2011 Mark Lowe \(mrl\@portcullis-security.com\)
+ 
+ Simple wrapper around the tools in the samba package to provide similar 
+@@ -314,7 +314,7 @@ $global_username =~ s/'/'\\''/g;       ($global_userna
+ $global_password =~ s/'/'\\''/g;       ($global_password)       = $global_password       =~ /(.*)/;
+ 
+ # Output message about options used
+-print "Starting enum4linux v$VERSION ( http://labs.portcullis.co.uk/application/enum4linux/ ) on " .  scalar(localtime) . "\n";
++print "Starting enum4BSD v$VERSION ( http://labs.portcullis.co.uk/application/enum4linux/ ) on " .  scalar(localtime) . "\n";
+ print_heading("Target Information");
+ print "Target ........... $global_target\n";
+ print "RID Range ........ $global_rid_range\n";
+@@ -346,7 +346,7 @@ enum_users_rids()      if $opts{'r'};
+ enum_shares_unauth()   if $opts{'s'};
+ get_printer_info()     if $opts{'i'};
+ 
+-print "enum4linux complete on " . scalar(localtime) . "\n\n";
++print "enum4BSD complete on " . scalar(localtime) . "\n\n";
+ 
+ sub get_nbtstat {
+ 	print_heading("Nbtstat Information for $global_target");
+@@ -543,17 +543,17 @@ sub enum_password_policy {
+ 
+ sub enum_lsa_policy {
+ 	print_heading("LSA Policy Information on $global_target");
+-	print_error("Not implemented in this version of enum4linux.\n");
++	print_error("Not implemented in this version.\n");
+ }
+ 
+ sub enum_machines {
+ 	print_heading("Machine Enumeration on $global_target");
+-	print_error("Not implemented in this version of enum4linux.\n");
++	print_error("Not implemented in this version.\n");
+ }
+ 
+ sub enum_names {
+ 	print_heading("Name Enumeration on $global_target");
+-	print_error("Not implemented in this version of enum4linux.\n");
++	print_error("Not implemented in this version.\n");
+ }
+ 
+ sub enum_groups {
+@@ -652,7 +652,7 @@ sub enum_dom_groups {
+ 
+ sub enum_groups_unauth {
+ 	print_heading("Groups on $global_target via RID cycling");
+-	print_error("Not implemented in this version of enum4linux.\n");
++	print_error("Not implemented in this version.\n");
+ }
+ 
+ sub enum_shares {

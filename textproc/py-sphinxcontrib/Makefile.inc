@@ -1,0 +1,19 @@
+MODPY_EGG_VERSION?=	${VERSION}
+CONTRIB?=	${.CURDIR:T}
+DISTNAME?=	sphinxcontrib-${CONTRIB}-${MODPY_EGG_VERSION}
+PKGNAME?=	py-${DISTNAME}
+
+CATEGORIES?=	textproc
+
+HOMEPAGE?=	https://sphinx-doc.org/
+
+# BSD
+PERMIT_PACKAGE=	Yes
+
+MODULES=	lang/python
+
+MODPY_PI=	Yes
+FLAVORS=	python3
+FLAVOR=		python3
+
+MODPY_PYBUILD?=	setuptools

@@ -1,0 +1,13 @@
+$OpenBSD$
+
+Index: Cr3d0v3r.py
+--- Cr3d0v3r.py.orig
++++ Cr3d0v3r.py
+@@ -1,4 +1,7 @@
++#!/usr/bin/env python3
++
+ #Written by: Karim shoair - D4Vinci ( Cr3dOv3r )
++
+ # -*- coding: utf-8 -*-
+ import os,argparse,requests,signal
+ from getpass import getpass

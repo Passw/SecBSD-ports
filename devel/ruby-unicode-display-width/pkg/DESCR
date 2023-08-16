@@ -1,0 +1,2 @@
+Determines the monospace display width of a string using EastAsianWidth.txt
+Unicode general category, and other data.

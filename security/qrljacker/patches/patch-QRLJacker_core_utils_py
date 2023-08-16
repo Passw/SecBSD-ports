@@ -1,0 +1,17 @@
+$OpenBSD$
+
+Index: QRLJacker/core/utils.py
+--- QRLJacker/core/utils.py.orig
++++ QRLJacker/core/utils.py
+@@ -9,9 +9,9 @@ def banner(m):
+     #Choose a random banner and prints it
+     os.system("clear")
+     #m = db.index_modules()
+-    banners = open(os.path.join("core","Data","banners.txt")).read().split("$$$$$AnyShIt$$$$$$")
++    banners = open(os.path.join("/usr/local/share/qrljacker/QRLJacker/core/Data/banners.txt")).read().split("$$$$$AnyShIt$$$$$$")
+     banner  = random.choice(banners)
+-    v = open(os.path.join("core","Data","version.txt")).read().strip()
++    v = open(os.path.join("/usr/local/share/qrljacker/QRLJacker/core/Data/version.txt")).read().strip()
+     grabbers = len([ i for i in m if "grabber" in i])
+     post = len([ i for i in m if "post" in i])
+     banner_to_print  = Bold+G + banner.format(Name=f"{end+R}QrlJacker-Framework {end+B}By {Bold}@D4Vinci -{M} V{v+end+Bold+G}",

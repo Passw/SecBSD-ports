@@ -1,0 +1,21 @@
+Index: util/serverutils.c
+--- util/serverutils.c.orig
++++ util/serverutils.c
+@@ -31,6 +31,8 @@
+ 
+ #include "../base/hosts.h" /* for is_hostname, is_ipv4_address, is_ipv6_add.. */
+ 
++#include <sys/socket.h>
++#include <sys/types.h>
+ #include <arpa/inet.h>
+ #include <errno.h>  /* for errno, ENOTCONN, EAGAIN */
+ #include <fcntl.h>  /* for fcntl, F_SETFL, O_NONBLOCK */
+@@ -41,8 +43,6 @@
+ #include <signal.h>     /* for sigaction, SIGPIPE, sigemptyset, SIG_IGN */
+ #include <stdio.h>      /* for fclose, FILE, SEEK_END, SEEK_SET */
+ #include <string.h>     /* for strerror, strlen, memset */
+-#include <sys/socket.h> /* for shutdown, connect, socket, SHUT_RDWR, SOCK_... */
+-#include <sys/types.h>
+ #include <unistd.h> /* for close, ssize_t, usleep */
+ 
+ #undef G_LOG_DOMAIN

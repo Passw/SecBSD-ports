@@ -1,0 +1,2 @@
+Atlas is an open source tool that can suggest sqlmap tampers to bypass
+WAF/IDS/IPS, the tool is based on returned status code.

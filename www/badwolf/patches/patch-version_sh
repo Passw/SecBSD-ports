@@ -1,0 +1,11 @@
+Index: version.sh
+--- version.sh.orig
++++ version.sh
+@@ -1,4 +1,7 @@
+ #!/bin/sh
++
++[ -d .git ] || exit
++
+ if command -v git 2>/dev/null >/dev/null
+ then
+ 	hash=$(git --git-dir="$(dirname $0)/.git" rev-parse --short HEAD 2>/dev/null)

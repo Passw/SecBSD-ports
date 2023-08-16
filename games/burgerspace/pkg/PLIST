@@ -1,0 +1,29 @@
+@bin bin/burgerspace
+@bin bin/burgerspace-server
+@man man/man6/burgerspace-server.6
+@man man/man6/burgerspace.6
+share/applications/burgerspace.desktop
+share/burgerspace/
+share/burgerspace/sounds/
+share/burgerspace/sounds/chef-gets-treat.wav
+share/burgerspace/sounds/chef-shoots-blanks.wav
+share/burgerspace/sounds/chef-throws-pepper.wav
+share/burgerspace/sounds/enemy-catches-chef.wav
+share/burgerspace/sounds/enemy-paralyzed.wav
+share/burgerspace/sounds/enemy-smashed.wav
+share/burgerspace/sounds/ingredient-bounces.wav
+share/burgerspace/sounds/ingredient-falls.wav
+share/burgerspace/sounds/ingredient-in-plate.wav
+share/burgerspace/sounds/ingredient-lowered.wav
+share/burgerspace/sounds/level-finished.wav
+share/burgerspace/sounds/new-game-starts.wav
+share/burgerspace/sounds/treat-appears.wav
+share/burgerspace/sounds/treat-disappears.wav
+share/doc/burgerspace/
+share/doc/burgerspace/AUTHORS
+share/doc/burgerspace/NEWS
+share/doc/burgerspace/README
+share/doc/burgerspace/THANKS
+share/pixmaps/
+share/pixmaps/burgerspace.png
+@tag update-desktop-database

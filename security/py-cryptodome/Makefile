@@ -1,0 +1,42 @@
+COMMENT =	self-contained cryptographic library for Python
+
+MODPY_EGG_VERSION =	3.15.0
+DISTNAME =	pycryptodome-${MODPY_EGG_VERSION}
+PKGNAME =	py-${DISTNAME:S/py//}
+REVISION =	1
+
+CATEGORIES =	security
+
+HOMEPAGE =	https://www.pycryptodome.org
+
+MAINTAINER =	Jasper Lievisse Adriaanse <jasper@openbsd.org>
+
+# BSD + Public Domain
+PERMIT_PACKAGE =	Yes
+
+WANTLIB +=		pthread
+MODULES =		lang/python
+
+FLAVORS =		python3
+FLAVOR ?=
+
+MODPY_PI =		Yes
+MODPY_SETUPTOOLS =	Yes
+.if ${FLAVOR:Mpython3}
+TEST_DEPENDS =		security/py-cryptodome-test-vectors${MODPY_FLAVOR}
+.endif
+
+RUN_DEPENDS =		devel/gmp
+
+.include <bsd.port.arch.mk>
+.if ${MACHINE_ARCH:Mamd64} || ${MACHINE_ARCH:Mi386}
+PKG_ARGS+= -Daesni=1
+.else
+PKG_ARGS+= -Daesni=0
+.endif
+
+.if !${PROPERTIES:Mclang}
+CFLAGS +=	-std=gnu99
+.endif
+
+.include <bsd.port.mk>

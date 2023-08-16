@@ -1,0 +1,21 @@
+Index: unix/tcl.m4
+--- unix/tcl.m4.orig
++++ unix/tcl.m4
+@@ -1488,7 +1488,7 @@ AC_DEFUN([SC_CONFIG_CFLAGS], [
+ 	    CC_SEARCH_FLAGS=""
+ 	    LD_SEARCH_FLAGS=""
+ 	    ;;
+-	OpenBSD-*)
++	OpenBSD-*|SecBSD-*)
+ 	    arch=`arch -s`
+ 	    case "$arch" in
+ 	    vax)
+@@ -2053,7 +2053,7 @@ dnl # preprocessing tests use only CPPFLAGS.
+ 	    BSD/OS*) ;;
+ 	    CYGWIN_*|MINGW32_*) ;;
+ 	    IRIX*) ;;
+-	    NetBSD-*|FreeBSD-*|OpenBSD-*) ;;
++	    NetBSD-*|FreeBSD-*|OpenBSD-*|SecBSD-*) ;;
+ 	    Darwin-*) ;;
+ 	    SCO_SV-3.2*) ;;
+ 	    *) SHLIB_CFLAGS="-fPIC" ;;

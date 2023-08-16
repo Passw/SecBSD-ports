@@ -1,0 +1,5 @@
+bin/hashbuster
+share/hashbuster/
+share/hashbuster/LICENSE
+share/hashbuster/README.md
+share/hashbuster/hash.py

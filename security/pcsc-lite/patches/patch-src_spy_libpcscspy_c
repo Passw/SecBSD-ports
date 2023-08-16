@@ -1,0 +1,29 @@
+Index: src/spy/libpcscspy.c
+--- src/spy/libpcscspy.c.orig
++++ src/spy/libpcscspy.c
+@@ -26,6 +26,7 @@
+ #include <unistd.h>
+ #include <sys/time.h>
+ #include <pthread.h>
++#include <inttypes.h>
+ 
+ #include "misc.h"
+ #include <winscard.h>
+@@ -162,7 +163,7 @@ static void spy_line_direct(char *line)
+ 	if (Log_fd < 0)
+ 		return;
+ 
+-	snprintf(threadid, sizeof threadid, "%lX@", pthread_self());
++	snprintf(threadid, sizeof threadid, "%" PRIXPTR "@", (uintptr_t)pthread_self());
+ 	pthread_mutex_lock(&Log_fd_mutex);
+ 	r = write(Log_fd, threadid, strlen(threadid));
+ 	r = write(Log_fd, line, strlen(line));
+@@ -191,7 +192,7 @@ static void spy_line(const char *fmt, ...)
+ 		printf("libpcsc-spy: Buffer is too small!\n");
+ 		return;
+ 	}
+-	snprintf(threadid, sizeof threadid, "%lX@", pthread_self());
++	snprintf(threadid, sizeof threadid, "%" PRIXPTR "@", (uintptr_t)pthread_self());
+ 	pthread_mutex_lock(&Log_fd_mutex);
+ 	r = write(Log_fd, threadid, strlen(threadid));
+ 	r = write(Log_fd, line, size);

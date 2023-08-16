@@ -1,0 +1,60 @@
+Index: CMakeLists.txt
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -136,7 +136,7 @@ if (SYSCONF_INSTALL_DIR)
+ endif (SYSCONF_INSTALL_DIR)
+ 
+ if (NOT SYSCONFDIR)
+-  set (SYSCONFDIR "/etc")
++  set (SYSCONFDIR "${CMAKE_INSTALL_PREFIX}/etc")
+ endif (NOT SYSCONFDIR)
+ 
+ if (NOT EXEC_PREFIX)
+@@ -176,16 +176,20 @@ if (NOT DATADIR)
+ endif (NOT DATADIR)
+ 
+ if (NOT GVM_RUN_DIR)
+-  set (GVM_RUN_DIR  "/run/gvm")
++  set (GVM_RUN_DIR  "${LOCALSTATEDIR}/run/gvm")
+ endif (NOT GVM_RUN_DIR)
+ 
++if (NOT GVM_PID_DIR)
++  set (GVM_PID_DIR "${GVM_RUN_DIR}")
++endif (NOT GVM_PID_DIR)
++
+ if (NOT GVM_SYSCONF_DIR)
+   set (GVM_SYSCONF_DIR "${SYSCONFDIR}/gvm")
+ endif (NOT GVM_SYSCONF_DIR)
+ 
+ 
+ if (NOT REDIS_SOCKET_PATH)
+-  set (REDIS_SOCKET_PATH "/run/redis/redis.sock")
++  set (REDIS_SOCKET_PATH "${LOCALSTATEDIR}/run/redis/redis.sock")
+ endif ()
+ 
+ add_definitions (-DREDIS_SOCKET_PATH="${REDIS_SOCKET_PATH}")
+@@ -199,23 +203,8 @@ endif (ENABLE_COVERAGE)
+ 
+ set (HARDENING_FLAGS "-Wformat -Wformat-security -D_FORTIFY_SOURCE=2 -fstack-protector")
+ set (LINKER_HARDENING_FLAGS "-Wl,-z,relro -Wl,-z,now")
+-set (CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} ${COVERAGE_FLAGS}")
++set (CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -Wextra -Werror ${COVERAGE_FLAGS}")
+ set (CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} ${HARDENING_FLAGS}")
+-
+-set (
+-    CMAKE_C_FLAGS
+-    "${CMAKE_C_FLAGS} ${GPGME_C_FLAGS} \
+-    -std=c11 \
+-    -Wall \
+-    -Wextra \
+-    -Werror \
+-    -Wpedantic \
+-    -Wmissing-prototypes \
+-    -Wshadow \
+-    -Wsequence-point \
+-    -D_ISOC11_SOURCE \
+-    -D_DEFAULT_SOURCE"
+-)
+ 
+ ## Version
+ 

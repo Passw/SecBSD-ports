@@ -1,0 +1,2 @@
+@conflict py-crypto-*
+@pkgpath security/py-crypto

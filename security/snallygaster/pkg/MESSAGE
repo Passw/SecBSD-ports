@@ -1,0 +1,6 @@
+
+Tool to scan for secret files on HTTP servers.
+
+Help:
+
+$ snallygaster -h

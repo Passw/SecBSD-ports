@@ -1,0 +1,75 @@
+$OpenBSD$
+
+Index: setoolkit
+--- setoolkit.orig
++++ setoolkit
+@@ -35,24 +35,18 @@ if os.path.isfile("setoolkit"):
+     pass
+ 
+ # check where we are and load default directory
+-elif os.path.isdir("/usr/share/setoolkit"):
++elif os.path.isdir("/usr/local/share/setoolkit"):
+     if not os.path.isfile("setoolkit"):
+-        os.chdir("/usr/share/setoolkit")
+-    sys.path.append("/usr/share/setoolkit")
++        os.chdir("/usr/local/share/setoolkit")
++    sys.path.append("/usr/local/share/setoolkit")
+ 
+-# check where we are and load default directory
+-elif os.path.isdir("/usr/share/set"):
+-    if not os.path.isfile("setoolkit"):
+-        os.chdir("/usr/share/set")
+-        sys.path.append("/usr/share/set")
+-
+ # make sure the config file is located in /etc/setoolkit
+ if not os.path.isdir("/etc/setoolkit/"):
+     os.makedirs("/etc/setoolkit/")
+-    shutil.copyfile("src/core/config.baseline", "/etc/setoolkit/set.config")
++    shutil.copyfile("/usr/local/share/setoolkit/src/core/config.baseline", "/etc/setoolkit/set.config")
+ 
+ if not os.path.isfile("/etc/setoolkit/set.config"):
+-    shutil.copyfile("src/core/config.baseline", "/etc/setoolkit/set.config")
++    shutil.copyfile("/usr/local/share/setoolkit/src/core/config.baseline", "/etc/setoolkit/set.config")
+ 
+ # here we check to ensure we have the latest version
+ with open("/etc/setoolkit/set.config") as fileopen:
+@@ -61,7 +55,7 @@ with open("/etc/setoolkit/set.config") as fileopen:
+ if "CONFIG_VERSION=7.7.9" not in data:
+     print("[*] Overwriting old config for updates to SET. Backing up your old one in /etc/setoolkit/")
+     shutil.move("/etc/setoolkit/set.config", "/etc/setoolkit/set.config.bak")
+-    shutil.copyfile("src/core/config.baseline", "/etc/setoolkit/set.config")
++    shutil.copyfile("/usr/local/share/setoolkit/src/core/config.baseline", "/etc/setoolkit/set.config")
+ 
+ # import after config checks have been properly created
+ from src.core.menu import text
+@@ -72,13 +66,13 @@ if os.path.isfile(os.path.join(core.userconfigpath, "v
+     os.remove(os.path.join(core.userconfigpath, "version.lock"))
+ 
+ # check directory and make it
+-if not os.path.isdir("src/logs/"):
+-    os.makedirs("src/logs/")
++if not os.path.isdir("/usr/local/share/setoolkit/src/logs/"):
++    os.makedirs("/usr/local/share/setoolkit/src/logs/")
+ 
+ # check set logfile
+-if not os.path.isfile("src/logs/set_logfile.log"):
++if not os.path.isfile("/usr/local/share/setoolkit/src/logs/set_logfile.log"):
+     # create new log
+-    with open("src/logs/set_logfile.log", "w") as filewrite:
++    with open("/usr/local/share/setoolkit/src/logs/set_logfile.log", "w") as filewrite:
+         filewrite.write("")
+ 
+ # use ~/.set
+@@ -118,10 +112,9 @@ if operating_system == "posix":
+     # change permissions if nix
+     subprocess.Popen("chmod +x seautomate;"
+                      "chmod +x set-update;"
+-                     "chmod +x setup.py;"
+                      "chmod +x set-proxy;"
+-                     "chmod +x src/payloads/ratte/ratteserver;"
+-                     "chmod +x src/payloads/set_payloads/listener.py",
++                     "chmod +x /usr/local/share/setoolkit/src/payloads/ratte/ratteserver;"
++                     "chmod +x /usr/local/share/setoolkit/src/payloads/set_payloads/listener.py",
+                      stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+ 
+ dns = core.check_config("DNS_SERVER=")

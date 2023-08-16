@@ -1,0 +1,121 @@
+Index: src/medusa.h
+--- src/medusa.h.orig
++++ src/medusa.h
+@@ -44,6 +44,10 @@
+   #include <config.h>
+ #endif
+ 
++#ifdef HAVE_LIBSSL
++  #include <openssl/crypto.h>
++#endif
++
+ #define PROGRAM   "Medusa"
+ #ifndef VERSION
+   #define VERSION   "1.0"
+@@ -59,13 +63,13 @@
+ #define TRUE 1
+ 
+ /* GLOBAL VARIABLES */
+-FILE *pOutputFile;
+-pthread_mutex_t ptmFileMutex;
+-int iVerboseLevel;      // Global control over general message verbosity
+-int iErrorLevel;        // Global control over error debugging verbosity
++extern FILE *pOutputFile;
++extern pthread_mutex_t ptmFileMutex;
++extern int iVerboseLevel;      // Global control over general message verbosity
++extern int iErrorLevel;        // Global control over error debugging verbosity
+ 
+ //#define MAX_BUF (16 * 1024)
+-#define MAX_BUF 16384 
++#define MAX_BUF 16384
+ 
+ /* Older Solaris doesn't seem to define INADDR_NONE */
+ #ifndef INADDR_NONE
+@@ -77,8 +81,8 @@ int iErrorLevel;        // Global control over error d
+   #define INET_ADDRSTRLEN 16
+ #endif
+ 
+-// Number of seconds that idle threads can linger before exiting, when no tasks 
+-// come in. The idle threads can only exit if they are extra threads, above the 
++// Number of seconds that idle threads can linger before exiting, when no tasks
++// come in. The idle threads can only exit if they are extra threads, above the
+ // number of minimum threads.
+ #define POOL_THREAD_LINGER 1
+ 
+@@ -106,7 +110,7 @@ typedef struct __sPass {
+ #define PL_LOCAL 3
+ #define PL_GLOBAL 4
+ #define PL_DONE 5
+-#define PASS_AUDIT_COMPLETE 6 
++#define PASS_AUDIT_COMPLETE 6
+ 
+ typedef struct __sUser {
+   struct __sUser *psUserNext;
+@@ -166,7 +170,7 @@ typedef struct __sServer {
+   int iId;
+   int iLoginCnt;          // total number of logins performed concurrently against specific server
+   int iLoginsDone;       // number of logins performed by all threads under this server
+-  
++
+   sCredentialSet *psCredentialSetMissed;
+   sCredentialSet *psCredentialSetMissedCurrent;
+   sCredentialSet *psCredentialSetMissedTail;
+@@ -190,9 +194,9 @@ typedef struct __sLogin {
+ } sLogin;
+ 
+ 
+-#define AUDIT_IN_PROGRESS 0 
++#define AUDIT_IN_PROGRESS 0
+ #define AUDIT_COMPLETE 1
+-#define LIST_IN_PROGRESS 0 
++#define LIST_IN_PROGRESS 0
+ #define LIST_COMPLETE 1
+ 
+ #define FOUND_PAIR_EXIT_HOST 1
+@@ -213,11 +217,11 @@ typedef struct __sAudit {
+ 
+   char *pModuleName;      // current module name
+ 
+-  char *pGlobalHost; 
++  char *pGlobalHost;
+   char *pGlobalUser;
+   char *pGlobalPass;
+   char *pGlobalCombo;
+-  char *pHostFile; 
++  char *pHostFile;
+   char *pUserFile;
+   char *pPassFile;
+   char *pComboFile;
+@@ -247,18 +251,18 @@ typedef struct __sAudit {
+   int iUserListFlag;
+ 
+   int iAuditFlag;             /* Tracks loading of user supplied information */
+-  
++
+   int iPasswordBlankFlag;     /* Submit a blank password for each user account */
+   int iPasswordUsernameFlag;  /* Submit a password matching the username for each user account */
+   int iFoundPairExitFlag;     /* When a valid login pair is found, end scan of host or of complete audit */
+   int iParallelLoginFlag;     /* Parallel logins by user or password */
+   int iValidPairFound;
+-  int iStatus;                /* Flag to indicate to threads that audit is aborting */ 
+- 
++  int iStatus;                /* Flag to indicate to threads that audit is aborting */
++
+   sHost *psHostRoot;
+- 
++
+   thr_pool_t *server_pool;
+- 
++
+   pthread_mutex_t ptmMutex;
+ } sAudit;
+ 
+@@ -267,7 +271,7 @@ typedef struct __sModuleStart
+   char*   szModuleName;
+   sLogin* pLogin;
+   int     argc;
+-  char**  argv;  
++  char**  argv;
+ } sModuleStart;
+ 
+ 

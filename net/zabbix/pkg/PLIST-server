@@ -1,0 +1,51 @@
+@conflict zabbix-agent-<=1.8.3p5
+@extraunexec rm -rf /var/log/zabbix/*
+@rcscript ${RCDIR}/zabbix_server
+@sample ${SYSCONFDIR}/zabbix/
+@bin bin/zabbix_js
+@man man/man8/zabbix_server.8
+@bin sbin/zabbix_server
+share/doc/pkg-readmes/${PKGSTEM}
+share/doc/zabbix/
+share/examples/zabbix/zabbix_server.conf
+@mode 640
+@group _zabbix
+@sample ${SYSCONFDIR}/zabbix/zabbix_server.conf
+@mode
+@group
+share/zabbix-server/
+share/zabbix-server/schema/
+share/zabbix-server/schema/mysql/
+@comment share/zabbix-server/schema/mysql/Makefile
+@comment share/zabbix-server/schema/mysql/Makefile.am
+@comment share/zabbix-server/schema/mysql/Makefile.in
+share/zabbix-server/schema/mysql/data.sql
+share/zabbix-server/schema/mysql/double.sql
+share/zabbix-server/schema/mysql/history_pk_prepare.sql
+share/zabbix-server/schema/mysql/images.sql
+share/zabbix-server/schema/mysql/schema.sql
+share/zabbix-server/schema/postgresql/
+@comment share/zabbix-server/schema/postgresql/Makefile
+@comment share/zabbix-server/schema/postgresql/Makefile.am
+@comment share/zabbix-server/schema/postgresql/Makefile.in
+share/zabbix-server/schema/postgresql/data.sql
+share/zabbix-server/schema/postgresql/double.sql
+share/zabbix-server/schema/postgresql/history_pk_prepare.sql
+share/zabbix-server/schema/postgresql/images.sql
+share/zabbix-server/schema/postgresql/schema.sql
+share/zabbix-server/schema/postgresql/timescaledb.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_no_compression/
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_no_compression/history_pk.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_no_compression/history_pk_log.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_no_compression/history_pk_str.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_no_compression/history_pk_text.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_no_compression/history_pk_uint.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_with_compression/
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_with_compression/history_pk.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_with_compression/history_pk_log.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_with_compression/history_pk_str.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_with_compression/history_pk_text.sql
+share/zabbix-server/schema/postgresql/tsdb_history_pk_upgrade_with_compression/history_pk_uint.sql
+@mode 0755
+@owner _zabbix
+@sample /var/log/zabbix/

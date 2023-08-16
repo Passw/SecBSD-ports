@@ -1,0 +1,14 @@
+Fix build with LibreSSL
+
+Index: src/SWIG/_lib.i
+--- src/SWIG/_lib.i.orig
++++ src/SWIG/_lib.i
+@@ -21,7 +21,7 @@
+ 
+ %{
+ /* OpenSSL 1.0.2 copmatbility shim */
+-#if OPENSSL_VERSION_NUMBER < 0x10002000L
++#if OPENSSL_VERSION_NUMBER < 0x10002000L || defined(LIBRESSL_VERSION_NUMBER)
+ typedef void (*OPENSSL_sk_freefunc)(void *);
+ typedef void *(*OPENSSL_sk_copyfunc)(const void *);
+ typedef struct stack_st OPENSSL_STACK;

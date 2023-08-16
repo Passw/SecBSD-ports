@@ -1,0 +1,32 @@
+Index: src/medusa-thread-ssl.c
+--- src/medusa-thread-ssl.c.orig
++++ src/medusa-thread-ssl.c
+@@ -13,7 +13,7 @@
+ 
+ #include "medusa.h"
+ 
+-#ifdef HAVE_LIBSSL
++#if defined(HAVE_LIBSSL) && (OPENSSL_VERSION_NUMBER < 0x10100005L)
+ static pthread_mutex_t *lockarray;
+ 
+ #include <openssl/crypto.h>
+@@ -79,8 +79,8 @@ void init_locks_gnutls(void)
+ 
+ void init_crypto_locks(void)
+ {
+-#ifdef HAVE_LIBSSL
+-  init_locks_openssl();
++#if defined(HAVE_LIBSSL) && (OPENSSL_VERSION_NUMBER < 0x10100005L)
++   init_locks_openssl();
+ #endif
+ 
+ #ifdef HAVE_GNUTLS
+@@ -90,7 +90,7 @@ void init_crypto_locks(void)
+ 
+ void kill_crypto_locks(void)
+ {
+-#ifdef HAVE_LIBSSL
++#if defined(HAVE_LIBSSL) && (OPENSSL_VERSION_NUMBER < 0x10100005L)
+   kill_locks_openssl();
+ #endif
+ }

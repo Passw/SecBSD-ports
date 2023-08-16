@@ -1,0 +1,2 @@
+@lib lib/libvulkan.so.${LIBvulkan_VERSION}
+lib/pkgconfig/vulkan.pc

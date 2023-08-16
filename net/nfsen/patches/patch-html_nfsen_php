@@ -1,0 +1,11 @@
+--- html/nfsen.php.orig	Mon Jun 23 20:27:50 2014
++++ html/nfsen.php	Fri Jan  9 17:16:58 2015
+@@ -706,7 +706,7 @@ switch ($label) {
+ 		}
+ 		if ( count($plugins) > 0 ) {
+ 			$plugin_name = $plugins[ $_SESSION['sub_tab'] ];
+-			$include_file = "$FRONTEND_PLUGINDIR/$plugin_name" . ".php";
++			$include_file = "plugins/$plugin_name" . ".php";
+ 			include($include_file);
+ 			$plugin_parse_input = $plugin_name . "_ParseInput";
+ 			$plugin_run 	    = $plugin_name . "_Run";

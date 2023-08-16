@@ -1,0 +1,8 @@
+
+MassDNS wrapper that allows you to enumerate valid subdomains
+using active bruteforce as well as resolve subdomains
+with wildcard handling and easy input-output support.
+
+Help:
+
+$ shuffledns -h

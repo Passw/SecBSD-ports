@@ -1,0 +1,8 @@
+web crawler designed for easy, quick discovery of endpoints
+and assets within a web application. It can be used to discover:
+
+Forms
+Endpoints
+Subdomains
+Related domains
+JavaScript files

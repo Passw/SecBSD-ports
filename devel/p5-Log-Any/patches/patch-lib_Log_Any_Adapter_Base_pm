@@ -1,0 +1,13 @@
+--- lib/Log/Any/Adapter/Base.pm.orig
++++ lib/Log/Any/Adapter/Base.pm
+@@ -54,6 +54,10 @@ Log::Any::Adapter::Base
+ 
+ version 1.049
+ 
++=head1 DESCRIPTION
++
++Log::Any::Adapter::Base module
++
+ =head1 AUTHORS
+ 
+ =over 4

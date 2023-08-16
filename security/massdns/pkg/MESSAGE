@@ -1,0 +1,6 @@
+
+A high-performance DNS stub resolver for bulk lookups and reconnaissance.
+
+Help:
+
+$ massdns -h

@@ -1,0 +1,12 @@
+Index: setup.py
+--- setup.py.orig
++++ setup.py
+@@ -92,7 +92,7 @@ params = {
+     'classifiers': [_f for _f in classifiers.split("\n") if _f],
+     'url': home_page,
+     'download_url': dwnl_url,
+-    'scripts': scripts,
++    #'scripts': scripts,
+     'package_data': {
+         # Here, the "*" represents any possible language ID.
+         'imdb.locale': [

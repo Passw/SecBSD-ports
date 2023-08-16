@@ -1,0 +1,99 @@
+$OpenBSD$
+
+Index: sublist3r.py
+--- sublist3r.py.orig
++++ sublist3r.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ # coding: utf-8
+ # Sublist3r v1.0
+ # By Ahmed Aboul-Ela - twitter.com/aboul3la
+@@ -22,50 +22,15 @@ from subbrute import subbrute
+ import dns.resolver
+ import requests
+ 
+-# Python 2.x and 3.x compatiablity
+-if sys.version > '3':
+-    import urllib.parse as urlparse
+-    import urllib.parse as urllib
+-else:
+-    import urlparse
+-    import urllib
++import urllib.parse as urlparse
++import urllib.parse as urllib
+ 
+-# In case you cannot install some of the required development packages
+-# there's also an option to disable the SSL warning:
+-try:
+-    import requests.packages.urllib3
+-    requests.packages.urllib3.disable_warnings()
+-except:
+-    pass
++G = '\033[92m'  # green
++Y = '\033[93m'  # yellow
++B = '\033[94m'  # blue
++R = '\033[91m'  # red
++W = '\033[0m'   # white
+ 
+-# Check if we are running this on windows platform
+-is_windows = sys.platform.startswith('win')
+-
+-# Console Colors
+-if is_windows:
+-    # Windows deserves coloring too :D
+-    G = '\033[92m'  # green
+-    Y = '\033[93m'  # yellow
+-    B = '\033[94m'  # blue
+-    R = '\033[91m'  # red
+-    W = '\033[0m'   # white
+-    try:
+-        import win_unicode_console , colorama
+-        win_unicode_console.enable()
+-        colorama.init()
+-        #Now the unicode will work ^_^
+-    except:
+-        print("[!] Error: Coloring libraries not installed, no coloring will be used [Check the readme]")
+-        G = Y = B = R = W = G = Y = B = R = W = ''
+-
+-
+-else:
+-    G = '\033[92m'  # green
+-    Y = '\033[93m'  # yellow
+-    B = '\033[94m'  # blue
+-    R = '\033[91m'  # red
+-    W = '\033[0m'   # white
+-
+ def no_color():
+     global G, Y, B, R, W
+     G = Y = B = R = W = ''
+@@ -85,14 +50,14 @@ def banner():
+ 
+ def parser_error(errmsg):
+     banner()
+-    print("Usage: python " + sys.argv[0] + " [Options] use -h for help")
++    print("Usage: sublist3r -h for help")
+     print(R + "Error: " + errmsg + W)
+     sys.exit()
+ 
+ 
+ def parse_args():
+     # parse the arguments
+-    parser = argparse.ArgumentParser(epilog='\tExample: \r\npython ' + sys.argv[0] + " -d google.com")
++    parser = argparse.ArgumentParser(epilog='\tExample: \r\nsublist3r ' + " -d google.com")
+     parser.error = parser_error
+     parser._optionals.title = "OPTIONS"
+     parser.add_argument('-d', '--domain', help="Domain name to enumerate it's subdomains", required=True)
+@@ -891,11 +856,7 @@ class portscan():
+ def main(domain, threads, savefile, ports, silent, verbose, enable_bruteforce, engines):
+     bruteforce_list = set()
+     search_list = set()
+-
+-    if is_windows:
+-        subdomains_queue = list()
+-    else:
+-        subdomains_queue = multiprocessing.Manager().list()
++    subdomains_queue = multiprocessing.Manager().list()
+ 
+     # Check Bruteforce Status
+     if enable_bruteforce or enable_bruteforce is None:

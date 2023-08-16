@@ -1,0 +1,13 @@
+--- src/modules/graphic/ssggraph/CMakeLists.txt.orig	Mon Apr 18 17:37:09 2016
++++ src/modules/graphic/ssggraph/CMakeLists.txt	Tue Sep 20 01:28:41 2016
+@@ -49,6 +49,10 @@ IF(COMMAND CMAKE_POLICY)
+     CMAKE_POLICY(SET CMP0003 NEW)
+ ENDIF(COMMAND CMAKE_POLICY)
+ 
++IF(UNIX)
++    INCLUDE_DIRECTORIES(${X11_INCLUDE_DIR})
++ENDIF(UNIX)
++
+ IF(WIN32)
+     # DLL export stuff under Windows (to avoid .def file)
+     ADD_DEFINITIONS(-DSSGGRAPH_DLL)

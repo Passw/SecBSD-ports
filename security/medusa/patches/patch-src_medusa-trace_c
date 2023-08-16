@@ -1,0 +1,122 @@
+Index: src/medusa-trace.c
+--- src/medusa-trace.c.orig
++++ src/medusa-trace.c
+@@ -32,6 +32,10 @@
+ #include <stdlib.h>
+ #include <stdarg.h>
+ 
++int iVerboseLevel = 0;
++int iErrorLevel;
++FILE *pOutputFile = NULL;
++
+ void writeVerbose(int iLevel, char *pMsg, ...) {
+   va_list ap;
+   char buf[512];
+@@ -60,11 +64,11 @@ void writeVerbose(int iLevel, char *pMsg, ...) {
+       cTemp = (unsigned char)buf[i];
+       if ((cTemp < 32 && cTemp > 0 && cTemp != 9 && cTemp != 10 && cTemp != 13) || cTemp > 126)
+       {
+-        sprintf(temp, "[%02X]", cTemp);        
++        sprintf(temp, "[%02X]", cTemp);
+       }
+       else
+-        sprintf(temp, "%c", cTemp);
+-      
++       snprintf(buf, sizeof(buf), "verbose message: %d", iVerboseLevel);
++
+       strncat(bufOut, temp, 6);
+     }
+ 
+@@ -72,7 +76,7 @@ void writeVerbose(int iLevel, char *pMsg, ...) {
+     {
+       case VB_FOUND:
+         fprintf(stdout, "ACCOUNT FOUND: %s\n", bufOut);
+-        
++
+         if (pOutputFile != NULL) {
+           pthread_mutex_lock(&ptmFileMutex);
+           fprintf(pOutputFile, "ACCOUNT FOUND: %s\n", buf);
+@@ -105,7 +109,7 @@ void writeVerbose(int iLevel, char *pMsg, ...) {
+           fflush(pOutputFile);
+           pthread_mutex_unlock(&ptmFileMutex);
+         }
+-        
++
+         va_end(ap);
+         break;
+       case VB_EXIT:
+@@ -130,7 +134,7 @@ void writeError(int iLevel, char *pMsg, ...) {
+   char temp[6];
+   unsigned char cTemp;
+   unsigned int i = 0;
+- 
++
+   if (pMsg == NULL) {
+     fprintf(stderr, "CRITICAL: writeError() called with NULL message.\n");
+   }
+@@ -139,7 +143,7 @@ void writeError(int iLevel, char *pMsg, ...) {
+     memset(bufOut, 0, 16384);
+     memset(buf, 0, 4096);
+     vsnprintf(buf, sizeof(buf), pMsg, ap);
+- 
++
+     // Convert any chars less than 32d or greater than 126d to hex
+     for (i = 0; i < sizeof(buf); i++)
+     {
+@@ -147,11 +151,11 @@ void writeError(int iLevel, char *pMsg, ...) {
+       cTemp = (unsigned char)buf[i];
+       if ((cTemp < 32 && cTemp > 0) || cTemp > 126)
+       {
+-        snprintf(temp, 6, "[%02X]", cTemp);        
++        snprintf(temp, 6, "[%02X]", cTemp);
+       }
+       else
+         snprintf(temp, 6, "%c", cTemp);
+-      
++
+       strncat(bufOut, temp, 6);
+     }
+ 
+@@ -181,26 +185,26 @@ void writeError(int iLevel, char *pMsg, ...) {
+         fprintf(stderr, "INFO: ");
+         break;
+       case ERR_DEBUG:
+-        fprintf(stderr, "DEBUG [%X]: ", (int)pthread_self());
++       fprintf(stderr, "DEBUG [%p]: ", (void *)pthread_self());
+         break;
+       case ERR_DEBUG_AUDIT:
+-        fprintf(stderr, "DEBUG AUDIT [%X]: ", (int)pthread_self());
++        fprintf(stderr, "DEBUG [%p]: ", (void *)pthread_self());
+         break;
+       case ERR_DEBUG_SERVER:
+-        fprintf(stderr, "DEBUG SERVER [%X]: ", (int)pthread_self());
++	fprintf(stderr, "DEBUG [%p]: ", (void *)pthread_self());
+         break;
+       case ERR_DEBUG_MODULE:
+-        fprintf(stderr, "DEBUG MODULE [%X]: ", (int)pthread_self());
++        fprintf(stderr, "DEBUG [%p]: ", (void *)pthread_self());
+         break;
+       default:
+-        fprintf(stdout, "UNKNOWN ERROR [%X]: ", (int)pthread_self());
++        fprintf(stderr, "DEBUG [%p]: ", (void *)pthread_self());
+         break;
+     }
+-  
++
+     fprintf(stderr, "%s\n", bufOut);
+     va_end(ap);
+   }
+-  
++
+   return;
+ }
+ 
+@@ -208,7 +212,7 @@ void writeErrorBin(int iLevel, char *pMsg, unsigned ch
+ {
+   int i;
+ 
+-  if (iLevel <= iErrorLevel) 
++  if (iLevel <= iErrorLevel)
+   {
+     fprintf(stderr, "DATA: %s ", pMsg);
+ 

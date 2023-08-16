@@ -1,0 +1,15 @@
+bin/sherlock
+share/sherlock/
+share/sherlock/__init__.py
+share/sherlock/__main__.py
+share/sherlock/notify.py
+share/sherlock/resources/
+share/sherlock/resources/data.json
+share/sherlock/result.py
+share/sherlock/sherlock.py
+share/sherlock/sites.py
+share/sherlock/tests/
+share/sherlock/tests/__init__.py
+share/sherlock/tests/all.py
+share/sherlock/tests/base.py
+share/sherlock/tests/test_multiple_usernames.py

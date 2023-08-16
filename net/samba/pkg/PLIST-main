@@ -1,0 +1,1705 @@
+@conflict ldb-*
+@conflict tevent-*
+@conflict samba-util-*
+@pkgpath net/samba,ldap,-main
+@pkgpath net/samba,ads,-main
+@pkgpath net/samba,,-main
+@pkgpath net/samba,-ldb
+@pkgpath net/samba,-tevent
+@pkgpath net/samba,-util
+@rcscript ${RCDIR}/nmbd
+@rcscript ${RCDIR}/samba
+@rcscript ${RCDIR}/smbd
+@rcscript ${RCDIR}/winbindd
+@sample ${SYSCONFDIR}/samba/
+@bin bin/cifsdd
+@bin bin/dbwrap_tool
+@bin bin/dumpmscat
+@bin bin/gentest
+@bin bin/ldbadd
+@bin bin/ldbdel
+@bin bin/ldbedit
+@bin bin/ldbmodify
+@bin bin/ldbrename
+@bin bin/ldbsearch
+@bin bin/locktest
+@bin bin/masktest
+@bin bin/mdsearch
+@bin bin/mvxattr
+@bin bin/ndrdump
+@bin bin/net
+@bin bin/nmblookup
+@bin bin/ntlm_auth
+@bin bin/oLschema2ldif
+@bin bin/pdbedit
+@bin bin/profiles
+@bin bin/regdiff
+@bin bin/regpatch
+@bin bin/regshell
+@bin bin/regtree
+@bin bin/rpcclient
+bin/samba-tool
+@bin bin/sharesec
+@bin bin/smbcacls
+@bin bin/smbclient
+@bin bin/smbcontrol
+@bin bin/smbcquotas
+@bin bin/smbget
+@bin bin/smbpasswd
+@bin bin/smbspool
+@bin bin/smbstatus
+bin/smbtar
+@bin bin/smbtorture
+@bin bin/smbtree
+@bin bin/testparm
+@bin bin/wbinfo
+include/samba-4.0/
+include/samba-4.0/charset.h
+include/samba-4.0/core/
+include/samba-4.0/core/doserr.h
+include/samba-4.0/core/error.h
+include/samba-4.0/core/hresult.h
+include/samba-4.0/core/ntstatus.h
+include/samba-4.0/core/ntstatus_gen.h
+include/samba-4.0/core/werror.h
+include/samba-4.0/core/werror_gen.h
+include/samba-4.0/credentials.h
+include/samba-4.0/dcerpc.h
+include/samba-4.0/dcesrv_core.h
+include/samba-4.0/domain_credentials.h
+include/samba-4.0/gen_ndr/
+include/samba-4.0/gen_ndr/atsvc.h
+include/samba-4.0/gen_ndr/auth.h
+include/samba-4.0/gen_ndr/claims.h
+include/samba-4.0/gen_ndr/dcerpc.h
+include/samba-4.0/gen_ndr/drsblobs.h
+include/samba-4.0/gen_ndr/drsuapi.h
+include/samba-4.0/gen_ndr/krb5pac.h
+include/samba-4.0/gen_ndr/lsa.h
+include/samba-4.0/gen_ndr/misc.h
+include/samba-4.0/gen_ndr/nbt.h
+include/samba-4.0/gen_ndr/ndr_atsvc.h
+include/samba-4.0/gen_ndr/ndr_dcerpc.h
+include/samba-4.0/gen_ndr/ndr_drsblobs.h
+include/samba-4.0/gen_ndr/ndr_drsuapi.h
+include/samba-4.0/gen_ndr/ndr_krb5pac.h
+include/samba-4.0/gen_ndr/ndr_misc.h
+include/samba-4.0/gen_ndr/ndr_nbt.h
+include/samba-4.0/gen_ndr/ndr_samr.h
+include/samba-4.0/gen_ndr/ndr_samr_c.h
+include/samba-4.0/gen_ndr/ndr_svcctl.h
+include/samba-4.0/gen_ndr/ndr_svcctl_c.h
+include/samba-4.0/gen_ndr/netlogon.h
+include/samba-4.0/gen_ndr/samr.h
+include/samba-4.0/gen_ndr/security.h
+include/samba-4.0/gen_ndr/server_id.h
+include/samba-4.0/gen_ndr/svcctl.h
+include/samba-4.0/ldb.h
+include/samba-4.0/ldb_errors.h
+include/samba-4.0/ldb_handlers.h
+include/samba-4.0/ldb_module.h
+include/samba-4.0/ldb_version.h
+include/samba-4.0/ldb_wrap.h
+include/samba-4.0/libsmbclient.h
+include/samba-4.0/lookup_sid.h
+include/samba-4.0/machine_sid.h
+include/samba-4.0/ndr/
+include/samba-4.0/ndr.h
+include/samba-4.0/ndr/ndr_dcerpc.h
+include/samba-4.0/ndr/ndr_drsblobs.h
+include/samba-4.0/ndr/ndr_drsuapi.h
+include/samba-4.0/ndr/ndr_krb5pac.h
+include/samba-4.0/ndr/ndr_nbt.h
+include/samba-4.0/ndr/ndr_svcctl.h
+include/samba-4.0/netapi.h
+include/samba-4.0/param.h
+include/samba-4.0/passdb.h
+include/samba-4.0/policy.h
+include/samba-4.0/pyldb.h
+include/samba-4.0/rpc_common.h
+include/samba-4.0/samba/
+include/samba-4.0/samba/session.h
+include/samba-4.0/samba/version.h
+include/samba-4.0/share.h
+include/samba-4.0/smb2_lease_struct.h
+include/samba-4.0/smb_ldap.h
+include/samba-4.0/smbconf.h
+include/samba-4.0/smbldap.h
+include/samba-4.0/tdr.h
+include/samba-4.0/tevent.h
+include/samba-4.0/tsocket.h
+include/samba-4.0/tsocket_internal.h
+include/samba-4.0/util/
+include/samba-4.0/util/attr.h
+include/samba-4.0/util/blocking.h
+include/samba-4.0/util/data_blob.h
+include/samba-4.0/util/debug.h
+include/samba-4.0/util/discard.h
+include/samba-4.0/util/fault.h
+include/samba-4.0/util/genrand.h
+include/samba-4.0/util/idtree.h
+include/samba-4.0/util/idtree_random.h
+include/samba-4.0/util/signal.h
+include/samba-4.0/util/substitute.h
+include/samba-4.0/util/tevent_ntstatus.h
+include/samba-4.0/util/tevent_unix.h
+include/samba-4.0/util/tevent_werror.h
+include/samba-4.0/util/tfork.h
+include/samba-4.0/util/time.h
+include/samba-4.0/util_ldb.h
+include/samba-4.0/wbclient.h
+@lib lib/libdcerpc-binding.so.${LIBdcerpc-binding_VERSION}
+@lib lib/libdcerpc-samr.so.${LIBdcerpc-samr_VERSION}
+@lib lib/libdcerpc-server-core.so.${LIBdcerpc-server-core_VERSION}
+@lib lib/libdcerpc.so.${LIBdcerpc_VERSION}
+@lib lib/libldb.so.${LIBldb_VERSION}
+@lib lib/libndr-krb5pac.so.${LIBndr-krb5pac_VERSION}
+@lib lib/libndr-nbt.so.${LIBndr-nbt_VERSION}
+@lib lib/libndr-standard.so.${LIBndr-standard_VERSION}
+@lib lib/libndr.so.${LIBndr_VERSION}
+@lib lib/libnetapi.so.${LIBnetapi_VERSION}
+@comment @lib lib/libpyldb-util.${PYLDB_UTIL_LIBSUFFIX}
+@lib lib/libpyldb-util.${PYLDB_UTIL_LIBSUFFIX}
+@lib lib/libsamba-credentials.so.${LIBsamba-credentials_VERSION}
+@lib lib/libsamba-errors.so.${LIBsamba-errors_VERSION}
+@lib lib/libsamba-hostconfig.so.${LIBsamba-hostconfig_VERSION}
+@lib lib/libsamba-passdb.so.${LIBsamba-passdb_VERSION}
+@comment @lib lib/libsamba-policy.${SAMBA_POLICY_LIBSUFFIX}
+@lib lib/libsamba-policy.${SAMBA_POLICY_LIBSUFFIX}
+@lib lib/libsamba-util.so.${LIBsamba-util_VERSION}
+@lib lib/libsamdb.so.${LIBsamdb_VERSION}
+@lib lib/libsmbclient.so.${LIBsmbclient_VERSION}
+@lib lib/libsmbconf.so.${LIBsmbconf_VERSION}
+@lib lib/libsmbldap.so.${LIBsmbldap_VERSION}
+@lib lib/libtevent-util.so.${LIBtevent-util_VERSION}
+@lib lib/libtevent.so.${LIBtevent_VERSION}
+@lib lib/libwbclient.so.${LIBwbclient_VERSION}
+lib/pkgconfig/dcerpc.pc
+lib/pkgconfig/dcerpc_samr.pc
+lib/pkgconfig/ldb.pc
+lib/pkgconfig/ndr.pc
+lib/pkgconfig/ndr_krb5pac.pc
+lib/pkgconfig/ndr_nbt.pc
+lib/pkgconfig/ndr_standard.pc
+lib/pkgconfig/netapi.pc
+lib/pkgconfig/pyldb-util.${MODPY_PYC_MAGIC_TAG}pc
+lib/pkgconfig/samba-credentials.pc
+lib/pkgconfig/samba-hostconfig.pc
+lib/pkgconfig/samba-policy.${MODPY_PYC_MAGIC_TAG}pc
+lib/pkgconfig/samba-util.pc
+lib/pkgconfig/samdb.pc
+lib/pkgconfig/smbclient.pc
+lib/pkgconfig/tevent.pc
+lib/pkgconfig/wbclient.pc
+lib/python${MODPY_VERSION}/site-packages/${MODPY_PYCACHE}_ldb_text.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/${MODPY_PYCACHE}_ldb_text.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/${MODPY_PYCACHE}tevent.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/${MODPY_PYCACHE}tevent.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/_ldb_text.py
+@so lib/python${MODPY_VERSION}/site-packages/_tevent.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/ldb.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/
+lib/python${MODPY_VERSION}/site-packages/samba/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}auth_util.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}auth_util.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}colour.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}colour.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}dbchecker.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}dbchecker.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}descriptor.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}descriptor.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}dnsresolver.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}dnsresolver.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}dnsserver.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}dnsserver.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}domain_update.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}domain_update.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}drs_utils.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}drs_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}forest_update.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}forest_update.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}getopt.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}getopt.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}hostconfig.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}hostconfig.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}idmap.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}idmap.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}join.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}join.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}logger.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}logger.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}mdb_util.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}mdb_util.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_display_specifiers.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_display_specifiers.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_forest_updates_markdown.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_forest_updates_markdown.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_schema.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_schema.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_schema_markdown.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ms_schema_markdown.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ndr.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ndr.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ntacls.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}ntacls.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}remove_dc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}remove_dc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}safe_tarfile.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}safe_tarfile.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}samdb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}samdb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}schema.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}schema.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}sd_utils.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}sd_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}sites.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}sites.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}subnets.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}subnets.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}tdb_util.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}tdb_util.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}trust_utils.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}trust_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}upgrade.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}upgrade.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}upgradehelpers.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}upgradehelpers.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}uptodateness.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}uptodateness.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}xattr.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/${MODPY_PYCACHE}xattr.${MODPY_PYC_MAGIC_TAG}pyc
+@so lib/python${MODPY_VERSION}/site-packages/samba/_glue.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/_ldb.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/auth.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/auth_util.py
+lib/python${MODPY_VERSION}/site-packages/samba/colour.py
+lib/python${MODPY_VERSION}/site-packages/samba/common.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/compression.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/credentials.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/crypto.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/dbchecker.py
+lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/
+lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/atsvc.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/auth.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/base.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/claims.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/dcerpc.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/dfs.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/dns.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/dnsp.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/dnsserver.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/drsblobs.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/drsuapi.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/echo.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/epmapper.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/idmap.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/initshutdown.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/irpc.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/krb5ccache.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/krb5pac.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/lsa.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/mdssvc.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/messaging.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/mgmt.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/misc.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/nbt.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/netlogon.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/ntlmssp.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/preg.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/samr.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/security.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/server_id.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/smb_acl.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/spoolss.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/srvsvc.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/svcctl.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/unixinfo.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/winbind.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/windows_event_ids.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/winreg.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/winspool.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/witness.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/wkssvc.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dcerpc/xattr.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/descriptor.py
+lib/python${MODPY_VERSION}/site-packages/samba/dnsresolver.py
+lib/python${MODPY_VERSION}/site-packages/samba/dnsserver.py
+lib/python${MODPY_VERSION}/site-packages/samba/domain_update.py
+lib/python${MODPY_VERSION}/site-packages/samba/drs_utils.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/dsdb.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/dsdb_dns.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/emulate/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/${MODPY_PYCACHE}traffic.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/${MODPY_PYCACHE}traffic.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/${MODPY_PYCACHE}traffic_packets.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/${MODPY_PYCACHE}traffic_packets.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/traffic.py
+lib/python${MODPY_VERSION}/site-packages/samba/emulate/traffic_packets.py
+lib/python${MODPY_VERSION}/site-packages/samba/forest_update.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/gensec.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/getopt.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_centrify_crontab_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_centrify_crontab_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_centrify_sudoers_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_centrify_sudoers_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_cert_auto_enroll_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_cert_auto_enroll_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_chromium_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_chromium_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_ext_loader.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_ext_loader.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_firefox_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_firefox_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_firewalld_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_firewalld_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_gnome_settings_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_gnome_settings_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_msgs_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_msgs_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_scripts_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_scripts_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_sec_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_sec_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_smb_conf_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_smb_conf_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_sudoers_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gp_sudoers_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gpclass.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}gpclass.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_access_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_access_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_files_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_files_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_issue_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_issue_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_motd_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_motd_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_openssh_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_openssh_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_startup_scripts_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_startup_scripts_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_sudoers_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_sudoers_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_symlink_ext.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/${MODPY_PYCACHE}vgp_symlink_ext.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_centrify_crontab_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_centrify_sudoers_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_cert_auto_enroll_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_chromium_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_ext_loader.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_firefox_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_firewalld_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_gnome_settings_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_msgs_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_scripts_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_sec_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_smb_conf_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gp_sudoers_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/gpclass.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/util/
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/gp/util/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/gp/util/${MODPY_PYCACHE}logging.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp/util/${MODPY_PYCACHE}logging.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp/util/logging.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_access_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_files_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_issue_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_motd_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_openssh_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_startup_scripts_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_sudoers_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp/vgp_symlink_ext.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_aas.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_aas.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_csv.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_csv.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_inf.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_inf.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_ini.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_ini.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_pol.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/${MODPY_PYCACHE}gp_pol.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/gp_aas.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/gp_csv.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/gp_inf.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/gp_ini.py
+lib/python${MODPY_VERSION}/site-packages/samba/gp_parse/gp_pol.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/gpo.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/graph.py
+lib/python${MODPY_VERSION}/site-packages/samba/hostconfig.py
+lib/python${MODPY_VERSION}/site-packages/samba/idmap.py
+lib/python${MODPY_VERSION}/site-packages/samba/join.py
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}debug.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}debug.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}graph_utils.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}graph_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}kcc_utils.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}kcc_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}ldif_import_export.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/${MODPY_PYCACHE}ldif_import_export.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/debug.py
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/graph.py
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/graph_utils.py
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/kcc_utils.py
+lib/python${MODPY_VERSION}/site-packages/samba/kcc/ldif_import_export.py
+lib/python${MODPY_VERSION}/site-packages/samba/logger.py
+lib/python${MODPY_VERSION}/site-packages/samba/mdb_util.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/messaging.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/ms_display_specifiers.py
+lib/python${MODPY_VERSION}/site-packages/samba/ms_forest_updates_markdown.py
+lib/python${MODPY_VERSION}/site-packages/samba/ms_schema.py
+lib/python${MODPY_VERSION}/site-packages/samba/ms_schema_markdown.py
+lib/python${MODPY_VERSION}/site-packages/samba/ndr.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/net.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/net_s3.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/netbios.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}computer.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}computer.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}contact.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}contact.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}dbcheck.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}dbcheck.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}delegation.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}delegation.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}dns.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}dns.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}domain.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}domain.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}domain_backup.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}domain_backup.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}drs.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}drs.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}dsacl.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}dsacl.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}forest.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}forest.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}fsmo.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}fsmo.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}gpo.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}gpo.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}group.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}group.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}ldapcmp.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}ldapcmp.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}main.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}main.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}nettime.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}nettime.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}ntacl.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}ntacl.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}ou.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}ou.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}processes.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}processes.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}pso.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}pso.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}rodc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}rodc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}schema.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}schema.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}sites.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}sites.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}spn.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}spn.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}testparm.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}testparm.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}user.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}user.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}visualize.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/${MODPY_PYCACHE}visualize.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/common.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/computer.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/contact.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/dbcheck.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/delegation.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/dns.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/domain.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/domain_backup.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/drs.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/dsacl.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/forest.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/fsmo.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/gpo.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/group.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/ldapcmp.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/main.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/nettime.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/ntacl.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/ou.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/processes.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/pso.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/rodc.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/schema.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/sites.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/spn.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/testparm.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/user.py
+lib/python${MODPY_VERSION}/site-packages/samba/netcmd/visualize.py
+lib/python${MODPY_VERSION}/site-packages/samba/ntacls.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/ntstatus.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/param.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/policy.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/posix_eadb.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/provision/
+lib/python${MODPY_VERSION}/site-packages/samba/provision/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}backend.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}backend.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}kerberos.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}kerberos.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}kerberos_implementation.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}kerberos_implementation.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}sambadns.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/provision/${MODPY_PYCACHE}sambadns.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/provision/backend.py
+lib/python${MODPY_VERSION}/site-packages/samba/provision/common.py
+lib/python${MODPY_VERSION}/site-packages/samba/provision/kerberos.py
+lib/python${MODPY_VERSION}/site-packages/samba/provision/kerberos_implementation.py
+lib/python${MODPY_VERSION}/site-packages/samba/provision/sambadns.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/registry.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/remove_dc.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/reparse_symlink.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/safe_tarfile.py
+lib/python${MODPY_VERSION}/site-packages/samba/samba3/
+lib/python${MODPY_VERSION}/site-packages/samba/samba3/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/samba3/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/samba3/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/samba3/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/samba3/${MODPY_PYCACHE}libsmb_samba_internal.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/samba3/${MODPY_PYCACHE}libsmb_samba_internal.${MODPY_PYC_MAGIC_TAG}pyc
+@so lib/python${MODPY_VERSION}/site-packages/samba/samba3/libsmb_samba_cwrapper.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/samba3/libsmb_samba_internal.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/samba3/mdscli.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/samba3/param.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/samba3/passdb.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/samba3/smbconf.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/samba3/smbd.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/samdb.py
+lib/python${MODPY_VERSION}/site-packages/samba/schema.py
+lib/python${MODPY_VERSION}/site-packages/samba/sd_utils.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/security.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/sites.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/smbconf.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/subnets.py
+lib/python${MODPY_VERSION}/site-packages/samba/subunit/
+lib/python${MODPY_VERSION}/site-packages/samba/subunit/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/subunit/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/subunit/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/subunit/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/subunit/${MODPY_PYCACHE}run.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/subunit/${MODPY_PYCACHE}run.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/subunit/run.py
+lib/python${MODPY_VERSION}/site-packages/samba/tdb_util.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}audit_log_base.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}audit_log_base.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}audit_log_dsdb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}audit_log_dsdb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}audit_log_pass_change.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}audit_log_pass_change.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_base.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_base.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_ncalrpc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_ncalrpc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_netlogon.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_netlogon.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_netlogon_bad_creds.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_netlogon_bad_creds.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_pass_change.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_pass_change.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_samlogon.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_samlogon.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_winbind.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}auth_log_winbind.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}common.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}complex_expressions.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}complex_expressions.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}compression.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}compression.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}core.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}core.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}cred_opt.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}cred_opt.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}credentials.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}credentials.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dckeytab.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dckeytab.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_aging.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_aging.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_base.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_base.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_forwarder.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_forwarder.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_invalid.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_invalid.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_packet.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_packet.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_tkey.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_tkey.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_wildcard.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dns_wildcard.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}docs.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}docs.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}domain_backup.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}domain_backup.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}domain_backup_offline.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}domain_backup_offline.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_api.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_api.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_dns.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_dns.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_lock.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_lock.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_schema_attributes.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}dsdb_schema_attributes.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}encrypted_secrets.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}encrypted_secrets.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}gensec.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}gensec.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}get_opt.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}get_opt.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}getdcname.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}getdcname.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}glue.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}glue.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}gpo.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}gpo.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}gpo_member.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}gpo_member.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}group_audit.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}group_audit.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}hostconfig.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}hostconfig.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}imports.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}imports.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}join.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}join.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}krb5_credentials.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}krb5_credentials.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_raw.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_raw.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_referrals.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_referrals.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_spn.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_spn.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_upn_sam_account.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ldap_upn_sam_account.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}libsmb-basic.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}libsmb-basic.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}libsmb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}libsmb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}loadparm.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}loadparm.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}logfiles.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}logfiles.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}lsa_string.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}lsa_string.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}messaging.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}messaging.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ndr.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ndr.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}net_join.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}net_join.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}net_join_no_spnego.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}net_join_no_spnego.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}netbios.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}netbios.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}netcmd.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}netcmd.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}netlogonsvc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}netlogonsvc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntacls.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntacls.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntacls_backup.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntacls_backup.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlm_auth.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlm_auth.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlm_auth_base.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlm_auth_base.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlm_auth_krb5.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlm_auth_krb5.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlmdisabled.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}ntlmdisabled.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind_chauthtok.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind_chauthtok.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind_setcred.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind_setcred.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind_warn_pwd_expire.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pam_winbind_warn_pwd_expire.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}param.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}param.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_fl2003.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_fl2003.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_fl2008.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_fl2008.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_gpgme.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_gpgme.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_ldap.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_hash_ldap.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_quality.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_quality.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_test.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}password_test.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}policy.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}policy.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}posixacl.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}posixacl.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}prefork_restart.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}prefork_restart.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}process_limits.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}process_limits.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}provision.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}provision.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pso.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}pso.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}py_credentials.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}py_credentials.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}registry.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}registry.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}reparsepoints.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}reparsepoints.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3_net_join.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3_net_join.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3idmapdb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3idmapdb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3param.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3param.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3passdb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3passdb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3registry.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3registry.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3windb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}s3windb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}safe_tarfile.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}safe_tarfile.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samba3sam.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samba3sam.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samba_upgradedns_lmdb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samba_upgradedns_lmdb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samdb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samdb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samdb_api.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}samdb_api.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}sddl.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}sddl.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}security.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}security.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}segfault.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}segfault.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}sid_strings.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}sid_strings.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb-notify.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb-notify.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb1posix.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb1posix.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb2symlink.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb2symlink.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb3unix.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smb3unix.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smbconf.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smbconf.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smbd_base.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smbd_base.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smbd_fuzztest.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}smbd_fuzztest.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}source.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}source.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}source_chars.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}source_chars.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}strings.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}strings.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}subunitrun.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}subunitrun.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}tdb_util.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}tdb_util.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}upgrade.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}upgrade.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}upgradeprovision.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}upgradeprovision.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}upgradeprovisionneeddc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}upgradeprovisionneeddc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}usage.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}usage.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}xattr.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/${MODPY_PYCACHE}xattr.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/audit_log_base.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/audit_log_dsdb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/audit_log_pass_change.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log_base.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log_ncalrpc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log_netlogon.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log_netlogon_bad_creds.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log_pass_change.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log_samlogon.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/auth_log_winbind.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}bug13653.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}bug13653.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}check_output.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}check_output.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}downgradedatabase.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}downgradedatabase.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}mdsearch.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}mdsearch.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}ndrdump.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}ndrdump.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}netads_dns.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}netads_dns.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}netads_json.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}netads_json.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}samba_dnsupdate.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}samba_dnsupdate.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls_basic.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls_basic.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls_dfs_propagate_inherit.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls_dfs_propagate_inherit.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls_propagate_inhertance.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcacls_propagate_inhertance.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcontrol.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcontrol.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcontrol_process.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}smbcontrol_process.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}traffic_learner.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}traffic_learner.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}traffic_replay.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}traffic_replay.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}traffic_summary.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/${MODPY_PYCACHE}traffic_summary.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/bug13653.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/check_output.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/downgradedatabase.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/mdsearch.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/ndrdump.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/netads_dns.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/netads_json.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/samba_dnsupdate.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/smbcacls.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/smbcacls_basic.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/smbcacls_dfs_propagate_inherit.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/smbcacls_propagate_inhertance.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/smbcontrol.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/smbcontrol_process.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/traffic_learner.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/traffic_replay.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/blackbox/traffic_summary.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/common.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/complex_expressions.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/compression.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/core.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/cred_opt.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/credentials.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}array.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}array.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}bare.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}bare.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}binding.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}binding.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}createtrustrelax.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}createtrustrelax.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}dnsserver.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}dnsserver.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}integer.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}integer.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}lsa.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}lsa.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}mdssvc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}mdssvc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}misc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}misc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}raw_protocol.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}raw_protocol.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}raw_testcase.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}raw_testcase.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}registry.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}registry.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}rpc_talloc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}rpc_talloc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}rpcecho.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}rpcecho.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}sam.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}sam.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}samr_change_password.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}samr_change_password.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}srvsvc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}srvsvc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}string_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}string_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}testrpc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}testrpc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}unix.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/${MODPY_PYCACHE}unix.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/array.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/bare.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/binding.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/createtrustrelax.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/dnsserver.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/integer.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/lsa.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/mdssvc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/misc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/raw_protocol.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/raw_testcase.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/registry.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/rpc_talloc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/rpcecho.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/sam.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/samr_change_password.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/srvsvc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/string_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/testrpc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dcerpc/unix.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dckeytab.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_aging.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_base.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_forwarder.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_forwarder_helpers/
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_forwarder_helpers/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_forwarder_helpers/${MODPY_PYCACHE}server.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_forwarder_helpers/${MODPY_PYCACHE}server.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_forwarder_helpers/server.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_invalid.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_packet.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_tkey.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dns_wildcard.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/docs.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/domain_backup.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/domain_backup_offline.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dsdb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dsdb_api.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dsdb_dns.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dsdb_lock.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/dsdb_schema_attributes.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/${MODPY_PYCACHE}traffic.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/${MODPY_PYCACHE}traffic.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/${MODPY_PYCACHE}traffic_packet.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/${MODPY_PYCACHE}traffic_packet.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/traffic.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/emulate/traffic_packet.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/encrypted_secrets.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/gensec.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/get_opt.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/getdcname.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/glue.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/gpo.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/gpo_member.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/graph.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/group_audit.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/hostconfig.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/imports.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/join.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}graph.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}graph_utils.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}graph_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}kcc_utils.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}kcc_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}ldif_import_export.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/${MODPY_PYCACHE}ldif_import_export.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/graph.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/graph_utils.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/kcc_utils.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/kcc/ldif_import_export.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}alias_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}alias_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}as_canonicalization_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}as_canonicalization_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}as_req_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}as_req_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}claims_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}claims_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}compatability_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}compatability_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}etype_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}etype_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}fast_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}fast_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}group_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}group_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kcrypto.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kcrypto.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kdc_base_test.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kdc_base_test.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kdc_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kdc_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kdc_tgs_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kdc_tgs_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kpasswd_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}kpasswd_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}lockout_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}lockout_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}ms_kile_client_principal_lookup_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}ms_kile_client_principal_lookup_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}nt_hash_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}nt_hash_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}pac_align_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}pac_align_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}protected_users_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}protected_users_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}raw_testcase.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}raw_testcase.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}rfc4120_constants.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}rfc4120_constants.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}rfc4120_pyasn1.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}rfc4120_pyasn1.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}rodc_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}rodc_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}s4u_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}s4u_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}salt_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}salt_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}simple_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}simple_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}spn_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}spn_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_ccache.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_ccache.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_idmap_nss.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_idmap_nss.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_ldap.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_ldap.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_min_domain_uid.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_min_domain_uid.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_rpc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_rpc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_smb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}test_smb.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}xrealm_tests.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/${MODPY_PYCACHE}xrealm_tests.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/alias_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/as_canonicalization_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/as_req_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/claims_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/compatability_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/etype_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/fast_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/group_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/kcrypto.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/kdc_base_test.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/kdc_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/kdc_tgs_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/kpasswd_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/lockout_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/ms_kile_client_principal_lookup_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/nt_hash_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/pac_align_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/protected_users_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/raw_testcase.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/rfc4120_constants.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/rfc4120_pyasn1.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/rodc_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/s4u_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/salt_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/simple_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/spn_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/test_ccache.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/test_idmap_nss.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/test_ldap.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/test_min_domain_uid.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/test_rpc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/test_smb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5/xrealm_tests.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/krb5_credentials.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ldap_raw.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ldap_referrals.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ldap_spn.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ldap_upn_sam_account.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/libsmb-basic.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/libsmb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/loadparm.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/logfiles.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/lsa_string.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/messaging.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ndr.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/net_join.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/net_join_no_spnego.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/netbios.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/netcmd.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/netlogonsvc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ntacls.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ntacls_backup.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ntlm_auth.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ntlm_auth_base.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ntlm_auth_krb5.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/ntlmdisabled.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/pam_winbind.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/pam_winbind_chauthtok.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/pam_winbind_setcred.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/pam_winbind_warn_pwd_expire.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/param.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/password_hash.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/password_hash_fl2003.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/password_hash_fl2008.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/password_hash_gpgme.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/password_hash_ldap.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/password_quality.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/password_test.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/policy.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/posixacl.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/prefork_restart.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/process_limits.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/provision.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/pso.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/py_credentials.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/registry.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/reparsepoints.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/s3_net_join.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/s3idmapdb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/s3param.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/s3passdb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/s3registry.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/s3windb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/safe_tarfile.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba3sam.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}base.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}base.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}computer.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}computer.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}contact.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}contact.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}demote.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}demote.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}dnscmd.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}dnscmd.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}drs_clone_dc_data_lmdb_size.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}drs_clone_dc_data_lmdb_size.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}dsacl.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}dsacl.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}forest.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}forest.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}fsmo.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}fsmo.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}gpo.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}gpo.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}gpo_exts.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}gpo_exts.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}group.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}group.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}help.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}help.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}join.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}join.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}join_lmdb_size.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}join_lmdb_size.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}join_member.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}join_member.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}ntacl.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}ntacl.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}ou.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}ou.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}passwordsettings.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}passwordsettings.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}processes.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}processes.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}promote_dc_lmdb_size.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}promote_dc_lmdb_size.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}provision_lmdb_size.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}provision_lmdb_size.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}provision_password_check.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}provision_password_check.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}provision_userPassword_crypt.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}provision_userPassword_crypt.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}rodc.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}rodc.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}schema.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}schema.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}sites.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}sites.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}timecmd.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}timecmd.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_check_password_script.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_check_password_script.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA_base.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA_base.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA_gpg.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA_gpg.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA_userPassword.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_virtualCryptSHA_userPassword.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_wdigest.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}user_wdigest.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}visualize.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}visualize.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}visualize_drs.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/${MODPY_PYCACHE}visualize_drs.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/base.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/computer.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/contact.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/demote.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/dnscmd.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/drs_clone_dc_data_lmdb_size.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/dsacl.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/forest.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/fsmo.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/gpo.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/gpo_exts.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/group.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/help.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/join.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/join_lmdb_size.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/join_member.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/ntacl.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/ou.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/passwordsettings.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/processes.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/promote_dc_lmdb_size.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/provision_lmdb_size.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/provision_password_check.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/provision_userPassword_crypt.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/rodc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/schema.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/sites.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/timecmd.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/user.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/user_check_password_script.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/user_virtualCryptSHA.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/user_virtualCryptSHA_base.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/user_virtualCryptSHA_gpg.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/user_virtualCryptSHA_userPassword.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/user_wdigest.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/visualize.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_tool/visualize_drs.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samba_upgradedns_lmdb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samdb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/samdb_api.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/sddl.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/security.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/segfault.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/sid_strings.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smb-notify.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smb.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smb1posix.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smb2symlink.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smb3unix.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smbconf.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smbd_base.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/smbd_fuzztest.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/source.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/source_chars.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/strings.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/subunitrun.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/tdb_util.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/upgrade.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/upgradeprovision.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/upgradeprovisionneeddc.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/usage.py
+lib/python${MODPY_VERSION}/site-packages/samba/tests/xattr.py
+lib/python${MODPY_VERSION}/site-packages/samba/trust_utils.py
+lib/python${MODPY_VERSION}/site-packages/samba/upgrade.py
+lib/python${MODPY_VERSION}/site-packages/samba/upgradehelpers.py
+lib/python${MODPY_VERSION}/site-packages/samba/uptodateness.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/werror.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/samba/xattr.py
+@so lib/python${MODPY_VERSION}/site-packages/samba/xattr_native.${MODPY_PYC_MAGIC_TAG}so
+@so lib/python${MODPY_VERSION}/site-packages/samba/xattr_tdb.${MODPY_PYC_MAGIC_TAG}so
+lib/python${MODPY_VERSION}/site-packages/tevent.py
+lib/samba/
+lib/samba/idmap/
+@so lib/samba/idmap/ad.so
+@so lib/samba/idmap/autorid.so
+@so lib/samba/idmap/hash.so
+@so lib/samba/idmap/rfc2307.so
+@so lib/samba/idmap/rid.so
+@so lib/samba/idmap/script.so
+@so lib/samba/idmap/tdb2.so
+lib/samba/krb5/
+@so lib/samba/krb5/async_dns_krb5_locator.so
+@so lib/samba/krb5/winbind_krb5_locator.so
+lib/samba/ldb/
+@so lib/samba/ldb/asq.so
+@so lib/samba/ldb/ildap.so
+@so lib/samba/ldb/ldap.so
+@so lib/samba/ldb/ldb.so
+@so lib/samba/ldb/ldbsamba_extensions.so
+@so lib/samba/ldb/paged_searches.so
+@so lib/samba/ldb/rdn_name.so
+@so lib/samba/ldb/sample.so
+@so lib/samba/ldb/server_sort.so
+@so lib/samba/ldb/skel.so
+@so lib/samba/ldb/tdb.so
+@so lib/samba/libCHARSET3-samba4.so
+@so lib/samba/libLIBWBCLIENT-OLD-samba4.so
+@so lib/samba/libMESSAGING-SEND-samba4.so
+@so lib/samba/libMESSAGING-samba4.so
+@so lib/samba/libREG-FULL-samba4.so
+@so lib/samba/libRPC-SERVER-LOOP-samba4.so
+@so lib/samba/libRPC-WORKER-samba4.so
+@so lib/samba/libaddns-samba4.so
+@so lib/samba/libads-samba4.so
+@so lib/samba/libasn1-samba4.so
+@so lib/samba/libasn1util-samba4.so
+@so lib/samba/libauth-samba4.so
+@so lib/samba/libauth-unix-token-samba4.so
+@so lib/samba/libauth4-samba4.so
+@so lib/samba/libauthkrb5-samba4.so
+@so lib/samba/libcli-cldap-samba4.so
+@so lib/samba/libcli-ldap-common-samba4.so
+@so lib/samba/libcli-ldap-samba4.so
+@so lib/samba/libcli-nbt-samba4.so
+@so lib/samba/libcli-smb-common-samba4.so
+@so lib/samba/libcli-spoolss-samba4.so
+@so lib/samba/libcliauth-samba4.so
+@so lib/samba/libclidns-samba4.so
+@so lib/samba/libcluster-samba4.so
+@so lib/samba/libcmdline-contexts-samba4.so
+@so lib/samba/libcmdline-samba4.so
+@so lib/samba/libcom-err-samba4.so
+@so lib/samba/libcommon-auth-samba4.so
+@so lib/samba/libdbwrap-samba4.so
+@so lib/samba/libdcerpc-pkt-auth-samba4.so
+@so lib/samba/libdcerpc-samba-samba4.so
+@so lib/samba/libdcerpc-samba4.so
+@so lib/samba/libdnsserver-common-samba4.so
+@so lib/samba/libdsdb-module-samba4.so
+@so lib/samba/libevents-samba4.so
+@so lib/samba/libflag-mapping-samba4.so
+@so lib/samba/libgenrand-samba4.so
+@so lib/samba/libgensec-samba4.so
+@so lib/samba/libgpext-samba4.so
+@so lib/samba/libgpo-samba4.so
+@so lib/samba/libgse-samba4.so
+@so lib/samba/libgss-preauth-samba4.so
+@so lib/samba/libgssapi-samba4.so
+@so lib/samba/libhcrypto-samba4.so
+@so lib/samba/libhdb-samba4.so
+@so lib/samba/libheimbase-samba4.so
+@so lib/samba/libheimntlm-samba4.so
+@so lib/samba/libhttp-samba4.so
+@so lib/samba/libhx509-samba4.so
+@so lib/samba/libidmap-samba4.so
+@so lib/samba/libinterfaces-samba4.so
+@so lib/samba/libiov-buf-samba4.so
+@so lib/samba/libkdc-samba4.so
+@so lib/samba/libkrb5-samba4.so
+@so lib/samba/libkrb5samba-samba4.so
+@so lib/samba/libldb-cmdline-samba4.so
+@so lib/samba/libldb-key-value-samba4.so
+@so lib/samba/libldb-tdb-err-map-samba4.so
+@so lib/samba/libldb-tdb-int-samba4.so
+@so lib/samba/libldbsamba-samba4.so
+@so lib/samba/liblibcli-lsa3-samba4.so
+@so lib/samba/liblibcli-netlogon3-samba4.so
+@so lib/samba/liblibsmb-samba4.so
+@so lib/samba/libmessages-dgm-samba4.so
+@so lib/samba/libmessages-util-samba4.so
+@so lib/samba/libmscat-samba4.so
+@so lib/samba/libmsghdr-samba4.so
+@so lib/samba/libmsrpc3-samba4.so
+@so lib/samba/libndr-samba-samba4.so
+@so lib/samba/libndr-samba4.so
+@so lib/samba/libnet-keytab-samba4.so
+@so lib/samba/libnetif-samba4.so
+@so lib/samba/libnpa-tstream-samba4.so
+@so lib/samba/libnss-info-samba4.so
+@so lib/samba/libposix-eadb-samba4.so
+@so lib/samba/libprinter-driver-samba4.so
+@so lib/samba/libprinting-migrate-samba4.so
+@so lib/samba/libregistry-samba4.so
+@so lib/samba/libreplace-samba4.so
+@so lib/samba/libroken-samba4.so
+@so lib/samba/libsamba-cluster-support-samba4.so
+@so lib/samba/libsamba-debug-samba4.so
+@so lib/samba/libsamba-modules-samba4.so
+@so lib/samba/libsamba-net.${SAMBA_PYTHON_MAGIC_TAG}.so
+@so lib/samba/libsamba-python.${SAMBA_PYTHON_MAGIC_TAG}.so
+@so lib/samba/libsamba-security-samba4.so
+@so lib/samba/libsamba-sockets-samba4.so
+@so lib/samba/libsamba3-util-samba4.so
+@so lib/samba/libsamdb-common-samba4.so
+@so lib/samba/libsecrets3-samba4.so
+@so lib/samba/libserver-id-db-samba4.so
+@so lib/samba/libserver-role-samba4.so
+@so lib/samba/libshares-samba4.so
+@so lib/samba/libsmb-transport-samba4.so
+@so lib/samba/libsmbclient-raw-samba4.so
+@so lib/samba/libsmbd-base-samba4.so
+@so lib/samba/libsmbd-shim-samba4.so
+@so lib/samba/libsmbldaphelper-samba4.so
+@so lib/samba/libsmbpasswdparser-samba4.so
+@so lib/samba/libsocket-blocking-samba4.so
+@so lib/samba/libstable-sort-samba4.so
+@so lib/samba/libsys-rw-samba4.so
+@so lib/samba/libtalloc-report-printf-samba4.so
+@so lib/samba/libtalloc-report-samba4.so
+@so lib/samba/libtdb-wrap-samba4.so
+@so lib/samba/libtime-basic-samba4.so
+@so lib/samba/libtorture-samba4.so
+@so lib/samba/libtrusts-util-samba4.so
+@so lib/samba/libutil-reg-samba4.so
+@so lib/samba/libutil-setid-samba4.so
+@so lib/samba/libutil-tdb-samba4.so
+@so lib/samba/libwind-samba4.so
+@so lib/samba/libxattr-tdb-samba4.so
+lib/samba/nss_info/
+@so lib/samba/nss_info/hash.so
+@so lib/samba/nss_info/rfc2307.so
+@so lib/samba/nss_info/sfu.so
+@so lib/samba/nss_info/sfu20.so
+lib/samba/vfs/
+@so lib/samba/vfs/acl_tdb.so
+@so lib/samba/vfs/acl_xattr.so
+@so lib/samba/vfs/aio_fork.so
+@so lib/samba/vfs/aio_pthread.so
+@so lib/samba/vfs/audit.so
+@so lib/samba/vfs/cap.so
+@so lib/samba/vfs/catia.so
+@so lib/samba/vfs/commit.so
+@so lib/samba/vfs/crossrename.so
+@so lib/samba/vfs/default_quota.so
+@so lib/samba/vfs/dirsort.so
+@so lib/samba/vfs/expand_msdfs.so
+@so lib/samba/vfs/extd_audit.so
+@so lib/samba/vfs/fake_perms.so
+@so lib/samba/vfs/fruit.so
+@so lib/samba/vfs/full_audit.so
+@so lib/samba/vfs/linux_xfs_sgid.so
+@so lib/samba/vfs/media_harmony.so
+@so lib/samba/vfs/offline.so
+@so lib/samba/vfs/preopen.so
+@so lib/samba/vfs/readahead.so
+@so lib/samba/vfs/readonly.so
+@so lib/samba/vfs/recycle.so
+@so lib/samba/vfs/shadow_copy.so
+@so lib/samba/vfs/shadow_copy2.so
+@so lib/samba/vfs/shell_snap.so
+@so lib/samba/vfs/streams_depot.so
+@so lib/samba/vfs/streams_xattr.so
+@so lib/samba/vfs/syncops.so
+@so lib/samba/vfs/time_audit.so
+@so lib/samba/vfs/unityed_media.so
+@so lib/samba/vfs/virusfilter.so
+@so lib/samba/vfs/widelinks.so
+@so lib/samba/vfs/worm.so
+@so lib/samba/vfs/xattr_tdb.so
+@so lib/security/pam_winbind.so
+libexec/samba/
+@bin libexec/samba/rpcd_classic
+@bin libexec/samba/rpcd_epmapper
+@bin libexec/samba/rpcd_fsrvp
+@bin libexec/samba/rpcd_lsad
+@bin libexec/samba/rpcd_mdssvc
+@bin libexec/samba/rpcd_rpcecho
+@bin libexec/samba/rpcd_spoolss
+@bin libexec/samba/rpcd_winreg
+@bin libexec/samba/samba-bgqd
+@bin libexec/samba/samba-dcerpcd
+@bin libexec/samba/smbspool_krb5_wrapper
+@man man/man1/dbwrap_tool.1
+@man man/man1/gentest.1
+@man man/man1/ldbadd.1
+@man man/man1/ldbdel.1
+@man man/man1/ldbedit.1
+@man man/man1/ldbmodify.1
+@man man/man1/ldbrename.1
+@man man/man1/ldbsearch.1
+@man man/man1/locktest.1
+@man man/man1/log2pcap.1
+@man man/man1/masktest.1
+@man man/man1/mdsearch.1
+@man man/man1/mvxattr.1
+@man man/man1/ndrdump.1
+@man man/man1/nmblookup.1
+@man man/man1/ntlm_auth.1
+@man man/man1/oLschema2ldif.1
+@man man/man1/profiles.1
+@man man/man1/regdiff.1
+@man man/man1/regpatch.1
+@man man/man1/regshell.1
+@man man/man1/regtree.1
+@man man/man1/rpcclient.1
+@man man/man1/sharesec.1
+@man man/man1/smbcacls.1
+@man man/man1/smbclient.1
+@man man/man1/smbcontrol.1
+@man man/man1/smbcquotas.1
+@man man/man1/smbget.1
+@man man/man1/smbstatus.1
+@man man/man1/smbtar.1
+@man man/man1/smbtorture.1
+@man man/man1/smbtree.1
+@man man/man1/testparm.1
+@man man/man1/wbinfo.1
+@man man/man3/ldb.3
+@man man/man5/lmhosts.5
+@man man/man5/pam_winbind.conf.5
+@man man/man5/smb.conf.5
+@man man/man5/smbgetrc.5
+@man man/man5/smbpasswd.5
+@man man/man7/libsmbclient.7
+@man man/man7/samba.7
+@man man/man7/traffic_learner.7
+@man man/man7/traffic_replay.7
+@man man/man8/cifsdd.8
+@man man/man8/eventlogadm.8
+@man man/man8/idmap_ad.8
+@man man/man8/idmap_autorid.8
+@man man/man8/idmap_hash.8
+@man man/man8/idmap_ldap.8
+@man man/man8/idmap_nss.8
+@man man/man8/idmap_rfc2307.8
+@man man/man8/idmap_rid.8
+@man man/man8/idmap_script.8
+@man man/man8/idmap_tdb.8
+@man man/man8/idmap_tdb2.8
+@man man/man8/net.8
+@man man/man8/nmbd.8
+@man man/man8/pam_winbind.8
+@man man/man8/pdbedit.8
+@man man/man8/samba-bgqd.8
+@man man/man8/samba-dcerpcd.8
+@man man/man8/samba-gpupdate.8
+@man man/man8/samba-regedit.8
+@man man/man8/samba-tool.8
+@man man/man8/samba.8
+@man man/man8/samba_downgrade_db.8
+@man man/man8/smbd.8
+@man man/man8/smbpasswd.8
+@man man/man8/smbspool.8
+@man man/man8/smbspool_krb5_wrapper.8
+@man man/man8/vfs_acl_tdb.8
+@man man/man8/vfs_acl_xattr.8
+@man man/man8/vfs_aio_fork.8
+@man man/man8/vfs_aio_pthread.8
+@man man/man8/vfs_audit.8
+@man man/man8/vfs_cap.8
+@man man/man8/vfs_catia.8
+@man man/man8/vfs_commit.8
+@man man/man8/vfs_crossrename.8
+@man man/man8/vfs_default_quota.8
+@man man/man8/vfs_dirsort.8
+@man man/man8/vfs_expand_msdfs.8
+@man man/man8/vfs_extd_audit.8
+@man man/man8/vfs_fake_perms.8
+@man man/man8/vfs_fruit.8
+@man man/man8/vfs_full_audit.8
+@man man/man8/vfs_linux_xfs_sgid.8
+@man man/man8/vfs_media_harmony.8
+@man man/man8/vfs_offline.8
+@man man/man8/vfs_preopen.8
+@man man/man8/vfs_readahead.8
+@man man/man8/vfs_readonly.8
+@man man/man8/vfs_recycle.8
+@man man/man8/vfs_shadow_copy.8
+@man man/man8/vfs_shadow_copy2.8
+@man man/man8/vfs_shell_snap.8
+@man man/man8/vfs_streams_depot.8
+@man man/man8/vfs_streams_xattr.8
+@man man/man8/vfs_syncops.8
+@man man/man8/vfs_time_audit.8
+@man man/man8/vfs_unityed_media.8
+@man man/man8/vfs_virusfilter.8
+@man man/man8/vfs_widelinks.8
+@man man/man8/vfs_worm.8
+@man man/man8/vfs_xattr_tdb.8
+@man man/man8/winbind_krb5_locator.8
+@man man/man8/winbindd.8
+@bin sbin/eventlogadm
+@bin sbin/nmbd
+sbin/samba-gpupdate
+@bin sbin/smbd
+@bin sbin/winbindd
+share/doc/pkg-readmes/${PKGSTEM}
+@comment share/doc/samba/
+share/examples/samba/
+share/examples/samba/smb.conf.default
+@sample ${SYSCONFDIR}/samba/smb.conf
+@mode 0750
+@sample /var/cache/samba/
+@sample ${SAMBA_LOGDIR}/
+@sample /var/samba/
+@mode 0700
+@sample /var/samba/private/

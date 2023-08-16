@@ -1,0 +1,4 @@
+@bin bin/endlessh
+@man man/man1/endlessh.1
+share/examples/endlessh/
+share/examples/endlessh/config

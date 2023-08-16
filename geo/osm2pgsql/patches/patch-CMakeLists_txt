@@ -1,0 +1,12 @@
+Index: CMakeLists.txt
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -188,7 +188,7 @@ if (WITH_LUA)
+         add_definitions(-DHAVE_LUAJIT=1)
+     else()
+         message(STATUS "Building with Lua support")
+-        find_package(Lua REQUIRED)
++        find_package(Lua ${MODLUA_VERSION} REQUIRED)
+         include_directories(SYSTEM ${LUA_INCLUDE_DIR})
+     endif()
+     add_definitions(-DHAVE_LUA=1)

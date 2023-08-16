@@ -1,0 +1,244 @@
+.\"	$OpenBSD: pf-badhost.1,v 1.00 2021/02/19 04:20:00 secbsd Exp $
+.\"
+.\" Copyright (c) 2018-2021 Jordan Geoghegan <jordan@geoghegan.ca>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.\"
+.TH pf-badhost "January 10 2021" "pf-badhost 0.5" "pf-badhost Manual"
+.SH NAME
+pf-badhost
+.SH SYNOPSIS
+.B pf-badhost [ -46ABDGVhnx ] [ -H [integer] ] [ -O [OS type] ] [ -R [integer] ]
+	      [ -T [option] ] [ -g [ISO3166 code] ] [ -l [URL] ] [ -o [option] ]
+	      [ -r [rule] ] [ -u [path] ] [ -w [path] ]
+
+DEBUGGING OPTIONS
+.B  pf-badhost	[ -E [zcat/bzcat] ] [ -F [curl/fetch/ftp/wget] ] [ -J [authlog path] ] [-K [authlog path 2] ] 
+		[ -Z [doas] ]
+.SH DESCRIPTION
+.B pf-badhost fetches IP block lists and parses them into a format suitable for feeding into a PF firewall table.
+
+.BThe options are as follows:
+
+-4
+    Generate IPv4 blocklist.
+
+-6
+    Generate IPv6 blocklist.
+
+-A
+    Enable IP subnet aggregation. This will format blocklist data into smallest possible representation using CIDR notation.
+
+-B
+    Output mixed IPv4 and IPv6 blocklist.
+
+-D
+    Disable UID checking.
+    pf-badhost must normally be run as the user '_pfbadhost', and this option disables that check. 
+    This option is commonly used in conjunction with the '-x' option.
+
+-G
+    Enable Geoblocking and country/region based blacklisting.
+
+-H [arg]
+    Enable SSH authlog analysis (Hail Mary Cloud mitigation).
+    This feature scans the users SSH authlogs for bruteforcers.
+    Argument specifies the maximum number of failed login attempts before adding bruteforcer to blocklist.
+
+-O [arg]
+    Specify Operating System type. Valid option are:
+	* DragonflyBSD
+	* FreeBSD
+	* MacOS
+	* NetBSD
+	* OpenBSD
+	* SecBSD
+	* custom
+
+    The OS type argument is treated special, as its options are case insensitive. 
+    For example, 'OpenBSD' and 'openbsd' are both equally valid arguments for '-O'
+
+    The 'custom' option allows the user to specify a custom OS type. Arguments '-E', '-F' and '-Z'  
+    and their respective options must also be used when specifying 'custom' as an OS type.
+    If Geoblocking is also enabled, '-J' and '-K' arguments will need to be passed.
+
+-R [int]
+    Specify maximum number of URL fetch attempts. Default is 3. Specify '0' to disable retrys.
+
+-T [arg]
+    Enable Tor filtering. Valid (case insensitive) arguments are:
+	* allow
+	* block
+	* block_exit
+
+    - The 'allow' option will whitelist all Tor relays and exit nodes
+    - the 'block' option will block all Tor relays and exit nodes
+    - The 'block_exit' option will block only Tor exit nodes
+
+-V
+    Disable all printing of warning messages.
+    Fatal error messages will still be printed and logged to /var/log/messages.
+
+-a [arg]
+    Specify ASN (Autonomous System Number) to block. ASN are case insensitive.
+    May be specified multiple times to add multiple ASN.
+	Example format: pf-badhost -a 'AS64496' ...
+
+-b [arg]
+    Enable bogon filtering. This option accepts either '4' or '6' as an argument to denote which
+    address family to filter for bogons. '46' or '64' may be specified to filter both IPv4 and IPv6 bogons.
+
+-g [arg]
+    Specify ISO 3166 country code to block. Country codes are case insensitive.
+    May be specified multiple times to add multiple countries.
+    Use of this option implies '-G'.
+
+-h
+    Print help message and exit.
+
+-j [path]
+    Specify path to text file containing 1 or more ASN (Autonomous System Number) to block.
+    Entries within text file must be formatted 1 per line. Lines starting with '#' will be ignored.
+    This option may be specified multiple times.
+
+-l [url]
+    Specify URL to fetch blocklist data from. May be specified multiple times to add multiple blocklists.
+    Depending on specified fetch utility (ftp/fetch/curl/wget etc) pf-badhost should support HTTP, FTP and local files.
+
+-n
+    Dry run mode. This option will sanity check configuration and return 0 on success and >0 on failure.
+
+-o [arg]
+    Options: (case insensitive)
+
+    * log | no-log
+	enable/disable logging to /var/log/unbound-adblock/
+
+    * pipefail
+	Use 'set -o pipefail'. This isn't used by default yet as it's a very recent addition to OpenBSD's ksh.
+
+    * strict | no-strict 
+	Enable/disable strict mode.
+	Enabling strict mode prevents unbound-adblock from aborting if it fails to fetch one or more blocklists.
+
+    * uid-check | no-uid-check 
+	Enable/disable forced use of user '_pfbadhost'. See '-D' description.
+
+    * verbose | no-verbose
+	Enable/disable printing of warning messages. See '-V' description.
+
+-r [arg]
+    Specify custom rule. May be specified multiple times to add additional rules.
+    This option accepts all input valid for use in a PF table such as IPv4 and IPv6 addressses and CIDR ranges.
+    Addresses and CIDR ranges can be whitelisted by prefacing the rule with an exclamation point.
+    Note: No address validation is performed on custom rules - use with care!
+
+-u [path]
+    Specify path to text file containing 1 or more blocklist URLs to fetch.
+    URLs within text file must be formatted 1 per line. Lines starting with '#' will be ignored.
+    This option may be specified multiple times.
+
+-w [path]
+    Specify path to text file containing list of 1 or more custom rules.
+    Rules within text file must be formatted 1 per line. Lines starting with '#' or ';' will be ignored.
+    Accepts all input valid for use in a PF table such as IPv4 and IPv6 addressses and CIDR ranges.
+    Addresses and CIDR ranges can be whitelisted by prefacing the rule with a exclamation point.
+    This option may be specified multiple times to add additional lists.
+    ---
+    Note: No address validation is performed on custom rules - use with care!
+-x
+    This option instructs pf-badhost to print the generated blocklist to stdout instead of reloading the PF table.
+    This is useful for exporting pf-badhost blocklist data for external use.
+    Use of this option implies '-D' and '-o no-log'.
+
+
+DEBUGGING OPTIONS DESCRIPTION
+
+Note: These options are intended to be used in conjunction with the '-O custom' argument.
+
+-E [arg]
+    Specify tool for unzipping authlog data.
+
+-F [arg]
+    Specify tool for fetching blocklists [curl/fetch/ftp/wget].
+
+-J [path]
+    Specify SSH authlog path.
+
+-K [path]
+    Specify secondary SSH authlog path.
+
+-Z [arg]
+    Specify tool used to perform root priviledge actions, typically 'doas'.
+.Sh EXIT STATUS
+The pf-badhost utility exits 0 on success, and >0 if an error occurs.
+.Sh EXAMPLES
+The following examples are shown as given to the shell:
+
+-- Run pf-badhost with mixed IPv4/IPv6 list after following the traditional install method:
+
+$ pf-badhost -B -O openbsd
+
+-- Print generated blocklist to stdout:
+
+$ pf-badhost -Dx -O openbsd
+
+-- Check configuration validity
+
+pf-badhost -n -O openbsd
+
+-- Specify custom rules and blocklist URL:
+
+$ pf-badhost -O openbsd -r '192.0.2.5' -r '!fe80::/10' -l 'https://example.com/null.txt'
+
+-- Specify path to list of blocklist URLs
+
+$ pf-badhost -0 openbsd -u /var/db/urls.txt
+
+-- Additionally fetch local gzip compressed blocklist file
+
+pf-badhost -O openbsd -l '/var/db/blocklist.txt.gz'
+
+-- Disable all checks, logging and printing of warnings:
+
+$ pf-badhost -DV -o no-strict -O openbsd
+
+-- Specify custom OS type and requisite info:
+
+$ pf-badhost -O custom -E 'zcat' -F 'fetch' -Z 'doas'
+
+.Sh STANDARDS
+pf-badhost does not conform to the POSIX shell spec, but instead aims for KSH compatability.
+
+Any shell supporting 'typeset' and KSH array syntax should work fine. 
+
+pf-badhost has been confirmed to run on the following shells:
+	* oksh (OpenBSD's ksh)
+	* ksh93
+	* bash
+	* zsh
+.Sh AUTHORS
+Jordan Geoghegan
+.Sh CAVEATS
+On platforms that use FreeGrep (OpenBSD, MacOS), their grep is very slow and
+may even (on MacOS) segfault on the IPv6 regex. It is strongly recommended to
+replace the use of FreeGrep with something like RipGrep or GNU grep
+
+IPv6 list parsing requires input to be formatted 1 address per line whereas
+IPv4 list parsing supports arbitrary input formatting (text, JSON, XML, HTML etc)
+
+You may need to flush the pf-badhost table if attempting to reload pf ruleset with over
+100,000 entries in list. Use: pfctl -t pfbadhost -T flush
+.SH WWW
+https://www.geoghegan.ca/pfbadhost.html

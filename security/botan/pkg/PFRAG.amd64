@@ -1,0 +1,2 @@
+include/botan-1.10/botan/idea_sse2.h
+include/botan-1.10/botan/sha1_sse2.h

@@ -1,0 +1,29 @@
+Index: src/compile.lsp.in
+--- src/compile.lsp.in.orig
++++ src/compile.lsp.in
+@@ -91,19 +91,19 @@
+       "@LDFLAGS@ @LIBPREFIX@ecl.@LIBEXT@ @CORE_LIBS@ @FASL_LIBS@ @LIBS@")
+ #+(and :wants-dlopen (not nonstop))
+ (setf c::*ld-flags*
+-      "@LDFLAGS@ @SHAREDPREFIX@ecl.@SHAREDEXT@ @LIBS@"
++      "@LDFLAGS@ -L. -lecl @LIBS@"
+       c::*ld-shared-flags*
+-      "@SHARED_LDFLAGS@ @LDFLAGS@ @SHAREDPREFIX@ecl.@SHAREDEXT@ @FASL_LIBS@ @LIBS@"
++      "@SHARED_LDFLAGS@ @LDFLAGS@ -L. -lecl @FASL_LIBS@ @LIBS@"
+       c::*ld-bundle-flags*
+-      "@BUNDLE_LDFLAGS@ @LDFLAGS@ @SHAREDPREFIX@ecl.@SHAREDEXT@ @FASL_LIBS@ @LIBS@")
++      "@BUNDLE_LDFLAGS@ @LDFLAGS@ -L. -lecl @FASL_LIBS@ @LIBS@")
+ ;;; FIXME: The nonstop platform does not support soname
+ #+(and :wants-dlopen nonstop)
+ (setf c::*ld-flags*
+-      "@LDFLAGS@ -Wld=-l@SHAREDPREFIX@ecl.@SHAREDEXT@ @LIBS@"
++      "@LDFLAGS@ -Wld=-L.,-lecl @LIBS@"
+       c::*ld-shared-flags*
+-      "@SHARED_LDFLAGS@ @LDFLAGS@ -Wld=-l@SHAREDPREFIX@ecl.@SHAREDEXT@ @FASL_LIBS@ @LIBS@"
++      "@SHARED_LDFLAGS@ @LDFLAGS@ -Wld=-L.,-lecl @FASL_LIBS@ @LIBS@"
+       c::*ld-bundle-flags*
+-      "@BUNDLE_LDFLAGS@ @LDFLAGS@ -Wld=-l@SHAREDPREFIX@ecl.@SHAREDEXT@ @FASL_LIBS@ @LIBS@")
++      "@BUNDLE_LDFLAGS@ @LDFLAGS@ -Wld=-L.,-lecl @FASL_LIBS@ @LIBS@")
+ 
+ ;;;
+ ;;; * Avoid name clashes with user supplied code.

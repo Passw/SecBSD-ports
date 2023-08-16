@@ -1,0 +1,7 @@
+bin/smtp-user-enum.pl
+share/smtp-user-enum/
+share/smtp-user-enum/CHANGELOG
+share/smtp-user-enum/COPYING
+share/smtp-user-enum/COPYING.GPL
+share/smtp-user-enum/smtp-user-enum-user-docs.pdf
+share/smtp-user-enum/smtp-user-enum.pl

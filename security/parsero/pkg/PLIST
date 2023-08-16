@@ -1,0 +1,6 @@
+bin/parsero
+share/parsero/
+share/parsero/LICENSE.txt
+share/parsero/MANIFEST.in
+share/parsero/README.md
+share/parsero/parsero.py

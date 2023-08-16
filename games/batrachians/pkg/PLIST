@@ -1,0 +1,14 @@
+@bin bin/batrachians
+@man man/man6/batrachians.6
+share/applications/batrachians.desktop
+share/pixmaps/
+share/pixmaps/batrachians.png
+share/sounds/
+share/sounds/batrachians/
+share/sounds/batrachians/fly-eaten.wav
+share/sounds/batrachians/frog-jumps.wav
+share/sounds/batrachians/game-ends.wav
+share/sounds/batrachians/game-starts.wav
+share/sounds/batrachians/splash.wav
+share/sounds/batrachians/tongue-out.wav
+@tag update-desktop-database

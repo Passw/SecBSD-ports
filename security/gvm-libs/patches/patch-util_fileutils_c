@@ -1,0 +1,30 @@
+Index: util/fileutils.c
+--- util/fileutils.c.orig
++++ util/fileutils.c
+@@ -84,7 +84,7 @@ gvm_file_check_is_dir (const char *name)
+ int
+ gvm_file_exists (const char *name)
+ {
+-  return eaccess (name, F_OK) == 0;
++  return access (name, F_OK) == 0;
+ }
+ 
+ /**
+@@ -102,7 +102,7 @@ gvm_file_exists (const char *name)
+ int
+ gvm_file_is_executable (const char *name)
+ {
+-  return eaccess (name, X_OK) == 0;
++  return access (name, X_OK) == 0;
+ }
+ 
+ /**
+@@ -120,7 +120,7 @@ gvm_file_is_executable (const char *name)
+ int
+ gvm_file_is_readable (const char *name)
+ {
+-  return eaccess (name, R_OK) == 0;
++  return access (name, R_OK) == 0;
+ }
+ 
+ /**

@@ -1,0 +1,8 @@
+bin/blackwidow
+bin/injectx.py
+share/blackwidow/
+share/blackwidow/LICENSE.md
+share/blackwidow/README.md
+share/blackwidow/blackwidow
+share/blackwidow/blackwidow.desktop
+share/blackwidow/injectx.py

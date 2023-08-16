@@ -1,0 +1,23 @@
+Index: lttoolbox/lt_print.cc
+--- lttoolbox/lt_print.cc.orig
++++ lttoolbox/lt_print.cc
+@@ -25,6 +25,7 @@
+ #include <libgen.h>
+ #include <string>
+ #include <getopt.h>
++#include <unistd.h>
+ 
+ #ifdef _MSC_VER
+ #include <io.h>
+@@ -48,6 +49,11 @@ void endProgram(char *name)
+ 
+ int main(int argc, char *argv[])
+ {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    cerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   bool hfst = false;
+   FILE* input = NULL;
+   FILE* output = stdout;

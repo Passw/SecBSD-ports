@@ -1,0 +1,18 @@
+@bin bin/qsynth
+@man man/man1/qsynth.1
+@comment @man man/man1/qsynth.fr.1
+share/applications/qsynth.desktop
+share/icons/hicolor/32x32/apps/qsynth.png
+share/icons/hicolor/scalable/apps/qsynth.svg
+share/metainfo/
+share/metainfo/qsynth.appdata.xml
+share/qsynth/
+share/qsynth/translations/
+share/qsynth/translations/qsynth_cs.qm
+share/qsynth/translations/qsynth_de.qm
+share/qsynth/translations/qsynth_es.qm
+share/qsynth/translations/qsynth_fr.qm
+share/qsynth/translations/qsynth_ru.qm
+share/qsynth/translations/qsynth_sr.qm
+@tag update-desktop-database
+@tag gtk-update-icon-cache %D/share/icons/hicolor

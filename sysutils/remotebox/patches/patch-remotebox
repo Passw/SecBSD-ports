@@ -1,0 +1,19 @@
+See packagers-readme/README.TXT
+
+Index: remotebox
+--- remotebox.orig
++++ remotebox
+@@ -9,11 +9,11 @@ use POSIX qw(ceil);
+ use MIME::Base64;
+ use Glib ('TRUE','FALSE');
+ # *** PACKAGERS MAY WISH TO PATCH THIS LOCATION ***
+-use lib "$Bin/share/remotebox";
++use lib "${PREFIX}/share/remotebox";
+ # *************************************************
+ use vboxService qw($endpoint $fault :all);
+ # *** PACKAGERS MAY WISH TO PATCH THIS LOCATION ***
+-our $sharedir = "$Bin/share/remotebox";
++our $sharedir = "${PREFIX}/share/remotebox";
+ # *************************************************
+ 
+ require 'vboxserializers.pl';

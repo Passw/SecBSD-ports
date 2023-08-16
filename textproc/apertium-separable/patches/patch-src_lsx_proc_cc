@@ -1,0 +1,19 @@
+Index: src/lsx_proc.cc
+--- src/lsx_proc.cc.orig
++++ src/lsx_proc.cc
+@@ -1,9 +1,15 @@
+ #include <lttoolbox/lt_locale.h>
+ #include <iostream>
++#include <unistd.h>
+ #include "lsx_processor.h"
+ 
+ int main (int argc, char** argv)
+ {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    wcerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   char *fname = NULL;
+   bool nullFlush = false;
+   if(argc != 2 && argc != 3)

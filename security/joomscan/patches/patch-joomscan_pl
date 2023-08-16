@@ -1,0 +1,11 @@
+$OpenBSD$
+
+Index: joomscan.pl
+--- joomscan.pl.orig
++++ joomscan.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/perl -w
+ #
+ #            --------------------------------------------------
+ #                            OWASP JoomScan

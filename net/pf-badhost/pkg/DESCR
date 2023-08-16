@@ -1,0 +1,18 @@
+pf-badhost is a fast, bi-directional network filtering utility powered by the PF
+firewall. pf-badhost blocks many of the internet's biggest irritants --
+annoyances such as SSH and SMTP bruteforcers are largely eliminated. Shodan
+scans and bots looking for webservers to abuse are stopped dead in their tracks.
+When used to filter outbound traffic, pf-badhost blocks many seedy, spooky
+malware containing web hosts.
+
+Filtering performance is exceptional, as the badhost list is stored in a PF
+table. To quote the OpenBSD FAQ page regarding tables: "the lookup time on a
+table holding 50,000 addresses is only slightly more than for one holding 50
+addresses."
+
+pf-badhost is simple and powerful. The blocklists are pulled from quality,
+trusted sources. The 'Spamhause', 'Firehol', 'Blocklist.de', 'Emerging Threats'
+and 'Binary Defense' block lists are used as they are popular, regularly updated
+lists of the internet's most egregious offenders. pf-badhost can easily be
+expanded to use additional and/or alternate blocklists as well as setting custom
+filter rules.

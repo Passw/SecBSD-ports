@@ -1,0 +1,14 @@
+disable cotire as it's deprecated and breaks the build with newer libc++
+
+Index: src/contrib/CMakeLists.txt
+--- src/contrib/CMakeLists.txt.orig
++++ src/contrib/CMakeLists.txt
+@@ -50,8 +50,6 @@ target_link_libraries(lucene++-contrib
+   lucene++
+ )
+ 
+-cotire(lucene++-contrib)
+-
+ install(TARGETS lucene++-contrib
+   DESTINATION "${LIB_DESTINATION}"
+   COMPONENT runtime

@@ -1,0 +1,124 @@
+@bin bin/puzzle-blackbox
+@bin bin/puzzle-bridges
+@bin bin/puzzle-cube
+@bin bin/puzzle-dominosa
+@bin bin/puzzle-fifteen
+@bin bin/puzzle-filling
+@bin bin/puzzle-flip
+@bin bin/puzzle-flood
+@bin bin/puzzle-galaxies
+@bin bin/puzzle-guess
+@bin bin/puzzle-inertia
+@bin bin/puzzle-keen
+@bin bin/puzzle-lightup
+@bin bin/puzzle-loopy
+@bin bin/puzzle-magnets
+@bin bin/puzzle-map
+@bin bin/puzzle-mines
+@bin bin/puzzle-mosaic
+@bin bin/puzzle-net
+@bin bin/puzzle-netslide
+@bin bin/puzzle-palisade
+@bin bin/puzzle-pattern
+@bin bin/puzzle-pearl
+@bin bin/puzzle-pegs
+@bin bin/puzzle-range
+@bin bin/puzzle-rect
+@bin bin/puzzle-samegame
+@bin bin/puzzle-signpost
+@bin bin/puzzle-singles
+@bin bin/puzzle-sixteen
+@bin bin/puzzle-slant
+@bin bin/puzzle-solo
+@bin bin/puzzle-tents
+@bin bin/puzzle-towers
+@bin bin/puzzle-tracks
+@bin bin/puzzle-twiddle
+@bin bin/puzzle-undead
+@bin bin/puzzle-unequal
+@bin bin/puzzle-unruly
+@bin bin/puzzle-untangle
+share/applications/puzzle-blackbox.desktop
+share/applications/puzzle-bridges.desktop
+share/applications/puzzle-cube.desktop
+share/applications/puzzle-dominosa.desktop
+share/applications/puzzle-fifteen.desktop
+share/applications/puzzle-filling.desktop
+share/applications/puzzle-flip.desktop
+share/applications/puzzle-flood.desktop
+share/applications/puzzle-galaxies.desktop
+share/applications/puzzle-guess.desktop
+share/applications/puzzle-inertia.desktop
+share/applications/puzzle-keen.desktop
+share/applications/puzzle-lightup.desktop
+share/applications/puzzle-loopy.desktop
+share/applications/puzzle-magnets.desktop
+share/applications/puzzle-map.desktop
+share/applications/puzzle-mines.desktop
+share/applications/puzzle-mosaic.desktop
+share/applications/puzzle-net.desktop
+share/applications/puzzle-netslide.desktop
+share/applications/puzzle-palisade.desktop
+share/applications/puzzle-pattern.desktop
+share/applications/puzzle-pearl.desktop
+share/applications/puzzle-pegs.desktop
+share/applications/puzzle-range.desktop
+share/applications/puzzle-rect.desktop
+share/applications/puzzle-samegame.desktop
+share/applications/puzzle-signpost.desktop
+share/applications/puzzle-singles.desktop
+share/applications/puzzle-sixteen.desktop
+share/applications/puzzle-slant.desktop
+share/applications/puzzle-solo.desktop
+share/applications/puzzle-tents.desktop
+share/applications/puzzle-towers.desktop
+share/applications/puzzle-tracks.desktop
+share/applications/puzzle-twiddle.desktop
+share/applications/puzzle-undead.desktop
+share/applications/puzzle-unequal.desktop
+share/applications/puzzle-unruly.desktop
+share/applications/puzzle-untangle.desktop
+share/doc/puzzles/
+share/doc/puzzles/puzzles.txt
+share/pixmaps/
+share/pixmaps/puzzle-blackbox-48d24.png
+share/pixmaps/puzzle-bridges-48d24.png
+share/pixmaps/puzzle-cube-48d24.png
+share/pixmaps/puzzle-dominosa-48d24.png
+share/pixmaps/puzzle-fifteen-48d24.png
+share/pixmaps/puzzle-filling-48d24.png
+share/pixmaps/puzzle-flip-48d24.png
+share/pixmaps/puzzle-flood-48d24.png
+share/pixmaps/puzzle-galaxies-48d24.png
+share/pixmaps/puzzle-guess-48d24.png
+share/pixmaps/puzzle-inertia-48d24.png
+share/pixmaps/puzzle-keen-48d24.png
+share/pixmaps/puzzle-lightup-48d24.png
+share/pixmaps/puzzle-loopy-48d24.png
+share/pixmaps/puzzle-magnets-48d24.png
+share/pixmaps/puzzle-map-48d24.png
+share/pixmaps/puzzle-mines-48d24.png
+share/pixmaps/puzzle-mosaic-48d24.png
+share/pixmaps/puzzle-net-48d24.png
+share/pixmaps/puzzle-netslide-48d24.png
+share/pixmaps/puzzle-palisade-48d24.png
+share/pixmaps/puzzle-pattern-48d24.png
+share/pixmaps/puzzle-pearl-48d24.png
+share/pixmaps/puzzle-pegs-48d24.png
+share/pixmaps/puzzle-range-48d24.png
+share/pixmaps/puzzle-rect-48d24.png
+share/pixmaps/puzzle-samegame-48d24.png
+share/pixmaps/puzzle-signpost-48d24.png
+share/pixmaps/puzzle-singles-48d24.png
+share/pixmaps/puzzle-sixteen-48d24.png
+share/pixmaps/puzzle-slant-48d24.png
+share/pixmaps/puzzle-solo-48d24.png
+share/pixmaps/puzzle-tents-48d24.png
+share/pixmaps/puzzle-towers-48d24.png
+share/pixmaps/puzzle-tracks-48d24.png
+share/pixmaps/puzzle-twiddle-48d24.png
+share/pixmaps/puzzle-undead-48d24.png
+share/pixmaps/puzzle-unequal-48d24.png
+share/pixmaps/puzzle-unruly-48d24.png
+share/pixmaps/puzzle-untangle-48d24.png
+@tag update-desktop-database

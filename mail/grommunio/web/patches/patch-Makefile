@@ -1,0 +1,37 @@
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -8,7 +8,9 @@ JAVA ?= java
+ 
+ # Variables
+ 
+-DESTDIR ?= deploy
++ifeq ($(DESTDIR),)
++DESTDIR := deploy
++endif
+ 
+ # Javascript compiler
+ 
+@@ -102,7 +104,7 @@ js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $
+ 	# TODO use separate targets
+ 
+ $(DESTDIR)/%.php: %.php
+-	php -l $<
++	$(PHP) -l $<
+ 	mkdir -p $$(dirname $@)
+ 	cp $< $@
+ 
+@@ -288,11 +290,11 @@ tokenizr: node_modules
+ 
+ .PHONY: plugins
+ plugins:
+-	make -C plugins
++	$(MAKE) -C plugins
+ 
+ .PHONY: clean
+ clean:
+-	make -C plugins clean
++	$(MAKE) -C plugins clean
+ 	@rm -rf deploy
+ 	@rm -rf node_modules
+ 

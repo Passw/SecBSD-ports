@@ -1,0 +1,3 @@
+@pkgpath mail/claws-mail,-gdata,compface${FLAVOR_STRING}
+lib/claws-mail/plugins/gdata.la
+@so lib/claws-mail/plugins/gdata.so

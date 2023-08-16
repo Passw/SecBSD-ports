@@ -1,0 +1,12 @@
+Dnsrecon provides the ability to perform:
+
+* Check all NS Records for Zone Transfers.
+* Enumerate general DNS records for a given domain.
+* Perform common SRV record enumeration.
+* Top level domain expansion.
+* Check for wildcard resolution.
+* Brute force subdomain and hosts.
+* Perform a PTR record lookup for a given IP range or CIDR.
+* Check a DNS Server Cached records.
+* Enumerate common mDNS records in the local network.
+* Enumerate hosts and subdomains using Google.

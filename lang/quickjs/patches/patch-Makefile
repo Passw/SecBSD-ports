@@ -1,0 +1,56 @@
+Remove hardcoded -O2
+Use default ar
+Don't use LTO
+Remove warning clang doesn't understand
+Remove -ldl
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -28,11 +28,12 @@ endif
+ # Windows cross compilation from Linux
+ #CONFIG_WIN32=y
+ # use link time optimization (smaller and faster executables but slower build)
+-CONFIG_LTO=y
++#CONFIG_LTO=y
+ # consider warnings as errors (for development)
+ #CONFIG_WERROR=y
+ # force 32 bit build for some utilities
+ #CONFIG_M32=y
++CONFIG_DEFAULT_AR=y
+ 
+ ifdef CONFIG_DARWIN
+ # use clang instead of gcc
+@@ -83,8 +84,8 @@ ifdef CONFIG_CLANG
+ else
+   HOST_CC=gcc
+   CC=$(CROSS_PREFIX)gcc
+-  CFLAGS=-g -Wall -MMD -MF $(OBJDIR)/$(@F).d
+-  CFLAGS += -Wno-array-bounds -Wno-format-truncation
++  CFLAGS+=-Wall -MMD -MF $(OBJDIR)/$(@F).d
++  CFLAGS += -Wno-array-bounds
+   ifdef CONFIG_LTO
+     AR=$(CROSS_PREFIX)gcc-ar
+   else
+@@ -106,7 +107,7 @@ endif
+ CFLAGS+=$(DEFINES)
+ CFLAGS_DEBUG=$(CFLAGS) -O0
+ CFLAGS_SMALL=$(CFLAGS) -Os
+-CFLAGS_OPT=$(CFLAGS) -O2
++CFLAGS_OPT=$(CFLAGS)
+ CFLAGS_NOLTO:=$(CFLAGS_OPT)
+ LDFLAGS=-g
+ ifdef CONFIG_LTO
+@@ -170,10 +171,10 @@ QJS_LIB_OBJS+=$(OBJDIR)/libbf.o 
+ QJS_OBJS+=$(OBJDIR)/qjscalc.o
+ endif
+ 
+-HOST_LIBS=-lm -ldl -lpthread
++HOST_LIBS=-lm -lpthread
+ LIBS=-lm
+ ifndef CONFIG_WIN32
+-LIBS+=-ldl -lpthread
++LIBS+=-lpthread
+ endif
+ 
+ $(OBJDIR):

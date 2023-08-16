@@ -1,0 +1,5 @@
+@bin bin/ifdtool
+@man man/man8/nvramtool.8
+@bin sbin/cbmem
+@bin sbin/ectool
+@bin sbin/nvramtool

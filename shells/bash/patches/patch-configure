@@ -1,0 +1,29 @@
+Index: configure
+--- configure.orig
++++ configure
+@@ -12289,7 +12289,7 @@ else $as_nop
+   if test "$cross_compiling" = yes
+ then :
+               case "$host_os" in
+-              openbsd*) gt_cv_locale_fake="guessing yes" ;;
++              openbsd*|secbsd*) gt_cv_locale_fake="guessing yes" ;;
+               *)        gt_cv_locale_fake="guessing no" ;;
+             esac
+ 
+@@ -21728,7 +21728,7 @@ linux*)		LOCAL_LDFLAGS=-rdynamic		 # allow dynamic loa
+ 		*)	printf "%s\n" "#define PGRP_PIPE 1" >>confdefs.h
+  ;;
+ 		esac ;;
+-netbsd*|openbsd*)	LOCAL_CFLAGS="-DDEV_FD_STAT_BROKEN" ;;
++netbsd*|openbsd*|secbsd*)	LOCAL_CFLAGS="-DDEV_FD_STAT_BROKEN" ;;
+ freebsd*|midnightbsd*)	LOCAL_CFLAGS='-DHEREDOC_PIPESIZE=4096' ;;
+ *qnx[67]*)	LOCAL_LIBS="-lncurses" ;;
+ *qnx*)		LOCAL_CFLAGS="-Dqnx -F -3s" LOCAL_LDFLAGS="-3s" LOCAL_LIBS="-lunix -lncurses" ;;
+@@ -21753,6 +21753,7 @@ freebsd[3-9]*)
+ 		fi ;;
+ freebsdelf*)	LOCAL_LDFLAGS=-rdynamic ;;	# allow dynamic loading
+ dragonfly*)	LOCAL_LDFLAGS=-rdynamic ;;	# allow dynamic loading
++openbsd*|secbsd*)	LOCAL_LDFLAGS=-rdynamic ;;	# allow dynamic loading
+ midnightbsd*)	LOCAL_LDFLAGS=-rdynamic ;;	# allow dynamic loading
+ esac
+ 

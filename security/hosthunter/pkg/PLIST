@@ -1,0 +1,6 @@
+bin/hosthunter
+share/hosthunter/
+share/hosthunter/LICENSE
+share/hosthunter/README.md
+share/hosthunter/hosthunter.py
+share/hosthunter/hosthunter_logo.png

@@ -1,0 +1,16 @@
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -13,11 +13,9 @@ SOURCES = README INSTALL COPYING NEWS TODO src srctest
+ all: src.1
+ 
+ check: pylint
+-	make pylint
++	${MAKE_PROGRAM} pylint
+ 	./srctest -b rcs -p python2
+-	./srctest -b sccs -p python2
+ 	./srctest -b rcs -p python3
+-	./srctest -b sccs -p python3
+ 
+ .SUFFIXES: .html .adoc .1
+ 

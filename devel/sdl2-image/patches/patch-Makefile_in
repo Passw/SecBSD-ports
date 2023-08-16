@@ -1,0 +1,11 @@
+Index: Makefile.in
+--- Makefile.in.orig
++++ Makefile.in
+@@ -571,7 +571,6 @@ EXTRA_DIST = \
+ 
+ libSDL2_image_la_LDFLAGS = \
+ 	-no-undefined		\
+-	-release $(LT_RELEASE)	\
+ 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) $(LT_EXTRA)
+ 
+ libSDL2_image_la_LIBADD = $(IMG_LIBS)

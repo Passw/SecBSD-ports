@@ -1,0 +1,25 @@
+@bin bin/Shape_PointInPoly
+@bin bin/dbfadd
+@bin bin/dbfcat
+@bin bin/dbfcreate
+@bin bin/dbfdump
+@bin bin/dbfinfo
+@bin bin/shpadd
+@bin bin/shpcat
+@bin bin/shpcentrd
+@bin bin/shpcreate
+@bin bin/shpdata
+@bin bin/shpdump
+@bin bin/shpdxf
+@bin bin/shpfix
+@bin bin/shpinfo
+@bin bin/shprewind
+@bin bin/shpsort
+@bin bin/shptreedump
+@bin bin/shputils
+@bin bin/shpwkb
+include/shapefil.h
+lib/libshp.a
+lib/libshp.la
+@lib lib/libshp.so.${LIBshp_VERSION}
+lib/pkgconfig/shapelib.pc

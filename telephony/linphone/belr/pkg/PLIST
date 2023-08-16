@@ -1,0 +1,13 @@
+@bin bin/belr-compiler
+@bin bin/belr-parse
+include/belr/
+include/belr/abnf.h
+include/belr/belr.h
+include/belr/grammarbuilder.h
+include/belr/parser.h
+lib/cmake/
+lib/cmake/belr/
+lib/cmake/belr/belrConfig.cmake
+lib/cmake/belr/belrTargets${MODCMAKE_BUILD_SUFFIX}
+lib/cmake/belr/belrTargets.cmake
+@lib lib/libbelr.so.${LIBbelr_VERSION}

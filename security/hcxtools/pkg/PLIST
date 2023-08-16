@@ -1,0 +1,14 @@
+@bin bin/hcxeiutool
+@bin bin/hcxessidtool
+@bin bin/hcxhash2cap
+@bin bin/hcxhashcattool
+@bin bin/hcxhashtool
+@bin bin/hcxmactool
+@bin bin/hcxpcapngtool
+@bin bin/hcxpmkidtool
+@bin bin/hcxpmktool
+@bin bin/hcxpsktool
+@bin bin/hcxwltool
+@bin bin/whoismac
+@bin bin/wlancap2wpasec
+@man man/man1/hcxtools.1

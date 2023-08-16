@@ -1,0 +1,5 @@
+share/doc/blockzone/
+share/doc/blockzone/LICENSE
+share/fonts/
+@fontdir share/fonts/BlockZone/
+share/fonts/BlockZone/BlockZone.ttf

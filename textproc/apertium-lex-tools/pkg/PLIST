@@ -1,0 +1,4 @@
+@bin bin/lrx-comp
+@bin bin/lrx-proc
+@bin bin/multitrans
+lib/pkgconfig/apertium-lex-tools.pc

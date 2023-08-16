@@ -1,0 +1,4 @@
+bin/sql-anding
+share/sql-anding/
+share/sql-anding/LICENSE
+share/sql-anding/sql-anding.py

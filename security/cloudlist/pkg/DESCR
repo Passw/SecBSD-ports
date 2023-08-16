@@ -1,0 +1,4 @@
+Cloudlist is a multi-cloud tool for getting Assets from Cloud Providers. This is
+intended to be used by the blue team to augment Attack Surface Management
+efforts by maintaining a centralized list of assets across multiple clouds with
+very little configuration efforts.

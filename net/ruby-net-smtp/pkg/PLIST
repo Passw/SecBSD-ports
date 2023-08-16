@@ -1,0 +1,8 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/LICENSE.txt
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/net/
+${GEM_LIB}/gems/${DISTNAME}/lib/net/smtp.rb
+${GEM_LIB}/gems/${DISTNAME}/net-smtp.gemspec
+${GEM_LIB}/specifications/${DISTNAME}.gemspec

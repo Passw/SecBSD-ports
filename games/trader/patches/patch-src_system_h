@@ -1,0 +1,11 @@
+Index: src/system.h
+--- src/system.h.orig
++++ src/system.h
+@@ -71,7 +71,6 @@
+ #include <signal.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+-#include <monetary.h>
+ #include <langinfo.h>
+ 
+ 

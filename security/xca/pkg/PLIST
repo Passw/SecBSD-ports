@@ -1,0 +1,65 @@
+@ask-update xca-<2 .xdb format changes in XCA 2.x. Upgrade is automatic, but backup your old files.
+@bin bin/xca
+@man man/man1/xca.1
+share/applications/xca.desktop
+share/bash-completion/completions/xca
+share/doc/xca/
+share/doc/xca/arguments.html
+share/doc/xca/certificate-input.html
+share/doc/xca/certificates.html
+share/doc/xca/changelog.html
+share/doc/xca/commandline.html
+share/doc/xca/common-actions.html
+share/doc/xca/database.html
+share/doc/xca/genindex.html
+share/doc/xca/index.html
+share/doc/xca/introduction.html
+share/doc/xca/miscellaneous.html
+share/doc/xca/object-ids.html
+share/doc/xca/options.html
+share/doc/xca/privatekey.html
+share/doc/xca/requests.html
+share/doc/xca/revocationlist.html
+share/doc/xca/smartcard.html
+share/doc/xca/step-by-step.html
+share/doc/xca/template.html
+share/doc/xca/xca.qch
+share/doc/xca/xca.qhc
+share/icons/hicolor/16x16/apps/xca.png
+share/icons/hicolor/16x16/mimetypes/x-xca-database.png
+share/icons/hicolor/16x16/mimetypes/x-xca-template.png
+share/icons/hicolor/32x32/apps/xca.png
+share/icons/hicolor/32x32/mimetypes/x-xca-database.png
+share/icons/hicolor/32x32/mimetypes/x-xca-template.png
+share/icons/hicolor/48x48/apps/xca.png
+share/icons/hicolor/48x48/mimetypes/x-xca-database.png
+share/icons/hicolor/48x48/mimetypes/x-xca-template.png
+share/icons/hicolor/64x64/apps/xca.png
+share/icons/hicolor/64x64/mimetypes/x-xca-database.png
+share/icons/hicolor/64x64/mimetypes/x-xca-template.png
+share/mime/packages/xca.xml
+share/pixmaps/
+share/pixmaps/xca-32x32.xpm
+share/xca/
+share/xca/CA.xca
+share/xca/TLS_client.xca
+share/xca/TLS_server.xca
+share/xca/dn.txt
+share/xca/eku.txt
+share/xca/oids.txt
+share/xca/xca_de.qm
+share/xca/xca_es.qm
+share/xca/xca_fr.qm
+share/xca/xca_hr.qm
+share/xca/xca_it.qm
+share/xca/xca_ja.qm
+share/xca/xca_nl.qm
+share/xca/xca_pl.qm
+share/xca/xca_pt_BR.qm
+share/xca/xca_ru.qm
+share/xca/xca_sk.qm
+share/xca/xca_tr.qm
+share/xca/xca_zh_CN.qm
+@tag update-desktop-database
+@tag update-mime-database
+@tag gtk-update-icon-cache %D/share/icons/hicolor

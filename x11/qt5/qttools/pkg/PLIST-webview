@@ -1,0 +1,2 @@
+lib/qt5/cmake/Qt5Designer/Qt5Designer_QWebViewPlugin.cmake
+@so lib/qt5/plugins/designer/libqwebview.so

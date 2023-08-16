@@ -1,0 +1,4 @@
+bin/lightspeed
+share/lightspeed/
+share/lightspeed/LICENSE
+share/lightspeed/lightspeed.py

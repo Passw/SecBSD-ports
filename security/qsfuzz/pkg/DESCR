@@ -1,0 +1,9 @@
+qsfuzz (Query String Fuzz) is a tool that allows you to write simple rules in
+YAML that define what value you want to inject, and what is the outcome you
+expect if that injection is successful. Pass in a list of URLs, with query
+strings, and qsfuzz will replace the query string values with your injections to
+determine if it's vulnerable.
+
+qsfuzz injections are done one-at-a-time for URLs with multiple query strings to
+ensure requests aren't broken if certain parameters are relied on. URLs that
+don't have query strings will be ignored.

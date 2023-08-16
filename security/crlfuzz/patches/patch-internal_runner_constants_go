@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: internal/runner/constants.go
+--- internal/runner/constants.go.orig
++++ internal/runner/constants.go
+@@ -1,7 +1,7 @@
+ package runner
+ 
+ const (
+-  version = "1.4.0"
++  version = "1.4.1"
+   author  = "dwisiswant0"
+   banner  = `
+    _____ _____ __    _____             

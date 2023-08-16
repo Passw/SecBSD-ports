@@ -1,0 +1,36 @@
+https://sources.debian.org/patches/linphone-desktop/4.2.5-3/0002-remove-bc_compute_full_version-usage.patch/
+
+chunk 2 = remove useless /usr/local/bin/qt.conf ?
+
+[Platforms]
+WindowsArguments = dpiawareness=1
+
+Index: linphone-app/cmake_builder/linphone_package/CMakeLists.txt
+--- linphone-app/cmake_builder/linphone_package/CMakeLists.txt.orig
++++ linphone-app/cmake_builder/linphone_package/CMakeLists.txt
+@@ -39,15 +39,7 @@ set(QT_PATH "${Qt5Core_DIR}/../../..")
+ # ==============================================================================
+ # Build package version.
+ # ==============================================================================
+-bc_compute_full_version(APP_PROJECT_VERSION)
+-if (GIT_EXECUTABLE AND NOT(APP_PROJECT_VERSION))
+-  execute_process(
+-    COMMAND ${GIT_EXECUTABLE} describe --always
+-    OUTPUT_VARIABLE APP_PROJECT_VERSION
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../.."
+-  )
+-elseif (NOT(APP_PROJECT_VERSION))
++if (NOT(APP_PROJECT_VERSION))
+   set(APP_PROJECT_VERSION "0.0.0")
+ endif ()
+ 
+@@ -291,8 +283,6 @@ else()# Not Windows and Apple
+ 	install(FILES "${CMAKE_CURRENT_BINARY_DIR}/../../${EXECUTABLE_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATADIR}/applications" PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ 	set(APP_QT_CONF_PATH "")	
+ 
+-	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/../../assets/qt.conf.in" "${CMAKE_CURRENT_BINARY_DIR}/../../qt.conf" @ONLY)
+-	install(FILES "${CMAKE_CURRENT_BINARY_DIR}/../../qt.conf" DESTINATION "${CMAKE_INSTALL_BINDIR}")
+ 	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../assets/images/linphone_logo.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps/" RENAME "${EXECUTABLE_NAME}.svg")
+ 	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../assets/linphonerc-factory" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${EXECUTABLE_NAME}")
+ 	

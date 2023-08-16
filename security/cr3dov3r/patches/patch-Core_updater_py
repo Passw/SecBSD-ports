@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: Core/updater.py
+--- Core/updater.py.orig
++++ Core/updater.py
+@@ -8,7 +8,7 @@ elif sys.version_info[0]==2:
+ 	from urllib import urlopen
+ 
+ def check():
+-	f = open( os.path.join("Data","version.txt"), 'r')
++	f = open( os.path.join("/usr/local/share/cr3d0v3r/Data","version.txt"), 'r')
+ 	file_data = f.read().strip()
+ 	try:
+ 		version = urlopen('https://raw.githubusercontent.com/D4Vinci/Cr3dOv3r/master/Data/version.txt').read().decode('utf-8').strip()

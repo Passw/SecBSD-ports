@@ -1,0 +1,13 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/LICENSE.MIT
+${GEM_LIB}/gems/${DISTNAME}/README.YARD.md
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/ast/
+${GEM_LIB}/gems/${DISTNAME}/lib/ast.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/ast/node.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/ast/processor/
+${GEM_LIB}/gems/${DISTNAME}/lib/ast/processor.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/ast/processor/mixin.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/ast/sexp.rb
+${GEM_LIB}/specifications/${DISTNAME}.gemspec

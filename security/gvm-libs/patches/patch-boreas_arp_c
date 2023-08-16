@@ -1,0 +1,21 @@
+Index: boreas/arp.c
+--- boreas/arp.c.orig
++++ boreas/arp.c
+@@ -33,7 +33,7 @@
+ #include <errno.h>
+ #include <glib.h>
+ #include <ifaddrs.h>
+-#include <libnet.h>
++#include "../libnet-1.1/libnet.h"
+ #include <limits.h>
+ #include <net/if.h>
+ #include <netinet/in.h>
+@@ -285,7 +285,7 @@ send_arp_v4 (const char *dst_str)
+   /* Get some good iface. */
+   if (!ifname)
+     {
+-      struct sockaddr_storage target_addr;
++      struct sockaddr_in target_addr;
+       struct sockaddr_in sin_dst;
+       sin_dst.sin_family = AF_INET;
+       sin_dst.sin_addr.s_addr = dstip;

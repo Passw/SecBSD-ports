@@ -1,0 +1,12 @@
+Index: nsock/src/configure
+--- nsock/src/configure.orig
++++ nsock/src/configure
+@@ -2246,7 +2246,7 @@ $as_echo "#define DEC 1" >>confdefs.h
+ $as_echo "#define NETBSD 1" >>confdefs.h
+ 
+     ;;
+-  *-openbsd*)
++  *-openbsd* | *-secbsd*)
+ 
+ $as_echo "#define OPENBSD 1" >>confdefs.h
+ 

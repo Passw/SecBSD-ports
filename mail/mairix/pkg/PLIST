@@ -1,0 +1,3 @@
+@bin bin/mairix
+@man man/man1/mairix.1
+@man man/man5/mairixrc.5

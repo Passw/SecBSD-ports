@@ -1,0 +1,12 @@
+--- src/cookies.c.orig	Sun Jan 27 12:26:38 2013
++++ src/cookies.c	Thu Apr 18 12:25:04 2013
+@@ -94,6 +94,9 @@ static FILE *Cookies_fopen(const char *filename, char 
+ 
+          MSG("Cookies: Created file: %s\n", filename);
+          F_in = fopen(filename, "r");
++
++         /* set close on exec */
++         fcntl(fileno(F_in), F_SETFD, FD_CLOEXEC | fcntl(fileno(F_in), F_GETFD));
+       } else {
+          MSG("Cookies: Could not create file: %s!\n", filename);
+       }

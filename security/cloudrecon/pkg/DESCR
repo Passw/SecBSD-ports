@@ -1,0 +1,7 @@
+CloudRecon is a suite of tools for red teamers and bug hunters to find ephemeral
+and development assets in their campaigns and hunts.
+
+Often, target organizations stand up cloud infrastructure that is not tied to
+their ASN or related to known infrastructure. Many times these assets are
+development sites, IT product portals, etc. Sometimes they don't have domains at
+all but many still need HTTPs.

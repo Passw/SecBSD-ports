@@ -1,0 +1,15 @@
+bin/cr3d0v3r
+share/cr3d0v3r/
+share/cr3d0v3r/Core/
+share/cr3d0v3r/Core/__init__.py
+share/cr3d0v3r/Core/color.py
+share/cr3d0v3r/Core/ispwned.py
+share/cr3d0v3r/Core/updater.py
+share/cr3d0v3r/Core/utils.py
+share/cr3d0v3r/Core/websites.py
+share/cr3d0v3r/Cr3d0v3r.py
+share/cr3d0v3r/Data/
+share/cr3d0v3r/Data/banners.txt
+share/cr3d0v3r/Data/version.txt
+share/cr3d0v3r/LICENSE
+share/cr3d0v3r/README.md

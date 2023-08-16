@@ -1,0 +1,7 @@
+bin/takeover
+share/takeover/
+share/takeover/.dockerignore
+share/takeover/Dockerfile
+share/takeover/LICENSE
+share/takeover/README.md
+share/takeover/takeover.py

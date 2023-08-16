@@ -1,0 +1,100 @@
+Support arm64 coroutines.
+
+Set correct shared library name.
+
+Override the arch setting to remove OpenBSD version from it,
+so ports don't have to be bumped when OpenBSD version changes.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -9195,7 +9195,7 @@ test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m
+ 
+ 
+ case "$target_os" in #(
+-  openbsd*) :
++  openbsd*|secbsd*) :
+ 
+     ac_cv_path_mkdir="mkdir"
+  ;; #(
+@@ -12117,7 +12117,7 @@ fi
+      ;; #(
+   root:*) :
+      ;; #(
+-  c_r:*|*:openbsd*|*:mirbsd*) :
++  c_r:*|*:openbsd*|*:secbsd*|*:mirbsd*) :
+     LIBS="-pthread $LIBS" ;; #(
+   *) :
+     LIBS="-l$pthread_lib $LIBS" ;;
+@@ -21111,7 +21111,7 @@ then :
+   printf %s "(cached) " >&6
+ else $as_nop
+   case "$target_os" in #(
+-  openbsd*) :
++  openbsd*|secbsd*) :
+ 
+       rb_cv_function_name_string=__func__
+       ;; #(
+@@ -29467,16 +29467,20 @@ esac
+ 
+             coroutine_type=arm64
+          ;; #(
+-  x86_64-openbsd*) :
++  x86_64-openbsd*|x86_64-secbsd*) :
+ 
+             coroutine_type=amd64
+          ;; #(
+-  i386-openbsd*) :
++  i386-openbsd*|i386-secbsd*) :
+ 
+             coroutine_type=x86
+          ;; #(
+-  *-openbsd*) :
++  aarch64-openbsd*|aarch64-secbsd*) :
+ 
++            coroutine_type=arm64
++         ;; #(
++  *-openbsd*|*-secbsd*) :
++
+             coroutine_type=pthread
+          ;; #(
+   x86_64-dragonfly*) :
+@@ -30446,7 +30450,7 @@ else $as_nop
+ 
+ fi
+ 			rb_cv_dlopen=yes ;; #(
+-  openbsd*|mirbsd*) :
++  openbsd*|secbsd*|mirbsd*) :
+     	: ${LDSHARED='$(CC) -shared ${CCDLFLAGS}'}
+ 			if test "$rb_cv_binary_elf" = yes
+ then :
+@@ -31682,9 +31686,9 @@ else $as_nop
+ 
+ fi
+ 	 ;; #(
+-  openbsd*|mirbsd*) :
++  openbsd*|secbsd*|mirbsd*) :
+ 
+-	LIBRUBY_SO='lib$(RUBY_SO_NAME).$(SOEXT).$(MAJOR).'`expr ${MINOR} \* 10 + ${TEENY}`
++	LIBRUBY_SO='lib$(RUBY_SO_NAME).so.'${LIBruby32_VERSION}
+ 	 ;; #(
+   solaris*) :
+ 
+@@ -32896,7 +32900,7 @@ fi
+ 
+     YJIT_LIBS="yjit/target/${rb_rust_target_subdir}/libyjit.a"
+     case "$target_os" in #(
+-  openbsd*) :
++  openbsd*|secbsd*) :
+ 
+         # Link libc++abi (which requires libpthread) for _Unwind_* functions needed by yjit
+         LDFLAGS="$LDFLAGS -lpthread -lc++abi"
+@@ -33675,7 +33679,7 @@ then :
+ 
+ else $as_nop
+ 
+-        arch="${target_cpu}-${target_os}"
++        arch="${target_cpu}-secbsd"
+ 
+ fi
+     printf "%s\n" "#define RUBY_PLATFORM \"$arch\"" >>confdefs.h

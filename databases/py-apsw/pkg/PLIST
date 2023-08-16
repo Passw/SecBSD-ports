@@ -1,0 +1,3 @@
+@pkgpath databases/py-apsw
+lib/python${MODPY_VERSION}/site-packages/apsw-${MODPY_EGG_VERSION}_r1-py${MODPY_VERSION}.egg-info
+@so lib/python${MODPY_VERSION}/site-packages/apsw.${MODPY_PYC_MAGIC_TAG}so

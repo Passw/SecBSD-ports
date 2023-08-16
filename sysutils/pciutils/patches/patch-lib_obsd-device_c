@@ -1,0 +1,52 @@
+--- lib/obsd-device.c.orig	Fri Jan  7 22:04:28 2011
++++ lib/obsd-device.c	Thu Aug 21 09:59:31 2014
+@@ -41,9 +41,12 @@ obsd_init(struct pci_access *a)
+ {
+   char *name = pci_get_param(a, "obsd.path");
+ 
+-  a->fd = open(name, O_RDWR, 0);
+-  if (a->fd < 0)
+-    a->error("obsd_init: %s open failed", name);
++  a->fd = open(name, O_RDWR | O_CLOEXEC);
++  if (a->fd == -1) {
++    a->fd = open(name, O_RDONLY | O_CLOEXEC);
++    if (a->fd == -1)
++      a->error("obsd_init: %s open failed (%s)", name, strerror(errno));
++  }
+ }
+ 
+ static void
+@@ -56,11 +59,6 @@ static int
+ obsd_read(struct pci_dev *d, int pos, byte *buf, int len)
+ {
+   struct pci_io pi;
+-  union {
+-	  u_int32_t u32;
+-	  u_int16_t u16[2];
+-	  u_int8_t u8[4];
+-  } u;
+ 
+   if (!(len == 1 || len == 2 || len == 4))
+     return pci_generic_block_read(d, pos, buf, len);
+@@ -81,18 +79,16 @@ obsd_read(struct pci_dev *d, int pos, byte *buf, int l
+ 	  else
+ 		  d->access->error("obsd_read: ioctl(PCIOCREAD) failed");
+   }
+-  u.u32 = pi.pi_data;
+-
+   switch (len)
+     {
+     case 1:
+-      buf[0] = (u8) u.u8[pos % 4];
++      buf[0] = (u8) (pi.pi_data >> ((pos % 4) * 8));
+       break;
+     case 2:
+-      ((u16 *) buf)[0] = letoh16(u.u16[(pos % 4) / 2]);
++      ((u16 *) buf)[0] = (u16) htole16(pi.pi_data >> ((pos % 4) * 8));
+       break;
+     case 4:
+-      ((u32 *) buf)[0] = (u32) letoh32(pi.pi_data);
++      ((u32 *) buf)[0] = (u32) htole32(pi.pi_data);
+       break;
+     }
+   return 1;

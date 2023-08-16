@@ -1,0 +1,7 @@
+
+The Social-Engineer Toolkit (SET).
+
+Help:
+
+$ cd /usr/local/share/setoolkit
+$ doas python3 setoolkit

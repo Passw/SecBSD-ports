@@ -1,0 +1,34 @@
+Index: setup.py
+--- setup.py.orig
++++ setup.py
+@@ -183,7 +183,8 @@ class inc_lib_dirs:
+             aDir(L, "/usr/local/lib")
+             aDir(I, "/usr/include")
+             aDir(L, "/usr/lib")
+-            aDir(I, "/usr/include/freetype2")
++            aDir(I, "/usr/X11R6/include/freetype2")
++            aDir(L, "/usr/X11R6/lib")
+             prefix = sysconfig.get_config_var("prefix")
+             if prefix:
+                 aDir(L, pjoin(prefix, "lib"))
+@@ -312,9 +313,8 @@ def get_fonts(PACKAGE_DIR, reportlab_files):
+         xitmsg = "not downloading T1 font curve files"
+     else:
+         try:
+-            infoline("Downloading standard T1 font curves")
+-            zipdata = url2data("http://www.reportlab.com/ftp/pfbfer-20180109.zip")
+-            archive = zipfile.ZipFile(zipdata)
++            infoline("Extracting standard T1 font curves")
++            archive = zipfile.ZipFile("${FULLDISTDIR}/${PFBFER}")
+             dst = pjoin(rl_dir, 'fonts')
+ 
+             for name in archive.namelist():
+@@ -456,7 +456,7 @@ def main():
+             LIBART_INC=None #don't use system libart
+         else:
+             #check for an installed libart
+-            LIBART_INC = list(sorted(glob.glob('/usr/include/libart-*/libart_lgpl/libart-features.h')))
++            LIBART_INC = list(sorted(glob.glob('/usr/local/include/libart-*/libart_lgpl/libart-features.h')))
+         if LIBART_INC:
+             def installed_libart_version(fn):
+                 for l in open(fn, 'r').readlines():

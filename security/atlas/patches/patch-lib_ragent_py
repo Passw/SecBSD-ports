@@ -1,0 +1,11 @@
+$OpenBSD$
+
+Index: lib/ragent.py
+--- lib/ragent.py.orig
++++ lib/ragent.py
+@@ -6,6 +6,6 @@ import random
+ from lib.file import *
+ 
+ def ragent():
+-	path = os.path.join(os.path.abspath('.'),'db/user_agents.txt')
++	path = os.path.join(os.path.abspath('.'),'/usr/local/share/atlas/db/user_agents.txt')

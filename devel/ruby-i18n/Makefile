@@ -1,0 +1,17 @@
+COMMENT=		ruby internationalization and localization solution
+
+DISTNAME=		i18n-1.12.0
+CATEGORIES=		devel
+
+HOMEPAGE=		https://github.com/ruby-i18n/i18n
+
+BUILD_DEPENDS=		${RUN_DEPENDS}
+RUN_DEPENDS=		devel/ruby-concurrent-ruby
+
+# MIT License
+PERMIT_PACKAGE=		Yes
+
+MODULES=		lang/ruby
+CONFIGURE_STYLE=	ruby gem
+
+.include <bsd.port.mk>

@@ -1,0 +1,3 @@
+${P5SITE}/HTML/
+${P5SITE}/HTML/Quoted.pm
+@man man/man3p/HTML::Quoted.3p

@@ -1,0 +1,7 @@
+Weevely is a web shell designed for post-exploitation purposes
+that can be extended over the network at runtime.
+
+Upload weevely PHP agent to a target web server to get remote
+shell access to it. It has more than 30 modules to assist administrative
+tasks, maintain access, provide situational awareness, elevate privileges,
+and spread into the target network.

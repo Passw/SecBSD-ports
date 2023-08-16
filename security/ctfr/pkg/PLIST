@@ -1,0 +1,6 @@
+bin/ctfr
+share/ctfr/
+share/ctfr/LICENSE
+share/ctfr/README.md
+share/ctfr/ctfr.py
+share/ctfr/requirements.txt

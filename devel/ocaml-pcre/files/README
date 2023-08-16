@@ -1,0 +1,2 @@
+To build the examples use
+ocamlfind ocamlc -thread -linkpkg -package pcre XXX.ml

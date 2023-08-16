@@ -1,0 +1,30 @@
+Index: src/core/set.py
+--- src/core/set.py.orig
++++ src/core/set.py
+@@ -462,7 +462,7 @@ this is how networking works.
+                                 gen_hta_cool_stuff()
+                                 attack_vector = "hta"
+                                 print_status("Automatically starting Apache for you...")
+-                                subprocess.Popen("service apache2 start", shell=True).wait()
++                                subprocess.Popen("rcctl start httpd", shell=True).wait()
+ 
+                             if attack_vector != "harvester":
+                                 if attack_vector != "tabnabbing":
+@@ -536,7 +536,7 @@ this is how networking works.
+                             print_status(
+                                 "Automatically starting Apache for you...")
+                             subprocess.Popen(
+-                                "service apache2 start", shell=True).wait()
++                                "rcctl start httpd", shell=True).wait()
+ 
+                         # grab browser exploit selection
+                         if attack_vector == "browser":
+@@ -715,7 +715,7 @@ this is how networking works.
+                             print_status(
+                                 "Automatically starting Apache for you...")
+                             subprocess.Popen(
+-                                "service apache2 start", shell=True).wait()
++                                "rcctl start httpd", shell=True).wait()
+ 
+                         # if java applet attack
+                         if attack_vector == "java":

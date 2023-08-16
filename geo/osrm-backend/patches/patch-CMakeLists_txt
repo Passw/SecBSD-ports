@@ -1,0 +1,21 @@
+Index: CMakeLists.txt
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -389,7 +389,7 @@ if("${LINKER_VERSION}" MATCHES "GNU gold" OR "${LINKER
+     set(LINKER_FLAGS "${LINKER_FLAGS} -Wl,--gc-sections")
+   endif()
+   # Default linker optimization flags
+-  set(LINKER_FLAGS "${LINKER_FLAGS} -Wl,-O1 -Wl,--hash-style=gnu -Wl,--sort-common")
++  set(LINKER_FLAGS "${LINKER_FLAGS} -Wl,--sort-common")
+ 
+ else()
+   message(STATUS "Using unknown linker, not setting linker optimizations")
+@@ -419,7 +419,7 @@ if(APPLE)
+   endif()
+ endif()
+ 
+-if(UNIX AND NOT APPLE)
++if(UNIX AND NOT APPLE AND NOT "${CMAKE_SYSTEM_NAME}" MATCHES "OpenBSD")
+   set(MAYBE_RT_LIBRARY -lrt)
+ endif()
+ 

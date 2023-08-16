@@ -1,0 +1,30 @@
+Index: src/main.c
+--- src/main.c.orig
++++ src/main.c
+@@ -1581,7 +1581,7 @@ void do_read(uint8_t *offset, size_t len, struct socka
+             case OUTPUT_TEXT_FULL: // Print packet similar to dig style
+                 // Resolver and timestamp are not part of the packet, we therefore have to print it manually
+                 fprintf(context.outfile, ";; Server: %s\n;; Size: %" PRIu16 "\n;; Unix time: %lu\n",
+-                        sockaddr2str(recvaddr), short_len, now.tv_sec);
++                        sockaddr2str(recvaddr), short_len, (unsigned long)now.tv_sec);
+                 dns_print_packet(context.outfile, &packet, offset, len, next);
+                 break;
+ 
+@@ -1612,7 +1612,7 @@ void do_read(uint8_t *offset, size_t len, struct socka
+                         dns_record_type2str((dns_record_type) packet.head.question.type),
+                         dns_class2str((dns_class) packet.head.question.class),
+                         dns_rcode2str((dns_rcode) packet.head.header.rcode),
+-                        now.tv_sec, now.tv_nsec);
++                        (unsigned long) now.tv_sec, now.tv_nsec);
+                 for(size_t rec_index = 0; dns_parse_record_raw(offset, next, offset + len, &next, &rec); rec_index++, section_index++)
+                 {
+                     if(section == DNS_SECTION_ANSWER && section_index >= packet.head.header.ans_count) {
+@@ -1686,7 +1686,7 @@ void do_read(uint8_t *offset, size_t len, struct socka
+                         fprintf(context.outfile,
+                                 "%s %lu %s %s %s %s\n",
+                                 sockaddr2str(recvaddr),
+-                                now.tv_sec,
++                                (unsigned long)now.tv_sec,
+                                 dns_rcode2str((dns_rcode)packet.head.header.rcode),
+                                 dns_name2str(&packet.head.question.name),
+                                 context.format.ttl ? dns_class2str((dns_class) packet.head.question.class) : "",

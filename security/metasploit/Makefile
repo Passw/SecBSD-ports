@@ -1,0 +1,229 @@
+COMMENT=	metasploit framework
+
+VERSION=	6.3.19
+DISTNAME=	metasploit-framework-${VERSION}
+DISTFILES=	${VERSION}.tar.gz
+
+CATEGORIES=	security
+
+HOMEPAGE=	https://www.metasploit.com
+
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
+
+# BSD-3-clause
+PERMIT_PACKAGE=	Yes
+
+MASTER_SITES=	https://github.com/rapid7/metasploit-framework/archive/
+
+EXTRACT_ONLY=
+
+MODULES=	lang/ruby
+
+BUILD_DEPENDS+=${RUN_DEPENDS} \
+		archivers/ruby-rubyzip \
+		converters/ruby-multi-json \
+		databases/ruby-pg \
+		databases/postgresql \
+		databases/ruby-sqlite3 \
+		devel/ruby-ascii85 \
+		devel/ruby-zeitwerk \
+		devel/ruby-thor \
+		devel/ruby-actionpack \
+		devel/ruby-actionview \
+		devel/ruby-activesupport \
+		devel/ruby-rake \
+		devel/ruby-rails-dom-testing \
+		devel/ruby-rails-html-sanitizer \
+		devel/ruby-erubi \
+		devel/ruby-activerecord \
+		devel/ruby-concurrent-ruby \
+		devel/ruby-i18n \
+		devel/ruby-minitest \
+		devel/ruby-tzinfo-data \
+		devel/ruby-afm \
+		devel/ruby-arel-helpers \
+		devel/ruby-ast \
+		devel/ruby-aws-eventstream \
+		devel/ruby-aws-partitions \
+		devel/ruby-aws-sdk-core \
+		devel/ruby-aws-sigv4 \
+		devel/ruby-jmespath \
+		devel/ruby-aws-sdk-ec2 \
+		devel/ruby-aws-sdk-iam \
+		devel/ruby-aws-sdk-kms \
+		devel/ruby-aws-sdk-s3 \
+		devel/ruby-aws-sdk-ssm \
+		devel/ruby-bcrypt-pbkdf \
+		devel/ruby-bindata \
+		devel/ruby-bootsnap \
+		devel/ruby-bson \
+		devel/ruby-byebug \
+		devel/ruby-sshkey \
+                devel/ruby-coderay \
+		devel/ruby-cookiejar \
+		devel/ruby-crass \
+		devel/ruby-daemons \
+                devel/ruby-debug \
+		devel/ruby-irb \
+		devel/ruby-reline \
+		devel/ruby-diff-lcs \
+                devel/ruby-unf \
+		devel/ruby-unf-ext \
+		devel/ruby-dnsruby \
+		devel/ruby-simpleidn \
+                devel/ruby-docile \
+		devel/ruby-domain-name \
+		devel/ruby-ed25519 \
+		devel/ruby-em-http-request \
+		devel/ruby-em-socksify \
+		devel/ruby-eventmachine \
+		devel/ruby-http-parser \
+                devel/ruby-factory-bot \
+                devel/ruby-factory-bot-rails \
+		devel/ruby-railties \
+		devel/ruby-faker \
+		devel/ruby-faraday \
+		devel/ruby-faraday-net-http \
+		devel/ruby-ruby2-keywords \
+		devel/ruby-faraday-retry \
+                devel/ruby-ffi \
+		devel/ruby-faye-websocket \
+		devel/ruby-websocket-driver \
+		devel/ruby-filesize \
+		devel/ruby-fivemat \
+		devel/ruby-gssapi \
+		devel/ruby-gyoku \
+		devel/ruby-hashery \
+		devel/ruby-hrr-rb-ssh \
+		devel/ruby-hrr-rb-ssh-ed25519 \
+		devel/ruby-http-cookie \
+		devel/ruby-httpclient \
+                devel/ruby-io-console \
+		devel/ruby-jsobfu \
+		devel/ruby-rkelly-remix \
+		devel/ruby-json \
+		devel/ruby-little-plugger \
+		devel/ruby-logging \
+		devel/ruby-loofah \
+		devel/ruby-memory-profiler \
+		devel/ruby-metasm \
+		devel/ruby-metasploit-concern \
+		devel/ruby-metasploit-credential \
+		devel/ruby-metasploit-model \
+		devel/ruby-metasploit-data-models \
+		devel/ruby-rex-socket \
+		devel/ruby-ntlm \
+		devel/ruby-metasploit-payloads \
+		devel/ruby-recog \
+		devel/ruby-webrick \
+		devel/ruby-metasploit-payloads-mettle \
+		devel/ruby-method-source \
+		devel/ruby-mini_portile2 \
+		devel/ruby-mqtt \
+		devel/ruby-nio4r \
+		devel/ruby-nori \
+		devel/ruby-octokit \
+		devel/ruby-sawyer \
+		devel/ruby-openssl-ccm \
+		devel/ruby-openssl-cmac \
+		devel/ruby-openvas-omp \
+		devel/ruby-nessus-rest \
+		devel/ruby-packetfu \
+		devel/ruby-pcaprub \
+		devel/ruby-parallel \
+		devel/ruby-parser \
+		devel/ruby-patch-finder \
+		devel/ruby-pcaprub \
+		devel/ruby-pdf-reader \
+		devel/ruby-timeout \
+		devel/ruby-ttfunk \
+		devel/ruby-pry \
+		devel/ruby-pry-byebug \
+		devel/ruby-racc \
+		devel/ruby-rack-protection \
+		devel/ruby-rainbow \
+		devel/ruby-rasn1 \
+		devel/ruby-strptime \
+		devel/ruby-swagger-blocks \
+		devel/ruby-rb-readline \
+		devel/ruby-regexp_parser \
+		devel/ruby-rex-arch \
+		devel/ruby-rex-text \
+		devel/ruby-rex-bin-tools \
+		devel/ruby-rex-core \
+		devel/ruby-rex-struct2 \
+		devel/ruby-rex-encoder \
+		devel/ruby-rex-exploitation \
+		devel/ruby-rex-java \
+		devel/ruby-rex-mime \
+		devel/ruby-rex-nop \
+		devel/ruby-rex-ole \
+		devel/ruby-rex-powershell \
+		devel/ruby-rex-random-identifier \
+		devel/ruby-rc4 \
+		devel/ruby-rex-registry \
+		devel/ruby-rex-rop-builder \
+		devel/ruby-rex-sslscan \
+		devel/ruby-rex-zip \
+		devel/ruby-rspec/3/rspec \
+		devel/ruby-rspec/3/core \
+		devel/ruby-rspec/3/expectations \
+		devel/ruby-rspec/3/mocks \
+		devel/ruby-rspec/3/support \
+		devel/ruby-rspec-rails \
+		devel/ruby-rspec-rerun \
+                devel/ruby-unicode-display-width \
+                devel/ruby-progressbar \
+                devel/ruby-rubocop-ast \
+		devel/ruby-rubocop \
+		devel/ruby-macho \
+		devel/ruby-prof \
+		devel/ruby-smb \
+		devel/ruby-windows-error \
+                devel/ruby-simplecov-html \
+		devel/ruby-simplecov \
+		devel/ruby-docile \
+		devel/ruby-tilt \
+		devel/ruby-timecop \
+		devel/ruby-unix-crypt \
+		devel/ruby-warden \
+		devel/ruby-win32api \
+		devel/ruby-winrm \
+		devel/ruby-xdr \
+		devel/ruby-xmlrpc \
+		graphics/ruby-chunky_png \
+		net/ruby-msgpack \
+		net/ruby-net-ldap \
+		net/ruby-net-protocol \
+		net/ruby-net-ssh \
+		net/ruby-net-smtp \
+		net/ruby-network-interface \
+		net/ruby-public-suffix \
+		security/ruby-nexpose \
+		security/ruby-bcrypt \
+		sysutils/ruby-tzinfo \
+		textproc/ruby-builder/3.2 \
+		textproc/ruby-redcarpet \
+		textproc/ruby-yard \
+		textproc/ruby-nokogiri \
+		www/ruby-addressable \
+		www/ruby-mustermann \
+		www/ruby-puma \
+		www/ruby-rack \
+		www/ruby-rack-test \
+		www/ruby-sinatra \
+		www/ruby-thin
+
+
+NO_BUILD=	Yes
+NO_TEST=	Yes
+
+INSTDIR=	${PREFIX}/share/metasploit
+
+do-install:
+	${INSTALL_DATA_DIR} ${INSTDIR}
+	tar xzf ${FULLDISTDIR}/${DISTFILES} \
+	-C ${INSTDIR}
+	mv ${INSTDIR}/${DISTNAME}/* ${INSTDIR}
+
+.include <bsd.port.mk>

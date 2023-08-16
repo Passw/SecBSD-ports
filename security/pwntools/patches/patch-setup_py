@@ -1,0 +1,21 @@
+Index: setup.py
+--- setup.py.orig
++++ setup.py
+@@ -33,17 +33,6 @@ if flag in sys.argv:
+ else:
+     flag = False
+ 
+-for filename in glob.glob('pwnlib/commandline/*'):
+-    filename = os.path.basename(filename)
+-    filename, ext = os.path.splitext(filename)
+-
+-    if ext != '.py' or '__init__' in filename:
+-        continue
+-
+-    script = '%s=pwnlib.commandline.common:main' % filename
+-    if not flag:
+-        console_scripts.append(script)
+-
+ compat = {}
+ if sys.version_info < (3, 4):
+     import site

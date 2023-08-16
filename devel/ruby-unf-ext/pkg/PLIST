@@ -1,0 +1,46 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/extensions/x86_64-unknown/
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/gem.build_complete
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/gem_make.out
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/mkmf.log
+@so ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/unf_ext.so
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/.document
+${GEM_LIB}/gems/${DISTNAME}/.github/
+${GEM_LIB}/gems/${DISTNAME}/.github/workflows/
+${GEM_LIB}/gems/${DISTNAME}/.github/workflows/unf_ext.yml
+${GEM_LIB}/gems/${DISTNAME}/.gitignore
+${GEM_LIB}/gems/${DISTNAME}/CHANGELOG.md
+${GEM_LIB}/gems/${DISTNAME}/Gemfile
+${GEM_LIB}/gems/${DISTNAME}/LICENSE.txt
+${GEM_LIB}/gems/${DISTNAME}/README.md
+${GEM_LIB}/gems/${DISTNAME}/Rakefile
+${GEM_LIB}/gems/${DISTNAME}/ext/
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/.sitearchdir.time
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/Makefile
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/extconf.rb
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf.cc
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf.o
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/normalizer.hh
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/table.hh
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/trie/
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/trie/char_stream.hh
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/trie/node.hh
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/trie/searcher.hh
+${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf/util.hh
+@so ${GEM_LIB}/gems/${DISTNAME}/ext/unf_ext/unf_ext.so
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/unf_ext/
+${GEM_LIB}/gems/${DISTNAME}/lib/unf_ext.rb
+@so ${GEM_LIB}/gems/${DISTNAME}/lib/unf_ext.so
+${GEM_LIB}/gems/${DISTNAME}/lib/unf_ext/version.rb
+${GEM_LIB}/gems/${DISTNAME}/test/
+${GEM_LIB}/gems/${DISTNAME}/test/helper.rb
+${GEM_LIB}/gems/${DISTNAME}/test/normalization-test.txt
+${GEM_LIB}/gems/${DISTNAME}/test/test_unf_ext.rb
+${GEM_LIB}/gems/${DISTNAME}/unf_ext.gemspec
+${GEM_LIB}/specifications/${DISTNAME}.gemspec

@@ -1,0 +1,26 @@
+COMMENT =	test vectors for pycryptodome
+
+MODPY_EGG_VERSION =	1.0.10
+DISTNAME =	pycryptodome-test-vectors-${MODPY_EGG_VERSION}
+PKGNAME =	py-${DISTNAME:S/py//}
+EXTRACT_SUFX =	.zip
+REVISION =	1
+
+CATEGORIES =	security
+
+HOMEPAGE =	https://www.pycryptodome.org
+
+# BSD + Public Domain
+PERMIT_PACKAGE =	Yes
+
+WANTLIB +=		pthread
+MODULES =		lang/python
+
+FLAVORS =		python3
+FLAVOR =		python3
+
+MODPY_PI =		Yes
+MODPY_PYBUILD =	setuptools
+NO_TEST =		Yes
+
+.include <bsd.port.mk>

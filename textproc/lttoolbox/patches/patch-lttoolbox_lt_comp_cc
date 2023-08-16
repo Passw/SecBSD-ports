@@ -1,0 +1,23 @@
+Index: lttoolbox/lt_comp.cc
+--- lttoolbox/lt_comp.cc.orig
++++ lttoolbox/lt_comp.cc
+@@ -24,6 +24,7 @@
+ #include <libgen.h>
+ #include <string>
+ #include <getopt.h>
++#include <unistd.h>
+ 
+ using namespace std;
+ 
+@@ -66,6 +67,11 @@ void endProgram(char *name)
+ 
+ int main(int argc, char *argv[])
+ {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    wcerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   char ttype = 'x';
+   Compiler c;
+   AttCompiler a;

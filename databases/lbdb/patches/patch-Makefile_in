@@ -1,0 +1,11 @@
+Index: Makefile.in
+--- Makefile.in.orig
++++ Makefile.in
+@@ -197,6 +197,6 @@ Makefile: Makefile.in
+ 	    -e 's!@''dotlock@!$(DOTLOCKBASE)!' $@.in > $@
+ 
+ %.o: %.c
+-	$(CC) $(CFLAGS) $(DEFS) -c $<
++	$(CC) $(CFLAGS) $(CPPFLAGS) $(DEFS) -c $<
+ 
+ .PHONY: test test_perl update-version

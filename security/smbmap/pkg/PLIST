@@ -1,0 +1,7 @@
+bin/smbmap
+share/smbmap/
+share/smbmap/LICENSE
+share/smbmap/README.md
+share/smbmap/psutils/
+share/smbmap/psutils/Get-FileLockProcess.ps1
+share/smbmap/smbmap.py

@@ -1,0 +1,50 @@
+--- interface/utils.h.orig	Thu Apr 20 00:41:04 2000
++++ interface/utils.h	Fri May  1 16:49:14 2015
+@@ -13,6 +13,7 @@ static inline int bigendianp(void){
+   return(1);
+ }
+ 
++#if !defined(__OpenBSD__)
+ static inline int32_t swap32(int32_t x){
+   return((((u_int32_t)x & 0x000000ffU) << 24) | 
+ 	 (((u_int32_t)x & 0x0000ff00U) <<  8) | 
+@@ -24,6 +25,7 @@ static inline int16_t swap16(int16_t x){
+   return((((u_int16_t)x & 0x00ffU) <<  8) | 
+ 	 (((u_int16_t)x & 0xff00U) >>  8));
+ }
++#endif /* !defined(__OpenBSD__) */
+ 
+ #if BYTE_ORDER == LITTLE_ENDIAN
+ 
+@@ -112,6 +114,7 @@ static void cderror(cdrom_drive *d,const char *s){
+       break;
+     case CDDA_MESSAGE_FORGETIT:
+     default:
++      break;
+     }
+   }
+ }
+@@ -127,6 +130,7 @@ static void cdmessage(cdrom_drive *d,const char *s){
+       break;
+     case CDDA_MESSAGE_FORGETIT:
+     default:
++      break;
+     }
+   }
+ }
+@@ -169,6 +173,7 @@ static void idperror(int messagedest,char **messages,c
+       break;
+     case CDDA_MESSAGE_FORGETIT:
+     default:
++      break;
+     }
+   }
+   if(malloced)free(buffer);
+@@ -205,6 +210,7 @@ static void idmessage(int messagedest,char **messages,
+       break;
+     case CDDA_MESSAGE_FORGETIT:
+     default:
++      break;
+     }
+   }
+   if(malloced)free(buffer);

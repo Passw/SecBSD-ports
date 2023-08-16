@@ -1,0 +1,7 @@
+
+Metasploit Framework 6.3.19
+
+Help:
+
+$ cd /usr/local/share/metasploit
+$ ruby30 msfconsole

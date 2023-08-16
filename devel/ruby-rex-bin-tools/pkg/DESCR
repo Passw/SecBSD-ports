@@ -1,0 +1,2 @@
+A suite of tools for analyzing Elf,Mach, and PE format executables to find
+specific chunks of code.

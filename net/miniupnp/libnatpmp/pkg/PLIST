@@ -1,0 +1,5 @@
+@bin bin/natpmpc
+include/natpmp.h
+lib/libnatpmp.a
+@lib lib/libnatpmp.so.${LIBnatpmp_VERSION}
+@man man/man1/natpmpc.1

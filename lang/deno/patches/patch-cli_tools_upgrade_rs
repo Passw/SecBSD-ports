@@ -1,0 +1,12 @@
+Index: cli/tools/upgrade.rs
+--- cli/tools/upgrade.rs.orig
++++ cli/tools/upgrade.rs
+@@ -267,6 +267,8 @@ pub async fn upgrade(
+   flags: Flags,
+   upgrade_flags: UpgradeFlags,
+ ) -> Result<(), AnyError> {
++  #[cfg(target_os = "openbsd")]
++  bail!("Upgrades are not supported on OpenBSD.");
+   let factory = CliFactory::from_flags(flags).await?;
+   let client = factory.http_client();
+   let current_exe_path = std::env::current_exe()?;

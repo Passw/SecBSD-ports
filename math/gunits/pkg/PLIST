@@ -1,0 +1,8 @@
+@bin bin/gunits
+bin/gunits_cur
+@info info/units.info
+@man man/man1/gunits.1
+share/units/
+share/units/currency.units
+share/units/definitions.units
+share/units/locale_map.txt

@@ -1,0 +1,15 @@
+Index: apertium/apertium_tagger_apply_new_rules.cc
+--- apertium/apertium_tagger_apply_new_rules.cc.orig
++++ apertium/apertium_tagger_apply_new_rules.cc
+@@ -56,6 +56,11 @@ void help(char *name) {
+ }
+ 
+ int main(int argc, char* argv[]) {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    wcerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   string filein="";
+   string fileout="";
+   string filetsx="";

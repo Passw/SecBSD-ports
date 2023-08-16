@@ -1,0 +1,11 @@
+Index: pwnlib/__init__.py
+--- pwnlib/__init__.py.orig
++++ pwnlib/__init__.py
+@@ -34,7 +34,6 @@ __all__ = [
+     'ui',
+     'useragents',
+     'util',
+-    'update',
+     'version',
+ ]
+ 

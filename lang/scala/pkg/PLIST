@@ -1,0 +1,48 @@
+bin/fsc
+bin/scala
+bin/scalac
+bin/scaladoc
+bin/scalap
+@man man/man1/fsc.1
+@man man/man1/scala.1
+@man man/man1/scalac.1
+@man man/man1/scaladoc.1
+@man man/man1/scalap.1
+scala/
+scala/bin/
+scala/bin/fsc
+scala/bin/scala
+scala/bin/scalac
+scala/bin/scaladoc
+scala/bin/scalap
+scala/doc/
+scala/doc/LICENSE.md
+scala/doc/License.rtf
+scala/doc/README
+scala/doc/licenses/
+scala/doc/licenses/apache_jansi.txt
+scala/doc/licenses/bsd_asm.txt
+scala/doc/licenses/bsd_jline.txt
+scala/doc/licenses/mit_jquery.txt
+scala/doc/licenses/mit_tools.tooltip.txt
+scala/doc/tools/
+scala/doc/tools/css/
+scala/doc/tools/css/style.css
+scala/doc/tools/fsc.html
+scala/doc/tools/images/
+scala/doc/tools/images/external.gif
+scala/doc/tools/images/scala_logo.png
+scala/doc/tools/index.html
+scala/doc/tools/scala.html
+scala/doc/tools/scalac.html
+scala/doc/tools/scaladoc.html
+scala/doc/tools/scalap.html
+scala/lib/
+scala/lib/jline-2.14.6.jar
+scala/lib/scala-compiler.jar
+scala/lib/scala-library.jar
+scala/lib/scala-parser-combinators_2.12-1.0.7.jar
+scala/lib/scala-reflect.jar
+scala/lib/scala-swing_2.12-2.0.3.jar
+scala/lib/scala-xml_2.12-1.0.6.jar
+scala/lib/scalap-2.12.9.jar

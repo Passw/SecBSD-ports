@@ -1,0 +1,16 @@
+- namespace clash with sys/endian.h
+
+Index: lib-src/libnyquist/nyquist/nyqstk/include/Stk.h
+--- lib-src/libnyquist/nyquist/nyqstk/include/Stk.h.orig
++++ lib-src/libnyquist/nyquist/nyqstk/include/Stk.h
+@@ -161,6 +161,10 @@ class Stk (public)
+   //! Static method which sets the STK rawwave path.
+   static void setRawwavePath(std::string path);
+ 
++#undef swap16
++#undef swap32
++#undef swap64
++
+   //! Static method which byte-swaps a 16-bit data type.
+   static void swap16(unsigned char *ptr);
+ 

@@ -1,0 +1,15 @@
+unixodbc vs iodbc
+
+Index: src/pyodbcmodule.cpp
+--- src/pyodbcmodule.cpp.orig
++++ src/pyodbcmodule.cpp
+@@ -1102,7 +1102,9 @@ static const ConstantDef aConstants[] = {
+     MAKECONST(SQL_CONVERT_DECIMAL),
+     MAKECONST(SQL_CONVERT_DOUBLE),
+     MAKECONST(SQL_CONVERT_FLOAT),
++#ifdef SQL_CONVERT_GUID
+     MAKECONST(SQL_CONVERT_GUID),
++#endif
+     MAKECONST(SQL_CONVERT_INTEGER),
+     MAKECONST(SQL_CONVERT_INTERVAL_DAY_TIME),
+     MAKECONST(SQL_CONVERT_INTERVAL_YEAR_MONTH),

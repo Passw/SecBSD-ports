@@ -1,0 +1,50 @@
+$OpenBSD$
+
+Index: fuxploider.py
+--- fuxploider.py.orig
++++ fuxploider.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ 
+ import os
+ import argparse
+@@ -12,6 +12,9 @@ import concurrent.futures
+ import coloredlogs
+ import requests
+ 
++import urllib3
++urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
++
+ from utils import *
+ from UploadForm import UploadForm
+ from threading import Lock
+@@ -27,8 +30,8 @@ coloredlogs.install(
+ logging.getLogger("requests").setLevel(logging.ERROR)
+ 
+ #################### TEMPLATES DEFINITION HERE ######################
+-templatesFolder = "payloads"
+-with open("templates.json", "r", encoding='utf-8') as fd:
++templatesFolder = "/usr/local/share/fuxploider/payloads"
++with open("/usr/local/share/fuxploider/templates.json", "r", encoding='utf-8') as fd:
+     templates = json.loads(fd.read())
+ 
+ #######################################################################
+@@ -90,7 +93,7 @@ args.nbThreads = args.nbThreads[0]
+ args.userAgent = args.userAgent[0]
+ 
+ if args.randomUserAgent:
+-    with open("user-agents.txt","r") as fd:
++    with open("/usr/local/share/fuxploider/user-agents.txt","r") as fd:
+         nb = 0
+         for l in fd:
+             nb += 1
+@@ -285,7 +288,7 @@ else:
+ entryPoints = []
+ up.stopThreads = True
+ 
+-with open("techniques.json", "r") as rawTechniques:
++with open("/usr/local/share/fuxploider/techniques.json", "r") as rawTechniques:
+     techniques = json.loads(rawTechniques.read())
+ logger.info("### Starting code execution detection "
+             "(messing with file extensions and mime types...)")

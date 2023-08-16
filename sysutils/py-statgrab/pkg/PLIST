@@ -1,0 +1,3 @@
+@pkgpath sysutils/py-statgrab
+lib/python${MODPY_VERSION}/site-packages/pystatgrab-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info
+@so lib/python${MODPY_VERSION}/site-packages/statgrab.${MODPY_PYC_MAGIC_TAG}so

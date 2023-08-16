@@ -1,0 +1,66 @@
+Index: src/modsrc/telnet.c
+--- src/modsrc/telnet.c.orig
++++ src/modsrc/telnet.c
+@@ -274,7 +274,7 @@ int initModule(sLogin* _psLogin, _MODULE_DATA *_psSess
+ 
+           if (_psSessionData->nMode == MODE_AS400)
+           {
+-            if (strcasestr((char *)bufReceive, (char *)"Sign On") != '\0')
++            if (strcasestr((char *)bufReceive, (char *)"Sign On") != NULL)
+             {
+               writeError(ERR_INFO, "[%s] Detected AS/400 Sign On Screen.", MODULE_NAME);
+               nFoundPrompt = PROMPT_LOGIN_PASSWORD;
+@@ -303,7 +303,7 @@ int initModule(sLogin* _psLogin, _MODULE_DATA *_psSess
+             // Look for known login prompts
+             for (i = 0; i < KNOWN_LOGIN_SIZE; i++)
+             {
+-              if (strcasestr((char *)bufReceive, KNOWN_LOGIN_PROMPTS[i]) != '\0')
++              if (strcasestr((char *)bufReceive, KNOWN_LOGIN_PROMPTS[i]) != NULL)
+               {
+                 // Do we have a prompt?
+                 writeError(ERR_DEBUG_MODULE, "Found login prompt...");
+@@ -315,7 +315,7 @@ int initModule(sLogin* _psLogin, _MODULE_DATA *_psSess
+             /* Some systems do not provide a login prompt and go right to password */
+             for (i = 0; i < KNOWN_PWD_SIZE; i++)
+             {
+-              if (strcasestr((char *)bufReceive, KNOWN_PWD_PROMPTS[i]) != '\0')
++              if (strcasestr((char *)bufReceive, KNOWN_PWD_PROMPTS[i]) != NULL)
+               {
+                 // Do we have a prompt?
+                 writeError(ERR_DEBUG_MODULE, "Found a password prompt already...");
+@@ -479,7 +479,7 @@ int tryLogin(int hSocket, sLogin** login, _MODULE_DATA
+       // Are we at a known password prompt?
+       for (i = 0; i < KNOWN_PWD_SIZE; i++)
+       {
+-        if (strcasestr((char *)bufReceive, KNOWN_PWD_PROMPTS[i]) != '\0')
++        if (strcasestr((char *)bufReceive, KNOWN_PWD_PROMPTS[i]) != NULL)
+         {
+           nContinue = 1;
+           break;
+@@ -491,7 +491,7 @@ int tryLogin(int hSocket, sLogin** login, _MODULE_DATA
+       {
+         for (i = 0; i < KNOWN_LOGIN_SIZE; i++)
+         {
+-          if (strcasestr((char *)bufReceive, KNOWN_LOGIN_PROMPTS[i]) != '\0')
++          if (strcasestr((char *)bufReceive, KNOWN_LOGIN_PROMPTS[i]) != NULL)
+           {
+             free(bufReceive);
+             (*login)->iResult = LOGIN_RESULT_FAIL;
+@@ -579,7 +579,7 @@ int tryLogin(int hSocket, sLogin** login, _MODULE_DATA
+         // If we have a login prompt, we have failed
+         for (i = 0; i < KNOWN_LOGIN_SIZE; i++)
+         {
+-          if (strcasestr((char *)bufReceive, KNOWN_LOGIN_PROMPTS[i]) != '\0')
++          if (strcasestr((char *)bufReceive, KNOWN_LOGIN_PROMPTS[i]) != NULL)
+           {
+             free(bufReceive);
+             writeError(ERR_DEBUG_MODULE, "unsuccessful login - user '%s' with a password of '%s'", szLogin, szPassword);
+@@ -594,7 +594,7 @@ int tryLogin(int hSocket, sLogin** login, _MODULE_DATA
+         // We are operating on a non-login telnet setup
+         for (i = 0; i < KNOWN_PWD_SIZE; i++)
+         {
+-          if (strcasestr((char *)bufReceive, KNOWN_PWD_PROMPTS[i]) != '\0')
++          if (strcasestr((char *)bufReceive, KNOWN_PWD_PROMPTS[i]) != NULL)
+           {
+             free(bufReceive);
+             writeError(ERR_DEBUG_MODULE, "unsuccessful login with a password of '%s'", szPassword);

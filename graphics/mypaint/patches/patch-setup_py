@@ -1,0 +1,14 @@
+OpenBSD does not have OpenMP available in base or ports compilers
+
+Index: setup.py
+--- setup.py.orig
++++ setup.py
+@@ -437,7 +437,7 @@ class BuildExt (build_ext):
+ 
+     def initialize_options(self):
+         self.set_rpath = False
+-        self.disable_openmp = False
++        self.disable_openmp = True
+         build_ext.initialize_options(self)
+ 
+     def finalize_options(self):

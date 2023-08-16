@@ -1,0 +1,23 @@
+Index: lttoolbox/lt_trim.cc
+--- lttoolbox/lt_trim.cc.orig
++++ lttoolbox/lt_trim.cc
+@@ -24,6 +24,7 @@
+ #include <iostream>
+ #include <libgen.h>
+ #include <string>
++#include <unistd.h>
+ 
+ void endProgram(char *name)
+ {
+@@ -160,6 +161,11 @@ trim(FILE *file_mono, FILE *file_bi)
+ 
+ int main(int argc, char *argv[])
+ {
++  if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++    wcerr << "pledge" << endl;
++    exit(EXIT_FAILURE);
++  }
++
+   if(argc != 4)
+   {
+     endProgram(argv[0]);

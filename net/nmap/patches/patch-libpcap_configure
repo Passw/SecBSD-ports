@@ -1,0 +1,39 @@
+Index: libpcap/configure
+--- libpcap/configure.orig
++++ libpcap/configure
+@@ -3998,7 +3998,7 @@ $as_echo "#define const /**/" >>confdefs.h
+ 	    aix*)
+ 		    ;;
+ 
+-	    freebsd*|netbsd*|openbsd*|dragonfly*|linux*|osf*|midipix*)
++	    freebsd*|netbsd*|openbsd*|secbsd*|dragonfly*|linux*|osf*|midipix*)
+ 	    	    #
+ 		    # Platforms where the linker is the GNU linker
+ 		    # or accepts command-line arguments like
+@@ -4015,7 +4015,7 @@ $as_echo "#define const /**/" >>confdefs.h
+ 		    sparc64*)
+ 			case "$host_os" in
+ 
+-			freebsd*|openbsd*|linux*)
++			freebsd*|openbsd*|secbsd*|linux*)
+ 			    PIC_OPT=-fPIC
+ 			    ;;
+ 			esac
+@@ -4080,7 +4080,7 @@ $as_echo "#define const /**/" >>confdefs.h
+ 		    V_SHLIB_OPT="-G -bnoentry -bexpall"
+ 		    ;;
+ 
+-	    freebsd*|netbsd*|openbsd*|dragonfly*|linux*)
++	    freebsd*|netbsd*|openbsd*|secbsd*|dragonfly*|linux*)
+ 		    #
+ 		    # "cc" is GCC.
+ 		    #
+@@ -8195,7 +8195,7 @@ irix*)
+ 	MAN_MISC_INFO=5
+ 	;;
+ 
+-linux*|freebsd*|netbsd*|openbsd*|dragonfly*|kfreebsd*|gnu*|midipix*)
++linux*|freebsd*|netbsd*|openbsd*|secbsd*|dragonfly*|kfreebsd*|gnu*|midipix*)
+ 	DYEXT="so"
+ 
+ 	#

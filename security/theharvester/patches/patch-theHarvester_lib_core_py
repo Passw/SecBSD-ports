@@ -1,0 +1,21 @@
+Index: theHarvester/lib/core.py
+--- theHarvester/lib/core.py.orig
++++ theHarvester/lib/core.py
+@@ -20,7 +20,7 @@ class Core:
+     @staticmethod
+     def api_keys() -> dict:
+         try:
+-            with open("/etc/theHarvester/api-keys.yaml", "r") as api_keys:
++            with open("/usr/local/share/theharvester/api-keys.yaml", "r") as api_keys:
+                 keys = yaml.safe_load(api_keys)
+         except FileNotFoundError:
+             try:
+@@ -118,7 +118,7 @@ class Core:
+     @staticmethod
+     def proxy_list() -> List:
+         try:
+-            with open("/etc/theHarvester/proxies.yaml", "r") as proxy_file:
++            with open("/usr/local/share/theharvester/proxies.yaml", "r") as proxy_file:
+                 keys = yaml.safe_load(proxy_file)
+         except FileNotFoundError:
+             try:

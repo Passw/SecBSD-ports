@@ -1,0 +1,4 @@
+%%dynlink%%
+lib/ocaml/pcre/pcre.a
+lib/ocaml/pcre/pcre.cmx
+lib/ocaml/pcre/pcre.cmxa

@@ -1,0 +1,12 @@
+@pkgpath security/gpgme
+bin/gpgme-config
+@bin bin/gpgme-json
+@bin bin/gpgme-tool
+include/gpgme.h
+@info info/gpgme.info
+@static-lib lib/libgpgme.a
+lib/libgpgme.la
+@lib lib/libgpgme.so.${LIBgpgme_VERSION}
+lib/pkgconfig/gpgme-glib.pc
+lib/pkgconfig/gpgme.pc
+share/aclocal/gpgme.m4

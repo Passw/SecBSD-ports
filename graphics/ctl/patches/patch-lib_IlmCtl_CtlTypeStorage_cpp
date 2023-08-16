@@ -1,0 +1,10 @@
+--- lib/IlmCtl/CtlTypeStorage.cpp.orig	Sun Aug  7 22:06:34 2016
++++ lib/IlmCtl/CtlTypeStorage.cpp	Sun Aug  7 22:06:54 2016
+@@ -64,7 +64,6 @@
+ #include <half.h>
+ #include <CtlExc.h>
+ #include <string.h>
+-#include <alloca.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <stdint.h>

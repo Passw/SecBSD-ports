@@ -1,0 +1,93 @@
+Index: source/Makefile
+--- source/Makefile.orig
++++ source/Makefile
+@@ -260,9 +260,6 @@ ifdef msys
+ 		BUILD_LIBPNG = YesPlease
+ 		COPY_FONTS = yes
+ 	endif
+-	ifeq ($(shell gcc -v -static -static-libstdc++ 2>&1 | grep 'unrecognized option'),)
+-		EXTRA_LIBS += -static -static-libgcc -static-libstdc++
+-	endif
+ endif
+ ifeq ($(uname_S),Darwin)
+ ifdef MAC_TARGET
+@@ -371,11 +368,8 @@ endif
+ #
+ ifndef NO_APPLE_PLATFORM
+ ifeq ($(uname_S),Darwin)
+-ifneq ($(shell gcc -v 2>&1 | grep Apple),)
+-APPLE_PLATFORM = YesPlease
+ endif
+ endif
+-endif
+ 
+ 
+ ifdef WIN32
+@@ -501,15 +495,7 @@ ifneq ($(GCC_VER),)
+ GCC_VER_SUFFIX:=-$(GCC_VER)
+ endif
+ 
+-# Attempt to use a full compiler name, to make
+-# distcc builds work nicely.
+-LMACH := $(shell gcc -dumpmachine)-
+-ifeq ($(LMACH),-)
+ LMACH :=
+-endif
+-ifeq ($(shell which $(LMACH)gcc$(GCC_VER_SUFFIX) > /dev/null 2> /dev/null && echo "Yes"),)
+-LMACH :=
+-endif
+ 
+ ifneq ($(FORCE_CC),)
+ GCC := $(FORCE_CC)
+@@ -1151,51 +1137,6 @@ ifndef NO_OPTIMIZE
+     endif
+   endif
+ endif
+-endif
+-
+-ifdef BUILD_PCRE
+-CONTRIBS += pcre
+-CONTRIB_LIBS += $(LIBPCRE)
+-endif
+-ifdef BUILD_FREETYPE
+-CONTRIBS += freetype
+-CONTRIB_LIBS += $(LIBFREETYPE)
+-endif
+-ifdef BUILD_LIBPNG
+-CONTRIBS += libpng
+-CONTRIB_LIBS := $(LIBPNG) $(CONTRIB_LIBS)
+-endif
+-ifdef BUILD_SDL2
+-CONTRIBS += sdl2
+-CONTRIB_LIBS := $(LIBSDL2) $(CONTRIB_LIBS)
+-ifeq ($(uname_S),Linux)
+-LIBS += -ldl -lrt
+-endif
+-endif
+-ifdef BUILD_SDL2IMAGE
+-CONTRIBS += sdl2-image
+-CONTRIB_LIBS := $(LIBSDL2IMAGE) $(CONTRIB_LIBS)
+-endif
+-ifdef BUILD_SDL2MIXER
+-CONTRIBS += sdl2-mixer
+-CONTRIB_LIBS := $(LIBSDL2MIXER) $(CONTRIB_LIBS)
+-endif
+-ifdef BUILD_ZLIB
+-CONTRIBS += zlib
+-CONTRIB_LIBS += $(LIBZ)
+-endif
+-ifdef BUILD_LUA
+-ifdef USE_LUAJIT
+-CONTRIBS += luajit/src
+-CFOTHER_L += -DUSE_LUAJIT
+-else
+-CONTRIBS += lua/src
+-endif
+-CONTRIB_LIBS += $(LIBLUA)
+-endif
+-ifdef BUILD_SQLITE
+-CONTRIBS += sqlite
+-CONTRIB_LIBS += $(LIBSQLITE)
+ endif
+ 
+ EXTRA_OBJECTS += version.o

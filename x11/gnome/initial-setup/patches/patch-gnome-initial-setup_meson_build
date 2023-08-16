@@ -1,0 +1,26 @@
+Disable NetworkManager.
+
+Find libkrb5.so.
+
+Index: gnome-initial-setup/meson.build
+--- gnome-initial-setup/meson.build.orig
++++ gnome-initial-setup/meson.build
+@@ -42,8 +42,6 @@ gweather_dep = dependency('gweather4')
+ subdir('pages')
+ 
+ dependencies = [
+-    dependency ('libnm', version: '>= 1.2'),
+-    dependency ('libnma-gtk4', version: '>= 1.0'),
+     dependency ('polkit-gobject-1', version: '>= 0.103'),
+     dependency ('accountsservice'),
+     geocode_glib_2_dep,
+@@ -77,7 +75,8 @@ executable(
+     include_directories: config_h_dir,
+     dependencies: dependencies,
+     install: true,
+-    install_dir: get_option('libexecdir')
++    install_dir: get_option('libexecdir'),
++    install_rpath : '${LOCALBASE}/heimdal/lib'
+ )
+ 
+ executable(

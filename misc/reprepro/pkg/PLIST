@@ -1,0 +1,6 @@
+@bin bin/changestool
+@bin bin/reprepro
+@bin bin/rredtool
+@man man/man1/changestool.1
+@man man/man1/reprepro.1
+@man man/man1/rredtool.1

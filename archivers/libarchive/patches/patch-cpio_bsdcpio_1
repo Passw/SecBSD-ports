@@ -1,0 +1,11 @@
+--- cpio/bsdcpio.1.orig	Tue Jan 10 07:41:09 2012
++++ cpio/bsdcpio.1	Sat Mar 31 21:50:15 2012
+@@ -28,7 +28,7 @@
+ .Dt CPIO 1
+ .Os
+ .Sh NAME
+-.Nm cpio
++.Nm bsdcpio
+ .Nd copy files to and from archives
+ .Sh SYNOPSIS
+ .Nm

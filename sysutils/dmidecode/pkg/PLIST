@@ -1,0 +1,7 @@
+%%x86%%
+@man man/man8/dmidecode.8
+@bin sbin/dmidecode
+share/doc/dmidecode/
+share/doc/dmidecode/AUTHORS
+share/doc/dmidecode/NEWS
+share/doc/dmidecode/README

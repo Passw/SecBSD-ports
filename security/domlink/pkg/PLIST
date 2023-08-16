@@ -1,0 +1,8 @@
+bin/domlink
+share/domlink/
+share/domlink/.github/
+share/domlink/.github/FUNDING.yml
+share/domlink/LICENSE.md
+share/domlink/README.md
+share/domlink/domLink.cfg.example
+share/domlink/domLink.py

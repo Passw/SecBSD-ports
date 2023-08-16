@@ -1,0 +1,12 @@
+lib/python${MODPY_VERSION}/site-packages/gexf/
+lib/python${MODPY_VERSION}/site-packages/gexf/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/gexf/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/gexf/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/gexf/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/gexf/_gexf.py
+lib/python${MODPY_VERSION}/site-packages/pygexf-0.2.1.dist-info/
+lib/python${MODPY_VERSION}/site-packages/pygexf-0.2.1.dist-info/LICENSE
+lib/python${MODPY_VERSION}/site-packages/pygexf-0.2.1.dist-info/METADATA
+lib/python${MODPY_VERSION}/site-packages/pygexf-0.2.1.dist-info/RECORD
+lib/python${MODPY_VERSION}/site-packages/pygexf-0.2.1.dist-info/WHEEL
+lib/python${MODPY_VERSION}/site-packages/pygexf-0.2.1.dist-info/top_level.txt

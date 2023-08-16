@@ -1,0 +1,6 @@
+@bin bin/docgen
+@bin bin/fuzzplayground
+@bin bin/generate-checksum
+@bin bin/nuclei
+@bin bin/sign-templates
+@bin bin/tmc

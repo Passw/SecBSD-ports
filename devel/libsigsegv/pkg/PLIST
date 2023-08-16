@@ -1,0 +1,4 @@
+include/sigsegv.h
+lib/libsigsegv.a
+lib/libsigsegv.la
+@lib lib/libsigsegv.so.${LIBsigsegv_VERSION}

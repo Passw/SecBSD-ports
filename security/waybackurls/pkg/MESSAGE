@@ -1,0 +1,7 @@
+
+Fetch all the URLs that the Wayback Machine
+knows about for a domain.
+
+Help:
+
+$ cat domains.txt | waybackurls > urls

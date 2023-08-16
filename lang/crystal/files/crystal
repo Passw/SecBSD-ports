@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export CRYSTAL_PATH="lib:${TRUEPREFIX}/lib/crystal"
+export CRYSTAL_LIBRARY_PATH=lib:${TRUEPREFIX}/lib
+exec ${TRUEPREFIX}/libexec/crystal "${@}"

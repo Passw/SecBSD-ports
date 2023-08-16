@@ -1,0 +1,48 @@
+@newgroup _vmetrics:872
+@newuser _vmetrics:872:_vmetrics::VictoriaMetrics:${LOCALSTATEDIR}/db/vmetrics:/sbin/nologin
+@sample ${SYSCONFDIR}/vmetrics/
+@rcscript ${RCDIR}/vmetrics
+@bin bin/vmagent
+@bin bin/vmetrics
+@bin bin/vmetricsalert
+@bin bin/vmetricsauth
+@bin bin/vmetricsbackup
+@bin bin/vmetricsctl
+@bin bin/vmetricsrestore
+share/doc/vmetrics/
+share/doc/vmetrics/LICENSE
+share/doc/vmetrics/README.md
+share/doc/vmetrics/vmagent.md
+share/doc/vmetrics/vmagent.png
+share/doc/vmetrics/vmalert.md
+share/doc/vmetrics/vmalert_cluster.png
+share/doc/vmetrics/vmalert_ha.png
+share/doc/vmetrics/vmalert_multicluster.png
+share/doc/vmetrics/vmalert_multiple_rw.png
+share/doc/vmetrics/vmalert_single.png
+share/doc/vmetrics/vmalert_state.png
+share/doc/vmetrics/vmalert_ts_data_delay.gif
+share/doc/vmetrics/vmalert_ts_normal.gif
+share/doc/vmetrics/vmanomaly-holtwinters-example.png
+share/doc/vmetrics/vmanomaly-prophet-example.png
+share/doc/vmetrics/vmanomaly.md
+share/doc/vmetrics/vmauth.md
+share/doc/vmetrics/vmauth_example_config.yml
+share/doc/vmetrics/vmbackup.md
+share/doc/vmetrics/vmbackupmanager.md
+share/doc/vmetrics/vmbackupmanager_latest_folder.png
+share/doc/vmetrics/vmbackupmanager_root_folder.png
+share/doc/vmetrics/vmbackupmanager_rp_daily_1.png
+share/doc/vmetrics/vmbackupmanager_rp_daily_2.png
+share/doc/vmetrics/vmctl.md
+share/doc/vmetrics/vmetrics_example_config.yml
+share/doc/vmetrics/vmetricsalert_example_config.yml
+share/doc/vmetrics/vmgateway-access-control.jpg
+share/doc/vmetrics/vmgateway-overview.jpeg
+share/doc/vmetrics/vmgateway-rate-limiting.jpg
+share/doc/vmetrics/vmgateway.md
+share/doc/vmetrics/vmrestore.md
+@mode 0755
+@owner _vmetrics
+@group _vmetrics
+@sample ${LOCALSTATEDIR}/db/vmetrics/

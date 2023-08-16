@@ -1,0 +1,14 @@
+COMMENT=	concurrency tools and patterns for Ruby
+
+DISTNAME=	concurrent-ruby-1.2.2
+CATEGORIES=	devel
+HOMEPAGE=	http://www.concurrent-ruby.com/
+
+# MIT
+PERMIT_PACKAGE=	Yes
+
+MODULES=	lang/ruby
+
+CONFIGURE_STYLE=ruby gem
+
+.include <bsd.port.mk>

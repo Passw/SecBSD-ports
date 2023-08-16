@@ -1,0 +1,2 @@
+Parsero is a free script written in Python which reads the Robots.txt
+file of a web server and looks at the Disallow entries. 

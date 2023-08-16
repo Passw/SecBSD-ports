@@ -1,0 +1,29 @@
+Index: configure.ac
+--- configure.ac.orig
++++ configure.ac
+@@ -73,6 +73,7 @@ dragonfly*) template=netbsd ;;
+    mingw*) template=win32 ;;
+   netbsd*) template=netbsd ;;
+  openbsd*) template=openbsd ;;
++ secbsd*) template=secbsd ;;
+  solaris*) template=solaris ;;
+ esac
+ 
+@@ -1983,7 +1984,7 @@ fi
+ 
+ # On OpenBSD and Solaris, getopt() doesn't do what we want for long options
+ # (i.e., allow '-' as a flag character), so use our version on those platforms.
+-if test "$PORTNAME" = "openbsd" -o "$PORTNAME" = "solaris"; then
++if test "$PORTNAME" = "openbsd" -o "$PORTNAME" = "secbsd" -o "$PORTNAME" = "solaris"; then
+   AC_LIBOBJ(getopt)
+ fi
+ 
+@@ -2492,7 +2493,7 @@ fi
+ 
+ if test "$PORTNAME" = "darwin"; then
+   PGAC_PROG_CC_LDFLAGS_OPT([-Wl,-dead_strip_dylibs], $link_test_func)
+-elif test "$PORTNAME" = "openbsd"; then
++elif test "$PORTNAME" = "openbsd" -o "$PORTNAME" = "secbsd"; then
+   PGAC_PROG_CC_LDFLAGS_OPT([-Wl,-Bdynamic], $link_test_func)
+ else
+   PGAC_PROG_CC_LDFLAGS_OPT([-Wl,--as-needed], $link_test_func)

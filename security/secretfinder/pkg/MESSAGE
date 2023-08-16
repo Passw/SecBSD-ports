@@ -1,0 +1,7 @@
+
+Tool for find sensitive data as api keys, access token, jwt
+and search anything on javascript files.
+
+Help:
+
+$ secretfinder -h

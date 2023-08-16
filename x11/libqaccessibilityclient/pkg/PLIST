@@ -1,0 +1,13 @@
+@bin bin/accessibleapps
+@bin bin/dumper
+include/qaccessibilityclient/
+include/qaccessibilityclient/accessibleobject.h
+include/qaccessibilityclient/libqaccessibilityclient-version.h
+include/qaccessibilityclient/qaccessibilityclient_export.h
+include/qaccessibilityclient/registry.h
+lib/cmake/QAccessibilityClient/
+lib/cmake/QAccessibilityClient/QAccessibilityClient${MODCMAKE_BUILD_SUFFIX}
+lib/cmake/QAccessibilityClient/QAccessibilityClient.cmake
+lib/cmake/QAccessibilityClient/QAccessibilityClientConfig.cmake
+lib/cmake/QAccessibilityClient/QAccessibilityClientConfigVersion.cmake
+@lib lib/libqaccessibilityclient-qt5.so.${LIBqaccessibilityclient-qt5_VERSION}

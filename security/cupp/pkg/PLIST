@@ -1,0 +1,11 @@
+bin/cupp
+share/cupp/
+share/cupp/.bumpversion.cfg
+share/cupp/CHANGELOG.md
+share/cupp/LICENSE
+share/cupp/README.md
+share/cupp/cupp.cfg
+share/cupp/cupp.py
+share/cupp/screenshots/
+share/cupp/screenshots/cupp-example.gif
+share/cupp/test_cupp.py

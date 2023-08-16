@@ -1,0 +1,78 @@
+fix unaligned access on strict-alignment 64-bit
+
+Index: conserver/cutil.c
+--- conserver/cutil.c.orig
++++ conserver/cutil.c
+@@ -1852,7 +1852,7 @@ ProbeInterfaces(in_addr_t bindAddr)
+ {
+ # ifdef SIOCGIFCONF
+     struct ifconf ifc;
+-    struct ifreq *ifr;
++    struct ifreq ifr;
+ #  ifdef SIOCGIFFLAGS
+     struct ifreq ifrcopy;
+ #  endif
+@@ -1921,7 +1921,7 @@ ProbeInterfaces(in_addr_t bindAddr)
+      * than loop through looking for valid interfaces that are up
+      * twice, huh?
+      */
+-    count = ifc.ifc_len / sizeof(*ifr);
++    count = ifc.ifc_len / sizeof(ifr);
+     CONDDEBUG((1, "ProbeInterfaces(): ifc_len==%d max_count==%d",
+ 	       ifc.ifc_len, count));
+ 
+@@ -1940,21 +1940,21 @@ ProbeInterfaces(in_addr_t bindAddr)
+ 
+     for (m = r = 0; r < ifc.ifc_len;) {
+ 	struct sockaddr *sa;
+-	ifr = (struct ifreq *)&ifc.ifc_buf[r];
+-	sa = (struct sockaddr *)&ifr->ifr_addr;
++	memcpy(&ifr, &ifc.ifc_buf[r], sizeof(ifr));
++	sa = (struct sockaddr *)&ifr.ifr_addr;
+ 	/* don't use less than a ifreq sized chunk */
+-	if ((ifc.ifc_len - r) < sizeof(*ifr))
++	if ((ifc.ifc_len - r) < sizeof(ifr))
+ 	    break;
+ #  ifdef HAVE_SA_LEN
+ #   ifdef __FreeBSD__
+-	if (sa->sa_len > sizeof(ifr->ifr_addr))
++	if (sa->sa_len > sizeof(ifr.ifr_addr))
+ #   else
+-	if (sa->sa_len > sizeof(ifr->ifr_ifru))
++	if (sa->sa_len > sizeof(ifr.ifr_ifru))
+ #   endif
+-	    r += sizeof(ifr->ifr_name) + sa->sa_len;
++	    r += sizeof(ifr.ifr_name) + sa->sa_len;
+ 	else
+ #  endif
+-	    r += sizeof(*ifr);
++	    r += sizeof(ifr);
+ 
+ 	if (sa->sa_family == AF_INET) {
+ 	    struct sockaddr_in *sin = (struct sockaddr_in *)sa;
+@@ -1975,14 +1975,14 @@ ProbeInterfaces(in_addr_t bindAddr)
+ 
+ #  ifdef SIOCGIFFLAGS
+ 	    /* make sure the interface is up */
+-	    ifrcopy = *ifr;
++	    memcpy(&ifrcopy, &ifr, sizeof(ifrcopy));
+ 	    if ((ioctl(sock, SIOCGIFFLAGS, &ifrcopy) == 0) &&
+ 		((ifrcopy.ifr_flags & IFF_UP) == 0))
+ 		continue;
+ #  endif
+ 
+ 	    CONDDEBUG((1, "ProbeInterfaces(): name=%s addr=%s",
+-		       ifr->ifr_name, inet_ntoa(sin->sin_addr)));
++		       ifr.ifr_name, inet_ntoa(sin->sin_addr)));
+ 
+ #  if HAVE_MEMCPY
+ 	    memcpy(&myAddrs[m], &(sin->sin_addr), sizeof(struct in_addr));
+@@ -1991,7 +1991,7 @@ ProbeInterfaces(in_addr_t bindAddr)
+ #  endif
+ 
+ 	    Verbose("interface address %s (%s)", inet_ntoa(myAddrs[m]),
+-		    ifr->ifr_name);
++		    ifr.ifr_name);
+ 	    m++;
+ 	}
+     }

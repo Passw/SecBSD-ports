@@ -1,0 +1,12 @@
+Index: configure
+--- configure.orig
++++ configure
+@@ -7440,7 +7440,7 @@ case "$target" in
+     MODULE_LIBS="$MODULE_LIBS -shared"
+     EXTRA_LDFLAGS=""
+     ;;
+-  *openbsd*)
++  *openbsd*|*secbsd*)
+     LIBDL="-lm"
+     RDYNAMIC="-rdynamic"
+     MODULE_LIBS="$MODULE_LIBS -shared"

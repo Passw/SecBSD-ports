@@ -1,0 +1,19 @@
+@bin bin/quadrupleback
+share/applications/quadrupleback.desktop
+share/doc/quadrupleback/
+share/doc/quadrupleback/AUTHORS
+share/doc/quadrupleback/COPYING
+share/doc/quadrupleback/NEWS
+share/doc/quadrupleback/README
+share/doc/quadrupleback/THANKS
+share/pixmaps/
+share/pixmaps/quadrupleback.png
+share/quadrupleback/
+share/quadrupleback/fonts/
+share/quadrupleback/fonts/9x18B.fnt
+share/sounds/
+share/sounds/quadrupleback/
+share/sounds/quadrupleback/enemyAppears.wav
+share/sounds/quadrupleback/enemyCaptured.wav
+share/sounds/quadrupleback/enemyTouched.wav
+@tag update-desktop-database

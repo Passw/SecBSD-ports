@@ -1,0 +1,257 @@
+Index: base/networking.c
+--- base/networking.c.orig
++++ base/networking.c
+@@ -34,14 +34,11 @@
+ #include <stdint.h>     /* for uint32_t, uint8_t */
+ #include <stdlib.h>     /* for atoi, strtol */
+ #include <string.h>     /* for memcpy, bzero, strchr, strlen, strcmp, strncpy */
++#include <sys/types.h>
+ #include <sys/socket.h> /* for AF_INET, AF_INET6, AF_UNSPEC, sockaddr_storage */
++#include <netinet/in.h>
+ #include <unistd.h>     /* for close */
+ 
+-#ifdef __FreeBSD__
+-#include <netinet/in.h>
+-#define s6_addr32 __u6_addr.__u6_addr32
+-#endif
+-
+ #undef G_LOG_DOMAIN
+ /**
+  * @brief GLib log domain.
+@@ -57,7 +54,7 @@ char global_source_iface[IFNAMSIZ] = {'\0'};
+ struct in_addr global_source_addr = {.s_addr = 0};
+ 
+ /* Source IPv6 address. */
+-struct in6_addr global_source_addr6 = {.s6_addr32 = {0, 0, 0, 0}};
++struct in6_addr global_source_addr6;
+ 
+ /* Source Interface/Address related functions. */
+ 
+@@ -250,10 +247,19 @@ ipv4_as_ipv6 (const struct in_addr *ip4, struct in6_ad
+   if (ip4 == NULL || ip6 == NULL)
+     return;
+ 
+-  ip6->s6_addr32[0] = 0;
+-  ip6->s6_addr32[1] = 0;
+-  ip6->s6_addr32[2] = htonl (0xffff);
+-  memcpy (&ip6->s6_addr32[3], ip4, sizeof (struct in_addr));
++  ip6->s6_addr[0] = 0;
++  ip6->s6_addr[1] = 0;
++  ip6->s6_addr[2] = 0;
++  ip6->s6_addr[3] = 0;
++  ip6->s6_addr[4] = 0;
++  ip6->s6_addr[5] = 0;
++  ip6->s6_addr[6] = 0;
++  ip6->s6_addr[7] = 0;
++  ip6->s6_addr[8] = 0;
++  ip6->s6_addr[9] = 0;
++  ip6->s6_addr[10] = 0xff;
++  ip6->s6_addr[11] = 0xff;
++  memcpy (&ip6->s6_addr[12], ip4, sizeof (struct in_addr));
+ }
+ 
+ /**
+@@ -268,7 +274,7 @@ addr6_to_str (const struct in6_addr *addr6, char *str)
+   if (!addr6)
+     return;
+   if (IN6_IS_ADDR_V4MAPPED (addr6))
+-    inet_ntop (AF_INET, &addr6->s6_addr32[3], str, INET6_ADDRSTRLEN);
++    inet_ntop (AF_INET, &addr6->s6_addr[12], str, INET6_ADDRSTRLEN);
+   else
+     inet_ntop (AF_INET6, addr6, str, INET6_ADDRSTRLEN);
+ }
+@@ -300,17 +306,17 @@ addr6_as_str (const struct in6_addr *addr6)
+  * @param[out]  str     Buffer of INET6_ADDRSTRLEN size.
+  */
+ void
+-sockaddr_as_str (const struct sockaddr_storage *addr, char *str)
++sockaddr_as_str (const struct sockaddr_in *addr, char *str)
+ {
+   if (!addr || !str)
+     return;
+ 
+-  if (addr->ss_family == AF_INET)
++  if (addr->sin_family == AF_INET)
+     {
+       struct sockaddr_in *saddr = (struct sockaddr_in *) addr;
+       inet_ntop (AF_INET, &saddr->sin_addr, str, INET6_ADDRSTRLEN);
+     }
+-  else if (addr->ss_family == AF_INET6)
++  else if (addr->sin_family == AF_INET6)
+     {
+       struct sockaddr_in6 *s6addr = (struct sockaddr_in6 *) addr;
+       if (IN6_IS_ADDR_V4MAPPED (&s6addr->sin6_addr))
+@@ -319,17 +325,17 @@ sockaddr_as_str (const struct sockaddr_storage *addr, 
+       else
+         inet_ntop (AF_INET6, &s6addr->sin6_addr, str, INET6_ADDRSTRLEN);
+     }
+-  else if (addr->ss_family == AF_UNIX)
++  else if (addr->sin_family == AF_UNIX)
+     {
+       g_snprintf (str, INET6_ADDRSTRLEN, "unix_socket");
+     }
+-  else if (addr->ss_family == AF_UNSPEC)
++  else if (addr->sin_family == AF_UNSPEC)
+     {
+       g_snprintf (str, INET6_ADDRSTRLEN, "unknown_socket");
+     }
+   else
+     {
+-      g_snprintf (str, INET6_ADDRSTRLEN, "type_%d_socket", addr->ss_family);
++      g_snprintf (str, INET6_ADDRSTRLEN, "type_%d_socket", addr->sin_family);
+     }
+ }
+ 
+@@ -367,7 +373,7 @@ gvm_resolve_list (const char *name)
+           ipv4_as_ipv6 (&(addrin->sin_addr), &dst);
+ #pragma GCC diagnostic push
+ #pragma GCC diagnostic warning "-Wdeprecated-declarations"
+-          list = g_slist_prepend (list, g_memdup (&dst, sizeof (dst)));
++          list = g_slist_prepend (list, g_memdup2 (&dst, sizeof (dst)));
+ #pragma GCC diagnostic pop
+         }
+       else if (p->ai_family == AF_INET6)
+@@ -376,7 +382,7 @@ gvm_resolve_list (const char *name)
+           memcpy (&dst, &(addrin->sin6_addr), sizeof (struct in6_addr));
+ #pragma GCC diagnostic push
+ #pragma GCC diagnostic warning "-Wdeprecated-declarations"
+-          list = g_slist_prepend (list, g_memdup (&dst, sizeof (dst)));
++          list = g_slist_prepend (list, g_memdup2 (&dst, sizeof (dst)));
+ #pragma GCC diagnostic pop
+         }
+       p = p->ai_next;
+@@ -783,7 +789,7 @@ ipv6_is_enabled (void)
+  * @return True if IP is localhost, else false.
+  */
+ static gboolean
+-ip_islocalhost (struct sockaddr_storage *storage)
++ip_islocalhost (struct sockaddr_in *storage)
+ {
+   struct in_addr addr;
+   struct in_addr *addr_p;
+@@ -794,7 +800,7 @@ ip_islocalhost (struct sockaddr_storage *storage)
+   struct ifaddrs *ifaddr, *ifa;
+   int family;
+ 
+-  family = storage->ss_family;
++  family = storage->sin_family;
+   addr6_p = &addr6;
+   addr_p = &addr;
+   addr.s_addr = 0;
+@@ -821,11 +827,11 @@ ip_islocalhost (struct sockaddr_storage *storage)
+       if (IN6_IS_ADDR_V4MAPPED (&addr6))
+         {
+           /* addr is 0.0.0.0 */
+-          if (addr6_p->s6_addr32[3] == 0)
++          if (addr6_p->s6_addr[12] == 0)
+             return 1;
+ 
+           /* addr starts with 127.0.0.1 */
+-          if ((addr6_p->s6_addr32[3] & htonl (0xFF000000))
++          if ((addr6_p->s6_addr[12] & htonl (0xFF000000))
+               == htonl (0x7F000000))
+             return 1;
+         }
+@@ -1002,8 +1008,8 @@ get_routes (void)
+  * NULL if no interface found or Error.
+  */
+ gchar *
+-gvm_routethrough (struct sockaddr_storage *storage_dest,
+-                  struct sockaddr_storage *storage_source)
++gvm_routethrough (struct sockaddr_in *storage_dest,
++                  struct sockaddr_in *storage_source)
+ {
+   struct ifaddrs *ifaddr, *ifa;
+   gchar *interface_out;
+@@ -1020,7 +1026,7 @@ gvm_routethrough (struct sockaddr_storage *storage_des
+     }
+ 
+   /* IPv4. */
+-  if (storage_dest->ss_family == AF_INET)
++  if (storage_dest->sin_family == AF_INET)
+     {
+       GSList *routes;
+       GSList *routes_p;
+@@ -1031,7 +1037,7 @@ gvm_routethrough (struct sockaddr_storage *storage_des
+        * return name of loopback interface. */
+       if (ip_islocalhost (storage_dest))
+         {
+-          // TODO: check for (storage_source->ss_family == AF_INET)
++          // TODO: check for (storage_source->sin_family == AF_INET)
+           if (storage_source)
+             {
+               struct sockaddr_in *sin_p = (struct sockaddr_in *) storage_source;
+@@ -1114,7 +1120,7 @@ gvm_routethrough (struct sockaddr_storage *storage_des
+           g_slist_free (routes);
+         }
+     }
+-  else if (storage_dest->ss_family == AF_INET6)
++  else if (storage_dest->sin_family == AF_INET6)
+     {
+       g_warning ("%s: IPv6 not yet implemented for this function. Will be "
+                  "implemented soon. Thanks for your patience.",
+@@ -1132,9 +1138,9 @@ gvm_routethrough (struct sockaddr_storage *storage_des
+  * @return Socket number or -1 on error.
+  */
+ static int
+-get_connected_udp_sock (struct sockaddr_storage *target_addr)
++get_connected_udp_sock (struct sockaddr_in *target_addr)
+ {
+-  int family = target_addr->ss_family;
++  int family = target_addr->sin_family;
+   int sockfd = -1;
+   if (family == AF_INET)
+     {
+@@ -1185,10 +1191,10 @@ get_connected_udp_sock (struct sockaddr_storage *targe
+  * @return 0 on success, -1 on error.
+  */
+ static int
+-get_sock_addr (int sockfd, struct sockaddr_storage *sock_addr)
++get_sock_addr (int sockfd, struct sockaddr_in *sock_addr)
+ {
+   socklen_t len;
+-  int family = sock_addr->ss_family;
++  int family = sock_addr->sin_family;
+   if (family == AF_INET)
+     {
+       len = sizeof (struct sockaddr_in);
+@@ -1221,10 +1227,10 @@ get_sock_addr (int sockfd, struct sockaddr_storage *so
+  * Null if no interface found or error.
+  */
+ static char *
+-get_ifname_from_ifaddr (struct sockaddr_storage *target_addr)
++get_ifname_from_ifaddr (struct sockaddr_in *target_addr)
+ {
+   struct ifaddrs *ifaddr, *ifa;
+-  int family = target_addr->ss_family;
++  int family = target_addr->sin_family;
+   char *interface_out = NULL;
+ 
+   if (getifaddrs (&ifaddr) == -1)
+@@ -1290,14 +1296,14 @@ get_ifname_from_ifaddr (struct sockaddr_storage *targe
+  * no interface found or Error.
+  */
+ char *
+-gvm_get_outgoing_iface (struct sockaddr_storage *target_addr)
++gvm_get_outgoing_iface (struct sockaddr_in *target_addr)
+ {
+   int family, sockfd;
+-  struct sockaddr_storage out_iface_addr;
++  struct sockaddr_in out_iface_addr;
+   char *out_iface_str;
+ 
+   out_iface_str = NULL;
+-  family = target_addr->ss_family;
++  family = target_addr->sin_family;
+ 
+   if (!target_addr)
+     return NULL;
+@@ -1306,7 +1312,7 @@ gvm_get_outgoing_iface (struct sockaddr_storage *targe
+   if ((sockfd = get_connected_udp_sock (target_addr)) < 0)
+     return NULL;
+   // get socked address which is the addr of the interface we want to get
+-  out_iface_addr.ss_family = family;
++  out_iface_addr.sin_family = family;
+   if (get_sock_addr (sockfd, &out_iface_addr) < 0)
+     return NULL;
+   // get interface name form interface address

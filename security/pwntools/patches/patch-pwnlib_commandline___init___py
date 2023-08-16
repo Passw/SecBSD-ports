@@ -1,0 +1,10 @@
+Index: pwnlib/commandline/__init__.py
+--- pwnlib/commandline/__init__.py.orig
++++ pwnlib/commandline/__init__.py
+@@ -18,6 +18,5 @@ __all__ = [
+     'scramble',
+     'shellcraft',
+     'unhex',
+-    'update',
+     'version'
+ ]

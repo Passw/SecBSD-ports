@@ -1,0 +1,8 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/MIT-LICENSE.txt
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/parallel/
+${GEM_LIB}/gems/${DISTNAME}/lib/parallel.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/parallel/version.rb
+${GEM_LIB}/specifications/${DISTNAME}.gemspec
