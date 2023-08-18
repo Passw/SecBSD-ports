@@ -1,6 +1,6 @@
 Compiling your own source code is discouraged for everyone except for experts,
 as difficult build-time crossing-points can occur often, and no assistance will
-be provided.
+be provided. 
 
 In case of failure, please install our compiled ports.
 

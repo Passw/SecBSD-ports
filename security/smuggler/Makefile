@@ -27,7 +27,7 @@ INSTDIR=		${PREFIX}/share/smuggler
 
 do-install:
 	cp -r ${WRKDIST} ${INSTDIR}
-	chmod 755 ${INSTDIR}/smuggler.py 
+	chmod 755 ${INSTDIR}/smuggler.py
 	ln -s ${TRUEPREFIX}/share/smuggler/smuggler.py \
 	${PREFIX}/bin/smuggler
 

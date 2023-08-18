@@ -1,22 +1,20 @@
 COMMENT=	convert Postscript to Encapsulated Postscript
 
-DISTNAME=	ps2eps-1.68
+DISTNAME=	ps2eps-1.70
 CATEGORIES=	print
-REVISION =	0
 
-HOMEPAGE=	http://www.tm.uka.de/~bless/ps2eps.html
+HOMEPAGE=	https://telematics.tm.kit.edu/english/staff_bless.php?tab=%5B1512%5D
 
-MAINTAINER=	Laurence Tratt <laurie@tratt.net>
-
-# GPL
+# GPLv2+
 PERMIT_PACKAGE=	Yes
 
-MASTER_SITES=	http://www.tm.uka.de/~bless/
+WANTLIB=	c
+
+MASTER_SITES=	https://tm.kit.edu/~bless/
 
 RUN_DEPENDS=	print/ghostscript/gnu
 
-WANTLIB=	c
-WRKDIST= 	${WRKDIR}/ps2eps
+WRKDIST=	${WRKDIR}/ps2eps
 NO_TEST=	Yes
 
 do-build:

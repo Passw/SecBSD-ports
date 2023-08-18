@@ -1,4 +1,4 @@
-COMMENT=		subdomains enumeration tool 
+COMMENT=		subdomains enumeration tool
 
 MODPY_EGG_VERSION=	1.1
 DISTNAME=		sublist3r-${MODPY_EGG_VERSION}

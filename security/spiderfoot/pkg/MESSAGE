@@ -3,7 +3,7 @@ Help:
 
 Web version: Go to /usr/local/share/spiderfoot and run
 
-$ doas python3 sf.py -l 127.0.0.1:5001 
+$ doas python3 sf.py -l 127.0.0.1:5001
 
 and then open your browser http://127.0.0.1:5001
 

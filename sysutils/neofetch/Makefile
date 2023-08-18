@@ -1,10 +1,10 @@
 COMMENT =	system information tool written in bash
-
-CATEGORIES =	sysutils
+CATEGORIES =	sysutils misc
 
 GH_ACCOUNT =	dylanaraps
 GH_PROJECT =	neofetch
 GH_TAGNAME =	7.1.0
+REVISION =	0
 
 # MIT
 PERMIT_PACKAGE =	Yes

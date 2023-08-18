@@ -18,8 +18,6 @@ PERMIT_PACKAGE=	Yes
 
 PATCHORIG=		.orig.port
 
-
-			
 MODULES =		lang/python
 
 BUILD_DEPENDS+=		${RUN_DEPENDS} \
@@ -36,8 +34,8 @@ BUILD_DEPENDS+=		${RUN_DEPENDS} \
 			security/py-cryptodome${MODPY_FLAVOR} \
 			security/py-openssl${MODPY_FLAVOR} \
 			security/py-pefile${MODPY_FLAVOR} \
-			www/py-requests${MODPY_FLAVOR} 
-					
+			www/py-requests${MODPY_FLAVOR}
+
 NO_BUILD=		Yes
 
 INSTDIR=		${PREFIX}/share/setoolkit

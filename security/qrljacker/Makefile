@@ -38,7 +38,7 @@ BUILD_DEPENDS+=		${RUN_DEPENDS} \
 			www/py-urllib3${MODPY_FLAVOR} \
 			www/py-user-agent${MODPY_FLAVOR} \
 			www/mozilla-firefox
-		
+
 NO_BUILD=		Yes
 
 INSTDIR=		${PREFIX}/share/qrljacker

@@ -26,7 +26,7 @@ BUILD_DEPENDS+=		${RUN_DEPENDS} \
 			devel/py-validator-collection${MODPY_FLAVOR} \
 			www/py-urllib3${MODPY_FLAVOR} \
 			www/py-fake-useragent${MODPY_FLAVOR} \
-			security/py-openssl${MODPY_FLAVOR} 
+			security/py-openssl${MODPY_FLAVOR}
 
 NO_BUILD=		Yes
 

@@ -18,7 +18,7 @@ MODULES=	lang/python
 
 RUN_DEPENDS=	devel/py-argcomplete${MODPY_FLAVOR} \
 		security/medusa
-   
+
 NO_BUILD=	Yes
 
 INSTDIR=	${PREFIX}/share/brutespray

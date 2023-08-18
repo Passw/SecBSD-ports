@@ -1,4 +1,4 @@
-COMMENT=		security headers 
+COMMENT=		security headers
 
 MODPY_EGG_VERSION=	0.3.0
 DISTNAME=		secure-${MODPY_EGG_VERSION}

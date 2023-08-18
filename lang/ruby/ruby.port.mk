@@ -5,7 +5,7 @@ CATEGORIES+=		lang/ruby
 # Whether the ruby module should automatically add FLAVORs.
 # If left blank, does so only for gem ports.
 .if ${CONFIGURE_STYLE:L:Mgem}
-MODRUBY_HANDLE_FLAVORS ?= No
+MODRUBY_HANDLE_FLAVORS ?= Yes
 .else
 MODRUBY_HANDLE_FLAVORS ?= No
 .endif
@@ -22,7 +22,7 @@ MODRUBY_HANDLE_FLAVORS ?= No
 # If ruby.pork.mk should handle FLAVORs, define a separate FLAVOR
 # for each ruby interpreter
 .    if !defined(FLAVORS)
-FLAVORS=	ruby32
+FLAVORS=	ruby30 ruby31 ruby32
 .      if !${CONFIGURE_STYLE:L:Mext}
 FLAVORS+=	jruby
 .      endif
@@ -54,6 +54,8 @@ FLAVOR =		ruby32
 .      if ${FLAVOR:M$i}
 MODRUBY_REV = ${i:C/ruby([0-9])/\1./}
 .        if ${FLAVOR:N$i:Mruby30} || \
+            ${FLAVOR:N$i:Mruby31} || \
+            ${FLAVOR:N$i:Mruby32} || \
 	    ${FLAVOR:N$i:Mjruby}
 ERRORS += "Fatal: Conflicting flavors used: ${FLAVOR}"
 .        endif
@@ -63,8 +65,7 @@ ERRORS += "Fatal: Conflicting flavors used: ${FLAVOR}"
 .endif
 
 # The default ruby version to use for non-gem ports.  Defaults to ruby
-
-# 3.0 for consistency with the default ruby30 FLAVOR for gem ports.
+# 3.2 for consistency with the default ruby32 FLAVOR for gem ports.
 MODRUBY_REV?=		3.2
 
 # Because the jruby FLAVORs use same binary names but in
@@ -99,7 +100,7 @@ ERRORS += "Fatal: Ruby C extensions are unsupported on JRuby"
 .else # not jruby
 
 GEM_BIN_SUFFIX =	${MODRUBY_BINREV}
-MODRUBY_ARCH=		${MACHINE_ARCH:S/amd64/x86_64/}-secbsd
+MODRUBY_ARCH=		${MACHINE_ARCH:S/amd64/x86_64/}-openbsd
 MODRUBY_BINREV =	${MODRUBY_LIBREV:S/.//}
 MODRUBY_BIN_RSPEC =	${LOCALBASE}/bin/rspec${MODRUBY_BINREV}
 MODRUBY_BIN_TESTRB =	${LOCALBASE}/bin/testrb${MODRUBY_BINREV}
@@ -202,10 +203,10 @@ EXTRACT_SUFX=	.gem
 # Pure ruby gem ports without C extensions are arch-independent.
 .  if ${CONFIGURE_STYLE:L:Mext}
 # Use ports-gcc for ruby32 extensions
-#.    if ${FLAVOR:Mruby32}
-#COMPILER ?= 	base-clang ports-gcc
-#COMPILER_LANGS ?= c
-#.    endif
+.    if ${FLAVOR:Mruby32}
+COMPILER ?= 	base-clang ports-gcc
+COMPILER_LANGS ?= c
+.    endif
 # Add build complete file to package so rubygems doesn't complain
 # or build extensions at runtime
 GEM_EXTENSIONS_DIR ?= ${GEM_LIB}/extensions/${MODRUBY_ARCH:S/i386/x86/}/${MODRUBY_REV}/${DISTNAME}

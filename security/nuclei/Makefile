@@ -20,6 +20,8 @@ WANTLIB+=	c pthread
 
 MODULES=	lang/go
 
+NO_TEST=	Yes
+
 .include "modules.inc"
 
 .include <bsd.port.mk>

@@ -1,15 +1,13 @@
-VERSION =		3.1.3
+VERSION =		3.1.4
 DISTNAME =		ruby-${VERSION}
 SHARED_LIBS =		ruby31	0.0
 NEXTVER =		3.2
 PKGSPEC-main ?=         ruby->=3.1.0,<${NEXTVER}
 
-REVISION-main =		0
-
 MASTER_SITES1 ?=	https://github.com/ruby/openssl/commit/
 
 # Backport fix for fixnum*fixnum multiplication on octeon
-PATCHFILES =		ruby-octeon-fix{fe6245b4309c855e6aca5b786ad50a72d53d278a}.patch:0
+PATCHFILES =		ruby-octeon-fix-1{fe6245b4309c855e6aca5b786ad50a72d53d278a}.patch:0
 # Backport fix for ASN.1 time test
 PATCHFILES +=		ruby-asn1time-fix{bbc540fe83195e2a54cf40fab448cea2afe4df1d}.patch:1
 # Enable HKDF

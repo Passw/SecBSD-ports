@@ -7,7 +7,7 @@ Thread-based parallel testing. Brute-force testing can be performed
 against multiple hosts, users or passwords concurrently.
 
 Flexible user input. Target information (host/user/password) can be specified
-in a variety of ways. For example, each item can be either a single entry 
+in a variety of ways. For example, each item can be either a single entry
 or a file containing multiple entries. Additionally, a combination file format
 allows the user to refine their target listing.
 

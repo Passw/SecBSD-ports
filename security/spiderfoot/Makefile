@@ -44,7 +44,7 @@ RUN_DEPENDS=		devel/py-adblockparser \
 			textproc/py-openpyxl${MODPY_FLAVOR} \
 			devel/py-future${MODPY_FLAVOR} \
 			textproc/py-yaml${MODPY_FLAVOR}
-			
+
 NO_BUILD=		Yes
 
 INSTDIR=		${PREFIX}/share/spiderfoot
