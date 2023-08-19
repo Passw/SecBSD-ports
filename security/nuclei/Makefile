@@ -1,6 +1,6 @@
 COMMENT=	customizable vulnerability scanner
 
-V=	2.9.10
+V=		2.9.11
 MODGO_MODNAME=	github.com/projectdiscovery/nuclei/v2
 MODGO_VERSION=	v${V}
 
@@ -11,7 +11,7 @@ CATEGORIES=	security
 
 HOMEPAGE=	https://github.com/projectdiscovery/nuclei
 
-MAINTAINER=    Purple Rain <purplerain@secbsd.org>
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # MIT
 PERMIT_PACKAGE=	Yes
