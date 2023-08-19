@@ -1528,13 +1528,15 @@ lib/ruby/gems/${REV}/doc/
 lib/ruby/gems/${REV}/extensions/
 ${GEM_EXTENSIONS_DIR}/
 ${GEM_EXTENSIONS_DIR}/${REV}/
-${GEM_EXTENSIONS_DIR}/${REV}/debug-1.6.3/
-${GEM_EXTENSIONS_DIR}/${REV}/debug-1.6.3/debug/
-@so ${GEM_EXTENSIONS_DIR}/${REV}/debug-1.6.3/debug/debug.so
-${GEM_EXTENSIONS_DIR}/${REV}/debug-1.6.3/gem.build_complete
-${GEM_EXTENSIONS_DIR}/${REV}/rbs-2.7.0/
-${GEM_EXTENSIONS_DIR}/${REV}/rbs-2.7.0/gem.build_complete
-@so ${GEM_EXTENSIONS_DIR}/${REV}/rbs-2.7.0/rbs_extension.so
+lib/ruby/gems/${REV}/extensions/x86_64-unknown/
+lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/
+lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/debug-1.6.3/
+lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/debug-1.6.3/debug/
+@so lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/debug-1.6.3/debug/debug.so
+lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/debug-1.6.3/gem.build_complete
+lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/rbs-2.7.0/
+lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/rbs-2.7.0/gem.build_complete
+@so lib/ruby/gems/${REV}/extensions/x86_64-unknown/${REV}/rbs-2.7.0/rbs_extension.so
 lib/ruby/gems/${REV}/gems/
 lib/ruby/gems/${REV}/gems/abbrev-0.1.0/
 lib/ruby/gems/${REV}/gems/base64-0.1.1/
@@ -2755,3 +2757,12 @@ lib/ruby/vendor_ruby/${REV}/${SUB}/
 @man man/man1/ri31.1
 @man man/man1/ruby31.1
 share/doc/ruby/
+share/ri/${REV}/system/lib/
+share/ri/${REV}/system/lib/page-fileutils_rb_orig_port.ri
+share/ri/${REV}/system/lib/page-mkmf_rb_orig_port.ri
+share/ri/${REV}/system/lib/rubygems/
+share/ri/${REV}/system/lib/rubygems/commands/
+share/ri/${REV}/system/lib/rubygems/commands/page-install_command_rb_orig_port.ri
+share/ri/${REV}/system/lib/rubygems/ext/
+share/ri/${REV}/system/lib/rubygems/ext/page-builder_rb_orig_port.ri
+share/ri/${REV}/system/lib/rubygems/page-dependency_installer_rb_orig_port.ri

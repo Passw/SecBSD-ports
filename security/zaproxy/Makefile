@@ -1,29 +1,31 @@
-COMMENT =		web application security tool
+COMMENT=		Zed attack proxy
 
-VERSION =		2.11.1
-DISTNAME =		ZAP_${VERSION}_Linux
-PKGNAME =		zaproxy-${VERSION}
+VERSION=		2.13.0
+DISTNAME=		ZAP_${VERSION}_Linux
+PKGNAME=		zaproxy-${VERSION}
 
-CATEGORIES =		security
+CATEGORIES=		security
 
-HOMEPAGE =		https://www.owasp.org/index.php/ZAP
+HOMEPAGE=		https://www.zaproxy.org
 
-# Apache v2.0 License
-PERMIT_PACKAGE =	Yes
+MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
-MASTER_SITES =		https://github.com/zaproxy/zaproxy/releases/download/v${VERSION}/
+# Apache-2.0
+PERMIT_PACKAGE=		Yes
 
-MODULES =               java
-MODJAVA_VER =           1.8+
+MASTER_SITES=		https://github.com/zaproxy/zaproxy/releases/download/v${VERSION}/
 
-RUN_DEPENDS =		java/javaPathHelper
+MODULES=		java
+MODJAVA_VER=		11+
 
-NO_BUILD =		Yes
-NO_TEST =		Yes
+RUN_DEPENDS=		java/javaPathHelper
 
-WRKDIST =		${WRKDIR}/ZAP_${VERSION}
+NO_BUILD=		Yes
+NO_TEST=		Yes
 
-SUBST_VARS +=		VERSION
+WRKDIST=		${WRKDIR}/ZAP_${VERSION}
+
+SUBST_VARS+=		VERSION
 
 do-install:
 	cp -r ${WRKDIST} ${PREFIX}/share/zaproxy

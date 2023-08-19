@@ -1,7 +1,7 @@
 COMMENT=	cloud penetration tests
 
 MODGO_MODNAME=	github.com/BishopFox/cloudfox
-MODGO_VERSION=	v1.11.3
+MODGO_VERSION=	v1.12.0
 
 DISTNAME=	cloudfox-${MODGO_VERSION}
 

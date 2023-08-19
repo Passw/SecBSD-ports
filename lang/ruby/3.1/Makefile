@@ -31,10 +31,12 @@ ALL_TARGET +=		rdoc
 INSTALL_TARGET +=	install-doc
 .endif
 
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/tool
+
 # Fix path for JIT compiler to not use shims in ports obj bin dir
 CONFIGURE_ENV +=	ac_cv_path_MJIT_CC=`which ${CC}`
 
-GEM_EXTENSIONS_DIR = lib/ruby/gems/${REV}/extensions/${MACHINE_ARCH:S/i386/x86/:S/amd64/x86_64/}-openbsd
+GEM_EXTENSIONS_DIR = lib/ruby/gems/${REV}/extensions/${MACHINE_ARCH:S/i386/x86/:S/amd64/x86_64/}-secbsd
 SUBST_VARS += GEM_EXTENSIONS_DIR
 
 WANTLIB-main +=	curses yaml-0
