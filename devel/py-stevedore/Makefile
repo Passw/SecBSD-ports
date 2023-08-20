@@ -8,7 +8,7 @@ CATEGORIES=		devel
 
 HOMEPAGE=		https://docs.openstack.org/stevedore/latest
 
-MAINTAINER =		Purple Rain <purplerain@secbsd.org>
+MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
 # Apache-2.0
 PERMIT_PACKAGE=		Yes
@@ -21,8 +21,8 @@ BUILD_DEPENDS+=	${RUN_DEPENDS} \
 FLAVORS=	python3
 FLAVOR=		python3
 
-MODPY_PI=		Yes
-MODPY_PYBUILD =		setuptools
+MODPY_PI=	Yes
+MODPY_PYBUILD=	setuptools
 
 NO_TEST=	Yes
 

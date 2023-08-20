@@ -1,6 +1,6 @@
 COMMENT=	vulnerability scanner
 
-V=	1.3.6
+V=		1.3.6
 MODGO_MODNAME=	github.com/google/osv-scanner
 MODGO_VERSION=	v${V}
 

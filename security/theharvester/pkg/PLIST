@@ -73,6 +73,7 @@ share/theharvester/theHarvester/parsers/intelxparser.py
 share/theharvester/theHarvester/parsers/myparser.py
 share/theharvester/theHarvester/parsers/securitytrailsparser.py
 share/theharvester/theHarvester/screenshot/
+share/theharvester/theHarvester/screenshot/__init__.py
 share/theharvester/theHarvester/screenshot/screenshot.py
 share/theharvester/wordlists/
 share/theharvester/wordlists/dns-big.txt

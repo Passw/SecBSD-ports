@@ -1,21 +1,17 @@
 Index: theHarvester.py
 --- theHarvester.py.orig
 +++ theHarvester.py
-@@ -1,28 +1,8 @@
--#!/usr/bin/env python3
-+#!/usr/local/bin/python3.10
- # Note: This script runs theHarvester
- import sys
- import asyncio
+@@ -5,26 +5,4 @@ import sys
+ 
  from theHarvester import __main__
  
 -if sys.version_info.major < 3 or sys.version_info.minor < 9:
--    print('\033[93m[!] Make sure you have Python 3.9+ installed, quitting.\n\n \033[0m')
+-    print("\033[93m[!] Make sure you have Python 3.9+ installed, quitting.\n\n \033[0m")
 -    sys.exit(1)
 -
- if __name__ == '__main__':
+-if __name__ == "__main__":
 -    platform = sys.platform
--    if platform == 'win32':
+-    if platform == "win32":
 -        # Required or things will break if trying to take screenshots
 -        import multiprocessing
 -
@@ -23,6 +19,7 @@ Index: theHarvester.py
 -        asyncio.DefaultEventLoopPolicy = asyncio.WindowsSelectorEventLoopPolicy
 -    else:
 -        import uvloop
+-
 -        uvloop.install()
 -
 -        if "linux" in platform:
@@ -30,4 +27,5 @@ Index: theHarvester.py
 -
 -            # As we are not using Windows, we can change the spawn method to fork for greater performance
 -            aiomultiprocess.set_context("fork")
-     asyncio.run(__main__.entry_point())
+-    asyncio.run(__main__.entry_point())
++asyncio.run(__main__.entry_point())

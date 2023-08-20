@@ -1,0 +1,18 @@
+Index: theHarvester/discovery/dnssearch.py
+--- theHarvester/discovery/dnssearch.py.orig
++++ theHarvester/discovery/dnssearch.py
+@@ -32,12 +32,12 @@ class DnsForce:
+         # self.dnsserver = list(map(str, dnsserver.split(','))) if isinstance(dnsserver, str) else dnsserver
+         self.dnsserver = dnsserver
+         try:
+-            with open("/etc/theHarvester/wordlists/dns-names.txt", "r") as file:
++            with open("${PREFIX}/share/theharvester/wordlists/dns-names.txt", "r") as file:
+                 self.list = file.readlines()
+         except FileNotFoundError:
+             try:
+                 with open(
+-                    "/usr/local/etc/theHarvester/wordlists/dns-names.txt", "r"
++                    "/usr/local/share/theharvester/wordlists/dns-names.txt", "r"
+                 ) as file:
+                     self.list = file.readlines()
+             except FileNotFoundError:

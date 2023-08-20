@@ -1,6 +1,6 @@
 COMMENT=	directory file DNS and VHost busting tool
 
-V=	3.5.0
+V=		3.6.0
 MODGO_MODNAME=	github.com/OJ/gobuster/v3
 MODGO_VERSION=	v${V}
 

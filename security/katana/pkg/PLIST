@@ -1,4 +1,2 @@
 @bin bin/crawl-maze-score
-@bin bin/functional-test
-@bin bin/integration-test
 @bin bin/katana

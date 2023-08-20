@@ -1,6 +1,6 @@
 COMMENT=	information gathering suite
 
-VERSION=	4.4.1
+VERSION=	4.4.3
 DISTNAME=	theharvester-${VERSION}
 
 CATEGORIES=	security
@@ -18,29 +18,29 @@ GH_TAGNAME=	${VERSION}
 
 MODULES=	lang/python
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		net/py-aiodns${MODPY_FLAVOR} \
-		net/py-aiofiles${MODPY_FLAVOR} \
-		www/py-aiohttp${MODPY_FLAVOR} \
-		net/py-aiomultiprocess${MODPY_FLAVOR} \
-		net/py-aiosqlite${MODPY_FLAVOR} \
-		www/py-beautifulsoup4${MODPY_FLAVOR} \
-		security/py-censys${MODPY_FLAVOR} \
+BUILD_DEPENDS+=	${RUN_DEPENDS} \
 		devel/py-certifi${MODPY_FLAVOR} \
-		net/py-dnspython${MODPY_FLAVOR} \
-		devel/py-fastapi${MODPY_FLAVOR} \
-		textproc/py-lxml${MODPY_FLAVOR} \
-		net/py-netaddr${MODPY_FLAVOR} \
-		devel/py-ujson${MODPY_FLAVOR} \
-		net/py-pyppeteer${MODPY_FLAVOR} \
-		textproc/py-yaml${MODPY_FLAVOR} \
 		devel/py-dateutil${MODPY_FLAVOR} \
-		www/py-requests${MODPY_FLAVOR} \
+		devel/py-fastapi${MODPY_FLAVOR} \
 		devel/py-retrying${MODPY_FLAVOR} \
 		devel/py-setuptools${MODPY_FLAVOR} \
-		security/py-shodan${MODPY_FLAVOR} \
 		devel/py-slowapi${MODPY_FLAVOR} \
-		net/py-uvicorn${MODPY_FLAVOR}
+		devel/py-ujson${MODPY_FLAVOR} \
+		net/py-aiodns${MODPY_FLAVOR} \
+		net/py-aiofiles${MODPY_FLAVOR} \
+		net/py-aiomultiprocess${MODPY_FLAVOR} \
+		net/py-aiosqlite${MODPY_FLAVOR} \
+		net/py-dnspython${MODPY_FLAVOR} \
+		net/py-netaddr${MODPY_FLAVOR} \
+		net/py-pyppeteer${MODPY_FLAVOR} \
+		net/py-uvicorn${MODPY_FLAVOR} \
+		security/py-censys${MODPY_FLAVOR} \
+		security/py-shodan${MODPY_FLAVOR} \
+		textproc/py-lxml${MODPY_FLAVOR} \
+		textproc/py-yaml${MODPY_FLAVOR} \
+		www/py-aiohttp${MODPY_FLAVOR} \
+		www/py-beautifulsoup4${MODPY_FLAVOR} \
+		www/py-requests${MODPY_FLAVOR}
 
 MODPY_ADJ_FILES=	theHarvester.py
 
