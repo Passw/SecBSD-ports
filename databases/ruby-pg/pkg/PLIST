@@ -37,7 +37,6 @@ ${GEM_LIB}/gems/${DISTNAME}/Rakefile.cross
 ${GEM_LIB}/gems/${DISTNAME}/certs/
 ${GEM_LIB}/gems/${DISTNAME}/certs/ged.pem
 ${GEM_LIB}/gems/${DISTNAME}/certs/larskanis-2022.pem
-<<<<<<< PLIST
 ${GEM_LIB}/gems/${DISTNAME}/certs/larskanis-2023.pem
 ${GEM_LIB}/gems/${DISTNAME}/ext/
 ${GEM_LIB}/gems/${DISTNAME}/ext/.sitearchdir.time
@@ -101,9 +100,6 @@ ${GEM_LIB}/gems/${DISTNAME}/ext/vc/pg_18/
 ${GEM_LIB}/gems/${DISTNAME}/ext/vc/pg_18/pg.vcproj
 ${GEM_LIB}/gems/${DISTNAME}/ext/vc/pg_19/
 ${GEM_LIB}/gems/${DISTNAME}/ext/vc/pg_19/pg_19.vcproj
-=======
-${GEM_LIB}/gems/${DISTNAME}/certs/larskanis-2023.pem
->>>>>>> 1.21
 ${GEM_LIB}/gems/${DISTNAME}/lib/
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg.rb
@@ -111,28 +107,15 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/pg/basic_type_map_based_on_result.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/basic_type_map_for_queries.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/basic_type_map_for_results.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/basic_type_registry.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/binary_decoder/
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/binary_decoder/date.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/binary_decoder/timestamp.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/binary_encoder/
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/binary_encoder/timestamp.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/pg/binary_decoder.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/coder.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/connection.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/pg/constants.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/exceptions.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/postgresql_lib_path.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/result.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_decoder/
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_decoder/date.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_decoder/inet.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_decoder/json.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_decoder/numeric.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_decoder/timestamp.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_encoder/
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_encoder/date.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_encoder/inet.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_encoder/json.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_encoder/numeric.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_encoder/timestamp.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_decoder.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/pg/text_encoder.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/tuple.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/type_map_by_column.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/pg/version.rb
