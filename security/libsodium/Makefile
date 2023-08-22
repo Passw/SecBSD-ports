@@ -21,6 +21,8 @@ SEPARATE_BUILD=	Yes
 
 CONFIGURE_STYLE=	gnu
 
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/build-aux
+
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/libsodium
 	${INSTALL_DATA} ${WRKSRC}/README.markdown ${PREFIX}/share/doc/libsodium/

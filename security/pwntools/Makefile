@@ -1,4 +1,4 @@
-COMMENT=		CTF framework and exploit development library
+COMMENT=		CTF framework and exploit development library 
 
 MODPY_EGG_VERSION=	4.12.0
 GH_COMMIT=		340b0bf0bcc599896065ab5fccde0e79c9ff4f9c
