@@ -1,0 +1,2 @@
+fingerprintx is a utility similar to httpx that also supports fingerprinting
+services like as RDP, SSH, MySQL, PostgreSQL, Kafka, etc.
