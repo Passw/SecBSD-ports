@@ -1,6 +1,15 @@
 Index: lib/Makefile
 --- lib/Makefile.orig
 +++ lib/Makefile
+@@ -162,7 +162,7 @@ libdir      ?= $(LIBDIR)
+ INCLUDEDIR  ?= $(prefix)/include
+ includedir  ?= $(INCLUDEDIR)
+ 
+-  ifneq (,$(filter $(TARGET_OS),OpenBSD FreeBSD NetBSD DragonFly MidnightBSD))
++  ifneq (,$(filter $(TARGET_OS),OpenBSD SecBSD FreeBSD NetBSD DragonFly MidnightBSD))
+ PKGCONFIGDIR ?= $(prefix)/libdata/pkgconfig
+   else
+ PKGCONFIGDIR ?= $(libdir)/pkgconfig
 @@ -195,8 +195,6 @@ install: lib liblz4.pc
  	$(INSTALL_PROGRAM) dll/$(LIBLZ4_EXP) $(DESTDIR)$(libdir)
      else

@@ -63,6 +63,6 @@ pre-test:
 post-install:
 	${INSTALL_DATA} ${WRKDIST}/license.terms ${PREFIX}/lib/tcl/tk8.5/man
 	ln -s libtk85.a ${PREFIX}/lib/libtk85_pic.a
-	ln -s libtkstub85.a ${PREFIX}/lib/libtkstub85_pic.a
+	ln -s libtkstub8.5.a ${PREFIX}/lib/libtkstub85_pic.a
 
 .include <bsd.port.mk>

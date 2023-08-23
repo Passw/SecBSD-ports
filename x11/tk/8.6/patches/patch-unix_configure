@@ -1,0 +1,21 @@
+Index: unix/configure
+--- unix/configure.orig
++++ unix/configure
+@@ -5358,7 +5358,7 @@ fi
+ 	    CC_SEARCH_FLAGS=""
+ 	    LD_SEARCH_FLAGS=""
+ 	    ;;
+-	OpenBSD-*)
++	OpenBSD-*|SecBSD-*)
+ 	    arch=`arch -s`
+ 	    case "$arch" in
+ 	    alpha|sparc64)
+@@ -6655,7 +6655,7 @@ fi
+ 	    HP-UX*) ;;
+ 	    Darwin-*) ;;
+ 	    IRIX*) ;;
+-	    NetBSD-*|OpenBSD-*) ;;
++	    NetBSD-*|OpenBSD-*|SecBSD-*) ;;
+ 	    OSF1-*) ;;
+ 	    SCO_SV-3.2*) ;;
+ 	    *) SHLIB_CFLAGS="-fPIC" ;;

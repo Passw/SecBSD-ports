@@ -230,9 +230,9 @@ lib/python3.10/__pycache__/_sitebuiltins.cpython-310.pyc
 lib/python3.10/__pycache__/_strptime.cpython-310.opt-1.pyc
 lib/python3.10/__pycache__/_strptime.cpython-310.opt-2.pyc
 lib/python3.10/__pycache__/_strptime.cpython-310.pyc
-lib/python3.10/__pycache__/_sysconfigdata__${PY_PLATFORM}_.cpython-310.opt-1.pyc
-lib/python3.10/__pycache__/_sysconfigdata__${PY_PLATFORM}_.cpython-310.opt-2.pyc
-lib/python3.10/__pycache__/_sysconfigdata__${PY_PLATFORM}_.cpython-310.pyc
+lib/python3.10/__pycache__/_sysconfigdata__secbsd1_.cpython-310.opt-1.pyc
+lib/python3.10/__pycache__/_sysconfigdata__secbsd1_.cpython-310.opt-2.pyc
+lib/python3.10/__pycache__/_sysconfigdata__secbsd1_.cpython-310.pyc
 lib/python3.10/__pycache__/_threading_local.cpython-310.opt-1.pyc
 lib/python3.10/__pycache__/_threading_local.cpython-310.opt-2.pyc
 lib/python3.10/__pycache__/_threading_local.cpython-310.pyc
@@ -710,7 +710,7 @@ lib/python3.10/_pydecimal.py
 lib/python3.10/_pyio.py
 lib/python3.10/_sitebuiltins.py
 lib/python3.10/_strptime.py
-lib/python3.10/_sysconfigdata__${PY_PLATFORM}_.py
+lib/python3.10/_sysconfigdata__secbsd1_.py
 lib/python3.10/_threading_local.py
 lib/python3.10/_weakrefset.py
 lib/python3.10/abc.py
