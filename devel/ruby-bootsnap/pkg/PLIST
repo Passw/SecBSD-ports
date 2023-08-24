@@ -1,5 +1,9 @@
 ${GEM_BIN}/bootsnap30
 ${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/extensions/${MODRUBY_ARCH}/
+${GEM_LIB}/extensions/${MODRUBY_ARCH}/${MODRUBY_LIBREV}/
+${GEM_LIB}/extensions/x86_64-unknown/
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/
 ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/
 ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/bootsnap/
 @so ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/bootsnap/bootsnap.so

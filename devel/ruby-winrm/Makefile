@@ -11,14 +11,14 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			textproc/ruby-builder/3.2 \
-			devel/ruby-erubi \
-			devel/ruby-gssapi \
-			devel/ruby-gyoku \
-			www/ruby-httpclient \
-			devel/ruby-logging \
-			devel/ruby-nori \
-			devel/ruby-ntlm
+			textproc/ruby-builder,${MODRUBY_FLAVOR} \
+			devel/ruby-erubi,${MODRUBY_FLAVOR} \
+			devel/ruby-gssapi,${MODRUBY_FLAVOR} \
+			devel/ruby-gyoku,${MODRUBY_FLAVOR} \
+			www/ruby-httpclient,${MODRUBY_FLAVOR} \
+			devel/ruby-logging,${MODRUBY_FLAVOR} \
+			devel/ruby-nori,${MODRUBY_FLAVOR} \
+			devel/ruby-ntlm,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 

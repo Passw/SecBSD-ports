@@ -14,29 +14,15 @@ GH_ACCOUNT=	sparklemotion
 GH_PROJECT=	sqlite3-ruby
 GH_TAGNAME=	v1.6.2
 
-WANTLIB+=	c++abi curses readline z
-
 MODULES=	lang/ruby
 
-BUILD_DEPENDS+=        ${RUN_DEPENDS}
-RUN_DEPENDS+=          devel/ruby-mini_portile2
+WANTLIB=	sqlite3
+LIB_DEPENDS=	databases/sqlite3
 
-CONFIGURE_ENV+=	RUBY="${RUBY}"
-
-CONFIGURE_ARGS=         --with-sqlite3-dir=/usr/local \
-			--with-sqlite3-libdir=/usr/local/lib \
-                        --with-sqlite3-incdir=/usr/local/include \
-			--enable-loadable-sqlite-extensions
+BUILD_DEPENDS+=	${RUN_DEPENDS} \
+		devel/ruby-mini_portile2,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem ext
-
-pre-configure:
-	cd ${WRKSRC}/ports/archives && ${TAR} zxf sqlite-autoconf-3410200.tar.gz
-	rm ${WRKSRC}/ports/archives/sqlite-autoconf-3410200/configure
-	rm ${WRKSRC}/ports/archives/sqlite-autoconf-3410200/ltmain.sh
-	rm ${WRKSRC}/ports/archives/sqlite-autoconf-3410200/tea/configure
-	cp ${FILESDIR}/configure ${WRKSRC}/ports/archives/sqlite-autoconf-3410200
-	cp ${FILESDIR}/ltmain.sh ${WRKSRC}/ports/archives/sqlite-autoconf-3410200
-	cp ${FILESDIR}/tea.configure ${WRKSRC}/ports/archives/sqlite-autoconf-3410200/tea/configure
+CONFIGURE_ARGS=		--enable-system-libraries
 
 .include <bsd.port.mk>

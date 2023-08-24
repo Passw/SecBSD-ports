@@ -13,11 +13,11 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-activesupport \
-			textproc/ruby-builder/3.1 \
-			devel/ruby-erubi \
-			devel/ruby-rails-dom-testing \
-			devel/ruby-rails-html-sanitizer
+			devel/ruby-activesupport,${MODRUBY_FLAVOR} \
+			textproc/ruby-builder,${MODRUBY_FLAVOR} \
+			devel/ruby-erubi,${MODRUBY_FLAVOR} \
+			devel/ruby-rails-dom-testing,${MODRUBY_FLAVOR} \
+			devel/ruby-rails-html-sanitizer,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 

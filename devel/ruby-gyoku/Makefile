@@ -11,7 +11,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			textproc/ruby-builder/3.2
+			textproc/ruby-builder,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 

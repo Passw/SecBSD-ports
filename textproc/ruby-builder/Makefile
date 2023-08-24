@@ -1,20 +1,16 @@
-COMMENT=	Ruby library to create XML markup and data structures
+COMMENT=		Ruby library to create XML markup and data structures
 
-DISTNAME=	builder-3.0.0
-REVISION =	1
-CATEGORIES=	textproc
+DISTNAME=		builder-3.2.4
+CATEGORIES=		textproc
 
 # MIT
-PERMIT_PACKAGE=	Yes
+PERMIT_PACKAGE=		Yes
 
-MODULES=	lang/ruby
+MODULES=		lang/ruby
 
-CONFIGURE_STYLE=ruby gem
+CONFIGURE_STYLE=	ruby gem
 
-MODRUBY_TEST=	rake
+MODRUBY_TEST=		rake
 MODRUBY_TEST_TARGET=	-I lib test_all
-
-pre-test:
-	rm ${WRKSRC}/test/test_cssbuilder.rb
 
 .include <bsd.port.mk>

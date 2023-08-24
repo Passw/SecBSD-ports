@@ -11,7 +11,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-unf-ext
+			devel/ruby-unf-ext,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE= 	ruby gem
 

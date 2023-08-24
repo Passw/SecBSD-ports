@@ -11,7 +11,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			devel/ruby-parser 
+			devel/ruby-parser,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE = 	ruby gem
 

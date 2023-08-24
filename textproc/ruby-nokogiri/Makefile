@@ -13,7 +13,7 @@ PERMIT_PACKAGE=		Yes
 
 WANTLIB=		exslt xml2 xslt gcrypt gpg-error z
 LIB_DEPENDS=		textproc/libxslt
-BUILD_DEPENDS=		devel/ruby-mini_portile2
+BUILD_DEPENDS=		devel/ruby-mini_portile2,${MODRUBY_FLAVOR}
 
 MODULES=		lang/ruby
 

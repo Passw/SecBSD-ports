@@ -16,13 +16,14 @@ CONFIGURE_STYLE=	gem
 
 MODULES=		lang/ruby
 
-RUN_DEPENDS+=		devel/ruby-json \
-			devel/ruby-parallel \
-			devel/ruby-parser \
-			devel/ruby-rainbow \
-			devel/ruby-regexp_parser \
-			devel/ruby-rubocop-ast \
-			devel/ruby-progressbar \
-			devel/ruby-unicode-display-width
+BUILD_DEPENDS+=		${RUN_DEPENDS} \
+			devel/ruby-json,${MODRUBY_FLAVOR} \
+			devel/ruby-parallel,${MODRUBY_FLAVOR} \
+			devel/ruby-parser,${MODRUBY_FLAVOR} \
+			devel/ruby-rainbow,${MODRUBY_FLAVOR} \
+			devel/ruby-regexp_parser,${MODRUBY_FLAVOR} \
+			devel/ruby-rubocop-ast,${MODRUBY_FLAVOR} \
+			devel/ruby-progressbar,${MODRUBY_FLAVOR} \
+			devel/ruby-unicode-display-width,${MODRUBY_FLAVOR}
 
 .include <bsd.port.mk>

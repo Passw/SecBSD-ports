@@ -11,9 +11,9 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			devel/ruby-concurrent-ruby \
-			devel/ruby-i18n \
-			sysutils/ruby-tzinfo
+			devel/ruby-concurrent-ruby,${MODRUBY_FLAVOR} \
+			devel/ruby-i18n,${MODRUBY_FLAVOR} \
+			sysutils/ruby-tzinfo,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE= 	ruby gem
 

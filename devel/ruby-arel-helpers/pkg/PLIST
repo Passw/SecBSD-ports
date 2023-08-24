@@ -1,6 +1,6 @@
 ${GEM_LIB}/cache/${DISTNAME}.gem
-${GEM_EXTENSIONS_DIR}/
-${GEM_EXTENSIONS_DIR}/gem.build_complete
+${GEM_LIB}/extensions/${MODRUBY_ARCH}/
+${GEM_LIB}/extensions/${MODRUBY_ARCH}/${MODRUBY_LIBREV}/
 ${GEM_LIB}/gems/${DISTNAME}/
 ${GEM_LIB}/gems/${DISTNAME}/Gemfile
 ${GEM_LIB}/gems/${DISTNAME}/README.md
