@@ -1,6 +1,6 @@
 COMMENT=	audit git repos for secrets
 
-V=	8.17.0
+V=	8.18.0
 MODGO_MODNAME=	github.com/zricethezav/gitleaks/v8
 MODGO_VERSION=	v${V}
 

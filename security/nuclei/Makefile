@@ -1,6 +1,6 @@
 COMMENT=	customizable vulnerability scanner
 
-V=		2.9.11
+V=		2.9.12
 MODGO_MODNAME=	github.com/projectdiscovery/nuclei/v2
 MODGO_VERSION=	v${V}
 

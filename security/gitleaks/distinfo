@@ -1,4 +1,4 @@
-SHA256 (gitleaks-v8.17.0.zip) = OygPiao2451yDBCuQVz6VUDCAa/qVswEk4t4V5dEK4Y=
+SHA256 (gitleaks-v8.18.0.zip) = 1qKPE5uLvG1hvUCg3kdv0Qhrt/owBNPZsLqYc55iRys=
 SHA256 (go_modules/cloud.google.com/go/@v/v0.26.0.mod) = IhijTyC5cbwZUhbUGV9XUgoqy9hd5/wxrPxEAmZwTBE=
 SHA256 (go_modules/cloud.google.com/go/@v/v0.34.0.mod) = IhijTyC5cbwZUhbUGV9XUgoqy9hd5/wxrPxEAmZwTBE=
 SHA256 (go_modules/cloud.google.com/go/@v/v0.38.0.mod) = IRVe7cPkx6CccZziPHA/vxTDSspC7QDcCHdN5uu+gAc=
@@ -105,8 +105,8 @@ SHA256 (go_modules/github.com/fsnotify/fsnotify/@v/v1.4.9.mod) = DasIqdOQ+kI5ebK
 SHA256 (go_modules/github.com/fsnotify/fsnotify/@v/v1.4.9.zip) = /kj1cIAd4Wv+lz3HTn5ZI65om6jCdEN/ZdvIpjU391k=
 SHA256 (go_modules/github.com/ghodss/yaml/@v/v1.0.0.mod) = eKGuHn8M24VH6QP9Cu2m09Z6GKY+C9Gb+0tokYRBC8w=
 SHA256 (go_modules/github.com/ghodss/yaml/@v/v1.0.0.zip) = w/KV0jwCwLNeTTspBTWG5zfPlkLflhXamcC9qbusxiQ=
-SHA256 (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.8.0.mod) = DeZ50rxIrpHqLxl/Q6XAOpemvVcPHMnH40dJK+jgLAM=
-SHA256 (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.8.0.zip) = KyiqQSx8PpHinBEIviNtQM+kFvospxzRnPN6+RXVI4A=
+SHA256 (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.9.0.mod) = DeZ50rxIrpHqLxl/Q6XAOpemvVcPHMnH40dJK+jgLAM=
+SHA256 (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.9.0.zip) = Qr8SEKd65RdvUbZ9+DBuRNNj2uDFdV066ItQO2JlBxU=
 SHA256 (go_modules/github.com/go-gl/glfw/@v/v0.0.0-20190409004039-e6da0acd62b1.mod) = UQstVL8si0jvh8XQVXb4dxIkx+fuKoWlqX6gGSVgPrc=
 SHA256 (go_modules/github.com/go-gl/glfw/@v/v0.0.0-20190409004039-e6da0acd62b1.zip) = lsaUxC57hm6o4m3Ei2EsTaqFgs5h/e776SwaTEYWMWk=
 SHA256 (go_modules/github.com/go-gl/glfw/v3.3/glfw/@v/v0.0.0-20191125211704-12ad95a8df72.mod) = 1WNuRK+jDUmMutczAQLwzsjeXbXGpwN25pxs/j4UNco=
@@ -758,7 +758,7 @@ SHA256 (go_modules/rsc.io/quote/v3/@v/v3.1.0.mod) = shHZ8WtVQpcPA6LmJJ30UDgwSjeh
 SHA256 (go_modules/rsc.io/quote/v3/@v/v3.1.0.zip) = tDTLv8MsF7UijQsO3erqib707JvZC1yPxVtk+M4T7rk=
 SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.mod) = oq5uhUCkC4XldwPMYYuZxbEHU4bZWOiZmg4tTALzpwU=
 SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.zip) = 2iArDagDqyZhq5imgLuk9kEjoyblQMJVgrbNu53BFKo=
-SIZE (gitleaks-v8.17.0.zip) = 249359
+SIZE (gitleaks-v8.18.0.zip) = 250499
 SIZE (go_modules/cloud.google.com/go/@v/v0.26.0.mod) = 27
 SIZE (go_modules/cloud.google.com/go/@v/v0.34.0.mod) = 27
 SIZE (go_modules/cloud.google.com/go/@v/v0.38.0.mod) = 1006
@@ -865,8 +865,8 @@ SIZE (go_modules/github.com/fsnotify/fsnotify/@v/v1.4.9.mod) = 106
 SIZE (go_modules/github.com/fsnotify/fsnotify/@v/v1.4.9.zip) = 42349
 SIZE (go_modules/github.com/ghodss/yaml/@v/v1.0.0.mod) = 30
 SIZE (go_modules/github.com/ghodss/yaml/@v/v1.0.0.zip) = 13436
-SIZE (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.8.0.mod) = 47
-SIZE (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.8.0.zip) = 350708
+SIZE (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.9.0.mod) = 47
+SIZE (go_modules/github.com/gitleaks/go-gitdiff/@v/v0.9.0.zip) = 350576
 SIZE (go_modules/github.com/go-gl/glfw/@v/v0.0.0-20190409004039-e6da0acd62b1.mod) = 29
 SIZE (go_modules/github.com/go-gl/glfw/@v/v0.0.0-20190409004039-e6da0acd62b1.zip) = 810677
 SIZE (go_modules/github.com/go-gl/glfw/v3.3/glfw/@v/v0.0.0-20191125211704-12ad95a8df72.mod) = 48

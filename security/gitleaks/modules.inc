@@ -32,7 +32,7 @@ MODGO_MODULES =	\
 	github.com/fatih/semgroup				 v1.2.0 \
 	github.com/fsnotify/fsnotify				 v1.4.9 \
 	github.com/ghodss/yaml					 v1.0.0 \
-	github.com/gitleaks/go-gitdiff				 v0.8.0 \
+	github.com/gitleaks/go-gitdiff				 v0.9.0 \
 	github.com/go-gl/glfw					 v0.0.0-20190409004039-e6da0acd62b1 \
 	github.com/go-gl/glfw/v3.3/glfw				 v0.0.0-20200222043503-6f7a984d4dc4 \
 	github.com/godbus/dbus/v5				 v5.0.4 \
