@@ -1,19 +1,17 @@
 COMMENT=	security auditing tool
 
-DISTNAME =	lynis-3.0.8
+DISTNAME =	lynis-3.0.9
 
 CATEGORIES=	security
 
 HOMEPAGE=	https://cisofy.com
 
-MAINTAINER=	Gonzalo L. R. <gonzalo@openbsd.org>
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # GPLv3
 PERMIT_PACKAGE=	Yes
 
 MASTER_SITES=	https://downloads.cisofy.com/lynis/
-
-PKG_ARCH=	*
 
 NO_BUILD=	Yes
 NO_TEST=	Yes

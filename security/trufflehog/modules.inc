@@ -933,4 +933,3 @@ MODGO_MODFILES =	\
 	honnef.co/go/tools					 v0.0.0-20190106161140-3f1c8253044a \
 	honnef.co/go/tools					 v0.0.0-20190418001031-e561f6794a2a \
 	honnef.co/go/tools					 v0.0.0-20190523083050-ea95bdfd59fc
-

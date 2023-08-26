@@ -1401,7 +1401,7 @@ SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.mod) = oq5uhUCkC4XldwPMYYuZxbEHU4bZW
 SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.zip) = 2iArDagDqyZhq5imgLuk9kEjoyblQMJVgrbNu53BFKo=
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.mod) = L8eybun2ctl7QvpvJfWxWlWYK7usaZYdduux0DbRUAE=
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.zip) = qsiNpVHCpRK2Qss1ZYvz3IYllaNWa9hA6/GOSALx/Mk=
-SHA256 (trufflehog-v3.49.0.zip) = gV338i4fK+tEQCmjTunkXj0dOGLgM8mabDSu55kCGSE=
+SHA256 (trufflehog-v3.53.0.zip) = Ey9D2AZ3gJrNK4zMMK0oguws0tXBKenxTNNZ1RRyNQg=
 SIZE (go_modules/cloud.google.com/go/@v/v0.110.0.mod) = 1007
 SIZE (go_modules/cloud.google.com/go/@v/v0.110.2.mod) = 1150
 SIZE (go_modules/cloud.google.com/go/@v/v0.110.2.zip) = 314693
@@ -2805,4 +2805,4 @@ SIZE (go_modules/rsc.io/sampler/@v/v1.3.0.mod) = 88
 SIZE (go_modules/rsc.io/sampler/@v/v1.3.0.zip) = 14308
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.mod) = 106
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.zip) = 21567
-SIZE (trufflehog-v3.49.0.zip) = 4768567
+SIZE (trufflehog-v3.53.0.zip) = 4779518
