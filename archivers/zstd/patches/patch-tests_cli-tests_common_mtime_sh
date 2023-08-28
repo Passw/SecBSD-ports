@@ -1,0 +1,12 @@
+Index: tests/cli-tests/common/mtime.sh
+--- tests/cli-tests/common/mtime.sh.orig
++++ tests/cli-tests/common/mtime.sh
+@@ -2,7 +2,7 @@
+ 
+ MTIME="stat -c %Y"
+ case "$UNAME" in
+-    Darwin | FreeBSD | OpenBSD | NetBSD) MTIME="stat -f %m" ;;
++    Darwin | FreeBSD | OpenBSD | NetBSD | SecBSD) MTIME="stat -f %m" ;;
+ esac
+ 
+ assertSameMTime() {

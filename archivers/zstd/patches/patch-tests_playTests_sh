@@ -1,0 +1,36 @@
+Index: tests/playTests.sh
+--- tests/playTests.sh.orig
++++ tests/playTests.sh
+@@ -119,12 +119,13 @@ case "$UNAME" in
+   FreeBSD) MD5SUM="gmd5sum" ;;
+   NetBSD) MD5SUM="md5 -n" ;;
+   OpenBSD) MD5SUM="md5" ;;
++  SecBSD) MD5SUM="md5" ;;
+   *) MD5SUM="md5sum" ;;
+ esac
+ 
+ MTIME="stat -c %Y"
+ case "$UNAME" in
+-    Darwin | FreeBSD | OpenBSD | NetBSD) MTIME="stat -f %m" ;;
++    Darwin | FreeBSD | OpenBSD | NetBSD | SecBSD) MTIME="stat -f %m" ;;
+ esac
+ 
+ assertSameMTime() {
+@@ -136,7 +137,7 @@ assertSameMTime() {
+ 
+ GET_PERMS="stat -c %a"
+ case "$UNAME" in
+-    Darwin | FreeBSD | OpenBSD | NetBSD) GET_PERMS="stat -f %Lp" ;;
++    Darwin | FreeBSD | OpenBSD | NetBSD | SecBSD) GET_PERMS="stat -f %Lp" ;;
+ esac
+ 
+ assertFilePermissions() {
+@@ -870,7 +871,7 @@ rm -f ./*.tmp ./*.zstd
+ println "frame concatenation tests completed"
+ 
+ 
+-if [ "$isWindows" = false ] && [ "$UNAME" != 'SunOS' ] && [ "$UNAME" != "OpenBSD" ] && [ "$UNAME" != "AIX" ]; then
++if [ "$isWindows" = false ] && [ "$UNAME" != 'SunOS' ] && [ "$UNAME" != "OpenBSD" ] && [ "$UNAME" != "SecBSD" ] && [ "$UNAME" != "AIX" ]; then
+ println "\n**** flush write error test **** "
+ 
+ println "println foo | zstd > /dev/full"

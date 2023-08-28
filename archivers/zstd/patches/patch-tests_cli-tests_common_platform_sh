@@ -1,0 +1,11 @@
+Index: tests/cli-tests/common/platform.sh
+--- tests/cli-tests/common/platform.sh.orig
++++ tests/cli-tests/common/platform.sh
+@@ -21,6 +21,7 @@ case "$UNAME" in
+   FreeBSD) MD5SUM="gmd5sum" ;;
+   NetBSD) MD5SUM="md5 -n" ;;
+   OpenBSD) MD5SUM="md5" ;;
++  SecBSD) MD5SUM="md5" ;;
+   *) MD5SUM="md5sum" ;;
+ esac
+ 

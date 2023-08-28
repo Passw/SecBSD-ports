@@ -1,0 +1,12 @@
+Index: build/meson/tests/meson.build
+--- build/meson/tests/meson.build.orig
++++ build/meson/tests/meson.build
+@@ -11,7 +11,7 @@
+ zstd_rootdir = '../../..'
+ 
+ tests_supported_oses = [os_linux, 'gnu/kfreebsd', os_darwin, 'gnu', 'openbsd',
+-  os_freebsd, 'netbsd', 'dragonfly', os_sun]
++  os_freebsd, 'netbsd', 'dragonfly', 'secbsd', os_sun]
+ 
+ # =============================================================================
+ # Test flags
