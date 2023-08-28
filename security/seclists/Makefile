@@ -19,6 +19,8 @@ EXTRACT_ONLY=
 
 INSTDIR=		${PREFIX}/share/seclists
 
+NO_BUILD=		Yes
+
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}
 	@tar xzf ${FULLDISTDIR}/${DISTNAME}${EXTRACT_SUFX} \
