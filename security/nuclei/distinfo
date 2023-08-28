@@ -1216,7 +1216,7 @@ SHA256 (go_modules/mvdan.cc/gofumpt/@v/v0.4.0.mod) = iA+hDayPAZ7egw8wM61n8loFIcZ
 SHA256 (go_modules/mvdan.cc/gofumpt/@v/v0.4.0.zip) = lMfK/NbpDats9v5A0fmTC+NQrxgRbgA1sLcl0BP3cX8=
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 8ikTVRI4fWZj4fCZmkkiq3CN7UvcgExxzpPj1gK6ld0=
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = Ve0Ixd9EigM79+LCkS1NqoW4VqBchUsMh8zIXH8/v8c=
-SHA256 (nuclei-v2.9.12.zip) = s7Ix7uKMzEGX9pMZYRxU3naiGXSruPbDohj4HilugHY=
+SHA256 (nuclei-v2.9.13.zip) = ME9UNriHY/Jo+tTVQ5WgSdV5BqtEHvmE2ex0YGMZSpY=
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.mod) = 222
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.zip) = 27045
 SIZE (go_modules/bitbucket.org/creachadair/shell/@v/v0.0.7.mod) = 89
@@ -2435,4 +2435,4 @@ SIZE (go_modules/mvdan.cc/gofumpt/@v/v0.4.0.mod) = 513
 SIZE (go_modules/mvdan.cc/gofumpt/@v/v0.4.0.zip) = 60554
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 106
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = 20937
-SIZE (nuclei-v2.9.12.zip) = 565303
+SIZE (nuclei-v2.9.13.zip) = 570610
