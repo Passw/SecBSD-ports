@@ -1,6 +1,6 @@
 COMMENT=	metasploit framework
 
-VERSION=	6.3.19
+VERSION=	6.3.31
 DISTNAME=	metasploit-framework-${VERSION}
 DISTFILES=	${VERSION}.tar.gz
 
@@ -24,6 +24,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		archivers/ruby-rubyzip,${MODRUBY_FLAVOR} \
 		converters/ruby-multi-json,${MODRUBY_FLAVOR} \
 		databases/postgresql \
+		databases/ruby-mysql,${MODRUBY_FLAVOR} \
 		databases/ruby-pg,${MODRUBY_FLAVOR} \
 		databases/ruby-sqlite3,${MODRUBY_FLAVOR} \
 		devel/ruby-actionpack,${MODRUBY_FLAVOR} \
@@ -31,6 +32,8 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-activerecord,${MODRUBY_FLAVOR} \
 		devel/ruby-activesupport,${MODRUBY_FLAVOR} \
 		devel/ruby-afm,${MODRUBY_FLAVOR} \
+		devel/ruby-allure-rspec,${MODRUBY_FLAVOR} \
+		devel/ruby-allure-ruby-commons,${MODRUBY_FLAVOR} \
 		devel/ruby-arel-helpers,${MODRUBY_FLAVOR} \
 		devel/ruby-ascii85,${MODRUBY_FLAVOR} \
 		devel/ruby-ast,${MODRUBY_FLAVOR} \
@@ -38,6 +41,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-aws-partitions,${MODRUBY_FLAVOR} \
 		devel/ruby-aws-sdk-core,${MODRUBY_FLAVOR} \
 		devel/ruby-aws-sdk-ec2,${MODRUBY_FLAVOR} \
+		devel/ruby-aws-sdk-ec2instanceconnect,${MODRUBY_FLAVOR} \
 		devel/ruby-aws-sdk-iam,${MODRUBY_FLAVOR} \
 		devel/ruby-aws-sdk-kms,${MODRUBY_FLAVOR} \
 		devel/ruby-aws-sdk-s3,${MODRUBY_FLAVOR} \
@@ -53,6 +57,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-cookiejar,${MODRUBY_FLAVOR} \
 		devel/ruby-crass,${MODRUBY_FLAVOR} \
 		devel/ruby-daemons,${MODRUBY_FLAVOR} \
+		devel/ruby-date,${MODRUBY_FLAVOR} \
 		devel/ruby-debug,${MODRUBY_FLAVOR} \
 		devel/ruby-diff-lcs,${MODRUBY_FLAVOR} \
 		devel/ruby-dnsruby,${MODRUBY_FLAVOR} \
@@ -134,6 +139,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-recog,${MODRUBY_FLAVOR} \
 		devel/ruby-regexp_parser,${MODRUBY_FLAVOR} \
 		devel/ruby-reline,${MODRUBY_FLAVOR} \
+		devel/ruby-require-all,${MODRUBY_FLAVOR} \
 		devel/ruby-rex-arch,${MODRUBY_FLAVOR} \
 		devel/ruby-rex-bin-tools,${MODRUBY_FLAVOR} \
 		devel/ruby-rex-core,${MODRUBY_FLAVOR} \
@@ -163,6 +169,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-rubocop,${MODRUBY_FLAVOR} \
 		devel/ruby-rubocop-ast,${MODRUBY_FLAVOR} \
 		devel/ruby-ruby2-keywords,${MODRUBY_FLAVOR} \
+		devel/ruby-test-prof,${MODRUBY_FLAVOR} \
 		devel/ruby-sawyer,${MODRUBY_FLAVOR} \
 		devel/ruby-simplecov,${MODRUBY_FLAVOR} \
 		devel/ruby-simplecov-html,${MODRUBY_FLAVOR} \
@@ -170,6 +177,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-smb,${MODRUBY_FLAVOR} \
 		devel/ruby-sshkey,${MODRUBY_FLAVOR} \
 		devel/ruby-strptime,${MODRUBY_FLAVOR} \
+		devel/ruby-systemu,${MODRUBY_FLAVOR} \
 		devel/ruby-swagger-blocks,${MODRUBY_FLAVOR} \
 		devel/ruby-thor,${MODRUBY_FLAVOR} \
 		devel/ruby-tilt,${MODRUBY_FLAVOR} \
@@ -181,6 +189,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-unf-ext,${MODRUBY_FLAVOR} \
 		devel/ruby-unicode-display-width,${MODRUBY_FLAVOR} \
 		devel/ruby-unix-crypt,${MODRUBY_FLAVOR} \
+		devel/ruby-uuid,${MODRUBY_FLAVOR} \
 		devel/ruby-warden,${MODRUBY_FLAVOR} \
 		devel/ruby-webrick,${MODRUBY_FLAVOR} \
 		devel/ruby-websocket-driver,${MODRUBY_FLAVOR} \
@@ -191,8 +200,12 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-xmlrpc,${MODRUBY_FLAVOR} \
 		devel/ruby-zeitwerk,${MODRUBY_FLAVOR} \
 		graphics/ruby-chunky_png,${MODRUBY_FLAVOR} \
+		mail/ruby-mime-types,${MODRUBY_FLAVOR} \
+		mail/ruby-mime-types-data,${MODRUBY_FLAVOR} \
+		net/ruby-macaddr,${MODRUBY_FLAVOR} \
 		net/ruby-msgpack,${MODRUBY_FLAVOR} \
 		net/ruby-net-ldap,${MODRUBY_FLAVOR} \
+		net/ruby-net-imap,${MODRUBY_FLAVOR} \
 		net/ruby-net-protocol,${MODRUBY_FLAVOR} \
 		net/ruby-net-smtp,${MODRUBY_FLAVOR} \
 		net/ruby-net-ssh,${MODRUBY_FLAVOR} \
