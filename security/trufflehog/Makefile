@@ -1,6 +1,6 @@
 COMMENT=	find credentials all over the place
 
-V=		3.53.0
+V=		3.54.0
 MODGO_MODNAME=	github.com/trufflesecurity/trufflehog/v3
 MODGO_VERSION=	v${V}
 
