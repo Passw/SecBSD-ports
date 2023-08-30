@@ -1,0 +1,6 @@
+SHA256 (go_modules/github.com/gobwas/glob/@v/v0.2.3.mod) = tcaxcq3Bh4zY5pC6kSOwpldTuss42H5taDrKE21DVXg=
+SHA256 (go_modules/github.com/gobwas/glob/@v/v0.2.3.zip) = DP5IbNY9Re1MtYY/8cvRSxXkuTgNy/gP8mmRtASfT98=
+SHA256 (ipfuscator-v1.0.0.zip) = KwahaA1XhOAJt4hAjdR/mtAi5yPHp6sxqwNweTc9FFM=
+SIZE (go_modules/github.com/gobwas/glob/@v/v0.2.3.mod) = 30
+SIZE (go_modules/github.com/gobwas/glob/@v/v0.2.3.zip) = 50402
+SIZE (ipfuscator-v1.0.0.zip) = 13708
