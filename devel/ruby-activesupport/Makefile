@@ -1,6 +1,6 @@
 COMMENT=		support libraries and Ruby extensions extracted from Rails
 
-DISTNAME=		activesupport-7.0.4.3
+DISTNAME=		activesupport-7.0.5
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
