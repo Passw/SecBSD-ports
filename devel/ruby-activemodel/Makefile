@@ -1,6 +1,6 @@
 COMMENT=		activemodel
 
-DISTNAME=		activemodel-7.0.4.3
+DISTNAME=		activemodel-7.0.5
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
