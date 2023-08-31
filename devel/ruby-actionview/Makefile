@@ -1,6 +1,6 @@
 COMMENT=		actionview
 
-VERSION=		7.0.4.3
+VERSION=		7.0.5
 DISTNAME=		actionview-${VERSION}
 
 CATEGORIES=		devel
