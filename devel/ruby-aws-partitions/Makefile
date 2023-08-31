@@ -1,6 +1,6 @@
 COMMENT=		aws partitions
 
-DISTNAME=		aws-partitions-1.749.0
+DISTNAME=		aws-partitions-1.776.0
 CATEGORIES=		devel
 
 HOMEPAGE=		https://github.com/aws/aws-sdk-ruby
