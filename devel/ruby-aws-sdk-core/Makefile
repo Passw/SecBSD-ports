@@ -1,6 +1,6 @@
 COMMENT=		provides API clients for AWS
 
-DISTNAME=		aws-sdk-core-3.171.0
+DISTNAME=		aws-sdk-core-3.174.0
 CATEGORIES=		devel
 
 HOMEPAGE=		https://github.com/aws/aws-sdk-ruby
@@ -13,10 +13,10 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-aws-eventstream \
-			devel/ruby-aws-sigv4 \
-			devel/ruby-aws-partitions \
-			devel/ruby-jmespath
+			devel/ruby-aws-eventstream,${MODRUBY_FLAVOR} \
+			devel/ruby-aws-sigv4,${MODRUBY_FLAVOR} \
+			devel/ruby-aws-partitions,${MODRUBY_FLAVOR} \
+			devel/ruby-jmespath,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 
