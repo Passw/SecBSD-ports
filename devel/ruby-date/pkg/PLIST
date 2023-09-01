@@ -1,0 +1,32 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/extensions/x86_64-unknown/
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/
+@so ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/date_core.so
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/gem.build_complete
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/gem_make.out
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/mkmf.log
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/README.md
+${GEM_LIB}/gems/${DISTNAME}/ext/
+${GEM_LIB}/gems/${DISTNAME}/ext/date/
+${GEM_LIB}/gems/${DISTNAME}/ext/date/.sitearchdir.time
+${GEM_LIB}/gems/${DISTNAME}/ext/date/Makefile
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_core.c
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_core.o
+@so ${GEM_LIB}/gems/${DISTNAME}/ext/date/date_core.so
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_parse.c
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_parse.o
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_strftime.c
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_strftime.o
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_strptime.c
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_strptime.o
+${GEM_LIB}/gems/${DISTNAME}/ext/date/date_tmx.h
+${GEM_LIB}/gems/${DISTNAME}/ext/date/extconf.rb
+${GEM_LIB}/gems/${DISTNAME}/ext/date/prereq.mk
+${GEM_LIB}/gems/${DISTNAME}/ext/date/zonetab.h
+${GEM_LIB}/gems/${DISTNAME}/ext/date/zonetab.list
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/date.rb
+@so ${GEM_LIB}/gems/${DISTNAME}/lib/date_core.so
+${GEM_LIB}/specifications/${DISTNAME}.gemspec
