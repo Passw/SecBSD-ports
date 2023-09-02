@@ -1,10 +1,14 @@
 COMMENT=		faraday adapter
 
-DISTNAME=		faraday-net_http-3.0.2
-PKGNAME=		faraday-net-http-3.0.2
+V=			3.0.2
+DISTNAME=		faraday-net_http-${V}
+PKGNAME=		faraday-net-http-${V}
+
 CATEGORIES=		devel
 
-MAINTAINER=	i	Purple Rain <purplerain@secbsd.org>
+HOMEPAGE=		https://github.com/lostisland/faraday-net_http
+
+MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
 # MIT
 PERMIT_PACKAGE=		Yes
