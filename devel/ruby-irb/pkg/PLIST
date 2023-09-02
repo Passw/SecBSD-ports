@@ -40,6 +40,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/next.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/nop.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/pushws.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/show_cmds.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/show_doc.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/show_source.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/step.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/cmd/subirb.rb
@@ -68,11 +69,9 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/irb/lc/
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/lc/error.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/lc/help-message
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/lc/ja/
-${GEM_LIB}/gems/${DISTNAME}/lib/irb/lc/ja/encoding_aliases.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/lc/ja/error.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/lc/ja/help-message
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/locale.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/irb/magic-file.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/notifier.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/output-method.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/irb/ruby-lex.rb
