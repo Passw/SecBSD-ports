@@ -1,6 +1,6 @@
 COMMENT=		metasploit payloads
 
-DISTNAME=		metasploit-payloads-2.0.130
+DISTNAME=		metasploit-payloads-2.0.148
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
