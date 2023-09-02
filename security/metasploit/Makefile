@@ -1,6 +1,6 @@
 COMMENT=	metasploit framework
 
-VERSION=	6.3.31
+VERSION=	6.3.32
 DISTNAME=	metasploit-framework-${VERSION}
 DISTFILES=	${VERSION}.tar.gz
 
@@ -233,8 +233,7 @@ INSTDIR=	${PREFIX}/share/metasploit
 
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}
-	tar xzf ${FULLDISTDIR}/${DISTFILES} \
-	-C ${INSTDIR}
+	tar xzf ${FULLDISTDIR}/${DISTFILES} -C ${INSTDIR}
 	mv ${INSTDIR}/${DISTNAME}/* ${INSTDIR}
 
 .include <bsd.port.mk>
