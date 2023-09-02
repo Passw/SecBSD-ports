@@ -13,7 +13,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-aws-eventstream
+			devel/ruby-aws-eventstream,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 
