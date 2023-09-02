@@ -1,6 +1,10 @@
 ${GEM_LIB}/cache/${DISTNAME}.gem
 ${GEM_LIB}/gems/${DISTNAME}/
 ${GEM_LIB}/gems/${DISTNAME}/build/
+${GEM_LIB}/gems/${DISTNAME}/build/aarch64-apple-darwin/
+${GEM_LIB}/gems/${DISTNAME}/build/aarch64-apple-darwin/bin/
+${GEM_LIB}/gems/${DISTNAME}/build/aarch64-apple-darwin/bin/mettle
+${GEM_LIB}/gems/${DISTNAME}/build/aarch64-apple-darwin/bin/sniffer
 ${GEM_LIB}/gems/${DISTNAME}/build/aarch64-iphone-darwin/
 ${GEM_LIB}/gems/${DISTNAME}/build/aarch64-iphone-darwin/bin/
 ${GEM_LIB}/gems/${DISTNAME}/build/aarch64-iphone-darwin/bin/mettle
@@ -99,5 +103,6 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/
 ${GEM_LIB}/gems/${DISTNAME}/lib/metasploit_payloads/
 ${GEM_LIB}/gems/${DISTNAME}/lib/metasploit_payloads/mettle/
 ${GEM_LIB}/gems/${DISTNAME}/lib/metasploit_payloads/mettle.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/metasploit_payloads/mettle/error.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/metasploit_payloads/mettle/version.rb
 ${GEM_LIB}/specifications/${DISTNAME}.gemspec

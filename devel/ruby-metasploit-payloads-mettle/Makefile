@@ -1,6 +1,6 @@
 COMMENT=		metasploit payloads mettle
 
-DISTNAME=		metasploit_payloads-mettle-1.0.20
+DISTNAME=		metasploit_payloads-mettle-1.0.26
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
