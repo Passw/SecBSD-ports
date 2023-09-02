@@ -1,6 +1,6 @@
-COMMENT=		Amazon Simple Systems Manager
+COMMENT=		Amazon simple systems sanager
 
-DISTNAME=		aws-sdk-ssm-1.146.0
+DISTNAME=		aws-sdk-ssm-1.151.0
 CATEGORIES=		devel
 
 HOMEPAGE=		https://github.com/aws/aws-sdk-ruby
