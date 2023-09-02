@@ -1,19 +1,20 @@
 COMMENT=		ruby debugger
 
-DISTNAME=		debug-1.7.2
+DISTNAME=		debug-1.8.0
 CATEGORIES=		devel
+
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
 # Ruby, BSD-2-Clause
-PERMIT_PACKAGE=Yes
+PERMIT_PACKAGE=		Yes
 
 MODULES=		lang/ruby
 
 WANTLIB+=		c m
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-irb \
-			devel/ruby-reline
+			devel/ruby-irb,${MODRUBY_FLAVOR} \
+			devel/ruby-reline,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 

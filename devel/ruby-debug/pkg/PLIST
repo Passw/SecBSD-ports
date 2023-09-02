@@ -1,5 +1,7 @@
 ${GEM_BIN}/rdbg30
 ${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/extensions/x86_64-unknown/
+${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/
 ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/
 ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/debug/
 @so ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/${DISTNAME}/debug/debug.so
@@ -35,6 +37,8 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/debug/client.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/debug/color.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/debug/config.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/debug/console.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/debug/dap_custom/
+${GEM_LIB}/gems/${DISTNAME}/lib/debug/dap_custom/traceInspector.rb
 @so ${GEM_LIB}/gems/${DISTNAME}/lib/debug/debug.so
 ${GEM_LIB}/gems/${DISTNAME}/lib/debug/frame_info.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/debug/local.rb
