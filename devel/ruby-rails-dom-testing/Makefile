@@ -10,9 +10,9 @@ PERMIT_PACKAGE=		Yes
 
 MODULES=		lang/ruby
 
-BUILD_DEPENDS=		${RUN_DEPENDS}
-RUN_DEPENDS=		devel/ruby-activesupport \
-			textproc/ruby-nokogiri
+BUILD_DEPENDS=		${RUN_DEPENDS} \
+			devel/ruby-activesupport,${MODRUBY_FLAVOR} \
+			textproc/ruby-nokogiri,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 
