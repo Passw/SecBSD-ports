@@ -1,6 +1,6 @@
 COMMENT=		mid-level packet manipulation lib
 
-DISTNAME=		packetfu-1.1.13
+DISTNAME=		packetfu-2.0.0
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
@@ -11,7 +11,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-pcaprub
+			devel/ruby-pcaprub,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 

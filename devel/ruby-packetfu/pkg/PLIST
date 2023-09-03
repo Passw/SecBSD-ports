@@ -1,6 +1,10 @@
 ${GEM_LIB}/cache/${DISTNAME}.gem
 ${GEM_LIB}/gems/${DISTNAME}/
 ${GEM_LIB}/gems/${DISTNAME}/.document
+${GEM_LIB}/gems/${DISTNAME}/.github/
+${GEM_LIB}/gems/${DISTNAME}/.github/ISSUE_TEMPLATE.md
+${GEM_LIB}/gems/${DISTNAME}/.github/workflows/
+${GEM_LIB}/gems/${DISTNAME}/.github/workflows/verify.yml
 ${GEM_LIB}/gems/${DISTNAME}/.gitignore
 ${GEM_LIB}/gems/${DISTNAME}/.mailmap
 ${GEM_LIB}/gems/${DISTNAME}/.rspec
@@ -19,6 +23,8 @@ ${GEM_LIB}/gems/${DISTNAME}/bench/octets.rb
 ${GEM_LIB}/gems/${DISTNAME}/bench/octets_after.txt
 ${GEM_LIB}/gems/${DISTNAME}/bench/octets_after_refactor.txt
 ${GEM_LIB}/gems/${DISTNAME}/bench/octets_before.txt
+${GEM_LIB}/gems/${DISTNAME}/certs/
+${GEM_LIB}/gems/${DISTNAME}/certs/todb.pem
 ${GEM_LIB}/gems/${DISTNAME}/examples/
 ${GEM_LIB}/gems/${DISTNAME}/examples/100kpackets.rb
 ${GEM_LIB}/gems/${DISTNAME}/examples/ackscan.rb
@@ -34,6 +40,7 @@ ${GEM_LIB}/gems/${DISTNAME}/examples/oui.txt
 ${GEM_LIB}/gems/${DISTNAME}/examples/packetfu-shell.rb
 ${GEM_LIB}/gems/${DISTNAME}/examples/pcap2pcapng.rb
 ${GEM_LIB}/gems/${DISTNAME}/examples/ping.rb
+${GEM_LIB}/gems/${DISTNAME}/examples/readpcap.rb
 ${GEM_LIB}/gems/${DISTNAME}/examples/simple-sniffer.rb
 ${GEM_LIB}/gems/${DISTNAME}/examples/simple-stats.rb
 ${GEM_LIB}/gems/${DISTNAME}/examples/slammer.rb
@@ -113,11 +120,13 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/packetfu/version.rb
 ${GEM_LIB}/gems/${DISTNAME}/packetfu.gemspec
 ${GEM_LIB}/gems/${DISTNAME}/spec/
 ${GEM_LIB}/gems/${DISTNAME}/spec/arp_spec.rb
+${GEM_LIB}/gems/${DISTNAME}/spec/capture_spec.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/eth_spec.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/fake_packets.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/hsrp_spec.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/icmp_spec.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/icmpv6_spec.rb
+${GEM_LIB}/gems/${DISTNAME}/spec/inject_spec.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/invalid_spec.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/ip_spec.rb
 ${GEM_LIB}/gems/${DISTNAME}/spec/ipv4_icmp.pcap
@@ -264,10 +273,7 @@ ${GEM_LIB}/gems/${DISTNAME}/test/sample2.pcap
 ${GEM_LIB}/gems/${DISTNAME}/test/sample2.pcapng
 ${GEM_LIB}/gems/${DISTNAME}/test/sample_hsrp_pcapr.cap
 ${GEM_LIB}/gems/${DISTNAME}/test/sample_lldp.pcap
-${GEM_LIB}/gems/${DISTNAME}/test/test_capture.rb
-${GEM_LIB}/gems/${DISTNAME}/test/test_inject.rb
 ${GEM_LIB}/gems/${DISTNAME}/test/test_packet.rb
-${GEM_LIB}/gems/${DISTNAME}/test/test_structfu.rb
 ${GEM_LIB}/gems/${DISTNAME}/test/test_tcp.rb
 ${GEM_LIB}/gems/${DISTNAME}/test/vlan-pcapr.cap
 ${GEM_LIB}/specifications/${DISTNAME}.gemspec
