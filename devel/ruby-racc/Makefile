@@ -1,6 +1,6 @@
 COMMENT=		LALR parser generator
 
-DISTNAME=		racc-1.6.2
+DISTNAME=		racc-1.7.0
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
