@@ -12,6 +12,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/sanitizer.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/sanitizer/version.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rails/html/scrubbers.rb
 ${GEM_LIB}/gems/${DISTNAME}/test/
+${GEM_LIB}/gems/${DISTNAME}/test/rails_api_test.rb
 ${GEM_LIB}/gems/${DISTNAME}/test/sanitizer_test.rb
 ${GEM_LIB}/gems/${DISTNAME}/test/scrubbers_test.rb
 ${GEM_LIB}/specifications/${DISTNAME}.gemspec
