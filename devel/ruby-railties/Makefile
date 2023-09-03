@@ -1,6 +1,6 @@
 COMMENT=		rails internals
 
-DISTNAME=		railties-7.0.4.3
+DISTNAME=		railties-7.0.5
 CATEGORIES=		devel
 
 HOMEPAGE=		https://rubyonrails.org
@@ -13,11 +13,11 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-actionpack \
-			devel/ruby-activesupport \
-			devel/ruby-method-source \
-			devel/ruby-thor \
-			devel/ruby-zeitwerk
+			devel/ruby-actionpack,${MODRUBY_FLAVOR} \
+			devel/ruby-activesupport,${MODRUBY_FLAVOR} \
+			devel/ruby-method-source,${MODRUBY_FLAVOR} \
+			devel/ruby-thor,${MODRUBY_FLAVOR} \
+			devel/ruby-zeitwerk,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 
