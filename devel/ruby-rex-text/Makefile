@@ -1,6 +1,6 @@
 COMMENT=		Ruby exploitation rex methods
 
-DISTNAME=		rex-text-0.2.50
+DISTNAME=		rex-text-0.2.52
 CATEGORIES=		devel
 
 HOMEPAGE=		https://github.com/rapid7/rex-text
