@@ -1,0 +1,12 @@
+${GEM_LIB}/cache/${DISTNAME}.gem
+${GEM_LIB}/gems/${DISTNAME}/
+${GEM_LIB}/gems/${DISTNAME}/README.md
+${GEM_LIB}/gems/${DISTNAME}/lib/
+${GEM_LIB}/gems/${DISTNAME}/lib/allure-rspec.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/allure_rspec/
+${GEM_LIB}/gems/${DISTNAME}/lib/allure_rspec/_utils.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/allure_rspec/config.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/allure_rspec/formatter.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/allure_rspec/metadata_parser.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/allure_rspec/suite_labels.rb
+${GEM_LIB}/specifications/${DISTNAME}.gemspec
