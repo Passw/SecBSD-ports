@@ -1,6 +1,6 @@
 COMMENT=		rubocop node pattern classes
 
-DISTNAME=		rubocop-ast-1.28.0
+DISTNAME=		rubocop-ast-1.29.0
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
@@ -13,6 +13,6 @@ MODULES=		lang/ruby
 BUILD_DEPENDS+=		${RUN_DEPENDS} \
 			devel/ruby-parser,${MODRUBY_FLAVOR}
 
-CONFIGURE_STYLE = 	ruby gem
+CONFIGURE_STYLE= 	ruby gem
 
 .include <bsd.port.mk>
