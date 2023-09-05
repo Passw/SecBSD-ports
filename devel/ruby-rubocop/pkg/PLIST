@@ -393,6 +393,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/alignment.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/allowed_identifiers.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/allowed_methods.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/allowed_pattern.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/allowed_receivers.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/annotation_comment.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/array_min_size.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/mixin/array_syntax.rb
@@ -557,6 +558,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/endless_method.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/env_home.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/eval_with_location.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/even_odd.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/exact_regexp_match.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/expand_path_arguments.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/explicit_block_argument.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/exponential_notation.rb
@@ -662,6 +664,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/quoted_symbols.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/raise_args.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/random_with_offset.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_argument.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_array_constructor.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_assignment.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_begin.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_capital_w.rb
@@ -673,6 +676,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_each.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_exception.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_fetch_block.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_file_extension_in_require.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_filter_chain.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_freeze.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_heredoc_delimiter_quotes.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_initialize.rb
@@ -681,6 +685,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_line_continuation.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_parentheses.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_percent_q.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_regexp_character_class.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_regexp_constructor.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_regexp_escape.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_return.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/rubocop/cop/style/redundant_self.rb

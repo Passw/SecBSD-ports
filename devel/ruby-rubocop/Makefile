@@ -1,6 +1,6 @@
 COMMENT=		code formatting tool
 
-DISTNAME=		rubocop-1.50.2
+DISTNAME=		rubocop-1.52.0
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
@@ -10,7 +10,7 @@ PERMIT_PACKAGE=		Yes
 
 GH_ACCOUNT=		rubocop
 GH_PROJECT=		rubocop
-GH_TAGNAME=		v1.50.2
+GH_TAGNAME=		v1.52.0
 
 CONFIGURE_STYLE=	gem
 
