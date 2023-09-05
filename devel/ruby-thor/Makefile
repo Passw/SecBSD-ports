@@ -1,6 +1,6 @@
-COMMENT=		toolkit for build command line interfaces	
+COMMENT=		toolkit for build command line interfaces
 
-DISTNAME=		thor-1.2.1
+DISTNAME=		thor-1.2.2
 
 CATEGORIES=		devel
 
