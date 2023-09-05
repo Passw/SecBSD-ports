@@ -7,10 +7,14 @@ ${GEM_LIB}/gems/${DISTNAME}/bin/tilt
 ${GEM_LIB}/gems/${DISTNAME}/lib/
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/tilt/_emacs_org.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/tilt/_handlebars.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/tilt/_jbuilder.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/tilt/_org.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/asciidoc.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/babel.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/tilt/bluecloth.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/builder.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/tilt/cli.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/coffee.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/commonmarker.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/creole.rb
@@ -21,7 +25,6 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/erubis.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/etanni.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/haml.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/kramdown.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/tilt/less.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/liquid.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/livescript.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/mapping.rb
@@ -39,7 +42,7 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/redcarpet.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/redcloth.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/rst-pandoc.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/sass.rb
-${GEM_LIB}/gems/${DISTNAME}/lib/tilt/sigil.rb
+${GEM_LIB}/gems/${DISTNAME}/lib/tilt/slim.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/string.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/template.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/tilt/typescript.rb

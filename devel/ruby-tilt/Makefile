@@ -1,6 +1,6 @@
 COMMENT=		generic interface
 
-DISTNAME=		tilt-2.1.0
+DISTNAME=		tilt-2.2.0
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
