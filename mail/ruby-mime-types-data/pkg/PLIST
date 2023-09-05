@@ -35,7 +35,6 @@ ${GEM_LIB}/gems/${DISTNAME}/types/image.yaml
 ${GEM_LIB}/gems/${DISTNAME}/types/message.yaml
 ${GEM_LIB}/gems/${DISTNAME}/types/model.yaml
 ${GEM_LIB}/gems/${DISTNAME}/types/multipart.yaml
-${GEM_LIB}/gems/${DISTNAME}/types/provisional-standard-types.yaml
 ${GEM_LIB}/gems/${DISTNAME}/types/text.yaml
 ${GEM_LIB}/gems/${DISTNAME}/types/video.yaml
 ${GEM_LIB}/gems/${DISTNAME}/types/world.yaml
