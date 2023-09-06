@@ -1,6 +1,6 @@
 COMMENT=		simple, fast, threaded webserver for rack applications
 
-DISTNAME=		puma-6.2.2
+DISTNAME=		puma-6.3.0
 CATEGORIES=		www
 
 HOMEPAGE=		https://puma.io
@@ -11,7 +11,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-nio4r
+			devel/ruby-nio4r,${MODRUBY_FLAVOR}
 
 WANTLIB=		crypto ssl
 CONFIGURE_STYLE=	ruby gem ext
