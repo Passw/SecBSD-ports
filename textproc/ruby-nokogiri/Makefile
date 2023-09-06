@@ -1,10 +1,10 @@
 COMMENT=		HTML, XML, SAX and Reader parser
 
-DISTNAME=		nokogiri-1.14.3
+DISTNAME=		nokogiri-1.14.5
 
 CATEGORIES=		textproc
 
-HOMEPAGE=		http://nokogiri.org
+HOMEPAGE=		https://nokogiri.org
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
