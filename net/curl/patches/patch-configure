@@ -1,0 +1,176 @@
+Index: configure
+--- configure.orig
++++ configure
+@@ -933,7 +933,7 @@ USE_QUICHE
+ USE_NGHTTP3
+ USE_NGTCP2_CRYPTO_WOLFSSL
+ USE_NGTCP2_CRYPTO_GNUTLS
+-USE_NGTCP2_CRYPTO_QUICTLS
++USE_NGTCP2_CRYPTO_OPENSSL
+ USE_NGTCP2
+ USE_NGHTTP2
+ IDN_ENABLED
+@@ -17734,7 +17734,7 @@ then :
+       "$GREP" CURL_DEF_TOKEN 2>/dev/null | \
+       "$SED" 's/.*CURL_DEF_TOKEN[ ][ ]*//' 2>/dev/null | \
+       "$SED" 's/["][ ]*["]//g' 2>/dev/null`
+-    if test -z "$tmp_exp" || test "$tmp_exp" = ""; then
++    if test -z "$tmp_exp" || test "$tmp_exp" = "__unix__"; then
+       tmp_exp=""
+     fi
+ 
+@@ -18801,7 +18801,7 @@ printf %s "checking if compiler accepts debug enabling
+     tmp_options=""
+     tmp_CFLAGS="$CFLAGS"
+     tmp_CPPFLAGS="$CPPFLAGS"
+-    honor_optimize_option="yes"
++    honor_optimize_option="no"
+     #
+                         #
+     if test "$want_optimize" = "assume_no" ||
+@@ -31657,14 +31657,14 @@ fi
+     fi
+ 
+     if test "x$PKGCONFIG" != "xno"; then
+-      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for libngtcp2_crypto_quictls options with pkg-config" >&5
+-printf %s "checking for libngtcp2_crypto_quictls options with pkg-config... " >&6; }
++      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for libngtcp2_crypto_openssl options with pkg-config" >&5
++printf %s "checking for libngtcp2_crypto_openssl options with pkg-config... " >&6; }
+             itexists=`
+     if test -n "$want_tcp2_path"; then
+       PKG_CONFIG_LIBDIR="$want_tcp2_path"
+       export PKG_CONFIG_LIBDIR
+     fi
+-         $PKGCONFIG --exists libngtcp2_crypto_quictls >/dev/null 2>&1 && echo 1`
++         $PKGCONFIG --exists libngtcp2_crypto_openssl >/dev/null 2>&1 && echo 1`
+ 
+       if test -z "$itexists"; then
+                         PKGCONFIG="no"
+@@ -31678,50 +31678,50 @@ printf "%s\n" "found" >&6; }
+ 
+ 
+   if test "$PKGCONFIG" != "no" ; then
+-    LIB_NGTCP2_CRYPTO_QUICTLS=`
++    LIB_NGTCP2_CRYPTO_OPENSSL=`
+     if test -n "$want_tcp2_path"; then
+       PKG_CONFIG_LIBDIR="$want_tcp2_path"
+       export PKG_CONFIG_LIBDIR
+     fi
+ 
+-      $PKGCONFIG --libs-only-l libngtcp2_crypto_quictls`
+-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: -l is $LIB_NGTCP2_CRYPTO_QUICTLS" >&5
+-printf "%s\n" "$as_me: -l is $LIB_NGTCP2_CRYPTO_QUICTLS" >&6;}
++      $PKGCONFIG --libs-only-l libngtcp2_crypto_openssl`
++    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: -l is $LIB_NGTCP2_CRYPTO_OPENSSL" >&5
++printf "%s\n" "$as_me: -l is $LIB_NGTCP2_CRYPTO_OPENSSL" >&6;}
+ 
+-    CPP_NGTCP2_CRYPTO_QUICTLS=`
++    CPP_NGTCP2_CRYPTO_OPENSSL=`
+     if test -n "$want_tcp2_path"; then
+       PKG_CONFIG_LIBDIR="$want_tcp2_path"
+       export PKG_CONFIG_LIBDIR
+     fi
+-       $PKGCONFIG --cflags-only-I libngtcp2_crypto_quictls`
+-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: -I is $CPP_NGTCP2_CRYPTO_QUICTLS" >&5
+-printf "%s\n" "$as_me: -I is $CPP_NGTCP2_CRYPTO_QUICTLS" >&6;}
++       $PKGCONFIG --cflags-only-I libngtcp2_crypto_openssl`
++    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: -I is $CPP_NGTCP2_CRYPTO_OPENSSL" >&5
++printf "%s\n" "$as_me: -I is $CPP_NGTCP2_CRYPTO_OPENSSL" >&6;}
+ 
+-    LD_NGTCP2_CRYPTO_QUICTLS=`
++    LD_NGTCP2_CRYPTO_OPENSSL=`
+     if test -n "$want_tcp2_path"; then
+       PKG_CONFIG_LIBDIR="$want_tcp2_path"
+       export PKG_CONFIG_LIBDIR
+     fi
+ 
+-      $PKGCONFIG --libs-only-L libngtcp2_crypto_quictls`
+-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: -L is $LD_NGTCP2_CRYPTO_QUICTLS" >&5
+-printf "%s\n" "$as_me: -L is $LD_NGTCP2_CRYPTO_QUICTLS" >&6;}
++      $PKGCONFIG --libs-only-L libngtcp2_crypto_openssl`
++    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: -L is $LD_NGTCP2_CRYPTO_OPENSSL" >&5
++printf "%s\n" "$as_me: -L is $LD_NGTCP2_CRYPTO_OPENSSL" >&6;}
+ 
+-    LDFLAGS="$LDFLAGS $LD_NGTCP2_CRYPTO_QUICTLS"
+-    CPPFLAGS="$CPPFLAGS $CPP_NGTCP2_CRYPTO_QUICTLS"
+-    LIBS="$LIB_NGTCP2_CRYPTO_QUICTLS $LIBS"
++    LDFLAGS="$LDFLAGS $LD_NGTCP2_CRYPTO_OPENSSL"
++    CPPFLAGS="$CPPFLAGS $CPP_NGTCP2_CRYPTO_OPENSSL"
++    LIBS="$LIB_NGTCP2_CRYPTO_OPENSSL $LIBS"
+ 
+     if test "x$cross_compiling" != "xyes"; then
+-      DIR_NGTCP2_CRYPTO_QUICTLS=`echo $LD_NGTCP2_CRYPTO_QUICTLS | $SED -e 's/^-L//'`
++      DIR_NGTCP2_CRYPTO_OPENSSL=`echo $LD_NGTCP2_CRYPTO_OPENSSL | $SED -e 's/^-L//'`
+     fi
+-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for ngtcp2_crypto_recv_client_initial_cb in -lngtcp2_crypto_quictls" >&5
+-printf %s "checking for ngtcp2_crypto_recv_client_initial_cb in -lngtcp2_crypto_quictls... " >&6; }
+-if test ${ac_cv_lib_ngtcp2_crypto_quictls_ngtcp2_crypto_recv_client_initial_cb+y}
++    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for ngtcp2_crypto_recv_client_initial_cb in -lngtcp2_crypto_openssl" >&5
++printf %s "checking for ngtcp2_crypto_recv_client_initial_cb in -lngtcp2_crypto_openssl... " >&6; }
++if test ${ac_cv_lib_ngtcp2_crypto_openssl_ngtcp2_crypto_recv_client_initial_cb+y}
+ then :
+   printf %s "(cached) " >&6
+ else $as_nop
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lngtcp2_crypto_quictls  $LIBS"
++LIBS="-lngtcp2_crypto_openssl  $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -31739,17 +31739,17 @@ return ngtcp2_crypto_recv_client_initial_cb ();
+ _ACEOF
+ if ac_fn_c_try_link "$LINENO"
+ then :
+-  ac_cv_lib_ngtcp2_crypto_quictls_ngtcp2_crypto_recv_client_initial_cb=yes
++  ac_cv_lib_ngtcp2_crypto_openssl_ngtcp2_crypto_recv_client_initial_cb=yes
+ else $as_nop
+-  ac_cv_lib_ngtcp2_crypto_quictls_ngtcp2_crypto_recv_client_initial_cb=no
++  ac_cv_lib_ngtcp2_crypto_openssl_ngtcp2_crypto_recv_client_initial_cb=no
+ fi
+ rm -f core conftest.err conftest.$ac_objext conftest.beam \
+     conftest$ac_exeext conftest.$ac_ext
+ LIBS=$ac_check_lib_save_LIBS
+ fi
+-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_ngtcp2_crypto_quictls_ngtcp2_crypto_recv_client_initial_cb" >&5
+-printf "%s\n" "$ac_cv_lib_ngtcp2_crypto_quictls_ngtcp2_crypto_recv_client_initial_cb" >&6; }
+-if test "x$ac_cv_lib_ngtcp2_crypto_quictls_ngtcp2_crypto_recv_client_initial_cb" = xyes
++{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_ngtcp2_crypto_openssl_ngtcp2_crypto_recv_client_initial_cb" >&5
++printf "%s\n" "$ac_cv_lib_ngtcp2_crypto_openssl_ngtcp2_crypto_recv_client_initial_cb" >&6; }
++if test "x$ac_cv_lib_ngtcp2_crypto_openssl_ngtcp2_crypto_recv_client_initial_cb" = xyes
+ then :
+ 
+               for ac_header in ngtcp2/ngtcp2_crypto.h
+@@ -31760,14 +31760,14 @@ then :
+   printf "%s\n" "#define HAVE_NGTCP2_NGTCP2_CRYPTO_H 1" >>confdefs.h
+  NGTCP2_ENABLED=1
+ 
+-printf "%s\n" "#define USE_NGTCP2_CRYPTO_QUICTLS 1" >>confdefs.h
++printf "%s\n" "#define USE_NGTCP2_CRYPTO_OPENSSL 1" >>confdefs.h
+ 
+-          USE_NGTCP2_CRYPTO_QUICTLS=1
++          USE_NGTCP2_CRYPTO_OPENSSL=1
+ 
+-          CURL_LIBRARY_PATH="$CURL_LIBRARY_PATH:$DIR_NGTCP2_CRYPTO_QUICTLS"
++          CURL_LIBRARY_PATH="$CURL_LIBRARY_PATH:$DIR_NGTCP2_CRYPTO_OPENSSL"
+           export CURL_LIBRARY_PATH
+-          { printf "%s\n" "$as_me:${as_lineno-$LINENO}: Added $DIR_NGTCP2_CRYPTO_QUICTLS to CURL_LIBRARY_PATH" >&5
+-printf "%s\n" "$as_me: Added $DIR_NGTCP2_CRYPTO_QUICTLS to CURL_LIBRARY_PATH" >&6;}
++          { printf "%s\n" "$as_me:${as_lineno-$LINENO}: Added $DIR_NGTCP2_CRYPTO_OPENSSL to CURL_LIBRARY_PATH" >&5
++printf "%s\n" "$as_me: Added $DIR_NGTCP2_CRYPTO_OPENSSL to CURL_LIBRARY_PATH" >&6;}
+ 
+ fi
+ 
+@@ -31783,7 +31783,7 @@ fi
+ 
+   else
+         if test X"$want_tcp2" != Xdefault; then
+-                  as_fn_error $? "--with-ngtcp2 was specified but could not find ngtcp2_crypto_quictls pkg-config file." "$LINENO" 5
++                  as_fn_error $? "--with-ngtcp2 was specified but could not find ngtcp2_crypto_openssl pkg-config file." "$LINENO" 5
+     fi
+   fi
+ fi
+@@ -48861,4 +48861,3 @@ if test -n "$experimental"; then
+   WARNING: $experimental enabled but marked EXPERIMENTAL. Use with caution!
+ _EOF
+ fi
+-
