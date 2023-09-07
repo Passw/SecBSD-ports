@@ -34,7 +34,7 @@ DEBUG_PACKAGES=	${BUILD_PACKAGES}
 
 CONFIGURE_STYLE=gnu
 # Don't try to optimize for the local CPU submodel
-CONFIGURE_ARGS+=--build=${MACHINE_ARCH}-unknown-openbsd${OSrev}
+CONFIGURE_ARGS+=--build=${MACHINE_ARCH}-unknown-secbsd${OSrev}
 
 # Our vsnprintf works properly; skip test that uses %n.
 CONFIGURE_ENV+=	gmp_cv_func_vsnprintf=yes
