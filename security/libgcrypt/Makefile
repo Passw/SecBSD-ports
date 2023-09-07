@@ -29,6 +29,9 @@ CONFIGURE_STYLE=	gnu
 CONFIGURE_ARGS=		--enable-static \
 			--disable-drng-support
 
+MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} \
+				${WRKSRC}/build-aux
+
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 .include <bsd.port.mk>
