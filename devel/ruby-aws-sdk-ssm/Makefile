@@ -1,4 +1,4 @@
-COMMENT=		Amazon simple systems sanager
+COMMENT=		Amazon Simple Systems Manager
 
 DISTNAME=		aws-sdk-ssm-1.151.0
 CATEGORIES=		devel

@@ -1,6 +1,6 @@
 COMMENT=		testing framework for Rails
 
-DISTNAME=		rspec-rails-6.0.1
+DISTNAME=		rspec-rails-6.0.3
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
@@ -11,13 +11,13 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/ruby
 
 BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			devel/ruby-actionpack \
-			devel/ruby-activesupport \
-			devel/ruby-railties \
-			devel/ruby-rspec/3/core \
-			devel/ruby-rspec/3/expectations \
-			devel/ruby-rspec/3/mocks \
-			devel/ruby-rspec/3/support
+			devel/ruby-actionpack,${MODRUBY_FLAVOR} \
+			devel/ruby-activesupport,${MODRUBY_FLAVOR} \
+			devel/ruby-railties,${MODRUBY_FLAVOR} \
+			devel/ruby-rspec/3/core,${MODRUBY_FLAVOR} \
+			devel/ruby-rspec/3/expectations,${MODRUBY_FLAVOR} \
+			devel/ruby-rspec/3/mocks,${MODRUBY_FLAVOR} \
+			devel/ruby-rspec/3/support,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE= 	ruby gem
 

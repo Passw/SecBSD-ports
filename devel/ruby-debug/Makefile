@@ -2,11 +2,10 @@ COMMENT=		ruby debugger
 
 DISTNAME=		debug-1.8.0
 CATEGORIES=		devel
-
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
 # Ruby, BSD-2-Clause
-PERMIT_PACKAGE=		Yes
+PERMIT_PACKAGE=Yes
 
 MODULES=		lang/ruby
 

@@ -5,7 +5,7 @@ CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
-# MIT 
+# MIT
 PERMIT_PACKAGE=		Yes
 
 MODULES=		lang/ruby

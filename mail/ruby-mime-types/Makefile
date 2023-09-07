@@ -12,7 +12,7 @@ MODULES=		lang/ruby
 
 CONFIGURE_STYLE=	ruby gem
 
-BUILD_DEPENDS=		${RUN_DEPENDS}
-RUN_DEPENDS=		mail/ruby-mime-types-data,${MODRUBY_FLAVOR}>=3.2015,<4
+BUILD_DEPENDS=		${RUN_DEPENDS} \
+			mail/ruby-mime-types-data,${MODRUBY_FLAVOR}>=3.2015,<4
 
 .include <bsd.port.mk>

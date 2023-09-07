@@ -10,8 +10,8 @@ PERMIT_PACKAGE=	Yes
 
 MODULES=		lang/ruby
 
-BUILD_DEPENDS =		${RUN_DEPENDS}
-RUN_DEPENDS =		www/ruby-rack
+BUILD_DEPENDS=		${RUN_DEPENDS} \
+			www/ruby-rack,${MODRUBY_FLAVOR}
 
 CONFIGURE_STYLE=	ruby gem
 
