@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1600 2023/08/22 17:02:29 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1616 2023/09/06 20:46:23 espie Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -79,7 +79,7 @@ CLEANDEPENDS ?= No
 BULK ?= Auto
 WRKDIR_LINKNAME ?=
 INSTALL_DEBUG_PACKAGES ?= No
-
+ 
 .if ${FETCH_PACKAGES:L} == "yes"
 ERRORS += "Fatal: old syntax for FETCH_PACKAGES, see ports(7)"
 .endif
@@ -148,6 +148,7 @@ WRKOBJDIR_${PKGPATH} ?= ${WRKOBJDIR_MFS}
 .else
 WRKOBJDIR_${PKGPATH} ?= ${WRKOBJDIR}
 .endif
+
 FAKEOBJDIR_${PKGPATH} ?= ${FAKEOBJDIR}
 
 BULK_${PKGPATH} ?= ${BULK}
@@ -197,6 +198,41 @@ _ARCH_DEFINES_INCLUDED = Done
 .  include "${PORTSDIR}/infrastructure/mk/arch-defines.mk"
 .endif
 
+# User choices
+
+# consider read-only from a given port
+BASELOCALSTATEDIR ?= ${VARBASE}
+BASESYSCONFDIR ?= /etc
+
+CHECK_LIB_DEPENDS ?= No
+CHECKSUM_PACKAGES ?= No
+
+
+# Used to print all the '===>' style prompts - override this to turn them off.
+ECHO_MSG ?= echo
+
+ECHO_REORDER ?= :
+
+IGNORE_IS_FATAL ?= "No"
+
+LOCKDIR ?= ${WRKOBJDIR}/locks
+LOCK_VERBOSE ?= No
+LOCK_CMD ?= ${_PBUILD} ${_PERLSCRIPT}/portlock
+UNLOCK_CMD ?= ${_PBUILD} rm -f
+
+NO_DEPENDS ?= No
+
+# XXX there are still many bugs in parallel make.
+# so MAKE_JOBS is used sparingly by dpb for obvious gains.
+#
+PARALLEL_MAKE_FLAGS ?= -j${MAKE_JOBS}
+
+TRY_BROKEN ?= No
+
+USE_CCACHE ?= No
+
+WARNINGS ?= no
+
 .if !defined(_MAKEFILE_INC_DONE)
 .  if exists(${.CURDIR}/../Makefile.inc)
 _MAKEFILE_INC_DONE = Yes
@@ -241,7 +277,6 @@ COMPILER_LINKS ?=
 
 # These variables must be defined before modules
 CONFIGURE_STYLE ?=
-NO_DEPENDS ?= No
 NO_BUILD ?= No
 NO_TEST ?= No
 INSTALL_TARGET ?= install
@@ -271,7 +306,7 @@ MODULES += ${_i}
 .endfor
 
 MODULES ?=
-.if !empty(MODULES) || !empty(COMPILER)
+.if !empty(MODULES) || !empty(COMPILER) || !empty(DIST_TUPLE)
 _MODULES_DONE =
 .  include "${PORTSDIR}/infrastructure/mk/modules.port.mk"
 .endif
@@ -350,13 +385,9 @@ MAKE_FLAGS ?=
 FAKE_FLAGS ?=
 LIBTOOL_FLAGS ?=
 
-# User choice, consider read-only from a given port
-BASESYSCONFDIR ?= /etc
 # where configuration files should actually go
 SYSCONFDIR ?= ${BASESYSCONFDIR}
 
-# User choice, consider read-only from a given port
-BASELOCALSTATEDIR ?= ${VARBASE}
 # Defaut localstatedir for gnu ports
 LOCALSTATEDIR ?= ${BASELOCALSTATEDIR}
 
@@ -403,7 +434,6 @@ MAKE_FLAGS += LIBTOOL="${_LIBTOOL}" ${_lt_libs}
 .endif
 # log for the SHARED_LIBS override
 MAKE_FLAGS += SHARED_LIBS_LOG=${WRKBUILD}/shared_libs.log
-USE_CCACHE ?= No
 NO_CCACHE ?= No
 CCACHE_ENV ?=
 .if ${USE_CCACHE:L} == "yes" && ${NO_CCACHE:L} == "no" && ${NO_BUILD:L} == "no"
@@ -423,11 +453,6 @@ ALL_FAKE_FLAGS=	${MAKE_FLAGS:N-j[0-9]*} ${DESTDIRNAME}=${WRKINST} ${FAKE_FLAGS}
 .if ${LOCALBASE:L} != "/usr/local"
 _PKG_ADD += -L ${LOCALBASE}
 .endif
-
-# XXX there are still many bugs in parallel make.
-# so MAKE_JOBS is used sparingly by dpb for obvious gains.
-#
-PARALLEL_MAKE_FLAGS ?= -j${MAKE_JOBS}
 
 .if !defined(MAKE_JOBS) && ${DPB_PROPERTIES:Mparallel}
 .  if defined(PARALLEL_MAKE_JOBS)
@@ -695,7 +720,6 @@ PORTPATH ?= ${WRKDIR}/bin:/usr/bin:/bin:/usr/sbin:/sbin:${LOCALBASE}/bin:${X11BA
 # what we pass in.
 CFLAGS += ${COPTS}
 CXXFLAGS += ${CXXOPTS}
-WARNINGS ?= no
 .if ${WARNINGS:L} == "yes"
 CFLAGS += ${CDIAGFLAGS}
 CXXFLAGS += ${CXXDIAGFLAGS}
@@ -1209,9 +1233,6 @@ YACC ?= yacc
 # command is expanded from a variable, as this could be a shell construct
 SETENV ?= /usr/bin/env -i
 
-# Used to print all the '===>' style prompts - override this to turn them off.
-ECHO_MSG ?= echo
-
 # basic master sites configuration
 
 .include "${PORTSDIR}/infrastructure/db/network.conf"
@@ -1228,12 +1249,14 @@ MASTER_SITES_GITHUB += \
 	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/archive/
 .  else
 ERRORS += "Fatal: if using GH_*, one of GH_TAGNAME or GH_COMMIT must be set"
-.endif
+.  endif
 
 MASTER_SITES ?= ${MASTER_SITES_GITHUB}
 HOMEPAGE ?= https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 .else
-# Empty declarations to avoid "variable XXX is recursive" errors
+# There are two types of ports with DISTFILES but no actionable (MASTER_)SITES:
+# - FETCH_MANUALLY
+# - orphaned port, defaults to SITES_BACKUP
 MASTER_SITES ?=
 .endif
 
@@ -1242,13 +1265,18 @@ MASTER_SITES ?=
 
 _warn_checksum = :
 
+.for v in ${.VARIABLES:MMASTER_SITE*}
+${v:S/MASTER_//} ?= ${$v}
+.endfor
+
 # stash .VARIABLES, because it's expensive to compute
-_CACHE_VARIABLES = ${.VARIABLES}
+_CACHE_VARIABLES := ${.VARIABLES}
 .if empty(_CACHE_VARIABLES)
 ERRORS += "Fatal: requires make(1) with .VARIABLES support"
 .endif
 
-_ALL_MASTER_SITES_VARIABLES = ${_CACHE_VARIABLES:MMASTER_SITES*:NMASTER_SITES_*}
+_ALL_SITES_VARIABLES = ${_CACHE_VARIABLES:MSITES*:NSITES_*}
+
 
 # All variables relevant to the port's description (see dump-vars)
 _ALL_VARIABLES = BUILD_DEPENDS IS_INTERACTIVE \
@@ -1263,7 +1291,7 @@ _ALL_VARIABLES_PER_ARCH =
 # dpb doesn't need everything, those are speed optimizations
 .if ${DPB:L:Mfetch} || ${DPB:L:Mall}
 _ALL_VARIABLES += ${_ALL_DISTFILES_VARIABLES} DIST_SUBDIR \
-	${_ALL_MASTER_SITES_VARIABLES} \
+	${_ALL_SITES_VARIABLES} \
 	CHECKSUM_FILE FETCH_MANUALLY MISSING_FILES PERMIT_DISTFILES
 .endif
 .if ${DPB:L:Mtest} || ${DPB:L:Mall}
@@ -1271,6 +1299,7 @@ _ALL_VARIABLES += NO_TEST TEST_IS_INTERACTIVE TEST_DEPENDS
 .endif
 .if ${DPB:L:Mall} || ${DPB:L:Mroach}
 _ALL_VARIABLES += DISTNAME HOMEPAGE PORTROACH PORTROACH_COMMENT MAINTAINER
+_ALL_VARIABLES += ROACH_URL ROACH_SITES
 .endif
 .if ${DPB:L:Mall}
 _ALL_VARIABLES += BROKEN COMES_WITH \
@@ -1284,7 +1313,7 @@ _ALL_VARIABLES += BROKEN COMES_WITH \
 	COMPILER COMPILER_LANGS COMPILER_LINKS \
 	SUBST_VARS UPDATE_PLIST_ARGS \
 	PKGPATHS DEBUG_PACKAGES DEBUG_CONFIGURE_ARGS \
-	FIX_CRLF_FILES
+	FIX_CRLF_FILES EXTRACT_FILES DIST_TUPLE DIST_TUPLE_MV
 .if !empty(MODULES)
 .  for _m in ${MODULES}
 _ALL_VARIABLES += ${_CACHE_VARIABLES:MMOD${_m:T:U}*}
@@ -1298,7 +1327,7 @@ _ALL_VARIABLES_INDEXED += COMMENT PKGNAME \
 	EPOCH REVISION STATIC_PLIST PKG_ARCH
 .endif
 
-.for _S in ${_ALL_MASTER_SITES_VARIABLES}
+.for _S in ${_ALL_SITES_VARIABLES}
 .  if !empty(${_S}:M*[^/])
 _warn_checksum += ;echo ">>> ${_S} not ending in /: ${${_S}:M*[^/]}"
 .  endif
@@ -1308,24 +1337,47 @@ EXTRACT_SUFX ?= .tar.gz
 
 .if !empty(GH_COMMIT)
 GH_DISTFILE = ${DISTNAME}-${GH_COMMIT:C/(........).*/\1/}{${GH_COMMIT}}${EXTRACT_SUFX}
-.  if empty(_CACHE_VARIABLES:MDISTFILES*)
+.  if !defined(DISTFILES)
 DISTFILES = ${GH_DISTFILE}
+_CACHE_VARIABLES += DISTFILES
 .  endif
 .elif defined(DISTNAME)
-.  if empty(_CACHE_VARIABLES:MDISTFILES*)
+.  if !defined(DISTFILES)
+.    if !empty(SITES) || empty(_CACHE_VARIABLES:MDISTFILES*)
 DISTFILES = ${DISTNAME}${EXTRACT_SUFX}
+_CACHE_VARIABLES += DISTFILES
+.    endif
 .  endif
+.endif
+
+.if !defined(ROACH_URL)
+.  for d in ${DISTFILES}
+_ROACH_DISTFILE ?= $d
+.  endfor
+.endif
+.if !defined(ROACH_URL)
+.  for w in ${_CACHE_VARIABLES:MDISTFILES*}
+.    for d in ${$w}
+_ROACH_DISTFILE ?= $d
+.    endfor
+.  endfor
+.endif
+
+.if defined(_ROACH_DISTFILE)
+.  for u in ${_ROACH_DISTFILE:C/:[0-9]$//:C/^.*\{(.*)\}(.*)$/\1\2/}
+ROACH_URL = $u
+.  endfor
 .endif
 
 _ALL_DISTFILES_VARIABLES =
 
 # the following loop "parses" DISTFILES-style files
 # _PATH_x contains filenames with SUBDIR prepended when necessary
-# _LIST_x contains pure filenames
+# ALL_x contains pure filenames
 #
 # _FULL_FETCH_LIST is used for creating all targets later on:
 # 	say if DISTFILES=filename{url}sufx:0 DIST_SUBDIR=foo/
-#	it will expand to  foo/filenamesufx filename MASTER_SITES0 urlsufx
+#	it will expand to  foo/filenamesufx filename SITES0 urlsufx
 #
 # _FILES is used to de-duplicates names
 # the order matters: DISTFILES PATCHFILES SUPDISTFILES
@@ -1341,10 +1393,16 @@ _T =${w:N$v:N$v.*}
 ERRORS += "Fatal: suffix not starting with . in ${_T}"
 .      endif
 .      for e in ${$w}
+_warn_distfiles += ${e:M*\:[0-9]}
 .        for p in ${e:C/:[0-9]$//}
-.          for f m u in ${p:C/^(.*)\{.*\}(.*)$/\1\2/} ${w:S/$v/MASTER_SITES/}${e:M*\:[0-9]:C/^.*:([0-9])$/\1/} ${p:C/^.*\{(.*)\}(.*)$/\1\2/}
+.          for f m u in ${p:C/^(.*)\{.*\}(.*)$/\1\2/} ${w:S/$v/SITES/}${e:M*\:[0-9]:C/^.*:([0-9])$/\1/} ${p:C/^.*\{(.*)\}(.*)$/\1\2/}
 .            if !defined($m)
 ERRORS += "Fatal: $m is not defined but referenced by $e in $v"
+.            endif
+# XXX kanjistroke
+#.            if "${u:S/"//g}" == "${ROACH_URL:S/"//g}"
+.            if "${u}" == "${ROACH_URL}"
+ROACH_SITES = ${$m}
 .            endif
 .            if empty(_FILES:M$f)
 _FILES += $f
@@ -1355,14 +1413,14 @@ _PATH_$v += $f
 _FULL_FETCH_LIST += ${DIST_SUBDIR}/$f $f $m $u
 _PATH_$v += ${DIST_SUBDIR}/$f
 .              endif
-_LIST_$v += $f
+ALL_$v += $f
 .            endif
 .          endfor
 .        endfor
 .      endfor
 .    else
 _PATH_$v =
-_LIST_$v =
+ALL_$v =
 .    endif
 .  endfor
 .endfor
@@ -1375,40 +1433,41 @@ MAKESUMFILES = ${CHECKSUMFILES} ${_PATH_SUPDISTFILES}
 # by the user.
 
 .if !defined(EXTRACT_ONLY)
-EXTRACT_ONLY = ${_LIST_DISTFILES}
+EXTRACT_ONLY = ${ALL_DISTFILES}
 .else
 .  for f in ${EXTRACT_ONLY}
-.    if empty(_LIST_DISTFILES:M$f)
-ERRORS += "Fatal: EXTRACT_ONLY file $f not part of DISTFILES"
+.    if empty(ALL_DISTFILES:M$f)
+ERRORS += "Fatal: EXTRACT_ONLY file $f not part of DISTFILES*"
 .    endif
 .  endfor
+.endif
+.if defined(ROACH_URL) && !defined(ROACH_SITES)
+ERRORS += "Fatal: where should portroach look for ${ROACH_URL}"
 .endif
 
 PATCH_CASES ?=
 EXTRACT_CASES ?=
 EXTRACT_FILES ?=
 
-_LIST_EXTRACTED = ${EXTRACT_ONLY} ${_LIST_PATCHFILES}
-
 # okay, time for some guess work
 # this is mostly ad-hoc, we may want to add more PATCH_CASES eventually.
-.if !empty(_LIST_EXTRACTED:M*.zip)
+.if !empty(CHECKSUMFILES:M*.zip)
 BUILD_DEPENDS += archivers/unzip
 EXTRACT_CASES += *.zip) \
 	${UNZIP} -oq ${FULLDISTDIR}/$$archive -d ${WRKDIR} ${EXTRACT_FILES};;
 .endif
 
-.if !empty(_LIST_EXTRACTED:M*.xz) || \
-	!empty(_LIST_EXTRACTED:M*.lzma) || \
-	!empty(_LIST_EXTRACTED:M*.tar.lz)
+.if !empty(CHECKSUMFILES:M*.xz) || \
+	!empty(CHECKSUMFILES:M*.lzma) || \
+	!empty(CHECKSUMFILES:M*.tar.lz)
 BUILD_DEPENDS += archivers/xz>=5.4.0
 EXTRACT_CASES += *.tar.xz|*.tar.lzma|*.tar.lz) \
 	xz -T${MAKE_JOBS} -d <${FULLDISTDIR}/$$archive | ${TAR} -xf - -- ${EXTRACT_FILES};;
 .endif
 
-.if !empty(_LIST_EXTRACTED:M*.bz2) || \
-	!empty(_LIST_EXTRACTED:M*.tbz2) || \
-	!empty(_LIST_EXTRACTED:M*.tbz)
+.if !empty(CHECKSUMFILES:M*.bz2) || \
+	!empty(CHECKSUMFILES:M*.tbz2) || \
+	!empty(CHECKSUMFILES:M*.tbz)
 BUILD_DEPENDS += archivers/bzip2
 EXTRACT_CASES += *.tar.bz2|*.tbz2|*.tbz) \
 	${BZIP2} -d <${FULLDISTDIR}/$$archive | ${TAR} -xf - -- ${EXTRACT_FILES};;
@@ -1416,8 +1475,8 @@ PATCH_CASES += *.bz2) \
 	${BZIP2} -d <$$patchfile | ${PATCH} ${PATCH_DIST_ARGS};;
 .endif
 
-.if !empty(_LIST_EXTRACTED:M*.tar.zst) || \
-	!empty(_LIST_EXTRACTED:M*.tar.zstd)
+.if !empty(CHECKSUMFILES:M*.tar.zst) || \
+	!empty(CHECKSUMFILES:M*.tar.zstd)
 BUILD_DEPENDS += archivers/zstd
 EXTRACT_CASES += *.tar.zst|*.tar.zstd) \
 	zstdcat <${FULLDISTDIR}/$$archive | ${TAR} -xf - -- ${EXTRACT_FILES};;
@@ -1425,7 +1484,7 @@ PATCH_CASES += *.zst|*.zstd) \
 	zstdcat <$$patchfile | ${PATCH} ${PATCH_DIST_ARGS};;
 .endif
 
-.if !empty(_LIST_EXTRACTED:M*.rpm)
+.if !empty(CHECKSUMFILES:M*.rpm)
 BUILD_DEPENDS += converters/rpm2cpio
 EXTRACT_CASES += *.rpm) \
 	cd ${WRKDIR} && rpm2cpio ${FULLDISTDIR}/$$archive | cpio -id -- ${EXTRACT_FILES};;
@@ -1518,7 +1577,6 @@ MISSING_FILES += ${_F}
 #
 # Don't build a port if it comes with the base system.
 ################################################################
-TRY_BROKEN ?= No
 _IGNORE_TEST ?=
 .if ${TEST_IS_INTERACTIVE:L} != "no" && defined(BATCH)
 _IGNORE_TEST += "has interactive tests"
@@ -1550,7 +1608,6 @@ IGNORE += "is marked as broken: ${BROKEN:Q}"
 IGNORE += "-- ${FULLPKGNAME${SUBPACKAGE}:C/-[0-9].*//g} comes with OpenBSD as of release ${COMES_WITH}"
 .endif
 
-IGNORE_IS_FATAL ?= "No"
 # XXX even if subpackage is invalid, define this, so that errors come out
 # from ERRORS and not make internals.
 IGNORE${SUBPACKAGE} ?=
@@ -1766,7 +1823,6 @@ DPB_PROPERTIES += noconfigurejunk
 .endif
 
 REORDER_DEPENDENCIES ?=
-ECHO_REORDER ?= :
 
 # recheck WRK...
 .for w in WRKDIR WRKDIST WRKSRC WRKCONF WRKBUILD WRKINST DIST_SUBDIR
@@ -1777,12 +1833,8 @@ ERRORS += "Fatal: $w ends with a slash: ${$w}"
 
 # Lock infrastructure:
 # to remove locks handling, define LOCKDIR to an empty value
-LOCKDIR ?= ${WRKOBJDIR}/locks
 
-LOCK_CMD ?= ${_PBUILD} ${_PERLSCRIPT}/portlock
-UNLOCK_CMD ?= ${_PBUILD} rm -f
 _LOCKS_HELD ?=
-LOCK_VERBOSE ?= No
 .if !empty(LOCKDIR)
 .  if ${LOCK_VERBOSE:L} == "yes"
 _LOCK = echo "Locking $$lock (${BUILD_PKGPATH}) from $@"; ${LOCK_CMD} ${LOCKDIR_MODE} ${LOCKDIR}/$$lock.lock ${BUILD_PKGPATH}
@@ -1811,7 +1863,6 @@ _SIMPLE_LOCK = \
 _SIMPLE_LOCK ?= :
 _DO_LOCK ?= :
 
-CHECKSUM_PACKAGES ?= No
 _PACKAGE_CHECKSUM_DIR = ${PACKAGE_REPOSITORY}/${MACHINE_ARCH}/cksums
 
 _do_checksum_package = \
@@ -2685,6 +2736,9 @@ ${_BULK_COOKIE}:
 
 ${_WRKDIR_COOKIE}:
 	@${ECHO_MSG} "===> Building from scratch ${FULLPKGNAME}${_MASTER}"
+.if !empty(_warn_distfiles)
+	@echo "WARNING: old style distfiles ${_warn_distfiles} found"
+.endif
 	@${_PBUILD} rm -rf ${WRKDIR}
 	@appdefaults=${LOCALBASE}/lib/X11/app-defaults; \
 	if ! test -d $$appdefaults -a -h $$appdefaults; then \
@@ -2777,12 +2831,12 @@ ${_PREPATCH_COOKIE}:
 
 
 # run as _pbuild
-.if !target(do-distpatch) && !empty(_LIST_PATCHFILES)
+.if !target(do-distpatch) && !empty(ALL_PATCHFILES)
 do-distpatch:
 # What DISTPATCH normally does
 	@${ECHO_MSG} "===>  Applying distribution patches for ${FULLPKGNAME}${_MASTER}"
 	@cd ${FULLDISTDIR}; \
-	  for patchfile in ${_LIST_PATCHFILES}; do \
+	  for patchfile in ${ALL_PATCHFILES}; do \
 	  	case "${PATCH_DEBUG:L}" in \
 			no) ;; \
 			*) ${ECHO_MSG} "===>   Applying distribution patch $$patchfile" ;; \
@@ -3247,7 +3301,7 @@ ${DISTDIR}/$p: # XXX that comment works around a limitation in make
 	file=$@.part; \
 	for site in ${$m}; do \
 		${ECHO_MSG} ">> Fetch $${site}$u"; \
-		if ${_PFETCH} ${FETCH_CMD} -o $$file $${site}$u; then \
+		if ${_PFETCH} ${FETCH_CMD} -o $$file $${site}${u:Q}; then \
 			if ${_MAKESUM}; then \
 				${_PFETCH} mv $$file $@; \
 				exit 0; \
@@ -3333,6 +3387,7 @@ _internal-clean:
 .endif
 # these commands are split up because go.port.mk distfiles are redonculous
 .if ${_clean:Mdist}
+.  if ${FETCH_MANUALLY:L} == "no"
 	@${ECHO_MSG} "===>  Dist cleaning for ${FULLPKGNAME${SUBPACKAGE}}"
 	@if cd ${DISTDIR} 2>/dev/null; then \
 		${_PFETCH} rm -f ${MAKESUMFILES}; \
@@ -3343,6 +3398,9 @@ _internal-clean:
 	@if cd ${DISTDIR} 2>/dev/null; then \
 		${_PFETCH} rmdir -p ${MAKESUMFILES:H} 2>/dev/null || true; \
 	fi
+.  else
+	@${ECHO_MSG} "===>   FETCH_MANUALLY detected, override: ${MAKE} clean=dist FETCH_MANUALLY=No"
+.  endif
 .endif
 .if ${_clean:Minstall}
 .  if ${_clean:Msub}
@@ -3717,7 +3775,7 @@ peek-ftp:
 	@echo "DISTFILES=${DISTFILES}"
 	@${_PFETCH} install -d ${DISTDIR_MODE} ${FULLDISTDIR}; \
 	cd ${FULLDISTDIR}; echo "cd ${FULLDISTDIR}"; \
-	for i in ${MASTER_SITES:Mftp*}; do \
+	for i in ${SITES:Mftp*}; do \
 		echo "Connecting to $$i"; ${_PFETCH} ${FETCH_CMD} $$i ; break; \
 	done
 

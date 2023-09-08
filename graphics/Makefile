@@ -268,6 +268,7 @@
      SUBDIR += py-opengl,python3
      SUBDIR += py-pygal,python3
      SUBDIR += py-pyqrcode,python3
+     SUBDIR += py-pyqtgraph,python3
      SUBDIR += py-pyx,python3
      SUBDIR += py-qrcode,python3
      SUBDIR += py-sane,python3
@@ -285,8 +286,6 @@
      SUBDIR += rawstudio
      SUBDIR += rawtherapee
      SUBDIR += ruby-chunky_png
-     SUBDIR += ruby-color
-     SUBDIR += ruby-gruff
      SUBDIR += ruby-rmagick,ruby31
      SUBDIR += ruby-rmagick,ruby32
      SUBDIR += ruby-rqrcode

@@ -15,7 +15,6 @@
      SUBDIR += bfbtester
      SUBDIR += boofuzz
      SUBDIR += boringssl
-     SUBDIR += botan
      SUBDIR += botan2
      SUBDIR += bounix
      SUBDIR += burpsuite
@@ -140,7 +139,6 @@
      SUBDIR += ophcrack
      SUBDIR += opm
      SUBDIR += opmsg
-     SUBDIR += origami
      SUBDIR += ossec-hids
      SUBDIR += osv-scanner
      SUBDIR += otpcalc
@@ -347,8 +345,6 @@
      SUBDIR += ruby-cms_scanner
      SUBDIR += ruby-gpgme,ruby31
      SUBDIR += ruby-gpgme,ruby32
-     SUBDIR += ruby-hmac
-     SUBDIR += ruby-openid
      SUBDIR += ruby-pledge,ruby31
      SUBDIR += ruby-pledge,ruby32
      SUBDIR += ruby-rbnacl

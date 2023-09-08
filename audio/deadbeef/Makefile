@@ -1,5 +1,5 @@
 COMMENT =		DeaDBeeF is an audio player
-DISTNAME =		deadbeef-1.9.3
+DISTNAME =		deadbeef-1.9.4
 CATEGORIES =		audio
 
 HOMEPAGE =		https://deadbeef.sourceforge.io/
@@ -26,7 +26,7 @@ COMPILER =		base-clang ports-gcc
 
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 
-MASTER_SITES =		${MASTER_SITE_SOURCEFORGE:=deadbeef/}
+SITES =			${SITE_SOURCEFORGE:=deadbeef/}
 EXTRACT_SUFX =		.tar.bz2
 
 MODULES =		textproc/intltool

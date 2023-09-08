@@ -1,6 +1,7 @@
 COMMENT =	archiving Tool
 DISTNAME =	ark-${VERSION}
 CATEGORIES =	archivers
+REVISION =	0
 
 SHARED_LIBS +=  kerfuffle                 9.1 # 17.08
 
@@ -15,6 +16,8 @@ WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5Widgets Qt5Xml
 WANTLIB += X11 archive c m z zip
 
 WANTLIB += lib/inotify/inotify
+
+
 
 
 

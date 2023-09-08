@@ -1,12 +1,12 @@
 COMMENT =		source of the rust-openssl crate for regression testing
 
 # Follows HEAD
-VERSION =		20230827
+VERSION =		20230907
 DISTNAME =		rust-openssl-tests-${VERSION}
 
 GH_ACCOUNT =		sfackler
 GH_PROJECT =		rust-openssl
-GH_COMMIT =		03bc8192d28373fdbe4da4f443c2990ff4180ce0
+GH_COMMIT =		6b3b9fc039d45446c8308aceeee8dfc5e3ff69fa
 
 CATEGORIES =		security devel
 
@@ -29,5 +29,11 @@ do-install:
 		-s '/.*\.cargo_vcs_info\.json//' . ${OPENSSL_TESTS_DIR}
 
 .include "crates.inc"
+
+.for _n _v in ${MODCARGO_CRATES}
+VER_${_n} =	${_n}-${_v}
+SUBST_VARS +=	VER_${_n}
+.endfor
+
 
 .include <bsd.port.mk>

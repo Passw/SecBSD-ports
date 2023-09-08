@@ -1,21 +1,23 @@
 COMMENT =	various text handling addons
 
-GH_ACCOUNT =	KDE
-GH_PROJECT =	ktextaddons
-GH_TAGNAME =	v1.3.2
+V =		1.4.1
+DISTNAME =	ktextaddons-${V}
 
-SHARED_LIBS +=  KF5TextAddonsWidgets      0.0 # 0.0
-SHARED_LIBS +=  KF5TextAutoCorrectionCore 0.0 # 0.0
-SHARED_LIBS +=  KF5TextAutoCorrectionWidgets 0.0 # 0.0
-SHARED_LIBS +=  KF5TextEditTextToSpeech   0.0 # 0.0
-SHARED_LIBS +=  KF5TextEmoticonsCore      0.0 # 0.0
-SHARED_LIBS +=  KF5TextEmoticonsWidgets   0.0 # 0.0
-SHARED_LIBS +=  KF5TextGrammarCheck       0.0 # 0.0
-SHARED_LIBS +=  KF5TextTranslator         0.0 # 0.0
+SHARED_LIBS +=  KF5TextAddonsWidgets          0.1 # 0.0
+SHARED_LIBS +=  KF5TextAutoCorrectionCore     0.0 # 0.0
+SHARED_LIBS +=  KF5TextAutoCorrectionWidgets  1.0 # 0.0
+SHARED_LIBS +=  KF5TextEditTextToSpeech       0.0 # 0.0
+SHARED_LIBS +=  KF5TextEmoticonsCore          0.0 # 0.0
+SHARED_LIBS +=  KF5TextEmoticonsWidgets       0.0 # 0.0
+SHARED_LIBS +=  KF5TextGrammarCheck           0.0 # 0.0
+SHARED_LIBS +=  KF5TextTranslator             0.0 # 0.0
+SHARED_LIBS +=  KF5TextUtils                  0.0 # 0.0
 
 CATEGORIES =	textproc devel
 
 HOMEPAGE =	https://invent.kde.org/libraries/ktextaddons
+
+MASTER_SITES =	${MASTER_SITE_KDE:=stable/ktextaddons/}
 
 MAINTAINER =	Rafael Sadowski <rsadowski@openbsd.org>
 
@@ -43,5 +45,7 @@ LIB_DEPENDS =	devel/kf5/karchive \
 		devel/kf5/kxmlgui \
 		security/qtkeychain \
 		x11/qt5/qtspeech
+
+TEST_IS_INTERACTIVE =        X11
 
 .include <bsd.port.mk>

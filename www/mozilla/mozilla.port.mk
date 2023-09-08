@@ -53,13 +53,12 @@ EXTRACT_SUFX ?=	.tar.xz
 DIST_SUBDIR ?=	mozilla
 
 .if defined(MOZILLA_PROFDATA_TASKID)
-DISTFILES =	${MOZILLA_DIST}-${MOZILLA_DIST_VERSION}.source${EXTRACT_SUFX}
 .if ${MOZILLA_PROJECT:Mfirefox*}
-DISTFILES +=	${DISTNAME}-profdata${EXTRACT_SUFX}:0
-MASTER_SITES0=https://rhaalovely.net/stuff/
+DISTFILES.profdata =	${DISTNAME}-profdata${EXTRACT_SUFX}
+MASTER_SITES.profdata =	https://rhaalovely.net/stuff/
 .else
-DISTFILES +=	${DISTNAME}-profdata${EXTRACT_SUFX}{profdata${EXTRACT_SUFX}}:0
-MASTER_SITES0=https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/${MOZILLA_PROFDATA_TASKID}/runs/0/artifacts/public/build/
+DISTFILES.profdata =	${DISTNAME}-profdata${EXTRACT_SUFX}{profdata${EXTRACT_SUFX}}
+MASTER_SITES.prof =	https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/${MOZILLA_PROFDATA_TASKID}/runs/0/artifacts/public/build/
 .endif
 CONFIGURE_ARGS +=	--enable-profile-use
 CONFIGURE_ARGS +=	--with-pgo-profile-path=${WRKDIR}/merged.profdata
@@ -91,6 +90,14 @@ MODMOZ_WANTLIB +=	icudata icui18n icuuc
 CONFIGURE_ARGS +=	--with-system-icu
 .endif
 
+.if !defined(MOZILLA_USE_DBUS)
+CONFIGURE_ARGS +=	--disable-dbus
+.else
+MODMOZ_LIB_DEPENDS +=	x11/dbus-glib
+MODMOZ_WANTLIB +=	dbus-1 dbus-glib-1
+CONFIGURE_ARGS +=	--enable-dbus
+.endif
+
 # bug #736961
 SEPARATE_BUILD =	Yes
 
@@ -105,8 +112,6 @@ MODMOZ_BUILD_DEPENDS +=	devel/nasm
 
 # 53 needs rust
 MODMOZ_BUILD_DEPENDS +=	lang/rust
-# stylo build needs LLVM
-MODMOZ_BUILD_DEPENDS +=	devel/llvm
 #1670807
 MODMOZ_BUILD_DEPENDS +=	devel/m4
 
@@ -139,8 +144,7 @@ CONFIGURE_ARGS +=	--with-system-zlib	\
 		--enable-official-branding	\
 		--enable-optimize="${CFLAGS}"	\
 		--disable-tests			\
-		--disable-updater		\
-		--disable-dbus
+		--disable-updater
 
 # firefox >= 46 defaults to gtk+3
 CONFIGURE_ARGS +=	--enable-default-toolkit=cairo-gtk3
@@ -167,7 +171,7 @@ MAKE_ENV +=	MOZILLA_OFFICIAL=1 \
 		MOZ_APP_REMOTINGNAME=${MOZILLA_PROJECT} \
 		SHELL=/bin/sh \
 		SO_VERSION="${SO_VERSION}" \
-		LLVM_CONFIG="${LOCALBASE}/bin/llvm-config"
+		LLVM_CONFIG="${LOCALBASE}/bin/llvm-config-${MODCLANG_VERSION}"
 
 CONFIGURE_ENV +=	${MAKE_ENV}
 # ensure libffi's configure doesnt pick gsed/gmkdir/gawk

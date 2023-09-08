@@ -1,4 +1,3 @@
-BROKEN =	doesn't build with rustc-1.72.0
 COMMENT =	time-series datastore for metrics, events, and analytics
 
 MODGO_VERSION=	v2.7.1
@@ -29,7 +28,6 @@ COMPILER =		base-clang ports-gcc
 MODCARGO_BUILD =	No
 MODCARGO_INSTALL =	No
 MODCARGO_CARGOTOML =	${WRKDIR}/go/pkg/mod/github.com/influxdata/flux@v0.193.0/libflux/Cargo.toml
-MODCARGO_MASTER_SITESN =8
 MODCARGO_TARGET_DIR =	${WRKDIR}/go/pkg/mod/github.com/influxdata/flux@v0.193.0/libflux/target
 # needed to make sure unwind* symbols are found
 MODCARGO_RUSTFLAGS +=-C link-arg=-lc++abi
@@ -72,6 +70,8 @@ pre-build:
 	# generates ${WRKSRC}/static/static_gen.go to bundle the web ui assets in the final influxd binary
 	# taken from ${WRKSRC}/GNUMakefile
 	cd ${WRKSRC} && ${MODGO_CMD} generate ${MODGO_FLAGS} ./static
+	# hack to fix build with rust 1.72
+	sed -ie 12d ${WRKDIR}/go/pkg/mod/github.com/influxdata/flux@v0.193.0/libflux/flux/src/lib.rs
 
 do-configure:
 	${MODCARGO_configure}

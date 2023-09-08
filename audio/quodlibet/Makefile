@@ -1,7 +1,6 @@
 COMMENT=	audio player and tagger for GTK+ with regex support
 
-MODPY_EGG_VERSION= 4.5.0
-REVISION=	3
+MODPY_EGG_VERSION= 4.6.0
 DISTNAME=	quodlibet-${MODPY_EGG_VERSION}
 PORTROACH=	skipv:release-${MODPY_EGG_VERSION}
 
@@ -12,7 +11,7 @@ HOMEPAGE=	https://quodlibet.readthedocs.org/
 # GPLv2+
 PERMIT_PACKAGE=	Yes
 
-MASTER_SITES=	https://github.com/quodlibet/quodlibet/releases/download/release-${MODPY_EGG_VERSION}/
+SITES=		https://github.com/quodlibet/quodlibet/releases/download/release-${MODPY_EGG_VERSION}/
 
 MODULES=	lang/python
 

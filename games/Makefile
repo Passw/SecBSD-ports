@@ -156,7 +156,6 @@
      SUBDIR += heroes
      SUBDIR += hex-a-hop
      SUBDIR += hlsteam
-     SUBDIR += hypatia
      SUBDIR += hyperrogue
      SUBDIR += icebreaker
      SUBDIR += inform6
@@ -252,6 +251,7 @@
      SUBDIR += pygame_sdl2
      SUBDIR += pyganim
      SUBDIR += pysol
+     SUBDIR += pysol-cards
      SUBDIR += qqwing
      SUBDIR += qstat
      SUBDIR += quadrupleback

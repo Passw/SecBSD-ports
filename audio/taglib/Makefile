@@ -1,6 +1,5 @@
 COMMENT=	managing meta-data of audio formats
-DISTNAME=	taglib-1.13
-REVISION=	0
+DISTNAME=	taglib-1.13.1
 
 CATEGORIES=	audio devel
 
@@ -16,7 +15,7 @@ WANTLIB=	${COMPILER_LIBCXX} m z
 
 COMPILER =	base-clang ports-gcc
 
-MASTER_SITES=	https://taglib.github.io/releases/
+SITES=		https://taglib.github.io/releases/
 
 MODULES=	devel/cmake
 BUILD_DEPENDS=	devel/cppunit

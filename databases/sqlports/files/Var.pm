@@ -1,4 +1,4 @@
-# $OpenBSD: Var.pm,v 1.67 2023/08/22 14:59:46 espie Exp $
+# $OpenBSD: Var.pm,v 1.73 2023/09/06 21:07:16 espie Exp $
 #
 # Copyright (c) 2006-2010 Marc Espie <espie@openbsd.org>
 #
@@ -158,6 +158,20 @@ sub create_view($self, @c)
 {
 	Sql::Create::View->new($self->table,
 	    origin => $self->table_name($self->table))->add(@c);
+}
+
+package BaselineMixin;
+
+my $baseline;
+
+sub prime($, $p)
+{
+	$baseline = $p;
+}
+
+sub check($self)
+{
+	return $self->value eq $baseline->{$self->var};
 }
 
 # for distinction later
@@ -575,16 +589,16 @@ sub create_tables($self, $inserter)
 	$inserter->make_ordered_view($self);
 }
 
-package MasterSitesVar;
+package SitesVar;
 our @ISA = qw(OptKeyVar);
-sub table($) { 'MasterSites' }
+sub table($) { 'Sites' }
 sub want_in_ports_view($) { 1 }
 
 sub compute_join($self, $name)
 {
 	my $j = Sql::Join->new($self->table_name($self->table))->left
 	    ->add(Sql::Equal->new("FullPkgPath", "FullPkgPath"));
-	# for now we only record MASTER_SITES in ports
+	# for now we only record SITES in ports
 	$j->add(Sql::IsNull->new("N"));
 	return $j;
 }
@@ -600,7 +614,7 @@ sub add($self, $ins)
 	$self->AnyVar::add($ins);
 
 	my $n;
-	if ($self->var =~ m/^MASTER_SITES(.+)$/) {
+	if ($self->var =~ m/^SITES(.+)$/) {
 		$n = $1;
 	}
 	$self->normal_insert($ins, $n, $self->value);
@@ -618,6 +632,10 @@ sub create_tables($self, $inserter)
 	    Sql::Column::View->new("N"),
 	    Sql::Column::View->new("Value"));
 }
+
+package RoachSitesVar;
+our @ISA = qw(SitesVar);
+sub table($) { 'RoachSites' }
 
 # Generic handling for any blank-separated list
 package ListVar;
@@ -912,7 +930,7 @@ our @ISA = qw(ListVar);
 sub keyword_table($) { '_fetchfiles' }
 sub table($) { 'Distfiles' }
 sub match($) { 0 }
-sub want_in_ports_view($) { 1 }
+sub want_in_ports_view($) { 0 }
 
 sub _add($self, $ins, $value, $num)
 {
@@ -1216,6 +1234,42 @@ sub ports_view_column($self, $name)
 	return Sql::Column::View->new($name, origin => 'Value')->join(
 	    Sql::Join->new($self->table."_ordered")->left
 	    	->add(Sql::Equal->new("FullPkgpath", "FullPkgpath")));
+}
+
+package DistTupleVar;
+our @ISA = qw(AnyVar);
+sub table($) { 'DistTuple' };
+
+sub add($self, $ins)
+{
+	$self->AnyVar::add($ins);
+	my @l = $self->words;
+	while(@l > 0) {
+		my $type = shift @l;
+		my $account = shift @l;
+		my $project = shift @l;
+		my $id = shift @l;
+		my $mv = shift @l;
+		$self->normal_insert($ins, $type, $account, $project, $id, $mv);
+	}
+}
+
+sub create_tables($self, $inserter)
+{
+	$self->create_table(
+	    $self->fullpkgpath,
+	    Sql::Column::Text->new("Type"),
+	    Sql::Column::Text->new("Account"),
+	    Sql::Column::Text->new("Project"),
+	    Sql::Column::Text->new("Id"),
+	    Sql::Column::Text->new("Mv"));
+	$self->create_view(
+	    $self->pathref,
+	    Sql::Column::View->new("Type"),
+	    Sql::Column::View->new("Account"),
+	    Sql::Column::View->new("Project"),
+	    Sql::Column::View->new("Id"),
+	    Sql::Column::View->new("Mv"));
 }
 
 package EmailVar;

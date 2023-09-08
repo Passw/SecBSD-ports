@@ -252,9 +252,11 @@
      SUBDIR += luasocket
      SUBDIR += luasocket,lua52
      SUBDIR += luasocket,lua53
+     SUBDIR += luasocket,lua54
      SUBDIR += luaunbound
      SUBDIR += luaunbound,lua52
      SUBDIR += luaunbound,lua53
+     SUBDIR += luaunbound,lua54
      SUBDIR += mac-telnet
      SUBDIR += maclookup
      SUBDIR += magic-wormhole
@@ -277,7 +279,6 @@
      SUBDIR += miniupnp
      SUBDIR += mirmon
      SUBDIR += mktorrent
-     SUBDIR += mldonkey
      SUBDIR += mlvpn
      SUBDIR += mon
      SUBDIR += monitoring-plugins
@@ -553,6 +554,7 @@
      SUBDIR += py-IOSXR,python3
      SUBDIR += py-IP,python3
      SUBDIR += py-aiodns,python3
+     SUBDIR += py-b2sdk,python3
      SUBDIR += py-boto3,python3
      SUBDIR += py-botocore,python3
      SUBDIR += py-cares,python3
@@ -576,6 +578,7 @@
      SUBDIR += py-libcloud,python3
      SUBDIR += py-libknot,python3
      SUBDIR += py-minimalmodbus,python3
+     SUBDIR += py-modbus,python3
      SUBDIR += py-msgpack,python3
      SUBDIR += py-nbxmpp,python3
      SUBDIR += py-ncclient,python3
@@ -601,6 +604,8 @@
      SUBDIR += py-socketio,python3
      SUBDIR += py-socketio-client,python3
      SUBDIR += py-socks,python3
+     SUBDIR += py-solaredge-interface,python3
+     SUBDIR += py-solaredge-modbus,python3
      SUBDIR += py-stem,python3
      SUBDIR += py-telegram,python3
      SUBDIR += py-tinytuya,python3
@@ -637,21 +642,10 @@
      SUBDIR += ruby-cbor,ruby32
      SUBDIR += ruby-eventmachine,ruby31
      SUBDIR += ruby-eventmachine,ruby32
-     SUBDIR += ruby-macaddr
-     SUBDIR += ruby-mfi
      SUBDIR += ruby-msgpack,ruby31
      SUBDIR += ruby-msgpack,ruby32
-     SUBDIR += ruby-net-dns
-     SUBDIR += ruby-net-http-digest_auth
-     SUBDIR += ruby-net-scp
-     SUBDIR += ruby-net-sftp
-     SUBDIR += ruby-net-ssh
-     SUBDIR += ruby-net-ssh-gateway
      SUBDIR += ruby-net-telnet
      SUBDIR += ruby-public_suffix
-     SUBDIR += ruby-snmp
-     SUBDIR += ruby-sshkit
-     SUBDIR += ruby-stomp
      SUBDIR += sacc
      SUBDIR += samba
      SUBDIR += sbm

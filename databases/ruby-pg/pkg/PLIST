@@ -1,7 +1,4 @@
 ${GEM_LIB}/cache/${DISTNAME}.gem
-${GEM_LIB}/extensions/${MODRUBY_ARCH}/
-${GEM_LIB}/extensions/${MODRUBY_ARCH}/${MODRUBY_LIBREV}/
-${GEM_EXTENSIONS_DIR}/
 ${GEM_EXTENSIONS_DIR}/gem.build_complete
 ${GEM_LIB}/extensions/x86_64-unknown/
 ${GEM_LIB}/extensions/x86_64-unknown/${MODRUBY_LIBREV}/

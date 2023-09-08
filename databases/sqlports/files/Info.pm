@@ -1,4 +1,4 @@
-# $OpenBSD: Info.pm,v 1.41 2023/08/22 14:59:46 espie Exp $
+# $OpenBSD: Info.pm,v 1.46 2023/09/06 21:07:16 espie Exp $
 #
 # Copyright (c) 2012 Marc Espie <espie@openbsd.org>
 #
@@ -43,6 +43,7 @@ our $vars = {
     DISTNAME => 'AnyVar',
     DIST_SUBDIR => 'DefinedVar',
     EPOCH => 'AnyVar',
+    EXTRACT_FILES => 'DefinedVar',
     FLAVORS => 'FlavorsVar',
     FULLPKGNAME => 'FullpkgnameVar',
     GH_ACCOUNT => 'DefinedVar',
@@ -55,7 +56,7 @@ our $vars = {
     LIB_DEPENDS => 'LibDependsVar',
     MAINTAINER=> 'EmailVar',
     MAKEFILE_LIST => 'MakefilesListVar',
-    MASTER_SITES => 'MasterSitesVar',
+    SITES => 'SitesVar',
     MODULES => 'ModulesVar',
     MULTI_PACKAGES => 'MultiVar',
     NO_BUILD => 'YesNoVar',
@@ -71,6 +72,8 @@ our $vars = {
     PKG_ARCH => 'ArchKeyVar',
     PORTROACH => 'DefinedVar',
     PORTROACH_COMMENT => 'DefinedVar',
+    ROACH_URL => 'AnyVar',
+    ROACH_SITES => 'RoachSitesVar',
     PSEUDO_FLAVOR => 'AnyVar',
     PSEUDO_FLAVORS => 'PseudoFlavorsVar',
     TEST_DEPENDS => 'TestDependsVar',
@@ -107,6 +110,7 @@ our $vars = {
     MISSING_FILES => 'IgnoredVar',
     FIX_CRLF_FILES => 'CRLFFiles',
     MODULESVAR => 'ModulesVarVar',
+    DIST_TUPLE => 'DistTupleVar',
 };
 
 my @indexed = qw(FULLPKGNAME RUN_DEPENDS LIB_DEPENDS IGNORE
@@ -134,7 +138,7 @@ sub create($self, $var, $value, $arch, $path)
 		$k .= "-$arch";
 	}
 	my $type = $var;
-	$type =~ s/^(MASTER_SITES|DISTFILES|SUPDISTFILES|PATCHFILES).*/$1/;
+	$type =~ s/^(SITES|DISTFILES|SUPDISTFILES|PATCHFILES).*/$1/;
 	if ($type =~ m/^MOD/ && $type ne 'MODULES') {
 		$type = "MODULESVAR";
 		if (defined $arch) {

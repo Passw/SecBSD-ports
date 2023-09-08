@@ -8,12 +8,12 @@ GH_TAGNAME =		v2.4.0
 DISTFILES =		${GH_DISTFILE}
 PKGNAME-main =		${PKGNAME:S/app/native/}
 PKGNAME-chrome =	${PKGNAME:S/app/chrome/}
+REVISION-main =		0
 
 MULTI_PACKAGES =	-main -chrome
 
 # pending/accepted "Upload complete source tarball as release asset"
 # https://github.com/web-eid/web-eid-app/pull/279
-MASTER_SITES0 =		https://github.com/${GH_ACCOUNT}/
 
 # submodules of ${GH_PROJECT} at release, see
 #	cd path/to/repo
@@ -21,23 +21,20 @@ MASTER_SITES0 =		https://github.com/${GH_ACCOUNT}/
 #	git submodule status
 EID_REPO =	libelectronic-id
 EID_COMMIT =	fb84aa8cf7ae1073f5472b7093d4df2ed95dc718
-EID_DIR =	${WRKSRC}/lib/${EID_REPO}
-DISTFILES +=	${EID_REPO}-{${EID_REPO}/archive/}${EID_COMMIT}${EXTRACT_SUFX}:0
-EID_SRC =	${WRKDIR}/${EID_REPO}-${EID_COMMIT}
+EID_DIR =	lib/${EID_REPO}
+DIST_TUPLE +=	github	${GH_ACCOUNT}	${EID_REPO}	${EID_COMMIT}	${EID_DIR}	# MIT
 
 # submodules of ${EID_REPO} submodule at release
 PCSC_REPO =	libpcsc-cpp
 PCSC_COMMIT =	6f04aacfc594b486bc4500737ee3877492c95328
 PCSC_DIR =	${EID_DIR}/lib/${PCSC_REPO}
-DISTFILES +=	${PCSC_REPO}-{${PCSC_REPO}/archive/}${PCSC_COMMIT}${EXTRACT_SUFX}:0
-PCSC_SRC =	${WRKDIR}/${PCSC_REPO}-${PCSC_COMMIT}
+DIST_TUPLE +=	github	${GH_ACCOUNT}	${PCSC_REPO}	${PCSC_COMMIT}	${PCSC_DIR}	# MIT
 
 # submodules of ${PCSC_REPO} submodule at release
 MOCK_REPO =	libpcsc-mock
 MOCK_COMMIT =	488cb42301a42d8ced964a0aaafe4be0d258126d
 MOCK_DIR =	${PCSC_DIR}/tests/lib/${MOCK_REPO}
-DISTFILES +=	${MOCK_REPO}-{${MOCK_REPO}/archive/}${MOCK_COMMIT}${EXTRACT_SUFX}:0
-MOCK_SRC =	${WRKDIR}/${MOCK_REPO}-${MOCK_COMMIT}
+DIST_TUPLE +=	github	${GH_ACCOUNT}	${MOCK_REPO}	${MOCK_COMMIT}	${MOCK_DIR}	# MIT
 
 # MIT
 PERMIT_PACKAGE =	Yes
@@ -74,12 +71,5 @@ LIB_DEPENDS-chrome =	# empty
 CONFIGURE_ARGS +=	-DCMAKE_EXE_LINKER_FLAGS=-L/usr/local/lib
 
 TEST_IS_INTERACTIVE =	X11
-
-post-extract:
-	# replace empty directories with symlinks to prefetched submodules
-.for _submod in EID PCSC MOCK
-	rmdir ${${_submod}_DIR}/
-	mv ${${_submod}_SRC}/ ${${_submod}_DIR}
-.endfor
 
 .include <bsd.port.mk>

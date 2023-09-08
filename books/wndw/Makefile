@@ -30,35 +30,35 @@ MULTI_PACKAGES =-main -es -fr -ar -pt -id -my
 # Also available as printed books.
 HOMEPAGE =	http://wndw.net/
 
-MASTER_SITES =	${HOMEPAGE}pdf/wndw3-en/
-MASTER_SITES0 =	${HOMEPAGE}pdf/wndw3-es/
-MASTER_SITES1 =	${HOMEPAGE}pdf/wndw2-fr/
-MASTER_SITES2 =	${HOMEPAGE}pdf/wndw2-ar/
-MASTER_SITES3 =	${HOMEPAGE}pdf/wndw-pt/
-MASTER_SITES4 =	${HOMEPAGE}pdf/wndw-id/ \
+SITES =		${HOMEPAGE}pdf/wndw3-en/
+SITES.es =	${HOMEPAGE}pdf/wndw3-es/
+SITES.fr =	${HOMEPAGE}pdf/wndw2-fr/
+SITES.ar =	${HOMEPAGE}pdf/wndw2-ar/
+SITES.pt =	${HOMEPAGE}pdf/wndw-pt/
+SITES.id =	${HOMEPAGE}pdf/wndw-id/ \
 		http://opensource.telkomspeedy.com:5432/furusato/files/
-MASTER_SITES5 =	${HOMEPAGE}pdf/wndw3-my/
+SITES.my =	${HOMEPAGE}pdf/wndw3-my/
 
 DISTFILES =	wndw3-ebook.pdf \
-		wndw3-cover.pdf \
-		wndw3-es-ebook.pdf:0 \
-		wndw2-fr-ebook.pdf:1 \
-		wndw2-ar-ebook.pdf:2 \
-		wndw-pt-ebook.pdf:3 \
-		wndw-id-ebook.pdf:4 \
-		wndw3-my-ebook.pdf:5
+		wndw3-cover.pdf
 
-EXTRACT_ONLY =
+DISTFILES.es =	wndw3-es-ebook.pdf
+DISTFILES.fr = 	wndw2-fr-ebook.pdf
+DISTFILES.ar = 	wndw2-ar-ebook.pdf
+DISTFILES.pt =	wndw-pt-ebook.pdf
+DISTFILES.id =	wndw-id-ebook.pdf
+DISTFILES.my = 	wndw3-my-ebook.pdf
 
 PKG_ARCH =	*
 
+EXTRACT_ONLY =
 NO_BUILD =	Yes
 NO_TEST =	Yes
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/wndw
-.for i in ${DISTFILES:C/\:[0-9]//}
-	${INSTALL_DATA} ${FULLDISTDIR}/$i ${PREFIX}/share/doc/wndw
-.endfor
+	for i in ${ALL_DISTFILES}; do \
+		${INSTALL_DATA} ${FULLDISTDIR}/$$i ${PREFIX}/share/doc/wndw; \
+	done
 
 .include <bsd.port.mk>

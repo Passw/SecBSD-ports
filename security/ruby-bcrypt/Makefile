@@ -15,6 +15,6 @@ CONFIGURE_STYLE=	ruby gem ext
 
 TEST_DEPENDS=		${FULLPKGNAME}:${BUILD_PKGPATH}
 MODRUBY_TEST=		rspec3
-MODRUBY_TEST_TARGET=	 spec
+MODRUBY_TEST_TARGET=	spec
 
 .include <bsd.port.mk>

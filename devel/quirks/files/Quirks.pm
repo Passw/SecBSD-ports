@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1535 2023/08/27 18:24:25 tb Exp $
+# $OpenBSD: Quirks.pm,v 1.1546 2023/09/07 03:48:53 thfr Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -782,6 +782,7 @@ my $stem_extensions = {
 	'py-libdnet' => 'py3-libdnet',
 	'scons-py2' => 'scons',
 	'qxlsx' => 'qt5-qxlsx',
+	'py-altgraph' => 'py3-altgraph',
 };
 
 my $obsolete_reason = {};
@@ -1362,7 +1363,7 @@ setup_obsolete_reason(
 	0 => 'lazarus',
 	13 => 'exaile',
 	3 => 'instead-launcher',
-	3 => qr{^(ruby(19|2[0-7])-|^ruby-[^0-9])},
+	3 => qr{^(ruby(19|2[0-7])-|^j?ruby-[^0-9])},
 # 6.9
 	3 => 'py-notify',
 	3 => 'glimpse',
@@ -1834,6 +1835,16 @@ setup_obsolete_reason(
 	3 => 'gnome-twitch',
 	5 => 'sfio',
 	3 => 'parrot',
+	3 => 'kfloppy',
+	3 => 'py3-hypatia',
+	1 => 'reprepro',
+	5 => 'ocaml-pcre',
+	1 => 'breeze-grub',
+	3 => 'mldonkey',
+	3 => 'monotone',
+	3 => 'botan',
+	3 => 'bg5ps',
+	9 => 'haxe',
 );
 
 # though it's not yet used, these should be pkgnames, so that eventually
@@ -2100,6 +2111,7 @@ my $cve = {
 	'security/sudo' => 'sudo-<1.8.31',
 	'shells/bash' => 'bash-<4.3.27',
 	'sysutils/ansible,-main' => 'ansible-<2.7.1',
+	'sysutils/borgbackup/1.2' => 'borgbackup-<1.2.5',
 	'sysutils/mcollective' => 'mcollective-<2.5.3',
 	'sysutils/rclone' => 'rclone-<1.53.3',
 	'sysutils/salt' => 'salt-<3002',

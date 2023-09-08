@@ -12,7 +12,7 @@ MODULES=		lang/ruby
 
 CONFIGURE_STYLE=	gem
 
-BUILD_DEPENDS=		${RUN_DEPENDS}
-RUN_DEPENDS=		devel/ruby-systemu,${MODRUBY_FLAVOR}>=2.6.2,<2.7.0
+BUILD_DEPENDS=		${RUN_DEPENDS} \
+			devel/ruby-systemu,${MODRUBY_FLAVOR}
 
 .include <bsd.port.mk>

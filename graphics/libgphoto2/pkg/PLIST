@@ -68,7 +68,6 @@ share/doc/libgphoto2/README.md
 share/doc/libgphoto2/README.packaging
 share/doc/libgphoto2/RELEASE-HOWTO.md
 share/doc/libgphoto2/camlibs/
-share/doc/libgphoto2/camlibs/ChangeLog
 share/doc/libgphoto2/camlibs/README.9050
 share/doc/libgphoto2/camlibs/README.9051
 share/doc/libgphoto2/camlibs/README.9052
@@ -142,7 +141,6 @@ share/doc/libgphoto2/libgphoto2-api.html/bayer_8h__incl.png
 share/doc/libgphoto2/libgphoto2-api.html/bayer_8h_source.html
 share/doc/libgphoto2/libgphoto2-api.html/bc_s.png
 share/doc/libgphoto2/libgphoto2-api.html/bc_sd.png
-share/doc/libgphoto2/libgphoto2-api.html/bdwn.png
 share/doc/libgphoto2/libgphoto2-api.html/classes.html
 share/doc/libgphoto2/libgphoto2-api.html/closed.png
 share/doc/libgphoto2/libgphoto2-api.html/compiletime-assert_8h.html
@@ -190,8 +188,8 @@ share/doc/libgphoto2/libgphoto2-api.html/dir_ff2570e7e5c377838c8e56ea8c3b24f7.js
 share/doc/libgphoto2/libgphoto2-api.html/dir_ff2570e7e5c377838c8e56ea8c3b24f7_dep.map
 share/doc/libgphoto2/libgphoto2-api.html/dir_ff2570e7e5c377838c8e56ea8c3b24f7_dep.md5
 share/doc/libgphoto2/libgphoto2-api.html/dir_ff2570e7e5c377838c8e56ea8c3b24f7_dep.png
-share/doc/libgphoto2/libgphoto2-api.html/doc.png
-share/doc/libgphoto2/libgphoto2-api.html/docd.png
+share/doc/libgphoto2/libgphoto2-api.html/doc.svg
+share/doc/libgphoto2/libgphoto2-api.html/docd.svg
 share/doc/libgphoto2/libgphoto2-api.html/doxygen.css
 share/doc/libgphoto2/libgphoto2-api.html/doxygen.svg
 share/doc/libgphoto2/libgphoto2-api.html/dynsections.js
@@ -206,8 +204,10 @@ share/doc/libgphoto2/libgphoto2-api.html/exif_8h__dep__incl.png
 share/doc/libgphoto2/libgphoto2-api.html/exif_8h_source.html
 share/doc/libgphoto2/libgphoto2-api.html/files.html
 share/doc/libgphoto2/libgphoto2-api.html/files_dup.js
-share/doc/libgphoto2/libgphoto2-api.html/folderclosed.png
-share/doc/libgphoto2/libgphoto2-api.html/folderopen.png
+share/doc/libgphoto2/libgphoto2-api.html/folderclosed.svg
+share/doc/libgphoto2/libgphoto2-api.html/folderclosedd.svg
+share/doc/libgphoto2/libgphoto2-api.html/folderopen.svg
+share/doc/libgphoto2/libgphoto2-api.html/folderopend.svg
 share/doc/libgphoto2/libgphoto2-api.html/functions.html
 share/doc/libgphoto2/libgphoto2-api.html/functions_vars.html
 share/doc/libgphoto2/libgphoto2-api.html/gamma_8c.html
@@ -368,6 +368,15 @@ share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-library_8h__incl.map
 share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-library_8h__incl.md5
 share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-library_8h__incl.png
 share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-library_8h_source.html
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8c.html
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8c__incl.map
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8c__incl.md5
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8c__incl.png
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8h.html
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8h__dep__incl.map
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8h__dep__incl.md5
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8h__dep__incl.png
+share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-locking_8h_source.html
 share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-log_8c.html
 share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-log_8c.js
 share/doc/libgphoto2/libgphoto2-api.html/gphoto2-port-log_8c__incl.map
@@ -514,6 +523,8 @@ share/doc/libgphoto2/libgphoto2-api.html/libgphoto2__port_2libgphoto2__port_2i18
 share/doc/libgphoto2/libgphoto2-api.html/libgphoto2__port_2libgphoto2__port_2i18n_8h_source.html
 share/doc/libgphoto2/libgphoto2-api.html/menu.js
 share/doc/libgphoto2/libgphoto2-api.html/menudata.js
+share/doc/libgphoto2/libgphoto2-api.html/minus.svg
+share/doc/libgphoto2/libgphoto2-api.html/minusd.svg
 share/doc/libgphoto2/libgphoto2-api.html/nav_f.png
 share/doc/libgphoto2/libgphoto2-api.html/nav_fd.png
 share/doc/libgphoto2/libgphoto2-api.html/nav_g.png
@@ -528,6 +539,8 @@ share/doc/libgphoto2/libgphoto2-api.html/navtreeindex2.js
 share/doc/libgphoto2/libgphoto2-api.html/navtreeindex3.js
 share/doc/libgphoto2/libgphoto2-api.html/open.png
 share/doc/libgphoto2/libgphoto2-api.html/pages.html
+share/doc/libgphoto2/libgphoto2-api.html/plus.svg
+share/doc/libgphoto2/libgphoto2-api.html/plusd.svg
 share/doc/libgphoto2/libgphoto2-api.html/resize.js
 share/doc/libgphoto2/libgphoto2-api.html/splitbar.png
 share/doc/libgphoto2/libgphoto2-api.html/splitbard.png

@@ -5,7 +5,7 @@ COMMENT =		cross-platform IDE for use with Qt
 V =			8.0.2
 DISTNAME =		qt-creator-opensource-src-${V}
 PKGNAME =		qt-creator-${V}
-REVISION =		2
+REVISION =		3
 
 SHARED_LIBS +=  Aggregation               1.1 # 0.0
 SHARED_LIBS +=  CPlusPlus                 6.0 # 0.0
@@ -46,13 +46,16 @@ MASTER_SITES =	https://download.qt.io/official_releases/qtcreator/${V:R}/${V}/ \
 		https://mirrors.ocf.berkeley.edu/qt/official_releases/qtcreator/${V:R}/${V}/
 
 MODULES =	x11/qt5 \
+		lang/clang \
 		lang/python \
 		devel/cmake
+
+MODCLANG_COMPILER_LINKS =	No
+MODCLANG_RUNDEP =		Yes
 
 CONFIGURE_STYLE = cmake
 
 BUILD_DEPENDS =	devel/clang-tools-extra \
-		devel/llvm \
 		lang/clazy \
 		x11/qt5/qtquickcontrols
 
@@ -60,7 +63,6 @@ RUN_DEPENDS =	devel/clang-tools-extra \
 		devel/desktop-file-utils \
 		devel/gdb \
 		devel/gmake \
-		devel/llvm \
 		lang/clazy \
 		x11/gtk+4,-guic \
 		x11/qt5/qtquickcontrols
@@ -77,7 +79,8 @@ LIB_DEPENDS =	devel/kf5/syntax-highlighting \
 CONFIGURE_ARGS =	-DBUILD_CPLUSPLUS_TOOLS=ON \
 			-DENABLE_SVG_SUPPORT=ON \
 			-DBUILD_WITH_PCH=OFF \
-			-DCMAKE_DISABLE_FIND_PACKAGE_Qt6=ON
+			-DCMAKE_DISABLE_FIND_PACKAGE_Qt6=ON \
+			-DClang_DIR=${LOCALBASE}/llvm${MODCLANG_VERSION}/lib/cmake/clang
 
 GDB_ADJ_FILES = \
 	src/plugins/debugger/debuggeritemmanager.cpp \
@@ -94,6 +97,8 @@ pre-configure:
 	cd ${WRKSRC}; sed -i 's,"gdb","egdb",g' ${GDB_ADJ_FILES}
 	# use system qbs/syntax-highlighting (qtcreator.pro)
 	rm -rf ${WRKSRC}/src/shared/qbs
+	# custom code fails to find yaml-cpp>=0.8.0
+	rm -f ${WRKSRC}/cmake/Findyaml-cpp.cmake
 
 post-install:
 .for _l _v in ${SHARED_LIBS}

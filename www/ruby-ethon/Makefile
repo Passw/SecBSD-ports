@@ -14,11 +14,7 @@ MODULES =		lang/ruby
 
 CONFIGURE_STYLE =	ruby gem
 
-BUILD_DEPENDS =		${RUN_DEPENDS}
-RUN_DEPENDS =		devel/ruby-ffi,${MODRUBY_FLAVOR},>=1.15
-
-MODRUBY_TEST =		rake rspec
-TEST_DEPENDS +=		www/ruby-sinatra,${MODRUBY_FLAVOR} \
-			mail/ruby-mime-types,${MODRUBY_FLAVOR}
+BUILD_DEPENDS =		${RUN_DEPENDS} \
+			devel/ruby-ffi,${MODRUBY_FLAVOR},>=1.15
 
 .include <bsd.port.mk>

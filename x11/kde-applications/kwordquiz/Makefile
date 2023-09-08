@@ -1,16 +1,16 @@
 COMMENT =	general purpose flash card program for KDE
 DISTNAME =	kwordquiz-${VERSION}
 CATEGORIES =	games
+REVISION =	0
 
 HOMEPAGE =	https://www.kde.org/applications/games/kwordquiz
 
-WANTLIB += ${COMPILER_LIBCXX} KEduVocDocument KF5Attica KF5Auth
-WANTLIB += KF5AuthCore KF5Codecs KF5ConfigCore KF5ConfigGui KF5ConfigWidgets
-WANTLIB += KF5CoreAddons KF5Crash KF5GuiAddons KF5I18n KF5ItemViews
-WANTLIB += KF5NewStuff KF5NewStuffCore KF5NewStuffWidgets KF5Notifications
-WANTLIB += KF5NotifyConfig KF5Service KF5WidgetsAddons KF5XmlGui
-WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport Qt5Widgets
-WANTLIB += Qt5Xml c m phonon4qt5
+WANTLIB += ${COMPILER_LIBCXX} KEduVocDocument KF5Attica KF5ConfigCore
+WANTLIB += KF5ConfigGui KF5CoreAddons KF5Crash KF5DBusAddons KF5I18n
+WANTLIB += KF5NewStuffCore KF5Notifications KF5NotifyConfig Qt5Core
+WANTLIB += Qt5DBus Qt5Gui Qt5Multimedia Qt5Network Qt5PrintSupport
+WANTLIB += Qt5Qml Qt5QmlModels Qt5Quick Qt5QuickControls2 Qt5Svg
+WANTLIB += Qt5Widgets Qt5Xml c m
 
 MODKDE5_ICON_CACHE = yes
 MODKDE5_TRANSLATIONS = yes
@@ -18,6 +18,10 @@ MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_DOCS = yes
+
+BUILD_DEPENDS =	graphics/kirigami-addons
+
+RUN_DEPENDS =	graphics/kirigami-addons
 
 LIB_DEPENDS =	devel/kf5/attica \
 		devel/kf5/kauth \

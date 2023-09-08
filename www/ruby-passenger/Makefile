@@ -2,17 +2,15 @@ COMMENT =		ruby web application server/nginx module
 BROKEN-alpha =		.got subsegment exceeds 64K (size 83312)
 BROKEN-hppa =		rake fails when linking PassengerHelperAgent
 
-PASS_VERSION =		6.0.4
-NGINX_VERSION =		1.16.1
+PASS_VERSION =		6.0.18
+NGINX_VERSION =		1.24.0
 DISTNAME =		passenger-${PASS_VERSION}
-REVISION =		0
 
 ONLY_FOR_ARCHS =	aarch64 amd64 arm i386
 
 CATEGORIES =	www
-DISTFILES =	${DISTNAME}.gem \
-		nginx-${NGINX_VERSION}.tar.gz:0
-MASTER_SITES0 =	https://nginx.org/download/
+DISTFILES.nginx = 	nginx-${NGINX_VERSION}.tar.gz
+MASTER_SITES.nginx =	https://nginx.org/download/
 
 HOMEPAGE =	https://www.phusionpassenger.com/
 
@@ -67,8 +65,7 @@ post-build:
 		--nginx-tarball ${FULLDISTDIR}/nginx-${NGINX_VERSION}.tar.gz
 	cd ${PASS_DIR} && ${RUBY} bin/passenger-config build-native-support
 	cd ${PASS_DIR} && ${RAKE} nginx:as_dynamic_module 
-	rm -r ${PASS_DIR}/nginx-${NGINX_VERSION} \
-		${PASS_DIR}/bin/passenger-install-*-module \
+	rm -r ${PASS_DIR}/bin/passenger-install-*-module \
 		${GEM_BASE_BIN}/passenger-install-*-module*
 	mv ${PASS_DIR}/src/.passenger/support-binaries/${PASS_VERSION}/* \
 		${PASS_DIR}/buildout/support-binaries/

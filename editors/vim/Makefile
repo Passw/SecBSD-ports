@@ -3,14 +3,13 @@ COMMENT-lang=	vi clone, NLS subpackage
 
 # careful with PLISTs if updating; it usually works best if you use
 # a gui flavour rather than no_x11
-V=		9.0.1677
-GH_ACCOUNT=	vim
-GH_PROJECT=	vim
-GH_TAGNAME=	v$V
+V=		9.0.1876
 
-MASTER_SITES0=	https://github.com/vim/colorschemes/archive/
-DISTFILES=	${GH_DISTFILE} \
-		vim-colorschemes-20230324{22986fa2a3d2f7229efd4019fcbca411caa6afbb}.tar.gz:0
+# keep -current > -stable until 7.4 (guic moved to gtk+4)
+REVISION-main=	0
+
+DIST_TUPLE+=	github vim vim v$V . \
+		github vim colorschemes	22986fa2a3d2f7229efd4019fcbca411caa6afbb .
 
 PKGNAME=	vim-$V
 FULLPKGNAME-lang= vim-lang-$V
@@ -27,6 +26,7 @@ PERMIT_PACKAGE=	Yes
 
 # ruby 3.2 libraries need ports-gcc
 COMPILER=	base-clang ports-gcc
+COMPILER_LANGS=	c
 
 WANTLIB +=	c curses iconv intl m sodium
 

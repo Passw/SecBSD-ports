@@ -95,6 +95,7 @@
      SUBDIR += libopusenc
      SUBDIR += libsamplerate
      SUBDIR += libsidplay
+     SUBDIR += libsmackerdec
      SUBDIR += libsndfile
      SUBDIR += libsoxr
      SUBDIR += libvorbis
@@ -215,6 +216,7 @@
      SUBDIR += s-cdda-to-db
      SUBDIR += schismtracker
      SUBDIR += scmpc
+     SUBDIR += sdl2-audiolib
      SUBDIR += shairport-sync
      SUBDIR += shntool
      SUBDIR += shorten

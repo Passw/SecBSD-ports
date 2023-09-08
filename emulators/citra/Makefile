@@ -1,7 +1,5 @@
-# See https://github.com/citra-emu/citra/issues/4571
-NOT_FOR_ARCHS =	${BE_ARCHS}
-
-BROKEN-i386 =	undefined reference to operator delete(void*, std::align_val_t), etc.
+# ships a dynarmic copy, and dynarmic only supports x86-64 and AArch64
+ONLY_FOR_ARCHS =	amd64 arm64
 
 USE_WXNEEDED =	Yes
 
@@ -65,16 +63,10 @@ CXXFLAGS +=	-I${LOCALBASE}/include -I${LOCALBASE}/lib/qt5/cmake/Qt5/
 post-extract:
 	rm -rf ${WRKSRC}/externals/{sdl2,catch2,fmt,boost,cryptopp}
 
-.if ${MACHINE_ARCH} == amd64 || ${MACHINE_ARCH} == i386
+.if ${MACHINE_ARCH} == amd64
 PKG_ARGS +=	-Dx86=1
 .else
 PKG_ARGS +=	-Dx86=0
-.endif
-
-.include <bsd.port.arch.mk>
-
-.if ${PROPERTIES:Mclang}
-BUILD_DEPENDS+=	devel/llvm
 .endif
 
 .include <bsd.port.mk>

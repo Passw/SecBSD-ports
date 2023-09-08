@@ -1,8 +1,5 @@
 ${GEM_BIN}/thor30
 ${GEM_LIB}/cache/${DISTNAME}.gem
-${GEM_LIB}/extensions/${MODRUBY_ARCH}/
-${GEM_LIB}/extensions/${MODRUBY_ARCH}/${MODRUBY_LIBREV}/
-${GEM_EXTENSIONS_DIR}/
 ${GEM_EXTENSIONS_DIR}/gem.build_complete
 ${GEM_LIB}/gems/${DISTNAME}/
 ${GEM_LIB}/gems/${DISTNAME}/.document

@@ -20,8 +20,10 @@
      SUBDIR += innoextract
      SUBDIR += laszip
      SUBDIR += lha
+     SUBDIR += lhasa
      SUBDIR += libarchive
      SUBDIR += libdeflate
+     SUBDIR += libmpq
      SUBDIR += libmspack
      SUBDIR += libtar
      SUBDIR += libzim

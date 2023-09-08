@@ -6,11 +6,13 @@ CATEGORIES =	devel x11
 
 DISTNAME =	kdevelop-${MODKDE_VERSION}
 
+REVISION =	0
+
 HOMEPAGE =	https://www.kdevelop.org/
 
 SHARED_LIBS +=  KDevPlatformDebugger      5.0 # 5.2
 SHARED_LIBS +=  KDevPlatformDocumentation 3.0 # 5.2
-SHARED_LIBS +=  KDevPlatformInterfaces    3.1 # 5.2
+SHARED_LIBS +=  KDevPlatformInterfaces    3.2 # 5.2
 SHARED_LIBS +=  KDevPlatformLanguage      7.0 # 5.2
 SHARED_LIBS +=  KDevPlatformOutputView    2.0 # 5.2
 SHARED_LIBS +=  KDevPlatformProject       3.0 # 5.2
@@ -20,7 +22,7 @@ SHARED_LIBS +=  KDevPlatformSublime       3.0 # 5.2
 SHARED_LIBS +=  KDevPlatformTests         4.0 # 5.2
 SHARED_LIBS +=  KDevPlatformUtil          3.2 # 5.2
 SHARED_LIBS +=  KDevPlatformVcs           3.0 # 5.2
-SHARED_LIBS +=  KDevClangPrivate          2.0 # 5.5
+SHARED_LIBS +=  KDevClangPrivate          3.0 # 5.5
 SHARED_LIBS +=  KDevCMakeCommon           2.1 # 5.5
 SHARED_LIBS +=  KDevCompileAnalyzerCommon 0.0 # 5.5
 
@@ -46,22 +48,26 @@ WANTLIB += Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Help Qt5Network
 WANTLIB += Qt5Positioning Qt5PrintSupport Qt5Qml Qt5QmlModels
 WANTLIB += Qt5Quick Qt5QuickWidgets Qt5Sql Qt5Test Qt5WebChannel
 WANTLIB += Qt5WebEngineCore Qt5WebEngineWidgets Qt5Widgets Qt5Xml
-WANTLIB += X11 apr-1 aprutil-1 c clang komparediff2 m svn_client-1
+WANTLIB += X11 apr-1 aprutil-1 c komparediff2 m svn_client-1
 WANTLIB += svn_fs-1 svn_ra-1 svn_repos-1 svn_subr-1 svn_wc-1
+WANTLIB += llvm${MODCLANG_VERSION}/lib/clang
 
 MASTER_SITES =	${MASTER_SITE_KDE:=stable/release-service/${MODKDE_VERSION}/src/}
 
 MODULES =	x11/kde-applications \
 		devel/kf5 \
+		lang/clang \
 		lang/python
 
+MODCLANG_COMPILER_LINKS=No
+MODCLANG_BUILDDEP=	No
 MODPY_BUILDDEP =	No
 
 BUILD_DEPENDS =	archivers/gtar \
 		devel/boost \
 		devel/clang-tools-extra \
 		devel/cppcheck \
-	 	devel/gettext,-tools \
+		devel/gettext,-tools \
 		shells/bash-completion \
 		lang/clazy \
 		misc/shared-mime-info
@@ -77,9 +83,10 @@ RUN_DEPENDS =	devel/clang-tools-extra \
 		x11/kde-applications/kio-extras \
 		x11/kde-applications/konsole
 
-LIB_DEPENDS =	devel/kf5/kconfig \
+LIB_DEPENDS =	${MODCLANG_LIB_DEPENDS} \
 		devel/kf5/karchive \
 		devel/kf5/kcmutils \
+		devel/kf5/kconfig \
 		devel/kf5/kcrash \
 		devel/kf5/kdeclarative \
 		devel/kf5/kguiaddons \
@@ -100,7 +107,6 @@ LIB_DEPENDS =	devel/kf5/kconfig \
 		devel/kf5/kxmlgui \
 		devel/kf5/purpose \
 		devel/kf5/threadweaver \
-		devel/llvm \
 		devel/subversion \
 		x11/grantlee-qt5>=5.3 \
 		x11/kde-applications/libkomparediff2 \
@@ -115,9 +121,11 @@ TEST_DEPENDS =		${BUILD_PKGPATH}
 
 TEST_ENV +=	QT_PLUGIN_PATH="${PREFIX}/lib/qt5/plugins"
 
+CONFIGURE_ARGS =	-DCMAKE_DISABLE_FIND_PACKAGE_KSysGuard=ON \
+			-DCMAKE_DISABLE_FIND_PACKAGE_KF5SysGuard=ON \
+			-DClang_DIR=${LOCALBASE}/llvm${MODCLANG_VERSION}/lib/cmake/clang
+
 pre-configure:
 	ln -sf ${LOCALBASE}/bin/gtar ${WRKDIR}/bin/tar
-# don't pick up llvm-config(1) from base
-	ln -sf ${LOCALBASE}/bin/llvm-config ${WRKDIR}/bin/llvm-config
 
 .include <bsd.port.mk>

@@ -1,4 +1,4 @@
-@comment ${GEM_BIN}/uuid${GEM_BIN_SUFFIX}
+${GEM_BIN}/uuid30
 ${GEM_LIB}/cache/${DISTNAME}.gem
 ${GEM_LIB}/gems/${DISTNAME}/
 ${GEM_LIB}/gems/${DISTNAME}/CHANGELOG

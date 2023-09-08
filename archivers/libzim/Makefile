@@ -13,7 +13,7 @@ PERMIT_PACKAGE =	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} icui18n icuuc lzma xapian zstd
 
-MASTER_SITES =		https://download.openzim.org/release/libzim/
+SITES =			https://download.openzim.org/release/libzim/
 
 EXTRACT_SUFX =		.tar.xz
 
@@ -22,6 +22,7 @@ COMPILER =		base-clang ports-gcc
 
 MODULES =		devel/meson
 
+BUILD_DEPENDS =		devel/gtest
 LIB_DEPENDS =		archivers/xz \
 			archivers/zstd \
 			databases/xapian-core \

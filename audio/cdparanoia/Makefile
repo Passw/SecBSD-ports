@@ -2,7 +2,7 @@ COMMENT=	CDDA reading utility with extra data verification features
 
 DISTNAME=	cdparanoia-III-alpha9.8
 PKGNAME=	cdparanoia-3.a9.8
-REVISION=	4
+REVISION=	5
 CATEGORIES=	audio
 SHARED_LIBS=	cdda_interface	0.0 \
 		cdda_paranoia	0.0
@@ -14,7 +14,7 @@ PERMIT_PACKAGE=	Yes
 
 WANTLIB=		c m
 
-MASTER_SITES=	https://www.xiph.org/paranoia/download/
+SITES=		https://www.xiph.org/paranoia/download/
 EXTRACT_SUFX=	.src.tgz
 
 CONFIGURE_STYLE=	autoconf autoheader

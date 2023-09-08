@@ -12,8 +12,8 @@ MODULES=		lang/ruby
 CONFIGURE_STYLE=	ruby gem ext
 
 BUILD_DEPENDS=		${RUN_DEPENDS} \
-			devel/ruby-daemons \
-			devel/ruby-eventmachine \
-			www/ruby-rack
+			devel/ruby-daemons,${MODRUBY_FLAVOR} \
+			devel/ruby-eventmachine,${MODRUBY_FLAVOR} \
+			www/ruby-rack,${MODRUBY_FLAVOR}
 
 .include <bsd.port.mk>

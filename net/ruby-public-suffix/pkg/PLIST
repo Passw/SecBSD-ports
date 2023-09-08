@@ -1,5 +1,4 @@
 ${GEM_LIB}/cache/${DISTNAME}.gem
-${GEM_EXTENSIONS_DIR}/
 ${GEM_EXTENSIONS_DIR}/gem.build_complete
 ${GEM_LIB}/gems/${DISTNAME}/
 ${GEM_LIB}/gems/${DISTNAME}/.github/
