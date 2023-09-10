@@ -1,4 +1,4 @@
-COMMENT=		rate limiting extension
+COMMENT=	rate limiting extension
 
 MODPY_EGG_VERSION=	0.1.8
 
@@ -22,6 +22,8 @@ FLAVOR=		python3
 MODPY_PI=	Yes
 MODPY_PYBUILD=	setuptools
 
-RUN_DEPENDS=	devel/py-limits${MODPY_FLAVOR}
+BUILD_DEPENDS+=	${RUN_DEPENDS} \
+		devel/py-poetry-core${MODPY_FLAVOR} \
+		devel/py-limits${MODPY_FLAVOR}
 
 .include <bsd.port.mk>

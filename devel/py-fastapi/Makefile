@@ -22,8 +22,9 @@ FLAVOR=			python3
 MODPY_PI=		Yes
 MODPY_PYBUILD=		setuptools
 
-RUN_DEPENDS=		net/py-uvicorn${MODPY_FLAVOR} \
-			devel/pre-commit${MODPY_FLAVOR}
+RUN_DEPENDS=		devel/pre-commit${MODPY_FLAVOR} \
+			devel/py-hatchling${MODPY_FLAVOR} \
+			net/py-uvicorn${MODPY_FLAVOR}
 
 NO_TEST=		Yes
 
