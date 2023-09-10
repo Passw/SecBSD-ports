@@ -1,20 +1,15 @@
 COMMENT=	information gathering suite
-
-VERSION=	4.4.3
-DISTNAME=	theharvester-${VERSION}
-
 CATEGORIES=	security
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
+
+DIST_TUPLE=	github laramies theHarvester 4.4.3 .
 
 HOMEPAGE=	https://github.com/laramies/theHarvester
 
-MAINTAINER=	Purple Rain <purplerain@secbsd.org>
-
 # GPLv2
 PERMIT_PACKAGE=	Yes
-
-GH_ACCOUNT=	laramies
-GH_PROJECT=	theHarvester
-GH_TAGNAME=	${VERSION}
+NO_BUILD=	Yes
+NO_TEST=	Yes
 
 MODULES=	lang/python
 
@@ -43,9 +38,6 @@ BUILD_DEPENDS+=	${RUN_DEPENDS} \
 		www/py-requests${MODPY_FLAVOR}
 
 MODPY_ADJ_FILES=	theHarvester.py
-
-NO_BUILD=	Yes
-NO_TEST=	Yes
 
 INSTDIR=	${PREFIX}/share/theharvester
 
