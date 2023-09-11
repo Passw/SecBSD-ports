@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1616 2023/09/06 20:46:23 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1620 2023/09/09 13:06:25 espie Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -77,7 +77,6 @@ _BSD_PORT_MK = Done
 FETCH_PACKAGES ?= No
 CLEANDEPENDS ?= No
 BULK ?= Auto
-WRKDIR_LINKNAME ?=
 INSTALL_DEBUG_PACKAGES ?= No
  
 .if ${FETCH_PACKAGES:L} == "yes"
@@ -741,15 +740,8 @@ PATCHORIG ?= .orig.port
 PATCH_STRIP ?= -p0
 PATCH_DIST_STRIP ?= -p0
 
-PATCH_DEBUG ?= Yes
-.if ${PATCH_DEBUG:L} != "no"
 PATCH_ARGS ?= -d ${WRKDIST} -z ${PATCHORIG} -E ${PATCH_STRIP}
 PATCH_DIST_ARGS ?= -z ${DISTORIG} -d ${WRKDIST} -E ${PATCH_DIST_STRIP}
-.else
-PATCH_ARGS ?= -d ${WRKDIST} -z ${PATCHORIG} --forward --quiet -E ${PATCH_STRIP}
-PATCH_DIST_ARGS ?= -z ${DISTORIG} -d ${WRKDIST} --forward --quiet -E \
-	${PATCH_DIST_STRIP}
-.endif
 
 .if ${PATCH_CHECK_ONLY:L} == "yes"
 PATCH_ARGS += -C
@@ -1269,13 +1261,11 @@ _warn_checksum = :
 ${v:S/MASTER_//} ?= ${$v}
 .endfor
 
-# stash .VARIABLES, because it's expensive to compute
-_CACHE_VARIABLES := ${.VARIABLES}
-.if empty(_CACHE_VARIABLES)
+.if empty(.VARIABLES)
 ERRORS += "Fatal: requires make(1) with .VARIABLES support"
 .endif
 
-_ALL_SITES_VARIABLES = ${_CACHE_VARIABLES:MSITES*:NSITES_*}
+_ALL_SITES_VARIABLES = ${.VARIABLES:MSITES*:NSITES_*}
 
 
 # All variables relevant to the port's description (see dump-vars)
@@ -1316,7 +1306,7 @@ _ALL_VARIABLES += BROKEN COMES_WITH \
 	FIX_CRLF_FILES EXTRACT_FILES DIST_TUPLE DIST_TUPLE_MV
 .if !empty(MODULES)
 .  for _m in ${MODULES}
-_ALL_VARIABLES += ${_CACHE_VARIABLES:MMOD${_m:T:U}*}
+_ALL_VARIABLES += ${.VARIABLES:MMOD${_m:T:U}*}
 .  endfor
 .endif
 _ALL_VARIABLES_PER_ARCH += BROKEN
@@ -1339,13 +1329,11 @@ EXTRACT_SUFX ?= .tar.gz
 GH_DISTFILE = ${DISTNAME}-${GH_COMMIT:C/(........).*/\1/}{${GH_COMMIT}}${EXTRACT_SUFX}
 .  if !defined(DISTFILES)
 DISTFILES = ${GH_DISTFILE}
-_CACHE_VARIABLES += DISTFILES
 .  endif
 .elif defined(DISTNAME)
 .  if !defined(DISTFILES)
-.    if !empty(SITES) || empty(_CACHE_VARIABLES:MDISTFILES*)
+.    if !empty(SITES) || empty(.VARIABLES:MDISTFILES*)
 DISTFILES = ${DISTNAME}${EXTRACT_SUFX}
-_CACHE_VARIABLES += DISTFILES
 .    endif
 .  endif
 .endif
@@ -1356,7 +1344,7 @@ _ROACH_DISTFILE ?= $d
 .  endfor
 .endif
 .if !defined(ROACH_URL)
-.  for w in ${_CACHE_VARIABLES:MDISTFILES*}
+.  for w in ${.VARIABLES:MDISTFILES*}
 .    for d in ${$w}
 _ROACH_DISTFILE ?= $d
 .    endfor
@@ -1385,7 +1373,7 @@ _ALL_DISTFILES_VARIABLES =
 # - SUPDISTFILES has to happen later
 _FILES=
 .for v in DISTFILES PATCHFILES SUPDISTFILES
-.  for w in ${_CACHE_VARIABLES:M$v*}
+.  for w in ${.VARIABLES:M$v*}
 .    if !empty($w)
 _ALL_DISTFILES_VARIABLES += $w
 _T =${w:N$v:N$v.*}
@@ -2199,6 +2187,10 @@ fix-permissions:
 .  for _p in ${_pkg${_S}}
 # run under _pfetch
 ${_CACHE_REPO}${_p}:
+.    if ${_FETCH_RECURSE_HELPER:L} == "no"
+	@${ECHO_MSG} "===> Looking for pre-built ${@F} on the mirrors"
+	@${ECHO_MSG} "     (probably not what you want, but FETCH_PACKAGES is set)"
+.    endif
 	@install -d ${PACKAGE_REPOSITORY_MODE} ${@D}
 	@${ECHO_MSG} -n "===>  Looking for ${@F} in \$$PKG_PATH - "
 	@if ${SETENV} ${_TERM_ENV} PKG_CACHE=${_CACHE_REPO} TRUSTED_PKG_PATH=${_CACHE_REPO}:${_PKG_REPO}:${PACKAGE_REPOSITORY}/${NO_ARCH}/:${TRUSTED_PKG_PATH} PKG_PATH=${_PKG_PATH} ${PKG_ADD} -I -x -n -q ${_PKG_ADD_FORCE} -r -D installed -D downgrade ${FETCH_PACKAGES} ${@F}; then \
@@ -2748,9 +2740,6 @@ ${_WRKDIR_COOKIE}:
 	@${_PBUILD} install -d ${WRKOBJDIR_MODE} `dirname ${WRKDIR}`
 	@${_PBUILD} mkdir -p ${WRKDIR} ${WRKDIR}/bin
 	@${_wrap_install_commands}
-.if !empty(WRKDIR_LINKNAME)
-	@${_PBUILD} ln -sf ${WRKDIR} ${.CURDIR}/${WRKDIR_LINKNAME}
-.endif
 # poison some common binaries unless the relevant BUILD_DEPENDS is used
 .if empty(_BUILD_DEP:Mdevel/gettext,-tools) && \
 		empty(_BUILD_DEP:Mtextproc/intltool)
@@ -2837,10 +2826,7 @@ do-distpatch:
 	@${ECHO_MSG} "===>  Applying distribution patches for ${FULLPKGNAME}${_MASTER}"
 	@cd ${FULLDISTDIR}; \
 	  for patchfile in ${ALL_PATCHFILES}; do \
-	  	case "${PATCH_DEBUG:L}" in \
-			no) ;; \
-			*) ${ECHO_MSG} "===>   Applying distribution patch $$patchfile" ;; \
-		esac; \
+		${ECHO_MSG} "===>   Applying distribution patch $$patchfile" ; \
 		case $$patchfile in \
 			${PATCH_CASES} \
 		esac; \
@@ -2894,10 +2880,7 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 					;; \
 				*) \
 				    if [ -e $$i ]; then \
-						case "${PATCH_DEBUG:L}" in \
-							no) ;; \
-							*) ${ECHO_MSG} "===>   Applying OpenBSD patch $$i" ;; \
-						esac; \
+						${ECHO_MSG} "===>   Applying OpenBSD patch $$i"; \
 						if [ -s $$i ]; then \
 							${_PBUILD} ${PATCH} ${PATCH_ARGS} < $$i || \
 								{ echo "***>   $$i did not apply cleanly"; \

@@ -117,6 +117,7 @@
      SUBDIR += luasec
      SUBDIR += luasec,lua52
      SUBDIR += luasec,lua53
+     SUBDIR += luasec,lua54
      SUBDIR += lynis
      SUBDIR += mcrypt
      SUBDIR += mhash
@@ -343,6 +344,8 @@
      SUBDIR += ruby-bcrypt,ruby31
      SUBDIR += ruby-bcrypt,ruby32
      SUBDIR += ruby-cms_scanner
+     SUBDIR += ruby-ed25519,ruby31
+     SUBDIR += ruby-ed25519,ruby32
      SUBDIR += ruby-gpgme,ruby31
      SUBDIR += ruby-gpgme,ruby32
      SUBDIR += ruby-pledge,ruby31
