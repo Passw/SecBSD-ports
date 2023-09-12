@@ -1,0 +1,51 @@
+Index: psutil/tests/test_system.py
+--- psutil/tests/test_system.py.orig
++++ psutil/tests/test_system.py
+@@ -28,6 +28,7 @@ from psutil import MACOS
+ from psutil import NETBSD
+ from psutil import OPENBSD
+ from psutil import POSIX
++from psutil import SECBSD
+ from psutil import SUNOS
+ from psutil import WINDOWS
+ from psutil._compat import FileNotFoundError
+@@ -214,7 +215,7 @@ class TestMiscAPIs(PsutilTestCase):
+             user.host
+             assert user.started > 0.0, user
+             datetime.datetime.fromtimestamp(user.started)
+-            if WINDOWS or OPENBSD:
++            if WINDOWS or OPENBSD or SECBSD:
+                 self.assertIsNone(user.pid)
+             else:
+                 psutil.Process(user.pid)
+@@ -230,7 +231,7 @@ class TestMiscAPIs(PsutilTestCase):
+ 
+     def test_os_constants(self):
+         names = ["POSIX", "WINDOWS", "LINUX", "MACOS", "FREEBSD", "OPENBSD",
+-                 "NETBSD", "BSD", "SUNOS"]
++                 "SECBSD", "NETBSD", "BSD", "SUNOS"]
+         for name in names:
+             self.assertIsInstance(getattr(psutil, name), bool, msg=name)
+ 
+@@ -244,10 +245,11 @@ class TestMiscAPIs(PsutilTestCase):
+             elif "bsd" in sys.platform.lower():
+                 assert psutil.BSD
+                 self.assertEqual([psutil.FREEBSD, psutil.OPENBSD,
+-                                  psutil.NETBSD].count(True), 1)
++                                  psutil.SECBSD, psutil.NETBSD].count(True), 1)
+                 names.remove("BSD")
+                 names.remove("FREEBSD")
+                 names.remove("OPENBSD")
++		names.remove("SECBSD")
+                 names.remove("NETBSD")
+             elif "sunos" in sys.platform.lower() or \
+                     "solaris" in sys.platform.lower():
+@@ -657,7 +659,7 @@ class TestDiskAPIs(PsutilTestCase):
+             self.assertEqual(nt[1], nt.write_count)
+             self.assertEqual(nt[2], nt.read_bytes)
+             self.assertEqual(nt[3], nt.write_bytes)
+-            if not (OPENBSD or NETBSD):
++            if not (OPENBSD or NETBSD or SECBSD):
+                 self.assertEqual(nt[4], nt.read_time)
+                 self.assertEqual(nt[5], nt.write_time)
+                 if LINUX:

@@ -1,0 +1,11 @@
+Index: pyproject.toml
+--- pyproject.toml.orig
++++ pyproject.toml
+@@ -27,6 +27,7 @@ exclude_lines = [
+     "if MACOS",
+     "if NETBSD",
+     "if OPENBSD",
++    "if SECBSD",
+     "if ppid_map is None:",
+     "if PY3:",
+     "if SUNOS",

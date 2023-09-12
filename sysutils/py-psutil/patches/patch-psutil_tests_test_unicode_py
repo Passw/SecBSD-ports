@@ -1,0 +1,29 @@
+Index: psutil/tests/test_unicode.py
+--- psutil/tests/test_unicode.py.orig
++++ psutil/tests/test_unicode.py
+@@ -84,6 +84,7 @@ import psutil
+ from psutil import BSD
+ from psutil import OPENBSD
+ from psutil import POSIX
++from psutil import SECBSD
+ from psutil import WINDOWS
+ from psutil._compat import PY3
+ from psutil._compat import u
+@@ -258,7 +259,7 @@ class TestFSAPIs(BaseUnicodeTest):
+             conn = psutil.Process().connections('unix')[0]
+             self.assertIsInstance(conn.laddr, str)
+             # AF_UNIX addr not set on OpenBSD
+-            if not OPENBSD:  # XXX
++            if not (OPENBSD or SECBSD):  # XXX
+                 self.assertEqual(conn.laddr, name)
+ 
+     @unittest.skipIf(not POSIX, "POSIX only")
+@@ -282,7 +283,7 @@ class TestFSAPIs(BaseUnicodeTest):
+         with closing(sock):
+             cons = psutil.net_connections(kind='unix')
+             # AF_UNIX addr not set on OpenBSD
+-            if not OPENBSD:
++            if not (OPENBSD or SECBSD):
+                 conn = find_sock(cons)
+                 self.assertIsInstance(conn.laddr, str)
+                 self.assertEqual(conn.laddr, name)

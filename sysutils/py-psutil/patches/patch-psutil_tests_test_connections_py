@@ -1,0 +1,29 @@
+Index: psutil/tests/test_connections.py
+--- psutil/tests/test_connections.py.orig
++++ psutil/tests/test_connections.py
+@@ -23,6 +23,7 @@ from psutil import MACOS
+ from psutil import NETBSD
+ from psutil import OPENBSD
+ from psutil import POSIX
++from psutil import SECBSD
+ from psutil import SUNOS
+ from psutil import WINDOWS
+ from psutil._common import supports_ipv6
+@@ -143,7 +144,7 @@ class TestUnconnectedSockets(ConnectionTestCase):
+             laddr = laddr.decode()
+         if sock.family == AF_INET6:
+             laddr = laddr[:2]
+-        if sock.family == AF_UNIX and OPENBSD:
++        if sock.family == AF_UNIX and (OPENBSD or SECBSD):
+             # No addresses are set for UNIX sockets on OpenBSD.
+             pass
+         else:
+@@ -249,7 +250,7 @@ class TestConnectedSocket(ConnectionTestCase):
+                 self.assertEqual(cons[1].raddr, "")
+                 # one local address should though
+                 self.assertEqual(testfn, cons[0].laddr or cons[1].laddr)
+-            elif OPENBSD:
++            elif OPENBSD or SECBSD:
+                 # No addresses whatsoever here.
+                 for addr in (cons[0].laddr, cons[0].raddr,
+                              cons[1].laddr, cons[1].raddr):

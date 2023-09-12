@@ -1,0 +1,29 @@
+Index: psutil/tests/test_memleaks.py
+--- psutil/tests/test_memleaks.py.orig
++++ psutil/tests/test_memleaks.py
+@@ -28,6 +28,7 @@ from psutil import LINUX
+ from psutil import MACOS
+ from psutil import OPENBSD
+ from psutil import POSIX
++from psutil import SECBSD
+ from psutil import SUNOS
+ from psutil import WINDOWS
+ from psutil._compat import ProcessLookupError
+@@ -160,7 +161,7 @@ class TestProcessObjectLeaks(TestMemoryLeak):
+         self.execute(self.proc.create_time)
+ 
+     @fewtimes_if_linux()
+-    @skip_on_access_denied(only_if=OPENBSD)
++    @skip_on_access_denied(only_if=SECBSD)
+     def test_num_threads(self):
+         self.execute(self.proc.num_threads)
+ 
+@@ -178,7 +179,7 @@ class TestProcessObjectLeaks(TestMemoryLeak):
+         self.execute(self.proc.num_ctx_switches)
+ 
+     @fewtimes_if_linux()
+-    @skip_on_access_denied(only_if=OPENBSD)
++    @skip_on_access_denied(only_if=SECBSD)
+     def test_threads(self):
+         self.execute(self.proc.threads)
+ 

@@ -1,0 +1,29 @@
+Index: psutil/__init__.py
+--- psutil/__init__.py.orig
++++ psutil/__init__.py
+@@ -66,6 +66,7 @@ from ._common import OSX  # deprecated alias
+ from ._common import POSIX  # NOQA
+ from ._common import POWER_TIME_UNKNOWN
+ from ._common import POWER_TIME_UNLIMITED
++from ._common import SECBSD  # NOQA
+ from ._common import STATUS_DEAD
+ from ._common import STATUS_DISK_SLEEP
+ from ._common import STATUS_IDLE
+@@ -170,7 +171,7 @@ __all__ = [
+     "POWER_TIME_UNKNOWN", "POWER_TIME_UNLIMITED",
+ 
+     "BSD", "FREEBSD", "LINUX", "NETBSD", "OPENBSD", "MACOS", "OSX", "POSIX",
+-    "SUNOS", "WINDOWS", "AIX",
++    "SECBSD", "SUNOS", "WINDOWS", "AIX",
+ 
+     # "RLIM_INFINITY", "RLIMIT_AS", "RLIMIT_CORE", "RLIMIT_CPU", "RLIMIT_DATA",
+     # "RLIMIT_FSIZE", "RLIMIT_LOCKS", "RLIMIT_MEMLOCK", "RLIMIT_NOFILE",
+@@ -1179,7 +1180,7 @@ class Process(object):
+             try:
+                 os.kill(self.pid, sig)
+             except ProcessLookupError:
+-                if OPENBSD and pid_exists(self.pid):
++                if OPENBSD or SECBSD and pid_exists(self.pid):
+                     # We do this because os.kill() lies in case of
+                     # zombie processes.
+                     raise ZombieProcess(self.pid, self._name, self._ppid)

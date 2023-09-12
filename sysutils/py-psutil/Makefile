@@ -22,7 +22,7 @@ MODPY_PYBUILD =		setuptools
 FLAVORS =		python3
 FLAVOR =		python3
 
-MODPY_PYTEST_ARGS =	lib*/psutil/tests
+MODPY_PYTEST_ARGS =	lib/psutil/tests
 TEST_DEPENDS =		devel/py-mock${MODPY_FLAVOR}
 
 .include <bsd.port.mk>
