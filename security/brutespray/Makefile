@@ -1,18 +1,11 @@
-COMMENT=		brute forcing from Nmap output
+COMMENT=	brute forcing from Nmap output
+CATEGORIES=	security
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-MODPY_EGG_VERSION=	1.8
-DISTNAME=		brutespray-${MODPY_EGG_VERSION}
-
-CATEGORIES=		security
-
-MAINTAINER=		Purple Rain <purplerain@secbsd.org>
+DIST_TUPLE=	github x90skysn3k brutespray brutespray-1.8.1 .
 
 # MIT
 PERMIT_PACKAGE=	Yes
-
-GH_ACCOUNT=	x90skysn3k
-GH_PROJECT=	brutespray
-GH_COMMIT=	f282627664c4865a9e6c38a022862be58f9e4013
 
 MODULES=	lang/python
 
@@ -28,8 +21,5 @@ do-install:
 	chmod 755 ${INSTDIR}/brutespray.py
 	ln -s ${TRUEPREFIX}/share/brutespray/brutespray.py \
 		${PREFIX}/bin/brutespray
-
-post-install:
-	rm ${INSTDIR}/requirements.txt
 
 .include <bsd.port.mk>
