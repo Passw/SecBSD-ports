@@ -1,11 +1,10 @@
 COMMENT=	sendmail milter plugin for regular expression filtering
 
-DISTNAME=	milter-regex-1.9
-REVISION=	5
+DISTNAME=	milter-regex-2.7
 CATEGORIES=	mail
-MASTER_SITES=	http://www.benzedrine.ch/
+MASTER_SITES=	https://www.benzedrine.ch/
 
-HOMEPAGE=	http://www.benzedrine.ch/milter-regex.html
+HOMEPAGE=	https://www.benzedrine.ch/milter-regex.html
 
 # BSD
 PERMIT_PACKAGE=	Yes
@@ -21,7 +20,7 @@ MAKE_FLAGS=	CPPFLAGS="-I${LOCALBASE}/include" \
 NO_TEST=	Yes
 
 do-configure:
-	@perl -pi -e 's,/etc/mi,${SYSCONFDIR}/mi,g' ${WRKSRC}/milter-regex.{8,c}
+	@sed -i -e 's,/etc/mi,${SYSCONFDIR}/mi,g' ${WRKSRC}/milter-regex.{8,c}
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/milter-regex ${PREFIX}/libexec

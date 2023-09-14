@@ -27,5 +27,4 @@ RUN_DEPENDS=		devel/py-tqdm${MODPY_FLAVOR} \
 
 NO_TEST=		Yes
 
-
 .include <bsd.port.mk>

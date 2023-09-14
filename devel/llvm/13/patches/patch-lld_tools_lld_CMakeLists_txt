@@ -4,7 +4,7 @@ internals.
 Index: lld/tools/lld/CMakeLists.txt
 --- lld/tools/lld/CMakeLists.txt.orig
 +++ lld/tools/lld/CMakeLists.txt
-@@ -15,7 +15,6 @@ target_link_libraries(lld
+@@ -15,10 +15,15 @@ target_link_libraries(lld
    lldCOFF
    lldDriver
    lldELF
@@ -12,3 +12,12 @@ Index: lld/tools/lld/CMakeLists.txt
    lldMinGW
    lldWasm
    )
++
++if (LLD_ENABLE_MACHO)
++  target_link_libraries(lld
++    lldMachO2
++    )
++endif()
+ 
+ install(TARGETS lld
+   RUNTIME DESTINATION bin)

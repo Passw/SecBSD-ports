@@ -389,8 +389,6 @@
      SUBDIR += pecl-memcached,php80
      SUBDIR += pecl-memcached,php81
      SUBDIR += pecl-memcached,php82
-     SUBDIR += pecl-pecl_http,php74
-#    SUBDIR += pecl-pecl_http,php80 not yet, and not until pecl-propro has php80
      SUBDIR += pecl-pledge,php74
      SUBDIR += pecl-pledge,php80
      SUBDIR += pecl-pledge,php81
@@ -433,6 +431,7 @@
      SUBDIR += py-cheroot,python3
      SUBDIR += py-cookies,python3
      SUBDIR += py-feedgenerator,python3
+     SUBDIR += py-flasgger,python3
      SUBDIR += py-flask,python3
      SUBDIR += py-flask-cors,python3
      SUBDIR += py-flask-login,python3
