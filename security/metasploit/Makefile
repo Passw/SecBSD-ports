@@ -1,6 +1,6 @@
 COMMENT=	metasploit framework
 
-VERSION=	6.3.32
+VERSION=	6.3.34
 DISTNAME=	metasploit-framework-${VERSION}
 DISTFILES=	${VERSION}.tar.gz
 
