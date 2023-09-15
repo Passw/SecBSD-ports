@@ -394,7 +394,7 @@ MODGO_MODULES =	\
 	github.com/modern-go/concurrent					 v0.0.0-20180306012644-bacd9c7ef1dd \
 	github.com/modern-go/reflect2					 v1.0.2 \
 	github.com/modocache/gover					 v0.0.0-20171022184752-b58185e213c5 \
-	github.com/montanaflynn/stats					 v0.0.0-20171201202039-1bf9dbcd8cbe \
+	github.com/montanaflynn/stats					 v0.6.6 \
 	github.com/morikuni/aec						 v1.0.0 \
 	github.com/mtibben/percent					 v0.2.1 \
 	github.com/muesli/ansi						 v0.0.0-20211031195517-c9f0611b6c70 \
@@ -683,6 +683,7 @@ MODGO_MODFILES =	\
 	github.com/mattn/go-runewidth				 v0.0.13 \
 	github.com/mattn/go-runewidth				 v0.0.9 \
 	github.com/microcosm-cc/bluemonday			 v1.0.21 \
+	github.com/montanaflynn/stats				 v0.0.0-20171201202039-1bf9dbcd8cbe \
 	github.com/muesli/ansi					 v0.0.0-20211018074035-2e021307bc4b \
 	github.com/muesli/termenv				 v0.13.0 \
 	github.com/nxadm/tail					 v1.4.4 \

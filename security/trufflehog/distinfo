@@ -930,7 +930,8 @@ SHA256 (go_modules/github.com/modern-go/reflect2/@v/v1.0.2.zip) = 9G9BQJwudCk/gs
 SHA256 (go_modules/github.com/modocache/gover/@v/v0.0.0-20171022184752-b58185e213c5.mod) = EgvXojV9CW2LHCARGMxgOuRGzPk1ztQrxCIchPv5wU0=
 SHA256 (go_modules/github.com/modocache/gover/@v/v0.0.0-20171022184752-b58185e213c5.zip) = SpbQqQMx2SB06QLPJ3LSLBoGdDi8YncTuAu6TVUJ49M=
 SHA256 (go_modules/github.com/montanaflynn/stats/@v/v0.0.0-20171201202039-1bf9dbcd8cbe.mod) = baaGDUnc2aN0Fhjf03227NbKeLuJgtUOZKVRU2s6nPA=
-SHA256 (go_modules/github.com/montanaflynn/stats/@v/v0.0.0-20171201202039-1bf9dbcd8cbe.zip) = B6ImPKzJ0KAzvnpBq/ZC8eO74yJDgGIlYtA2HAfzjRk=
+SHA256 (go_modules/github.com/montanaflynn/stats/@v/v0.6.6.mod) = jT3fuSY15fvDbywz6OPQ0wYzczyAceeYJ1T5anr/qFg=
+SHA256 (go_modules/github.com/montanaflynn/stats/@v/v0.6.6.zip) = +sQwjMZtVoJW56r+aUrlhgPd65uzmWXKpVDb4/vXfdw=
 SHA256 (go_modules/github.com/morikuni/aec/@v/v1.0.0.mod) = H/IFv5KTaM0HF2SwtXUFdQxp9PuO3+6vyfUNmGJcLbI=
 SHA256 (go_modules/github.com/morikuni/aec/@v/v1.0.0.zip) = wU7v9pRbhU7di5GoOsdg+9lQaPM9wX0QLBjy6OhrzO0=
 SHA256 (go_modules/github.com/mtibben/percent/@v/v0.2.1.mod) = OvGnqBqMPWEcAkohO6LY6MwXhWZObJfrXSrP/LC131k=
@@ -1581,7 +1582,7 @@ SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.mod) = oq5uhUCkC4XldwPMYYuZxbEHU4bZW
 SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.zip) = 2iArDagDqyZhq5imgLuk9kEjoyblQMJVgrbNu53BFKo=
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.mod) = L8eybun2ctl7QvpvJfWxWlWYK7usaZYdduux0DbRUAE=
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.zip) = qsiNpVHCpRK2Qss1ZYvz3IYllaNWa9hA6/GOSALx/Mk=
-SHA256 (trufflehog-v3.54.0.zip) = X3sqpEFhPc0OQxfyUDu+NP78RWEO3+pdmJBtrHduZg0=
+SHA256 (trufflehog-v3.56.1.zip) = v5NX01Cf+X1VBgngnSBV6fPHClv7Fe8fH+jAVx216NQ=
 SIZE (go_modules/cloud.google.com/go/@v/v0.110.0.mod) = 1007
 SIZE (go_modules/cloud.google.com/go/@v/v0.110.2.mod) = 1150
 SIZE (go_modules/cloud.google.com/go/@v/v0.110.2.zip) = 314693
@@ -2514,7 +2515,8 @@ SIZE (go_modules/github.com/modern-go/reflect2/@v/v1.0.2.zip) = 25186
 SIZE (go_modules/github.com/modocache/gover/@v/v0.0.0-20171022184752-b58185e213c5.mod) = 34
 SIZE (go_modules/github.com/modocache/gover/@v/v0.0.0-20171022184752-b58185e213c5.zip) = 12957
 SIZE (go_modules/github.com/montanaflynn/stats/@v/v0.0.0-20171201202039-1bf9dbcd8cbe.mod) = 37
-SIZE (go_modules/github.com/montanaflynn/stats/@v/v0.0.0-20171201202039-1bf9dbcd8cbe.zip) = 38992
+SIZE (go_modules/github.com/montanaflynn/stats/@v/v0.6.6.mod) = 46
+SIZE (go_modules/github.com/montanaflynn/stats/@v/v0.6.6.zip) = 73877
 SIZE (go_modules/github.com/morikuni/aec/@v/v1.0.0.mod) = 31
 SIZE (go_modules/github.com/morikuni/aec/@v/v1.0.0.zip) = 56868
 SIZE (go_modules/github.com/mtibben/percent/@v/v0.2.1.mod) = 43
@@ -3165,4 +3167,4 @@ SIZE (go_modules/rsc.io/sampler/@v/v1.3.0.mod) = 88
 SIZE (go_modules/rsc.io/sampler/@v/v1.3.0.zip) = 14308
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.mod) = 106
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.3.0.zip) = 21567
-SIZE (trufflehog-v3.54.0.zip) = 4798719
+SIZE (trufflehog-v3.56.1.zip) = 4821385
