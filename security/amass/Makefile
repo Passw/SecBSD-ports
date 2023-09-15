@@ -1,10 +1,9 @@
 COMMENT=	attack surface mapping and asset discovery
 
 MODGO_MODNAME=	github.com/owasp-amass/amass/v4
-MODGO_VERSION=	v4.1.0
+MODGO_VERSION=	v4.2.0
 
 DISTNAME=	amass-${MODGO_VERSION}
-PKGNAME=	amass-4.1.0
 
 CATEGORIES=	security
 
