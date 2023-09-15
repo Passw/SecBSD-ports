@@ -1,6 +1,6 @@
 COMMENT=		rex socket abstraction library
 
-DISTNAME=		rex-socket-0.1.52
+DISTNAME=		rex-socket-0.1.54
 CATEGORIES=		devel
 
 HOMEPAGE=		https://github.com/rapid7/rex-socket
