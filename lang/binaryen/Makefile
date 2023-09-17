@@ -2,7 +2,7 @@ COMMENT =	WebAssembly compiler and toolchain infrastructure library
 
 GH_ACCOUNT =	WebAssembly
 GH_PROJECT =	binaryen
-GH_TAGNAME =	version_114
+GH_TAGNAME =	version_116
 
 PKGNAME =	${DISTNAME:L:S/version_//}
 

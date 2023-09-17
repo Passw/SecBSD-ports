@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1621 2023/09/13 07:47:11 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1623 2023/09/16 07:56:08 op Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -279,6 +279,8 @@ NO_BUILD ?= No
 NO_TEST ?= No
 INSTALL_TARGET ?= install
 USE_GROFF ?= No
+
+CHECK_LIB_DEPENDS_ARGS =
 
 .if !defined(_ARCH_DEFINES_INCLUDED)
 _ARCH_DEFINES_INCLUDED = Done
@@ -1981,12 +1983,13 @@ _check_lib_depends = ${_CHECK_LIB_DEPENDS}
 _check_lib_depends =:
 .endif
 
+CHECK_LIB_DEPENDS_ARGS += -S COMPILER_LIBCXX="${COMPILER_LIBCXX}"
+CHECK_LIB_DEPENDS_ARGS += -S LIBECXX="${LIBECXX}"
+CHECK_LIB_DEPENDS_ARGS += -S LIBCXX="${LIBCXX}"
+CHECK_LIB_DEPENDS_ARGS += -F pthread
+
 _CHECK_LIB_DEPENDS = PORTSDIR=${PORTSDIR} ${_PERLSCRIPT}/check-lib-depends
-_CHECK_LIB_DEPENDS += -d ${_PKG_REPO} -B ${WRKINST}
-_CHECK_LIB_DEPENDS += -S COMPILER_LIBCXX="${COMPILER_LIBCXX}"
-_CHECK_LIB_DEPENDS += -S LIBECXX="${LIBECXX}"
-_CHECK_LIB_DEPENDS += -S LIBCXX="${LIBCXX}"
-_CHECK_LIB_DEPENDS += -F pthread
+_CHECK_LIB_DEPENDS += -d ${_PKG_REPO} -B ${WRKINST} ${CHECK_LIB_DEPENDS_ARGS}
 
 .for _s in ${MULTI_PACKAGES}
 .  if ${STATIC_PLIST${_s}:L} == "no"
@@ -3226,6 +3229,11 @@ print-plist-contents:
 
 print-plist-libs:
 	@${_PKG_CREATE} -DLIBS_ONLY -n -Q ${PKG_ARGS${SUBPACKAGE}} ${_PACKAGE_COOKIE${SUBPACKAGE}}|${_grab_libs_from_plist}
+
+print-plist-all-libs:
+.for _S in ${BUILD_PACKAGES}
+	@${_PKG_CREATE} -DLIBS_ONLY -n -Q ${PKG_ARGS${_S}} ${_PACKAGE_COOKIE${_S}}|${_grab_libs_from_plist}
+.endfor
 
 _internal-package-only: ${_PACKAGE_COOKIES}
 
