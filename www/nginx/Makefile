@@ -22,7 +22,7 @@ VERSION=	1.24.0
 DISTNAME=	nginx-${VERSION}
 CATEGORIES=	www
 
-VERSION-njs=	0.7.12
+VERSION-njs=	0.8.1
 VERSION-rtmp=	1.2.1
 
 PKGNAME-main=		${DISTNAME}
@@ -43,6 +43,7 @@ PKGNAME-securelink=	nginx-securelink-${VERSION}
 
 REVISION-main=		0
 REVISION-passenger=	1
+REVISION-njs=		0
 
 ONLY_FOR_ARCHS-passenger= aarch64 amd64 arm i386
 
@@ -94,7 +95,7 @@ WANTLIB-stream=
 WANTLIB-image_filter=	gd
 WANTLIB-geoip2=		maxminddb
 WANTLIB-rtmp=
-WANTLIB-njs=		pcre2-8 crypto ssl xml2 z
+WANTLIB-njs=		exslt m xml2 xslt
 WANTLIB-xslt=		exslt xml2 xslt
 WANTLIB-naxsi=
 WANTLIB-ldap_auth=	ldap
@@ -114,6 +115,7 @@ LIB_DEPENDS-lua=	${MODLUA_LIB_DEPENDS}
 LIB_DEPENDS-rtmp=
 LIB_DEPENDS-securelink=
 LIB_DEPENDS-njs=	devel/pcre2 \
+			textproc/libxslt \
 			textproc/libxml
 
 MODLUA_RUNDEP=		No
