@@ -1,21 +1,19 @@
 COMMENT=	metasploit framework
+CATEGORIES=	security
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 VERSION=	6.3.34
 DISTNAME=	metasploit-framework-${VERSION}
-DISTFILES=	${VERSION}.tar.gz
-
-CATEGORIES=	security
 
 HOMEPAGE=	https://www.metasploit.com
-
-MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # BSD-3-clause
 PERMIT_PACKAGE=	Yes
 
-MASTER_SITES=	https://github.com/rapid7/metasploit-framework/archive/
+DISTFILES=	${VERSION}${EXTRACT_SUFX}
+EXTRACT_ONLY=	${VERSION}${EXTRACT_SUFX}
 
-EXTRACT_ONLY=
+SITES=		https://github.com/rapid7/metasploit-framework/archive/
 
 MODULES=	lang/ruby
 MODRUBY_REV=	3.0
