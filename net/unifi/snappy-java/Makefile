@@ -17,17 +17,17 @@ CATEGORIES=	net/unifi
 # Apache 2.0
 PERMIT_PACKAGE=	Yes
 
-MASTER_SITES=	https://github.com/
-MASTER_SITES0=	https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/${SNAPPYJ_V}/
+SITES=		https://github.com/
 DISTFILES=	{xerial/snappy-java/archive/${SNAPPYJ_V}/}snappy-java-${SNAPPYJ_V}.tar.gz \
 		{google/snappy/archive/${SNAPPY_V}/}snappy-${SNAPPY_V}.tar.gz \
-		{kiyo-masui/bitshuffle/archive/${BITSHUFFLE_V}/}bitshuffle-${BITSHUFFLE_V}.tar.gz \
-		snappy-java-${SNAPPYJ_V}.jar:0
+		{kiyo-masui/bitshuffle/archive/${BITSHUFFLE_V}/}bitshuffle-${BITSHUFFLE_V}.tar.gz
+SITES.mvn=	https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/${SNAPPYJ_V}/
+DISTFILES.mvn=	snappy-java-${SNAPPYJ_V}.jar
 
 EXTRACT_ONLY=	${_LIST_DISTFILES:N*jar}
 
 MODULES=	java
-MODJAVA_VER=	1.8+
+MODJAVA_VER=	11+
 
 # not MODULES; it is run from a Makefile
 BUILD_DEPENDS=	devel/cmake
@@ -36,7 +36,7 @@ USE_GMAKE=	Yes
 MAKE_ENV=	JAVA_HOME=${JAVA_HOME}
 MAKE_FLAGS=	CXX="${CXX}" CC="${CC}" LINKFLAGS="-shared" \
 		HOME=${WRKDIR} \
-		PATH="${PATH}:${LOCALBASE}/jdk-1.8.0/bin"
+		PATH="${PATH}:${LOCALBASE}/jdk-11/bin"
 ALL_TARGET=	native
 NO_TEST=	Yes
 
@@ -52,7 +52,7 @@ post-extract:
 post-build:
 	cp ${FULLDISTDIR}/snappy-java-${SNAPPYJ_V}.jar ${WRKDIR}
 	cd ${WRKSRC}/target/classes; \
-	    ${LOCALBASE}/jdk-1.8.0/bin/jar uvf ${WRKDIR}/snappy-java-${SNAPPYJ_V}.jar \
+	    ${LOCALBASE}/jdk-11/bin/jar uvf ${WRKDIR}/snappy-java-${SNAPPYJ_V}.jar \
 	    org/xerial/snappy/native/OpenBSD/*/libsnappyjava.so
 
 do-install:
