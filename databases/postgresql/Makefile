@@ -30,7 +30,7 @@ WANTLIB += c curses crypto m readline ssl z
 WANTLIB-server += pthread
 WANTLIB-contrib += pthread
 
-MASTER_SITES=	https://ftp.postgresql.org/pub/source/v${VERSION}/ \
+SITES=		https://ftp.postgresql.org/pub/source/v${VERSION}/ \
 		ftp://ftp.postgresql.org/pub/source/v${VERSION}/
 MULTI_PACKAGES=	-docs -main -server -contrib -pg_upgrade -plpython
 

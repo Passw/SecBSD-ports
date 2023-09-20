@@ -4,7 +4,7 @@ ONLY_FOR_ARCHS=	${LLD_ARCHS}
 COMMENT-main=	groupware server backend with RPC, IMAP, POP3 support
 COMMENT-mapi=	gromox MAPI extensions for PHP
 
-V=		2.11
+V=		2.12
 DISTNAME=	gromox-${V}
 REVISION=	0
 
@@ -46,7 +46,7 @@ BUILD_DEPENDS=	devel/cppunit \
 WANTLIB += HX iconv jsoncpp m pthread tinyxml2 vmime zstd
 
 WANTLIB-main += ${LIBCXX} ${WANTLIB} c crypto curl fmt icudata icuuc lber
-WANTLIB-main += ldap lzma mariadb nghttp2 nghttp3 ngtcp2 ngtcp2_crypto_openssl 
+WANTLIB-main += ldap lzma mariadb nghttp2 nghttp3 ngtcp2 ngtcp2_crypto_quictls 
 WANTLIB-main += sasl2 sqlite3 ssl ssl xml2 xxhash z
 
 # Do not substitute MODULE_NAME
