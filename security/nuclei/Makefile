@@ -1,17 +1,12 @@
 COMMENT=	customizable vulnerability scanner
+CATEGORIES=     security
+MAINTAINER=     Purple Rain <purplerain@secbsd.org>
 
-V=		2.9.14
+MODGO_VERSION=  v2.9.15
 MODGO_MODNAME=	github.com/projectdiscovery/nuclei/v2
-MODGO_VERSION=	v${V}
-
 DISTNAME=	nuclei-${MODGO_VERSION}
-PKGNAME=	nuclei-${V}
-
-CATEGORIES=	security
 
 HOMEPAGE=	https://github.com/projectdiscovery/nuclei
-
-MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # MIT
 PERMIT_PACKAGE=	Yes
@@ -19,8 +14,6 @@ PERMIT_PACKAGE=	Yes
 WANTLIB+=	c pthread
 
 MODULES=	lang/go
-
-NO_TEST=	Yes
 
 .include "modules.inc"
 
