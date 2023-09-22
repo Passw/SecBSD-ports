@@ -1,7 +1,8 @@
 COMMENT =		opensource MQTT broker
 
-V =			2.0.17
+V =			2.0.18
 DISTNAME =		mosquitto-$V
+REVISION =		0
 
 SHARED_LIBS +=  mosquitto                 2.1 # 1.5
 SHARED_LIBS +=  mosquittopp               2.0 # 1.5
@@ -12,11 +13,11 @@ HOMEPAGE =		https://mosquitto.org/
 # EPL/EDL
 PERMIT_PACKAGE =	Yes
 
-WANTLIB +=		c crypto m pthread ssl websockets ${COMPILER_LIBCXX}
+WANTLIB +=		c cjson crypto m pthread ssl ${COMPILER_LIBCXX}
 
 MASTER_SITES =		https://mosquitto.org/files/source/
 
-COMPILER =		base-clang ports-gcc base-gcc
+COMPILER =		base-clang ports-gcc
 
 MODULES =		devel/cmake \
 			lang/python
@@ -24,8 +25,10 @@ MODULES =		devel/cmake \
 MODPY_BUILDDEP=		No
 MODPY_RUNDEP=		No
 
-BUILD_DEPENDS =		devel/uthash
-LIB_DEPENDS =		www/libwebsockets
+# libwebsockets linked statically
+BUILD_DEPENDS =		devel/uthash \
+			www/libwebsockets
+LIB_DEPENDS =		devel/cjson
 
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 

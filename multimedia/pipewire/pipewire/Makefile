@@ -9,10 +9,16 @@ CATEGORIES=		audio
 
 WANTLIB += X11 Xfixes c canberra curses dbus-1 epoll-shim glib-2.0
 WANTLIB += gobject-2.0 gstallocators-1.0 gstaudio-1.0 gstbase-1.0
-WANTLIB += gstreamer-1.0 gstvideo-1.0 intl m pthread readline
+WANTLIB += gstreamer-1.0 gstvideo-1.0 intl m opus pthread readline
 WANTLIB += sndfile
 
-BUILD_DEPENDS=		devel/gettext,-tools
+MODULES=		devel/meson \
+			lang/python
+
+MODPY_RUNDEP=		No
+
+BUILD_DEPENDS=		devel/gettext,-tools \
+			textproc/py-docutils${MODPY_FLAVOR}
 
 LIB_DEPENDS=		audio/libcanberra \
 			audio/libsndfile \
@@ -40,8 +46,7 @@ CONFIGURE_ARGS +=	-Dpipewire-alsa=disabled \
 			-Davb=disabled \
 			-Dlibffado=disabled \
 			-Dlibmysofa=disabled \
-			-Davahi=disabled \
-			-Dopus=disabled
+			-Davahi=disabled
 
 # PAM limits.d file
 CONFIGURE_ARGS +=	-Drlimits-install=false
