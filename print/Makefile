@@ -7,7 +7,6 @@
      SUBDIR += cups
      SUBDIR += cups-bjnp
      SUBDIR += cups-filters
-     SUBDIR += cups-filters,ldap
      SUBDIR += cups-pdf
      SUBDIR += cups-pk-helper
      SUBDIR += detex
@@ -31,8 +30,10 @@
      SUBDIR += l2a
      SUBDIR += latex-mk
      SUBDIR += lcdf-typetools
+     SUBDIR += libcupsfilters
      SUBDIR += libharu
      SUBDIR += libpaper
+     SUBDIR += libppd
      SUBDIR += libspectre
      SUBDIR += lilypond
      SUBDIR += lout
