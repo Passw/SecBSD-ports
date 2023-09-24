@@ -17,6 +17,15 @@ Index: configure
  
      ac_cv_path_mkdir="mkdir"
   ;; #(
+@@ -10897,7 +10897,7 @@ esac
+     case "$target_cpu" in #(
+   aarch64) :
+ 
+-	for opt in -mbranch-protection=pac-ret -msign-return-address=all
++	for opt in -mbranch-protection=standard -msign-return-address=all
+ do :
+ 
+ 
 @@ -12117,7 +12117,7 @@ fi
       ;; #(
    root:*) :
