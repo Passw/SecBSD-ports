@@ -25,7 +25,7 @@ RUN_DEPENDS-maps=	astro/sunclock
 PKG_ARCH-maps=	*
 
 # GPL
-PERMIT_PACKAGE=	Yes
+PERMIT_PACKAGE=		Yes
 PERMIT_PACKAGE-maps=	no license for additional maps
 
 WANTLIB-main=		X11 Xpm c m z jpeg png
@@ -35,17 +35,12 @@ DIST_SUBDIR=		sunclock
 LIB_DEPENDS-main=	graphics/jpeg \
 			graphics/png
 
-DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
-EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
-
 .if ${BUILD_PACKAGES:M-maps} # with maps
-DISTFILES+=	${SUPDISTFILES}
+DISTFILES=		${DISTNAME}${EXTRACT_SUFX} ${SUPDISTFILES}
+EXTRACT_ONLY=		${DISTFILES:M*.tar*}
 
 post-extract:
-	PATH=${PORTPATH} ${BZIP2} -dkc ${FULLDISTDIR}/medium_images_270804.tar.bz2 | tar -xf - \
-		-C ${WRKSRC}/vmf -s '#images/medium#.#'
-	PATH=${PORTPATH} ${BZIP2} -dkc ${FULLDISTDIR}/big_images_270804.tar.bz2 | tar -xf - \
-		-C ${WRKSRC}/vmf -s '#images/big#.#'
+	mv ${WRKDIR}/images/*/* ${WRKSRC}/vmf/
 	cp ${FULLDISTDIR}/e43_color1_sh_16k.jpg ${WRKSRC}/vmf/
 	cp ${FULLDISTDIR}/huge.jpg ${WRKSRC}/vmf/
 .endif

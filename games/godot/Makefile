@@ -2,12 +2,12 @@ BROKEN-powerpc =	fails at runtime, the UI is totally blank
 
 COMMENT-main =	2D and 3D game engine
 COMMENT-tools=	2D and 3D game engine (with tools)
-COMMENT-sharp =		glue for mono/C# module of Godot
+COMMENT-sharp=	.NET libs for mono/C# module of Godot
 
-V =		3.5.2
+V =		3.5.3
+SHARPFILES_V =	3.5.2
 DISTNAME =	godot-${V}-stable
 PKGNAME =	godot-${V}
-REVISION =	6
 
 CATEGORIES =	games
 
@@ -35,11 +35,11 @@ WANTLIB-tools =	${WANTLIB}
 COMPILER =	base-clang ports-gcc
 
 SITES =	https://downloads.tuxfamily.org/godotengine/${V}/
-DISTFILES =     ${DISTNAME}${EXTRACT_SUFX}
 EXTRACT_SUFX =	.tar.xz
 
 SITES.sharp =		https://thfr.info/distfiles/
-DISTFILES.sharp =	godot-${V}-mono-glue.tar.gz godot-${V}-nuget-packages.tar.xz
+DISTFILES.sharp =	godot-${SHARPFILES_V}-mono-glue.tar.gz \
+			godot-${SHARPFILES_V}-nuget-packages.tar.xz
 
 DIST_TUPLE +=	github CoaguCo-Industries GodotSteam v3.20 godotsteam # MIT
 
@@ -100,14 +100,7 @@ DPB_PROPERTIES =	parallel
 
 .include <bsd.port.arch.mk>
 
-IS_MONO_ARCH=
-.for _arch in ${MONO_ARCHS}
-.  if ${MACHINE_ARCH} == ${_arch}
-IS_MONO_ARCH =	1
-.  endif
-.endfor
-
-.if !empty(IS_MONO_ARCH)
+.if ${PROPERTIES:Mmono}
 USE_WXNEEDED =		Yes
 USE_NOBTCFI =		Yes
 PORTHOME = 		${WRKDIR}/nugethome
@@ -126,17 +119,8 @@ RUN_DEPENDS-sharp =
 RUN_DEPENDS-main =	games/godot,-sharp
 RUN_DEPENDS-tools +=	devel/msbuild \
 			games/godot,-sharp
-GLUEDIR =	${WRKDIR}/godot-${V}-mono-glue
+GLUEDIR =	${WRKDIR}/godot-${SHARPFILES_V}-mono-glue
 MONOSUFFIX =	.mono
-SHARP_POST_EXTRACT =	mkdir -p	${PORTHOME}/.nuget; \
-	mv	${WRKDIR}/godot-${V}-nuget-packages ${PORTHOME}/.nuget/packages; \
-	mv	${GLUEDIR}/mono_glue.gen.cpp ${WRKSRC}/modules/mono/glue/; \
-	mv	${GLUEDIR}/GodotSharp/GodotSharp/Generated \
-		${WRKSRC}/modules/mono/glue/GodotSharp/GodotSharp/; \
-	mv	${GLUEDIR}/GodotSharp/GodotSharpEditor/Generated \
-		${WRKSRC}/modules/mono/glue/GodotSharp/GodotSharpEditor/
-SHARP_DO_INSTALL =	${INSTALL_DATA_DIR} ${PREFIX}/share/godot; \
-	cp -R	${WRKBUILD}/bin/GodotSharp ${PREFIX}/share/godot/
 .else
 BUILD_PACKAGES :=	${BUILD_PACKAGES:N-sharp}
 MONOSUFFIX =
@@ -165,7 +149,15 @@ post-extract:
 	cp -R	${FILESDIR}/sndio ${WRKDIST}/drivers
 	cp	${FILESDIR}/ujoy/joypad_openbsd.{cpp,h} \
 		${WRKDIST}/platform/x11/
-	${SHARP_POST_EXTRACT}
+.if ${PROPERTIES:Mmono}
+	mkdir -p ${PORTHOME}/.nuget
+	mv	${WRKDIR}/godot-${SHARPFILES_V}-nuget-packages ${PORTHOME}/.nuget/packages
+	mv	${GLUEDIR}/mono_glue.gen.cpp ${WRKSRC}/modules/mono/glue/
+	mv	${GLUEDIR}/GodotSharp/GodotSharp/Generated \
+		${WRKSRC}/modules/mono/glue/GodotSharp/GodotSharp/
+	mv	${GLUEDIR}/GodotSharp/GodotSharpEditor/Generated \
+		${WRKSRC}/modules/mono/glue/GodotSharp/GodotSharpEditor
+.endif
 
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/misc/dist/linux/*.desktop
@@ -190,7 +182,10 @@ do-install:
 	${INSTALL_PROGRAM} ${WRKBUILD}/bin/godot.x11.opt.tools.${BINSUFFIX}${MONOSUFFIX} \
 		${PREFIX}/bin/godot-tools
 	# GodotSharp files if built
-	${SHARP_DO_INSTALL}
+.if ${PROPERTIES:Mmono}
+	${INSTALL_DATA_DIR} ${PREFIX}/share/godot
+	cp -R	${WRKBUILD}/bin/GodotSharp ${PREFIX}/share/godot/
+.endif
 	# Rest: man pages, icons, desktop integration
 	${INSTALL_MAN_DIR} ${PREFIX}/man/man6
 	${INSTALL_MAN} ${WRKSRC}/misc/dist/linux/godot.6 \
