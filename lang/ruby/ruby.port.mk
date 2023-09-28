@@ -149,7 +149,7 @@ LIB_DEPENDS+=	${MODRUBY_LIB_DEPENDS}
 
 .if ${CONFIGURE_STYLE:L:Mgem}
 # All gems should be in the same directory on rubygems.org.
-MASTER_SITES?=	${MASTER_SITE_RUBYGEMS}
+SITES?=		${SITE_RUBYGEMS}
 EXTRACT_SUFX=	.gem
 
 .  if ${CONFIGURE_STYLE:L:Mext}
@@ -233,11 +233,11 @@ _MODRUBY_INSTALL_TARGET = \
     chown -R ${SHAREOWN}:${SHAREGRP} ${_GEM_ABS_PATH}
 
 .  if !target(do-build)
-do-build: 
+do-build:
 	${_MODRUBY_BUILD_TARGET}
 .  endif
 .  if !target(do-install)
-do-install: 
+do-install:
 	${_MODRUBY_INSTALL_TARGET}
 .  endif
 .endif
@@ -270,7 +270,7 @@ MODRUBY_TEST_TARGET ?=	spec
 MODRUBY_TEST_TARGET ?=	test
 .    endif
 
-MODRUBY_TEST_ENV ?= 
+MODRUBY_TEST_ENV ?=
 MODRUBY_TEST_ENV += RUBYLIB=.:"$$RUBYLIB"
 do-test:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} HOME=${WRKBUILD} \

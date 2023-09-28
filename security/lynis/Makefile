@@ -11,7 +11,7 @@ MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 # GPLv3
 PERMIT_PACKAGE=	Yes
 
-MASTER_SITES=	https://downloads.cisofy.com/lynis/
+SITES=		https://downloads.cisofy.com/lynis/
 
 NO_BUILD=	Yes
 NO_TEST=	Yes

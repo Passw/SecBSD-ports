@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1626 2023/09/27 08:21:06 semarie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1627 2023/09/27 21:41:16 espie Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -78,7 +78,7 @@ FETCH_PACKAGES ?= No
 CLEANDEPENDS ?= No
 BULK ?= Auto
 INSTALL_DEBUG_PACKAGES ?= No
- 
+
 .if ${FETCH_PACKAGES:L} == "yes"
 ERRORS += "Fatal: old syntax for FETCH_PACKAGES, see ports(7)"
 .endif
@@ -423,8 +423,8 @@ BUILD_DEPENDS += devel/libtool
 LIBTOOL ?= /usr/bin/libtool
 MAKE_ENV += PORTSDIR="${PORTSDIR}"
 .  endif
-# Massage into an intermediate variable because python does 
-# not parse variables with trailing spaces properly and adds 
+# Massage into an intermediate variable because python does
+# not parse variables with trailing spaces properly and adds
 # a bogus "" argument.
 _LIBTOOL = ${LIBTOOL}
 .if !empty(LIBTOOL_FLAGS)
@@ -805,10 +805,10 @@ IGNORE = "requires ${_LD_PROGRAM}"
 # used to write wrappers to WRKDIR/bin which is at the head of the PATH.
 .if ${PROPERTIES:Mclang}
 .  if !${COMPILER_LINKS:Mclang}
-COMPILER_LINKS += clang /usr/bin/clang 
+COMPILER_LINKS += clang /usr/bin/clang
 .  endif
 .  if !${COMPILER_LINKS:Mclang++}
-COMPILER_LINKS += clang++ /usr/bin/clang++ 
+COMPILER_LINKS += clang++ /usr/bin/clang++
 .  endif
 .endif
 .if ! ${COMPILER_LINKS:Mcc}
@@ -880,7 +880,7 @@ ALL_TARGET ?= all
 FAKE_TARGET ?= ${INSTALL_TARGET}
 
 TEST_TARGET ?= test
-TEST_FLAGS ?= 
+TEST_FLAGS ?=
 TEST_ENV ?=
 ALL_TEST_FLAGS = ${MAKE_FLAGS} ${TEST_FLAGS}
 ALL_TEST_ENV = ${MAKE_ENV} ${TEST_ENV}
@@ -945,7 +945,7 @@ PKGPATHS += ${FULLPKGPATH${_s}}
 PKGFILES += ${_PKG_REPO}${_DBG_PKGFILE${_s}}
 PKGNAMES += debug-${FULLPKGNAME${_s}}
 #PKGPATHS += debug/${FULLPKGPATH${_s}} # XXX sqlports doesn't like it
-.  endif 
+.  endif
 .endfor
 
 _PACKAGE_LINKS =
@@ -1210,7 +1210,7 @@ _pkg_cookie${_S} += ${_DBG_PACKAGE_COOKIE${_S}}
 
 # Finish filling out package command, and package dependencies
 PKG_ARGS${_S} += -DCOMMENT=${_COMMENT${_S}:Q} -d ${DESCR${_S}}
-PKG_ARGS${_S} += -f ${PLIST${_S}} 
+PKG_ARGS${_S} += -f ${PLIST${_S}}
 PKG_ARGS${_S} += -DFULLPKGPATH=${FULLPKGPATH${_S}}
 .  if defined(MESSAGE${_S}) && !empty(MESSAGE${_S})
 PKG_ARGS${_S} += -M ${MESSAGE${_S}}
@@ -1234,7 +1234,7 @@ YACC ?= yacc
 # command is expanded from a variable, as this could be a shell construct
 SETENV ?= /usr/bin/env -i
 
-# basic master sites configuration
+# basic sites configuration
 
 .include "${PORTSDIR}/infrastructure/db/network.conf"
 
@@ -1243,32 +1243,28 @@ SETENV ?= /usr/bin/env -i
 ERRORS += "Fatal: specifying both GH_TAGNAME and GH_COMMIT is invalid"
 .  endif
 .  if !empty(GH_TAGNAME)
-MASTER_SITES_GITHUB += \
+SITES_GITHUB += \
 	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/archive/refs/tags/${GH_TAGNAME:S/$/\//}
 .  elif !empty(GH_COMMIT)
-MASTER_SITES_GITHUB += \
+SITES_GITHUB += \
 	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/archive/
 .  else
 ERRORS += "Fatal: if using GH_*, one of GH_TAGNAME or GH_COMMIT must be set"
 .  endif
 
-MASTER_SITES ?= ${MASTER_SITES_GITHUB}
+SITES ?= ${SITES_GITHUB}
 HOMEPAGE ?= https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 .else
-# There are two types of ports with DISTFILES but no actionable (MASTER_)SITES:
+# There are two types of ports with DISTFILES but no actionable SITES:
 # - FETCH_MANUALLY
 # - orphaned port, defaults to SITES_BACKUP
-MASTER_SITES ?=
+SITES ?=
 .endif
 
 # I guess we're in the master distribution business! :)  As we gain mirror
-# sites for distfiles, add them to MASTER_SITE_BACKUP
+# sites for distfiles, add them to SITE_BACKUP
 
 _warn_checksum = :
-
-.for v in ${.VARIABLES:MMASTER_SITE*}
-${v:S/MASTER_//} ?= ${$v}
-.endfor
 
 .if empty(.VARIABLES)
 ERRORS += "Fatal: requires make(1) with .VARIABLES support"
@@ -1693,8 +1689,8 @@ ${_v}_DEPENDS${_s} := ${${_v}_DEPENDS${_s}:C,^([^:]+/[^:<=>]+)([<=>][^:]+)$,STEM
 .endfor
 
 
-_BUILDLIB_DEPENDS = 
-_BUILDWANTLIB = 
+_BUILDLIB_DEPENDS =
+_BUILDWANTLIB =
 # strip inter-multi-packages dependencies during building
 .for _path in ${PKGPATH:S,^mystuff/,,}
 .  for _s in ${BUILD_PACKAGES}
@@ -2981,7 +2977,7 @@ ${_GEN_COOKIE}: ${_PATCH_COOKIE}
 	@${_PMAKE_COOKIE} $@
 
  # The real configure
- 
+
 # run as _pbuild
 _pre-configure-modules:
 .for _m in ${MODULES:T:U}
@@ -3042,7 +3038,7 @@ ${_BUILD_COOKIE}: ${_CONFIGURE_COOKIE}
 	@${_PMAKE} post-build
 .  endif
 .endif
-	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY} 
+	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY}
 	@${_PMAKE_COOKIE} $@
 
 ${_TEST_COOKIE}: ${_BUILD_COOKIE}
@@ -3127,7 +3123,7 @@ ${_FAKE_COOKIE}: ${_BUILD_COOKIE}
 	@${_SUDOMAKESYS} post-install ${FAKE_SETUP}
 .endif
 	@${_SUDOMAKESYS} _post-install-modules ${FAKE_SETUP}
-	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY} 
+	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY}
 	@${_PBUILD} ${_MAKE_COOKIE} $@
 
 ${_WRKDEBUG}/Makefile: ${_FAKE_COOKIE}
@@ -3240,7 +3236,7 @@ _internal-subpackage: ${_PACKAGE_COOKIES${SUBPACKAGE}}
 
 # first we special case _REFETCH stuff, specifically get them from our mirrors
 # _REFETCH_INFO is set by _internal-checksum if REFETCH
-_REFETCH_INFO ?= 
+_REFETCH_INFO ?=
 
 # list is pretty much self explanatory
 .for f cipher value in ${_REFETCH_INFO}
@@ -3249,7 +3245,7 @@ ${DISTDIR}/$f:
 	${_PFETCH} install -d ${DISTDIR_MODE} ${@:H}; \
 	cd ${@:H}; \
 	file=$@.part; \
-	for site in ${MASTER_SITE_OPENBSD:=by_cipher/${cipher}/${value:C/(..).*/\1/}/${value}/} ${MASTER_SITE_OPENBSD:=${cipher}/${value}/}; do \
+	for site in ${SITE_OPENBSD:=by_cipher/${cipher}/${value:C/(..).*/\1/}/${value}/} ${SITE_OPENBSD:=${cipher}/${value}/}; do \
 		${ECHO_MSG} ">> Fetch $${site}$u"; \
 		if ${_PFETCH} ${FETCH_CMD} -o $$file $${site}$u; then \
 			ck=`${_size_fragment} $$file $p`; \
@@ -3308,11 +3304,11 @@ ${DISTDIR}/$p: # XXX that comment works around a limitation in make
 	done; \
 	if ${_MAKESUM}; then \
 		if test -z ${$m}; then \
-				${ECHO_MSG} ">> No master site in $m"; \
+				${ECHO_MSG} ">> No site in $m"; \
 		fi; \
 		exit 1; \
 	fi; \
-	for site in ${MASTER_SITE_BACKUP}; do \
+	for site in ${SITE_BACKUP}; do \
 		${ECHO_MSG} ">> Fetch $${site}$p"; \
 		if ${_PFETCH} ${FETCH_CMD} -o $$file $${site}$p; then \
 				ck=`${_size_fragment} $$file $p`; \
@@ -3401,7 +3397,7 @@ _internal-clean:
 .if ${_clean:Mpackages} || ${_clean:Mpackage} && ${_clean:Msub}
 	${_PBUILD} rm -f ${_PACKAGE_COOKIES} ${_WRKDEBUG}/Makefile
 	${_PFETCH} rm -f ${_CACHE_PACKAGE_COOKIES}
-	${_PBUILD} rm -f ${_UPDATE_COOKIES} 
+	${_PBUILD} rm -f ${_UPDATE_COOKIES}
 .elif ${_clean:Mpackage}
 	${_PBUILD} rm -f ${_PACKAGE_COOKIES${SUBPACKAGE}} ${_DBG_PACKAGE_COOKIE${SUBPACKAGE}}
 	${_PBUILD} rm -f ${_UPDATE_COOKIE${SUBPACKAGE}}
