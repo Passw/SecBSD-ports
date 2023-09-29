@@ -1,6 +1,6 @@
 COMMENT=		network interface for metasploit
 
-DISTNAME=		network_interface-0.0.2
+DISTNAME=		network_interface-0.0.4
 CATEGORIES=		net
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
