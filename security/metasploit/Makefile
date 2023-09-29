@@ -2,7 +2,7 @@ COMMENT=	metasploit framework
 CATEGORIES=	security
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-VERSION=	6.3.34
+VERSION=	6.3.36
 DISTNAME=	metasploit-framework-${VERSION}
 
 HOMEPAGE=	https://www.metasploit.com

@@ -713,6 +713,9 @@ share/metasploit/data/exploits/CVE-2023-21839/PayloadRuns.class
 share/metasploit/data/exploits/CVE-2023-21839/PayloadRuns.java
 share/metasploit/data/exploits/CVE-2023-28252/
 share/metasploit/data/exploits/CVE-2023-28252/CVE-2023-28252.x64.dll
+share/metasploit/data/exploits/CVE-2023-36874/
+share/metasploit/data/exploits/CVE-2023-36874/CVE-2023-36874.exe
+share/metasploit/data/exploits/CVE-2023-36874/Report.wer
 share/metasploit/data/exploits/QTJavaExploit.class
 share/metasploit/data/exploits/R7_2015_17/
 share/metasploit/data/exploits/R7_2015_17/stream.raw
@@ -2956,6 +2959,7 @@ share/metasploit/documentation/modules/exploit/linux/fileformat/
 share/metasploit/documentation/modules/exploit/linux/fileformat/unrar_cve_2022_30333.md
 share/metasploit/documentation/modules/exploit/linux/http/
 share/metasploit/documentation/modules/exploit/linux/http/alienvault_exec.md
+share/metasploit/documentation/modules/exploit/linux/http/apache_airflow_dag_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/apache_couchdb_cmd_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/apache_druid_js_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/apache_nifi_h2_rce.md
@@ -3034,6 +3038,7 @@ share/metasploit/documentation/modules/exploit/linux/http/kaltura_unserialize_co
 share/metasploit/documentation/modules/exploit/linux/http/kaltura_unserialize_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/kibana_timelion_prototype_pollution_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/klog_server_authenticate_user_unauth_command_injection.md
+share/metasploit/documentation/modules/exploit/linux/http/lexmark_faxtrace_settings.md
 share/metasploit/documentation/modules/exploit/linux/http/librenms_addhost_cmd_inject.md
 share/metasploit/documentation/modules/exploit/linux/http/librenms_collectd_cmd_inject.md
 share/metasploit/documentation/modules/exploit/linux/http/linear_emerge_unauth_rce_cve_2019_7256.md
@@ -3102,6 +3107,7 @@ share/metasploit/documentation/modules/exploit/linux/http/terramaster_unauth_rce
 share/metasploit/documentation/modules/exploit/linux/http/terramaster_unauth_rce_cve_2021_45837.md
 share/metasploit/documentation/modules/exploit/linux/http/terramaster_unauth_rce_cve_2022_24990.md
 share/metasploit/documentation/modules/exploit/linux/http/tiki_calendar_exec.md
+share/metasploit/documentation/modules/exploit/linux/http/totolink_unauth_rce_cve_2023_30013.md
 share/metasploit/documentation/modules/exploit/linux/http/tp_link_ncxxx_bonjour_command_injection.md
 share/metasploit/documentation/modules/exploit/linux/http/trend_micro_imsva_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/trendmicro_imsva_widget_exec.md
@@ -3334,6 +3340,7 @@ share/metasploit/documentation/modules/exploit/multi/http/ibm_openadmin_tool_soa
 share/metasploit/documentation/modules/exploit/multi/http/jenkins_metaprogramming.md
 share/metasploit/documentation/modules/exploit/multi/http/jenkins_script_console.md
 share/metasploit/documentation/modules/exploit/multi/http/jenkins_xstream_deserialize.md
+share/metasploit/documentation/modules/exploit/multi/http/jetbrains_teamcity_rce_cve_2023_42793.md
 share/metasploit/documentation/modules/exploit/multi/http/jira_plugin_upload.md
 share/metasploit/documentation/modules/exploit/multi/http/kong_gateway_admin_api_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/liferay_java_unmarshalling.md
@@ -3778,6 +3785,7 @@ share/metasploit/documentation/modules/exploit/windows/local/srclient_dll_hijack
 share/metasploit/documentation/modules/exploit/windows/local/tokenmagic.md
 share/metasploit/documentation/modules/exploit/windows/local/unquoted_service_path.md
 share/metasploit/documentation/modules/exploit/windows/local/webexec.md
+share/metasploit/documentation/modules/exploit/windows/local/win_error_cve_2023_36874.md
 share/metasploit/documentation/modules/exploit/windows/local/windscribe_windscribeservice_priv_esc.md
 share/metasploit/documentation/modules/exploit/windows/misc/
 share/metasploit/documentation/modules/exploit/windows/misc/ahsay_backup_fileupload.md
@@ -3793,6 +3801,7 @@ share/metasploit/documentation/modules/exploit/windows/misc/hp_dataprotector_enc
 share/metasploit/documentation/modules/exploit/windows/misc/hp_imc_dbman_restartdb_unauth_rce.md
 share/metasploit/documentation/modules/exploit/windows/misc/hp_imc_dbman_restoredbase_unauth_rce.md
 share/metasploit/documentation/modules/exploit/windows/misc/hp_loadrunner_magentproc_cmdexec.md
+share/metasploit/documentation/modules/exploit/windows/misc/ivanti_avalanche_mdm_bof.md
 share/metasploit/documentation/modules/exploit/windows/misc/mobile_mouse_rce.md
 share/metasploit/documentation/modules/exploit/windows/misc/plugx.md
 share/metasploit/documentation/modules/exploit/windows/misc/remote_control_collection_rce.md
@@ -5117,6 +5126,14 @@ share/metasploit/external/source/exploits/CVE-2023-28252/CVE-2023-28252/exploit.
 share/metasploit/external/source/exploits/CVE-2023-28252/CVE-2023-28252/exploit.h
 share/metasploit/external/source/exploits/CVE-2023-28252/CVE-2023-28252/ntos.h
 share/metasploit/external/source/exploits/CVE-2023-28252/CVE-2023-28252/ntoskrnl.lib
+share/metasploit/external/source/exploits/CVE-2023-36874/
+share/metasploit/external/source/exploits/CVE-2023-36874/CVE-2023-36874/
+share/metasploit/external/source/exploits/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874/
+share/metasploit/external/source/exploits/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874.sln
+share/metasploit/external/source/exploits/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874.vcxproj
+share/metasploit/external/source/exploits/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874.vcxproj.filters
+share/metasploit/external/source/exploits/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874/cve_2023_36874.cpp
+share/metasploit/external/source/exploits/CVE-2023-36874/CVE-2023-36874/CVE-2023-36874/def.h
 share/metasploit/external/source/exploits/IE11SandboxEscapes/
 share/metasploit/external/source/exploits/IE11SandboxEscapes/CVE-2013-5045/
 share/metasploit/external/source/exploits/IE11SandboxEscapes/CVE-2013-5045/CVE-2013-5045.cpp
@@ -8710,7 +8727,10 @@ share/metasploit/lib/rex/proto/tftp/
 share/metasploit/lib/rex/proto/tftp/client.rb
 share/metasploit/lib/rex/proto/tftp/constants.rb
 share/metasploit/lib/rex/proto/tftp/server.rb
+share/metasploit/lib/rex/proto/thrift/
 share/metasploit/lib/rex/proto/thrift.rb
+share/metasploit/lib/rex/proto/thrift/client.rb
+share/metasploit/lib/rex/proto/thrift/error.rb
 share/metasploit/lib/rex/script/
 share/metasploit/lib/rex/script.rb
 share/metasploit/lib/rex/script/base.rb
@@ -10452,6 +10472,7 @@ share/metasploit/modules/exploits/linux/http/airties_login_cgi_bof.rb
 share/metasploit/modules/exploits/linux/http/alcatel_omnipcx_mastercgi_exec.rb
 share/metasploit/modules/exploits/linux/http/alienvault_exec.rb
 share/metasploit/modules/exploits/linux/http/alienvault_sqli_exec.rb
+share/metasploit/modules/exploits/linux/http/apache_airflow_dag_rce.rb
 share/metasploit/modules/exploits/linux/http/apache_continuum_cmd_exec.rb
 share/metasploit/modules/exploits/linux/http/apache_couchdb_cmd_exec.rb
 share/metasploit/modules/exploits/linux/http/apache_druid_js_rce.rb
@@ -10566,6 +10587,7 @@ share/metasploit/modules/exploits/linux/http/kaltura_unserialize_rce.rb
 share/metasploit/modules/exploits/linux/http/kibana_timelion_prototype_pollution_rce.rb
 share/metasploit/modules/exploits/linux/http/klog_server_authenticate_user_unauth_command_injection.rb
 share/metasploit/modules/exploits/linux/http/kloxo_sqli.rb
+share/metasploit/modules/exploits/linux/http/lexmark_faxtrace_settings.rb
 share/metasploit/modules/exploits/linux/http/librenms_addhost_cmd_inject.rb
 share/metasploit/modules/exploits/linux/http/librenms_collectd_cmd_inject.rb
 share/metasploit/modules/exploits/linux/http/lifesize_uvc_ping_rce.rb
@@ -10672,6 +10694,7 @@ share/metasploit/modules/exploits/linux/http/terramaster_unauth_rce_cve_2020_356
 share/metasploit/modules/exploits/linux/http/terramaster_unauth_rce_cve_2021_45837.rb
 share/metasploit/modules/exploits/linux/http/terramaster_unauth_rce_cve_2022_24990.rb
 share/metasploit/modules/exploits/linux/http/tiki_calendar_exec.rb
+share/metasploit/modules/exploits/linux/http/totolink_unauth_rce_cve_2023_30013.rb
 share/metasploit/modules/exploits/linux/http/tp_link_ncxxx_bonjour_command_injection.rb
 share/metasploit/modules/exploits/linux/http/tp_link_sc2020n_authenticated_telnet_injection.rb
 share/metasploit/modules/exploits/linux/http/tr064_ntpserver_cmdinject.rb
@@ -11066,6 +11089,7 @@ share/metasploit/modules/exploits/multi/http/jboss_seam_upload_exec.rb
 share/metasploit/modules/exploits/multi/http/jenkins_metaprogramming.rb
 share/metasploit/modules/exploits/multi/http/jenkins_script_console.rb
 share/metasploit/modules/exploits/multi/http/jenkins_xstream_deserialize.rb
+share/metasploit/modules/exploits/multi/http/jetbrains_teamcity_rce_cve_2023_42793.rb
 share/metasploit/modules/exploits/multi/http/jira_hipchat_template.rb
 share/metasploit/modules/exploits/multi/http/jira_plugin_upload.rb
 share/metasploit/modules/exploits/multi/http/joomla_http_header_rce.rb
@@ -12592,6 +12616,7 @@ share/metasploit/modules/exploits/windows/local/virtual_box_guest_additions.rb
 share/metasploit/modules/exploits/windows/local/virtual_box_opengl_escape.rb
 share/metasploit/modules/exploits/windows/local/vss_persistence.rb
 share/metasploit/modules/exploits/windows/local/webexec.rb
+share/metasploit/modules/exploits/windows/local/win_error_cve_2023_36874.rb
 share/metasploit/modules/exploits/windows/local/windscribe_windscribeservice_priv_esc.rb
 share/metasploit/modules/exploits/windows/local/wmi.rb
 share/metasploit/modules/exploits/windows/local/wmi_persistence.rb
@@ -12681,6 +12706,7 @@ share/metasploit/modules/exploits/windows/misc/ibm_tsm_cad_ping.rb
 share/metasploit/modules/exploits/windows/misc/ibm_tsm_rca_dicugetidentify.rb
 share/metasploit/modules/exploits/windows/misc/ibm_websphere_java_deserialize.rb
 share/metasploit/modules/exploits/windows/misc/itunes_extm3u_bof.rb
+share/metasploit/modules/exploits/windows/misc/ivanti_avalanche_mdm_bof.rb
 share/metasploit/modules/exploits/windows/misc/landesk_aolnsrvr.rb
 share/metasploit/modules/exploits/windows/misc/lianja_db_net.rb
 share/metasploit/modules/exploits/windows/misc/manageengine_eventlog_analyzer_rce.rb
@@ -13051,6 +13077,7 @@ share/metasploit/modules/payloads/singles/cmd/unix/reverse_r.rb
 share/metasploit/modules/payloads/singles/cmd/unix/reverse_ruby.rb
 share/metasploit/modules/payloads/singles/cmd/unix/reverse_ruby_ssl.rb
 share/metasploit/modules/payloads/singles/cmd/unix/reverse_socat_sctp.rb
+share/metasploit/modules/payloads/singles/cmd/unix/reverse_socat_tcp.rb
 share/metasploit/modules/payloads/singles/cmd/unix/reverse_socat_udp.rb
 share/metasploit/modules/payloads/singles/cmd/unix/reverse_ssh.rb
 share/metasploit/modules/payloads/singles/cmd/unix/reverse_ssl_double_telnet.rb
@@ -14670,6 +14697,14 @@ share/metasploit/spec/lib/rex/proto/sms/model/smtp_spec.rb
 share/metasploit/spec/lib/rex/proto/steam/
 share/metasploit/spec/lib/rex/proto/steam/message_spec.rb
 share/metasploit/spec/lib/rex/proto/steam/steam_info.bin
+share/metasploit/spec/lib/rex/proto/thrift/
+share/metasploit/spec/lib/rex/proto/thrift/client_spec.rb
+share/metasploit/spec/lib/rex/proto/thrift/thrift_array_spec.rb
+share/metasploit/spec/lib/rex/proto/thrift/thrift_boolean_spec.rb
+share/metasploit/spec/lib/rex/proto/thrift/thrift_data_spec.rb
+share/metasploit/spec/lib/rex/proto/thrift/thrift_header_spec.rb
+share/metasploit/spec/lib/rex/proto/thrift/thrift_string_spec.rb
+share/metasploit/spec/lib/rex/proto/thrift/thrift_struct_spec.rb
 share/metasploit/spec/lib/rex/time_spec.rb
 share/metasploit/spec/lib/rex/ui/
 share/metasploit/spec/lib/rex/ui/text/
