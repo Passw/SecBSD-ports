@@ -1,6 +1,0 @@
-bin/gmapsapiscanner
-share/gmapsapiscanner/
-share/gmapsapiscanner/Dockerfile
-share/gmapsapiscanner/LICENSE
-share/gmapsapiscanner/README.md
-share/gmapsapiscanner/maps_api_scanner_python3.py
