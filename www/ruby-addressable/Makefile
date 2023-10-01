@@ -13,7 +13,7 @@ MODULES=		lang/ruby
 CONFIGURE_STYLE=	ruby gem
 
 BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			net/ruby-public-suffix
+			net/ruby-public-suffix,${MODRUBY_FLAVOR}
 
 MODRUBY_TEST=		rake rspec3
 TEST_DEPENDS+=		devel/ruby-rspec/3/its
