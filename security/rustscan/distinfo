@@ -1,4 +1,4 @@
-SHA256 (RustScan-2.1.1.tar.gz) = USRKW94niyXeAwvZHk6+HUuHJpstD39gFWXK70+1dJo=
+SHA256 (RustScan-RustScan-2.1.1.tar.gz) = USRKW94niyXeAwvZHk6+HUuHJpstD39gFWXK70+1dJo=
 SHA256 (cargo/addr2line-0.17.0.tar.gz) = uezYioyDeMqROmgM2Y8PE6xnOD01mT+GyQpw4/E3gWs=
 SHA256 (cargo/adler-1.0.2.tar.gz) = 8mIBYEyHseAb09mPjV2aj8u4FejO20H/zL60v1k6Nf4=
 SHA256 (cargo/aho-corasick-0.7.18.tar.gz) = HjfP1edletpF90LW6ZyleIWAtcUp3Hj68R7ObccCZW8=
@@ -215,7 +215,7 @@ SHA256 (cargo/windows_x86_64_msvc-0.42.0.tar.gz) = 9AAJ2FdZclo02m2JqU5j173FCoYqz
 SHA256 (cargo/winreg-0.10.1.tar.gz) = gND04nLIXe8TlHY4CxL5rGCSZondLgHUkjIi9AWAhp0=
 SHA256 (cargo/winreg-0.6.2.tar.gz) = spht61gcT+EbYhmYpeUzYe/mtIoVEXjQzZ7v+k3GrMk=
 SHA256 (cargo/ws2_32-sys-0.2.1.tar.gz) = 1Zzv69DIkvot1t5YHpNzAdhVLLREic3/A1xhh8tj+l4=
-SIZE (RustScan-2.1.1.tar.gz) = 3093187
+SIZE (RustScan-RustScan-2.1.1.tar.gz) = 3093187
 SIZE (cargo/addr2line-0.17.0.tar.gz) = 32260
 SIZE (cargo/adler-1.0.2.tar.gz) = 12778
 SIZE (cargo/aho-corasick-0.7.18.tar.gz) = 112923

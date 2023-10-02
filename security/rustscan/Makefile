@@ -1,22 +1,19 @@
-COMMENT=		fast port scanner in Rust
+COMMENT=	fast port scanner in Rust
+CATEGORIES=	security
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-GH_ACCOUNT=		RustScan
-GH_PROJECT=		RustScan
-GH_TAGNAME=		2.1.1
+DIST_TUPLE=     github RustScan RustScan 2.1.1 . #GPLv3
 
-CATEGORIES=		security
+PKGNAME=	rustscan-2.1.1
 
-HOMEPAGE=		https://github.com/RustScan/RustScan
+HOMEPAGE=	https://github.com/RustScan/RustScan
 
-MAINTAINER=		Purple Rain <purplerain@secbsd.org>
+PERMIT_PACKAGE=	Yes
 
-# GPL-3.0
-PERMIT_PACKAGE=		Yes
+WANTLIB+=	c c++abi m pthread
 
-WANTLIB+=		c c++abi m pthread
-
-MODULES=		devel/cargo
-BUILD_DEPENDS=		security/rust-ring
+MODULES=	devel/cargo
+BUILD_DEPENDS=	security/rust-ring
 
 CONFIGURE_STYLE=	cargo
 SEPARATE_BUILD=		Yes
