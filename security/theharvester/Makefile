@@ -2,7 +2,7 @@ COMMENT=	information gathering suite
 CATEGORIES=	security
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-DIST_TUPLE=	github laramies theHarvester 4.4.3 .
+DIST_TUPLE=	github laramies theHarvester 4.4.4 .
 
 HOMEPAGE=	https://github.com/laramies/theHarvester
 
