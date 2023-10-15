@@ -1,6 +1,6 @@
 COMMENT=		time travel gem
 
-DISTNAME=		timecop-0.9.6
+DISTNAME=		timecop-0.9.8
 CATEGORIES=		devel
 
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>

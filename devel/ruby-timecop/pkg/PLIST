@@ -10,10 +10,4 @@ ${GEM_LIB}/gems/${DISTNAME}/lib/timecop/time_extensions.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/timecop/time_stack_item.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/timecop/timecop.rb
 ${GEM_LIB}/gems/${DISTNAME}/lib/timecop/version.rb
-${GEM_LIB}/gems/${DISTNAME}/test/
-${GEM_LIB}/gems/${DISTNAME}/test/test_helper.rb
-${GEM_LIB}/gems/${DISTNAME}/test/time_stack_item_test.rb
-${GEM_LIB}/gems/${DISTNAME}/test/timecop_test.rb
-${GEM_LIB}/gems/${DISTNAME}/test/timecop_without_date_but_with_time_test.rb
-${GEM_LIB}/gems/${DISTNAME}/test/timecop_without_date_test.rb
 ${GEM_LIB}/specifications/${DISTNAME}.gemspec
