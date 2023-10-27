@@ -4,5 +4,4 @@
 @bin bin/generate-checksum
 @bin bin/integration-test
 @bin bin/nuclei
-@bin bin/sign-templates
 @bin bin/tmc
