@@ -1,7 +1,7 @@
 
-Metasploit Framework 6.3.36
+Metasploit Framework
 
 Help:
 
 $ cd /usr/local/share/metasploit
-$ ruby30 msfconsole
+$ ruby32 msfconsole

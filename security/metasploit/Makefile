@@ -2,7 +2,7 @@ COMMENT=	metasploit framework
 CATEGORIES=	security
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-VERSION=	6.3.36
+VERSION=	6.3.40
 DISTNAME=	metasploit-framework-${VERSION}
 
 HOMEPAGE=	https://www.metasploit.com
@@ -16,18 +16,17 @@ EXTRACT_ONLY=	${VERSION}${EXTRACT_SUFX}
 SITES=		https://github.com/rapid7/metasploit-framework/archive/
 
 MODULES=	lang/ruby
-MODRUBY_REV=	3.0
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		archivers/ruby-rubyzip,${MODRUBY_FLAVOR} \
+RUN_DEPENDS=	archivers/ruby-rubyzip,${MODRUBY_FLAVOR} \
 		converters/ruby-multi-json,${MODRUBY_FLAVOR} \
-		databases/postgresql \
 		databases/ruby-mysql,${MODRUBY_FLAVOR} \
 		databases/ruby-pg,${MODRUBY_FLAVOR} \
 		databases/ruby-sqlite3,${MODRUBY_FLAVOR} \
+		devel/ruby-base64,${MODRUBY_FLAVOR} \
 		devel/ruby-actionpack,${MODRUBY_FLAVOR} \
 		devel/ruby-actionview,${MODRUBY_FLAVOR} \
 		devel/ruby-activerecord,${MODRUBY_FLAVOR} \
+		devel/ruby-activemodel,${MODRUBY_FLAVOR} \
 		devel/ruby-activesupport,${MODRUBY_FLAVOR} \
 		devel/ruby-afm,${MODRUBY_FLAVOR} \
 		devel/ruby-allure-rspec,${MODRUBY_FLAVOR} \
@@ -90,6 +89,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-jmespath,${MODRUBY_FLAVOR} \
 		devel/ruby-jsobfu,${MODRUBY_FLAVOR} \
 		devel/ruby-json,${MODRUBY_FLAVOR} \
+		devel/ruby-language-server-protocol,${MODRUBY_FLAVOR} \
 		devel/ruby-little-plugger,${MODRUBY_FLAVOR} \
 		devel/ruby-logging,${MODRUBY_FLAVOR} \
 		devel/ruby-loofah,${MODRUBY_FLAVOR} \
@@ -130,7 +130,6 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-rails-html-sanitizer,${MODRUBY_FLAVOR} \
 		devel/ruby-railties,${MODRUBY_FLAVOR} \
 		devel/ruby-rainbow,${MODRUBY_FLAVOR} \
-		devel/ruby-rake,${MODRUBY_FLAVOR} \
 		devel/ruby-rasn1,${MODRUBY_FLAVOR} \
 		devel/ruby-rb-readline,${MODRUBY_FLAVOR} \
 		devel/ruby-rc4,${MODRUBY_FLAVOR} \
@@ -156,6 +155,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-rex-struct2,${MODRUBY_FLAVOR} \
 		devel/ruby-rex-text,${MODRUBY_FLAVOR} \
 		devel/ruby-rex-zip,${MODRUBY_FLAVOR} \
+		devel/ruby-rexml,${MODRUBY_FLAVOR} \
 		devel/ruby-rkelly-remix,${MODRUBY_FLAVOR} \
 		devel/ruby-rspec-rails,${MODRUBY_FLAVOR} \
 		devel/ruby-rspec-rerun,${MODRUBY_FLAVOR} \
@@ -191,6 +191,7 @@ BUILD_DEPENDS+=${RUN_DEPENDS} \
 		devel/ruby-warden,${MODRUBY_FLAVOR} \
 		devel/ruby-webrick,${MODRUBY_FLAVOR} \
 		devel/ruby-websocket-driver,${MODRUBY_FLAVOR} \
+		devel/ruby-websocket-extensions,${MODRUBY_FLAVOR} \
 		devel/ruby-win32api,${MODRUBY_FLAVOR} \
 		devel/ruby-windows-error,${MODRUBY_FLAVOR} \
 		devel/ruby-winrm,${MODRUBY_FLAVOR} \
