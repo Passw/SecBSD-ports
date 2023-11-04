@@ -148,7 +148,7 @@ MODGO_MODULES =	\
 	github.com/dlclark/regexp2							 v1.10.0 \
 	github.com/dnaeon/go-vcr							 v1.2.0 \
 	github.com/docker/cli								 v24.0.5+incompatible \
-	github.com/docker/docker							 v24.0.5+incompatible \
+	github.com/docker/docker							 v24.0.7+incompatible \
 	github.com/docker/go-connections						 v0.4.0 \
 	github.com/docker/go-units							 v0.5.0 \
 	github.com/dop251/goja								 v0.0.0-20230828202809-3dbe69dd2b8e \
@@ -359,7 +359,7 @@ MODGO_MODULES =	\
 	github.com/miekg/dns								 v1.1.56 \
 	github.com/miekg/pkcs11								 v1.0.3 \
 	github.com/minio/minio-go/v6							 v6.0.46 \
-	github.com/minio/selfupdate							 v0.6.0 \
+	github.com/minio/selfupdate							 v0.6.1-0.20230907112617-f11e74f84ca7 \
 	github.com/minio/sha256-simd							 v0.1.1 \
 	github.com/mitchellh/cli							 v1.0.0 \
 	github.com/mitchellh/go-homedir							 v1.1.0 \
@@ -386,7 +386,7 @@ MODGO_MODULES =	\
 	github.com/nats-io/nuid								 v1.0.1 \
 	github.com/niemeyer/pretty							 v0.0.0-20200227124842-a10e7caefd8e \
 	github.com/nwaples/rardecode							 v1.1.3 \
-	github.com/nxadm/tail								 v1.4.8 \
+	github.com/nxadm/tail								 v1.4.11 \
 	github.com/oklog/oklog								 v0.3.2 \
 	github.com/oklog/run								 v1.0.0 \
 	github.com/olekukonko/tablewriter						 v0.0.5 \
@@ -427,8 +427,8 @@ MODGO_MODULES =	\
 	github.com/projectdiscovery/cdncheck						 v1.0.9 \
 	github.com/projectdiscovery/clistats						 v0.0.19 \
 	github.com/projectdiscovery/dnsx						 v1.1.5 \
-	github.com/projectdiscovery/dsl							 v0.0.26 \
-	github.com/projectdiscovery/fastdialer						 v0.0.40 \
+	github.com/projectdiscovery/dsl							 v0.0.27 \
+	github.com/projectdiscovery/fastdialer						 v0.0.42 \
 	github.com/projectdiscovery/fasttemplate					 v0.0.2 \
 	github.com/projectdiscovery/fdmax						 v0.0.4 \
 	github.com/projectdiscovery/freeport						 v0.0.5 \
@@ -437,23 +437,23 @@ MODGO_MODULES =	\
 	github.com/projectdiscovery/gologger						 v1.1.11 \
 	github.com/projectdiscovery/gostruct						 v0.0.1 \
 	github.com/projectdiscovery/gozero						 v0.0.1 \
-	github.com/projectdiscovery/hmap						 v0.0.22 \
+	github.com/projectdiscovery/hmap						 v0.0.23 \
 	github.com/projectdiscovery/httpx						 v1.3.5 \
 	github.com/projectdiscovery/interactsh						 v1.1.7 \
 	github.com/projectdiscovery/ipranger						 v0.0.15 \
 	github.com/projectdiscovery/mapcidr						 v1.1.12 \
 	github.com/projectdiscovery/n3iwf						 v0.0.0-20230523120440-b8cd232ff1f5 \
 	github.com/projectdiscovery/networkpolicy					 v0.0.6 \
-	github.com/projectdiscovery/ratelimit						 v0.0.12 \
+	github.com/projectdiscovery/ratelimit						 v0.0.13 \
 	github.com/projectdiscovery/rawhttp						 v0.1.23 \
 	github.com/projectdiscovery/rdap						 v0.9.1-0.20221108103045-9865884d1917 \
-	github.com/projectdiscovery/retryabledns					 v1.0.39 \
-	github.com/projectdiscovery/retryablehttp-go					 v1.0.32 \
+	github.com/projectdiscovery/retryabledns					 v1.0.40 \
+	github.com/projectdiscovery/retryablehttp-go					 v1.0.33 \
 	github.com/projectdiscovery/sarif						 v0.0.1 \
 	github.com/projectdiscovery/stringsutil						 v0.0.2 \
 	github.com/projectdiscovery/tlsx						 v1.1.6-0.20231016194953-a3ff9518c766 \
 	github.com/projectdiscovery/uncover						 v1.0.7 \
-	github.com/projectdiscovery/utils						 v0.0.58 \
+	github.com/projectdiscovery/utils						 v0.0.62 \
 	github.com/projectdiscovery/wappalyzergo					 v0.0.109 \
 	github.com/projectdiscovery/yamldoc-go						 v1.0.4 \
 	github.com/prometheus/client_golang						 v1.14.0 \
@@ -893,6 +893,7 @@ MODGO_MODFILES =	\
 	github.com/miekg/dns					 v1.1.35 \
 	github.com/miekg/dns					 v1.1.54 \
 	github.com/miekg/dns					 v1.1.55 \
+	github.com/minio/selfupdate				 v0.6.0 \
 	github.com/mitchellh/go-homedir				 v1.0.0 \
 	github.com/mitchellh/mapstructure			 v0.0.0-20160808181253-ca63d7c062ee \
 	github.com/mitchellh/mapstructure			 v1.1.2 \
@@ -908,6 +909,7 @@ MODGO_MODFILES =	\
 	github.com/mwitkow/go-conntrack				 v0.0.0-20161129095857-cc309e4a2223 \
 	github.com/nats-io/jwt					 v0.3.0 \
 	github.com/nats-io/nkeys				 v0.1.0 \
+	github.com/nxadm/tail					 v1.4.8 \
 	github.com/olekukonko/tablewriter			 v0.0.0-20170122224234-a0225b3f23b5 \
 	github.com/onsi/ginkgo					 v1.6.0 \
 	github.com/onsi/ginkgo					 v1.7.0 \
@@ -928,20 +930,24 @@ MODGO_MODFILES =	\
 	github.com/projectdiscovery/asnmap			 v1.0.4 \
 	github.com/projectdiscovery/dsl				 v0.0.21 \
 	github.com/projectdiscovery/fastdialer			 v0.0.37 \
+	github.com/projectdiscovery/fastdialer			 v0.0.40 \
+	github.com/projectdiscovery/fastdialer			 v0.0.41 \
 	github.com/projectdiscovery/goflags			 v0.1.20 \
 	github.com/projectdiscovery/goflags			 v0.1.23 \
 	github.com/projectdiscovery/goflags			 v0.1.8 \
 	github.com/projectdiscovery/gologger			 v1.1.10 \
 	github.com/projectdiscovery/hmap			 v0.0.16 \
 	github.com/projectdiscovery/hmap			 v0.0.19 \
-	github.com/projectdiscovery/mapcidr			 v1.1.11 \
+	github.com/projectdiscovery/hmap			 v0.0.22 \
 	github.com/projectdiscovery/mapcidr			 v1.1.2 \
 	github.com/projectdiscovery/mapcidr			 v1.1.9 \
+	github.com/projectdiscovery/ratelimit			 v0.0.12 \
 	github.com/projectdiscovery/ratelimit			 v0.0.9 \
 	github.com/projectdiscovery/rawhttp			 v0.1.18 \
 	github.com/projectdiscovery/retryabledns		 v1.0.29 \
 	github.com/projectdiscovery/retryabledns		 v1.0.35 \
 	github.com/projectdiscovery/retryabledns		 v1.0.38 \
+	github.com/projectdiscovery/retryabledns		 v1.0.39 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.17 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.26 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.27 \
@@ -953,6 +959,7 @@ MODGO_MODFILES =	\
 	github.com/projectdiscovery/utils			 v0.0.54 \
 	github.com/projectdiscovery/utils			 v0.0.55 \
 	github.com/projectdiscovery/utils			 v0.0.57 \
+	github.com/projectdiscovery/utils			 v0.0.58 \
 	github.com/projectdiscovery/wappalyzergo		 v0.0.77 \
 	github.com/prometheus/client_golang			 v0.9.1 \
 	github.com/prometheus/client_golang			 v0.9.3-0.20190127221311-3c4408c8b829 \
