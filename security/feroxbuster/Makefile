@@ -2,7 +2,7 @@ COMMENT=	recursive content discovery tool
 
 GH_ACCOUNT=	epi052
 GH_PROJECT=	feroxbuster
-GH_TAGNAME=	v2.10.0
+GH_TAGNAME=	v2.10.1
 
 CATEGORIES=	security
 
