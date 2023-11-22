@@ -1,7 +1,7 @@
 COMMENT=		CTF framework and exploit development library
 
-MODPY_EGG_VERSION=	4.12.0
-GH_COMMIT=		340b0bf0bcc599896065ab5fccde0e79c9ff4f9c
+MODPY_EGG_VERSION=	4.13.0
+GH_COMMIT=		bb1d16c3c64f80ec83672683715acf92d7b15535
 GH_ACCOUNT=		Gallopsled
 GH_PROJECT=		pwntools
 
@@ -19,8 +19,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/python
 MODPY_PYBUILD=		setuptools
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			devel/capstone/python${MODPY_FLAVOR} \
+RUN_DEPENDS=		devel/capstone/python${MODPY_FLAVOR} \
 			devel/py-dateutil${MODPY_FLAVOR} \
 			devel/py-elftools${MODPY_FLAVOR} \
 			devel/py-intervaltree${MODPY_FLAVOR} \
