@@ -13,7 +13,6 @@ MODGO_MODULES =	\
 	github.com/bwesterb/go-ristretto		 v1.2.3 \
 	github.com/cloudflare/circl			 v1.3.3 \
 	github.com/cpuguy83/go-md2man/v2		 v2.0.2 \
-	github.com/creack/pty				 v1.1.9 \
 	github.com/cyphar/filepath-securejoin		 v0.2.4 \
 	github.com/davecgh/go-spew			 v1.1.1 \
 	github.com/elazarl/goproxy			 v0.0.0-20230808193330-2592e75ae04a \
@@ -21,8 +20,8 @@ MODGO_MODULES =	\
 	github.com/gliderlabs/ssh			 v0.3.5 \
 	github.com/go-git/gcfg				 v1.5.1-0.20230307220236-3a3c6141e376 \
 	github.com/go-git/go-billy/v5			 v5.5.0 \
-	github.com/go-git/go-git-fixtures/v4		 v4.3.2-0.20230305113008-0c11038e723f \
-	github.com/go-git/go-git/v5			 v5.9.0 \
+	github.com/go-git/go-git-fixtures/v4		 v4.3.2-0.20231010084843-55a94097c399 \
+	github.com/go-git/go-git/v5			 v5.10.0 \
 	github.com/goark/errs				 v1.3.2 \
 	github.com/goark/go-cvss			 v1.6.6 \
 	github.com/golang/groupcache			 v0.0.0-20210331224755-41bb18bfe9da \
@@ -31,9 +30,9 @@ MODGO_MODULES =	\
 	github.com/google/go-cmp			 v0.6.0 \
 	github.com/google/renameio			 v0.1.0 \
 	github.com/hexops/gotextdiff			 v1.0.3 \
-	github.com/ianlancetaylor/demangle		 v0.0.0-20230524184225-eabc099b10ab \
+	github.com/ianlancetaylor/demangle		 v0.0.0-20231023195312-e2daf7ba7156 \
 	github.com/jbenet/go-context			 v0.0.0-20150711004518-d14ea06fba99 \
-	github.com/jedib0t/go-pretty/v6			 v6.4.8 \
+	github.com/jedib0t/go-pretty/v6			 v6.4.9 \
 	github.com/jessevdk/go-flags			 v1.5.0 \
 	github.com/kevinburke/ssh_config		 v1.2.0 \
 	github.com/kr/pretty				 v0.3.1 \
@@ -47,7 +46,6 @@ MODGO_MODULES =	\
 	github.com/owenrumney/go-sarif/v2		 v2.3.0 \
 	github.com/package-url/packageurl-go		 v0.1.2 \
 	github.com/pjbgf/sha1cd				 v0.3.0 \
-	github.com/pkg/diff				 v0.0.0-20210226163009-20ebb0f2a09e \
 	github.com/pkg/errors				 v0.9.1 \
 	github.com/pkg/profile				 v1.6.0 \
 	github.com/pmezard/go-difflib			 v1.0.0 \
@@ -105,7 +103,6 @@ MODGO_MODFILES =	\
 	github.com/kr/text			 v0.1.0 \
 	github.com/mattn/go-runewidth		 v0.0.13 \
 	github.com/rivo/uniseg			 v0.2.0 \
-	github.com/rogpeppe/go-internal		 v1.9.0 \
 	github.com/sergi/go-diff		 v1.1.0 \
 	github.com/sirupsen/logrus		 v1.7.0 \
 	github.com/skeema/knownhosts		 v1.2.0 \
@@ -128,7 +125,6 @@ MODGO_MODFILES =	\
 	golang.org/x/mod			 v0.6.0 \
 	golang.org/x/mod			 v0.6.0-dev.0.20220419223038-86c51ed26bb4 \
 	golang.org/x/mod			 v0.8.0 \
-	golang.org/x/mod			 v0.9.0 \
 	golang.org/x/net			 v0.0.0-20190603091049-60506f45cf65 \
 	golang.org/x/net			 v0.0.0-20190620200207-3b0461eec859 \
 	golang.org/x/net			 v0.0.0-20200301022130-244492dfa37a \
