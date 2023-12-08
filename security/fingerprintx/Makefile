@@ -1,10 +1,10 @@
 COMMENT=	utility for service discovery
 
 MODGO_MODNAME=	github.com/praetorian-inc/fingerprintx
-MODGO_VERSION=	v1.1.9
+MODGO_VERSION=	v1.1.12
 
 DISTNAME=	fingerprintx-${MODGO_VERSION}
-PKGNAME=	fingerprintx-1.1.9
+PKGNAME=	fingerprintx-1.1.12
 
 CATEGORIES=	security
 

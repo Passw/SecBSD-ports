@@ -1,4 +1,4 @@
-SHA256 (fingerprintx-v1.1.9.zip) = SdRRZtr2Ic2UBZEea7or/Gd35M4R0MV7rtY8PeYNAk4=
+SHA256 (fingerprintx-v1.1.12.zip) = hXUr40mlmECUMWydJsj4ckb5Q28jq/AuxkehizG1tW8=
 SHA256 (go_modules/github.com/!azure/go-ansiterm/@v/v0.0.0-20170929234023-d6e3b3328b78.mod) = enkBorXz5jkYufmfBbd6dJkZbZ1M0Chy78xzVac5lS8=
 SHA256 (go_modules/github.com/!azure/go-ansiterm/@v/v0.0.0-20210617225240-d185dfc1b5a1.mod) = DOE8uD1v68XL0tfnFROKHg27TghFOcR28NWjjF8uzYA=
 SHA256 (go_modules/github.com/!azure/go-ansiterm/@v/v0.0.0-20210617225240-d185dfc1b5a1.zip) = Yx/0sWekNg4QkR5HWTPss70yfFiXTBeHfQ1M9vvvbJY=
@@ -245,7 +245,7 @@ SHA256 (go_modules/gopkg.in/yaml.v3/@v/v3.0.1.zip) = qrj7xOYwDqCOav4crqGKIckMefS
 SHA256 (go_modules/gotest.tools/v3/@v/v3.0.2.mod) = s8e04chosntRS61QNyeHctPkz8wNGSkUKMHEnH0It0w=
 SHA256 (go_modules/gotest.tools/v3/@v/v3.2.0.mod) = IUtog2bXo+3KQa37T1dFP5Alf+Ln/9IxqzAYZgvpGWw=
 SHA256 (go_modules/gotest.tools/v3/@v/v3.2.0.zip) = /iODlAE+vzXDE7feYMXfW2Jx98X5guuO7O/jJFMaD18=
-SIZE (fingerprintx-v1.1.9.zip) = 1371900
+SIZE (fingerprintx-v1.1.12.zip) = 1375674
 SIZE (go_modules/github.com/!azure/go-ansiterm/@v/v0.0.0-20170929234023-d6e3b3328b78.mod) = 36
 SIZE (go_modules/github.com/!azure/go-ansiterm/@v/v0.0.0-20210617225240-d185dfc1b5a1.mod) = 106
 SIZE (go_modules/github.com/!azure/go-ansiterm/@v/v0.0.0-20210617225240-d185dfc1b5a1.zip) = 34145
