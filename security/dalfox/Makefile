@@ -1,10 +1,10 @@
 COMMENT=	analysis and xss scanner
 
 MODGO_MODNAME=	github.com/hahwul/dalfox/v2
-MODGO_VERSION=	v2.9.0
+MODGO_VERSION=	v2.9.1
 
 DISTNAME=	dalfox-${MODGO_VERSION}
-PKGNAME=	dalfox-2.9.0
+PKGNAME=	dalfox-2.9.1
 
 CATEGORIES=	security
 
