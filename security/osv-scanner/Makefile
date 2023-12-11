@@ -2,7 +2,7 @@ COMMENT=	vulnerability scanner
 CATEGORIES=     security
 MAINTAINER=     Purple Rain <purplerain@secbsd.org>
 
-MODGO_VERSION=  v1.4.3
+MODGO_VERSION=  v1.5.0
 MODGO_MODNAME=	github.com/google/osv-scanner
 DISTNAME=	osv-scanner-${MODGO_VERSION}
 
