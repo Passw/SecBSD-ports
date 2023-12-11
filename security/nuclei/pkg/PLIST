@@ -1,7 +1,5 @@
 @bin bin/docgen
-@bin bin/functional-test
 @bin bin/fuzzplayground
 @bin bin/generate-checksum
-@bin bin/integration-test
 @bin bin/nuclei
 @bin bin/tmc
