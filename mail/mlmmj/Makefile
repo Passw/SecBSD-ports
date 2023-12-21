@@ -1,34 +1,41 @@
 COMMENT=	mailing list manager
 
-DISTNAME=	mlmmj-1.3.0
-REVISION=	0
+DISTNAME=	mlmmj-1.4.2
+
 CATEGORIES=	mail
 
-HOMEPAGE=	http://mlmmj.org/
+HOMEPAGE=	https://codeberg.org/mlmmj/mlmmj
+
+MAINTAINER=	Exquisite Team <team@exquisite.social>
 
 # MIT
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c iconv
+COMPILER=	base-clang ports-gcc
 
-SITES=		http://mlmmj.org/releases/
+SITES=		${HOMEPAGE}/archive/
 
-LIB_DEPENDS=	converters/libiconv
+LIB_DEPENDS=	converters/libiconv \
+		devel/atf
 
-CONFIGURE_STYLE=gnu
-CONFIGURE_ARGS+=--enable-receive-strip=yes
+WANTLIB+=	c iconv
 
-# make sure ${WRKSRC}/include/unistr.h is included instead of
-# /usr/local/include/unistr.h from libunistring
-CONFIGURE_ENV=	CPPFLAGS="-I${WRKSRC}/include -I${LOCALBASE}/include" \
-		LDFLAGS="-L${LOCALBASE}/lib -liconv"
+DISTFILES=	RELEASE_1_4_2${EXTRACT_SUFX}
+EXTRACT_SUFX=	.tar.gz
 
-DOCS=	README* TUNABLES
+WRKSRC=		${WRKDIR}/mlmmj
+WRKDIST=	${WRKDIR}/mlmmj
 
-post-install:
-	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/mlmmj
-	cd ${WRKSRC} && ${INSTALL_DATA} ${DOCS} ${PREFIX}/share/doc/mlmmj
-	cd ${WRKSRC} && ${INSTALL_DATA} contrib/receivestrip/README \
-		${PREFIX}/share/doc/mlmmj/README.receive-strip
+CONFIGURE_STYLE=	autoreconf
+AUTOCONF_VERSION=	2.69
+AUTOMAKE_VERSION=	1.16
+
+CONFIGURE_ENV+=	CFLAGS="-I${LOCALBASE}/include -I${WRKSRC}/include" \
+		LDFLAGS="-L${LOCALBASE}/lib -L/usr/local/lib -liconv"
+
+post-extract:
+	cd ${WRKSRC}; ${AUTOCONF_ENV} autoreconf -fi
+
+NO_TEST=	Yes
 
 .include <bsd.port.mk>
