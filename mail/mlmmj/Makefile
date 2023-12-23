@@ -1,6 +1,6 @@
 COMMENT=	mailing list manager
 
-DISTNAME=	mlmmj-1.4.2
+DISTNAME=	mlmmj-1.4.3
 
 CATEGORIES=	mail
 
@@ -20,7 +20,7 @@ LIB_DEPENDS=	converters/libiconv \
 
 WANTLIB+=	c iconv
 
-DISTFILES=	RELEASE_1_4_2${EXTRACT_SUFX}
+DISTFILES=	RELEASE_1_4_3${EXTRACT_SUFX}
 EXTRACT_SUFX=	.tar.gz
 
 WRKSRC=		${WRKDIR}/mlmmj
