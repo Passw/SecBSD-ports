@@ -1,4 +1,4 @@
-MODGO_MODULES =	\
+MODGO_MODULES=	\
 	aead.dev/minisign								 v0.2.0 \
 	bitbucket.org/creachadair/shell							 v0.0.7 \
 	bitbucket.org/liamstask/goose							 v0.0.0-20150115234039-8488cc47d90c \
@@ -429,8 +429,8 @@ MODGO_MODULES =	\
 	github.com/projectdiscovery/cdncheck						 v1.0.9 \
 	github.com/projectdiscovery/clistats						 v0.0.20 \
 	github.com/projectdiscovery/dnsx						 v1.1.5 \
-	github.com/projectdiscovery/dsl							 v0.0.33 \
-	github.com/projectdiscovery/fastdialer						 v0.0.48 \
+	github.com/projectdiscovery/dsl							 v0.0.35 \
+	github.com/projectdiscovery/fastdialer						 v0.0.49 \
 	github.com/projectdiscovery/fasttemplate					 v0.0.2 \
 	github.com/projectdiscovery/fdmax						 v0.0.4 \
 	github.com/projectdiscovery/freeport						 v0.0.5 \
@@ -439,23 +439,23 @@ MODGO_MODULES =	\
 	github.com/projectdiscovery/gologger						 v1.1.11 \
 	github.com/projectdiscovery/gostruct						 v0.0.2 \
 	github.com/projectdiscovery/gozero						 v0.0.1 \
-	github.com/projectdiscovery/hmap						 v0.0.28 \
+	github.com/projectdiscovery/hmap						 v0.0.29 \
 	github.com/projectdiscovery/httpx						 v1.3.7 \
 	github.com/projectdiscovery/interactsh						 v1.1.8 \
 	github.com/projectdiscovery/ipranger						 v0.0.21 \
 	github.com/projectdiscovery/mapcidr						 v1.1.16 \
 	github.com/projectdiscovery/n3iwf						 v0.0.0-20230523120440-b8cd232ff1f5 \
 	github.com/projectdiscovery/networkpolicy					 v0.0.6 \
-	github.com/projectdiscovery/ratelimit						 v0.0.19 \
+	github.com/projectdiscovery/ratelimit						 v0.0.20 \
 	github.com/projectdiscovery/rawhttp						 v0.1.28 \
 	github.com/projectdiscovery/rdap						 v0.9.1-0.20221108103045-9865884d1917 \
-	github.com/projectdiscovery/retryabledns					 v1.0.46 \
+	github.com/projectdiscovery/retryabledns					 v1.0.47 \
 	github.com/projectdiscovery/retryablehttp-go					 v1.0.38 \
 	github.com/projectdiscovery/sarif						 v0.0.1 \
 	github.com/projectdiscovery/stringsutil						 v0.0.2 \
 	github.com/projectdiscovery/tlsx						 v1.1.6-0.20231116215000-e842dc367a74 \
 	github.com/projectdiscovery/uncover						 v1.0.7 \
-	github.com/projectdiscovery/utils						 v0.0.67 \
+	github.com/projectdiscovery/utils						 v0.0.68 \
 	github.com/projectdiscovery/wappalyzergo					 v0.0.109 \
 	github.com/projectdiscovery/yamldoc-go						 v1.0.4 \
 	github.com/prometheus/client_golang						 v1.14.0 \
@@ -602,7 +602,7 @@ MODGO_MODULES =	\
 	go.uber.org/zap									 v1.25.0 \
 	goftp.io/server/v2								 v2.0.1 \
 	golang.org/x/arch								 v0.3.0 \
-	golang.org/x/crypto								 v0.15.0 \
+	golang.org/x/crypto								 v0.17.0 \
 	golang.org/x/exp								 v0.0.0-20231110203233-9a3e6036ecaa \
 	golang.org/x/image								 v0.0.0-20190802002840-cff245a6509b \
 	golang.org/x/lint								 v0.0.0-20200302205851-738671d3881b \
@@ -611,8 +611,8 @@ MODGO_MODULES =	\
 	golang.org/x/net								 v0.18.0 \
 	golang.org/x/oauth2								 v0.11.0 \
 	golang.org/x/sync								 v0.5.0 \
-	golang.org/x/sys								 v0.14.0 \
-	golang.org/x/term								 v0.14.0 \
+	golang.org/x/sys								 v0.15.0 \
+	golang.org/x/term								 v0.15.0 \
 	golang.org/x/text								 v0.14.0 \
 	golang.org/x/time								 v0.3.0 \
 	golang.org/x/tools								 v0.15.0 \
@@ -654,7 +654,7 @@ MODGO_MODULES =	\
 	sigs.k8s.io/yaml								 v1.2.0 \
 	sourcegraph.com/sourcegraph/appdash						 v0.0.0-20190731080439-ebfcffb1b5c0
 
-MODGO_MODFILES =	\
+MODGO_MODFILES=	\
 	cloud.google.com/go					 v0.26.0 \
 	cloud.google.com/go					 v0.34.0 \
 	cloud.google.com/go					 v0.38.0 \
@@ -954,6 +954,7 @@ MODGO_MODFILES =	\
 	github.com/projectdiscovery/hmap			 v0.0.25 \
 	github.com/projectdiscovery/hmap			 v0.0.26 \
 	github.com/projectdiscovery/hmap			 v0.0.27 \
+	github.com/projectdiscovery/hmap			 v0.0.28 \
 	github.com/projectdiscovery/mapcidr			 v1.1.14 \
 	github.com/projectdiscovery/mapcidr			 v1.1.15 \
 	github.com/projectdiscovery/mapcidr			 v1.1.2 \
@@ -967,6 +968,7 @@ MODGO_MODFILES =	\
 	github.com/projectdiscovery/retryabledns		 v1.0.43 \
 	github.com/projectdiscovery/retryabledns		 v1.0.44 \
 	github.com/projectdiscovery/retryabledns		 v1.0.45 \
+	github.com/projectdiscovery/retryabledns		 v1.0.46 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.17 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.31 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.34 \
@@ -982,6 +984,7 @@ MODGO_MODFILES =	\
 	github.com/projectdiscovery/utils			 v0.0.64 \
 	github.com/projectdiscovery/utils			 v0.0.65 \
 	github.com/projectdiscovery/utils			 v0.0.66 \
+	github.com/projectdiscovery/utils			 v0.0.67 \
 	github.com/projectdiscovery/wappalyzergo		 v0.0.77 \
 	github.com/prometheus/client_golang			 v0.9.1 \
 	github.com/prometheus/client_golang			 v0.9.3-0.20190127221311-3c4408c8b829 \
@@ -1141,6 +1144,7 @@ MODGO_MODFILES =	\
 	golang.org/x/crypto					 v0.11.0 \
 	golang.org/x/crypto					 v0.12.0 \
 	golang.org/x/crypto					 v0.14.0 \
+	golang.org/x/crypto					 v0.15.0 \
 	golang.org/x/crypto					 v0.3.0 \
 	golang.org/x/crypto					 v0.3.1-0.20221117191849-2c476679df9a \
 	golang.org/x/crypto					 v0.4.0 \
@@ -1348,6 +1352,7 @@ MODGO_MODFILES =	\
 	golang.org/x/sys					 v0.10.0 \
 	golang.org/x/sys					 v0.11.0 \
 	golang.org/x/sys					 v0.13.0 \
+	golang.org/x/sys					 v0.14.0 \
 	golang.org/x/sys					 v0.2.0 \
 	golang.org/x/sys					 v0.3.0 \
 	golang.org/x/sys					 v0.4.0 \
@@ -1362,6 +1367,7 @@ MODGO_MODFILES =	\
 	golang.org/x/term					 v0.0.0-20210927222741-03fcf44c2211 \
 	golang.org/x/term					 v0.0.0-20220722155259-a9ba230a4035 \
 	golang.org/x/term					 v0.10.0 \
+	golang.org/x/term					 v0.14.0 \
 	golang.org/x/term					 v0.4.0 \
 	golang.org/x/term					 v0.5.0 \
 	golang.org/x/term					 v0.6.0 \
