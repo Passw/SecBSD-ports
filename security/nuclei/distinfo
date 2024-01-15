@@ -310,8 +310,8 @@ SHA256 (go_modules/github.com/cloudflare/cfssl/@v/v1.6.4.mod) = nt7uJZt21tDk6mBZ
 SHA256 (go_modules/github.com/cloudflare/cfssl/@v/v1.6.4.zip) = xEtELMnx0hf3BMnGRrja6cGauc1fAWVsxWL9DqFdSuM=
 SHA256 (go_modules/github.com/cloudflare/circl/@v/v1.1.0.mod) = HbnQ8RL5ropyoGhB9PGR01RcFExuBe082BYBiliCKBo=
 SHA256 (go_modules/github.com/cloudflare/circl/@v/v1.3.3.mod) = aLEuRmK7BjlyhJAVP/xS2L3WO+VYvdQbyw2PHu6wPkE=
-SHA256 (go_modules/github.com/cloudflare/circl/@v/v1.3.6.mod) = aLEuRmK7BjlyhJAVP/xS2L3WO+VYvdQbyw2PHu6wPkE=
-SHA256 (go_modules/github.com/cloudflare/circl/@v/v1.3.6.zip) = cBngNYZUjXwNY8nalUW/3Ok6dZHHf276ldAB3+qzgQo=
+SHA256 (go_modules/github.com/cloudflare/circl/@v/v1.3.7.mod) = muCoSwYWZOyFibpqYcGMg8iQISByoY5Iybawup5o2ow=
+SHA256 (go_modules/github.com/cloudflare/circl/@v/v1.3.7.zip) = RJcJPLdUTTDp1ddBpeYsFPuJicQnHKCpoKA6c1cLO4M=
 SHA256 (go_modules/github.com/cloudflare/redoctober/@v/v0.0.0-20211013234631-6a74ccc611f6.mod) = ZKI8PHYeqPft8HfcrALQU8u8GT8AcsqJ327e8hwLbX8=
 SHA256 (go_modules/github.com/cloudflare/redoctober/@v/v0.0.0-20211013234631-6a74ccc611f6.zip) = 3w+23U0O2HKBs0S4hGi3memOA5q4wCnMhyG8Kxakf18=
 SHA256 (go_modules/github.com/cncf/udpa/go/@v/v0.0.0-20191209042840-269d4d468f6f.mod) = BfXUp3qEvkXe3IDrrFo47y/Rxv8/rtrZwA6zEjEYEhg=
@@ -2239,7 +2239,7 @@ SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 8ikTVRI4fWZj4fCZmkkiq3CN7Uv
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = Ve0Ixd9EigM79+LCkS1NqoW4VqBchUsMh8zIXH8/v8c=
 SHA256 (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.mod) = W6+HkS6bnGFVJJiJDke0WyjQPHOLYw7fbXxwxlsKxGI=
 SHA256 (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.zip) = vSSS2dsFNiwv7NCz0PYALImm2Q1nj7k7QVgpiriDc28=
-SHA256 (nuclei-v3.1.4.zip) = S8hVniT/BBGD8+9S5+hODkERWvrRHgpNS43KcOyjT2k=
+SHA256 (nuclei-v3.1.5.zip) = h6BY2txNzH2+fVwuqsuXYkdSIWcI0gfW8k1OCZFfnBQ=
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.mod) = 222
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.zip) = 27045
 SIZE (go_modules/bitbucket.org/creachadair/shell/@v/v0.0.7.mod) = 89
@@ -2552,8 +2552,8 @@ SIZE (go_modules/github.com/cloudflare/cfssl/@v/v1.6.4.mod) = 1772
 SIZE (go_modules/github.com/cloudflare/cfssl/@v/v1.6.4.zip) = 2089038
 SIZE (go_modules/github.com/cloudflare/circl/@v/v1.1.0.mod) = 207
 SIZE (go_modules/github.com/cloudflare/circl/@v/v1.3.3.mod) = 181
-SIZE (go_modules/github.com/cloudflare/circl/@v/v1.3.6.mod) = 181
-SIZE (go_modules/github.com/cloudflare/circl/@v/v1.3.6.zip) = 4935989
+SIZE (go_modules/github.com/cloudflare/circl/@v/v1.3.7.mod) = 153
+SIZE (go_modules/github.com/cloudflare/circl/@v/v1.3.7.zip) = 4936771
 SIZE (go_modules/github.com/cloudflare/redoctober/@v/v0.0.0-20211013234631-6a74ccc611f6.mod) = 589
 SIZE (go_modules/github.com/cloudflare/redoctober/@v/v0.0.0-20211013234631-6a74ccc611f6.zip) = 159903
 SIZE (go_modules/github.com/cncf/udpa/go/@v/v0.0.0-20191209042840-269d4d468f6f.mod) = 170
@@ -4481,4 +4481,4 @@ SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 106
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = 20937
 SIZE (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.mod) = 43
 SIZE (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.zip) = 158069
-SIZE (nuclei-v3.1.4.zip) = 2423616
+SIZE (nuclei-v3.1.5.zip) = 2423827

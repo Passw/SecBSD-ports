@@ -120,7 +120,7 @@ MODGO_MODULES=	\
 	github.com/client9/misspell							 v0.3.4 \
 	github.com/cloudflare/backoff							 v0.0.0-20161212185259-647f3cdfc87a \
 	github.com/cloudflare/cfssl							 v1.6.4 \
-	github.com/cloudflare/circl							 v1.3.6 \
+	github.com/cloudflare/circl							 v1.3.7 \
 	github.com/cloudflare/redoctober						 v0.0.0-20211013234631-6a74ccc611f6 \
 	github.com/cncf/udpa/go								 v0.0.0-20210930031921-04548b0d99d4 \
 	github.com/cncf/xds/go								 v0.0.0-20211011173535-cb28da3451f1 \
