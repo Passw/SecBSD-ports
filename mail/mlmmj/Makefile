@@ -1,6 +1,6 @@
 COMMENT=	mailing list manager
 
-DISTNAME=	mlmmj-1.4.3
+DISTNAME=	mlmmj-1.4.4
 
 CATEGORIES=	mail
 
@@ -20,7 +20,7 @@ LIB_DEPENDS=	converters/libiconv \
 
 WANTLIB+=	c iconv
 
-DISTFILES=	RELEASE_1_4_3${EXTRACT_SUFX}
+DISTFILES=	RELEASE_1_4_4${EXTRACT_SUFX}
 EXTRACT_SUFX=	.tar.gz
 
 WRKSRC=		${WRKDIR}/mlmmj
@@ -36,6 +36,11 @@ CONFIGURE_ENV+=	CFLAGS="-I${LOCALBASE}/include -I${WRKSRC}/include" \
 post-extract:
 	cd ${WRKSRC}; ${AUTOCONF_ENV} autoreconf -fi
 
-NO_TEST=	Yes
+DOCS=	README* TUNABLES
 
+post-install:
+	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/mlmmj
+	cd ${WRKSRC} && ${INSTALL_DATA} ${DOCS} ${PREFIX}/share/doc/mlmmj
+	cd ${WRKSRC} && ${INSTALL_DATA} contrib/receivestrip/README \
+		${PREFIX}/share/doc/mlmmj/README.receive-strip
 .include <bsd.port.mk>
