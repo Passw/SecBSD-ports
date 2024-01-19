@@ -42,7 +42,7 @@ MODGO_MODULES=	\
 	github.com/!vivid!cortex/ewma							 v1.2.0 \
 	github.com/!vivid!cortex/gohistogram						 v1.0.0 \
 	github.com/afex/hystrix-go							 v0.0.0-20180502004556-fa1af6a1f4f5 \
-	github.com/akrylysov/pogreb							 v0.10.1 \
+	github.com/akrylysov/pogreb							 v0.10.2 \
 	github.com/alcortesm/tgz							 v0.0.0-20161220082320-9c5fe88206d7 \
 	github.com/alecthomas/chroma							 v0.10.0 \
 	github.com/alecthomas/jsonschema						 v0.0.0-20211022214203-8b29eab41725 \
@@ -50,7 +50,7 @@ MODGO_MODULES=	\
 	github.com/alecthomas/template							 v0.0.0-20190718012654-fb15b899a751 \
 	github.com/alecthomas/units							 v0.0.0-20211218093645-b94a6e3cc137 \
 	github.com/alexbrainman/sspi							 v0.0.0-20210105120005-909beea2cc74 \
-	github.com/andybalholm/brotli							 v1.0.6 \
+	github.com/andybalholm/brotli							 v1.1.0 \
 	github.com/andybalholm/cascadia							 v1.3.2 \
 	github.com/andygrunwald/go-jira							 v1.16.0 \
 	github.com/anmitsu/go-shlex							 v0.0.0-20200514113438-38f4b401e2be \
@@ -321,7 +321,7 @@ MODGO_MODULES=	\
 	github.com/kisielk/errcheck							 v1.5.0 \
 	github.com/kisielk/gotool							 v1.0.0 \
 	github.com/kisielk/sqlstruct							 v0.0.0-20201105191214-5f3e10d3ab46 \
-	github.com/klauspost/compress							 v1.17.3 \
+	github.com/klauspost/compress							 v1.17.4 \
 	github.com/klauspost/cpuid							 v1.2.0 \
 	github.com/klauspost/cpuid/v2							 v2.2.5 \
 	github.com/klauspost/pgzip							 v1.2.5 \
@@ -432,32 +432,32 @@ MODGO_MODULES=	\
 	github.com/projectdiscovery/clistats						 v0.0.20 \
 	github.com/projectdiscovery/dnsx						 v1.1.5 \
 	github.com/projectdiscovery/dsl							 v0.0.38 \
-	github.com/projectdiscovery/fastdialer						 v0.0.52 \
+	github.com/projectdiscovery/fastdialer						 v0.0.54 \
 	github.com/projectdiscovery/fasttemplate					 v0.0.2 \
 	github.com/projectdiscovery/fdmax						 v0.0.4 \
 	github.com/projectdiscovery/freeport						 v0.0.5 \
 	github.com/projectdiscovery/goconfig						 v0.0.1 \
-	github.com/projectdiscovery/goflags						 v0.1.34 \
+	github.com/projectdiscovery/goflags						 v0.1.35 \
 	github.com/projectdiscovery/gologger						 v1.1.12 \
 	github.com/projectdiscovery/gostruct						 v0.0.2 \
 	github.com/projectdiscovery/gozero						 v0.0.1 \
-	github.com/projectdiscovery/hmap						 v0.0.33 \
+	github.com/projectdiscovery/hmap						 v0.0.34 \
 	github.com/projectdiscovery/httpx						 v1.3.7 \
 	github.com/projectdiscovery/interactsh						 v1.1.8 \
 	github.com/projectdiscovery/ipranger						 v0.0.21 \
 	github.com/projectdiscovery/mapcidr						 v1.1.16 \
 	github.com/projectdiscovery/n3iwf						 v0.0.0-20230523120440-b8cd232ff1f5 \
 	github.com/projectdiscovery/networkpolicy					 v0.0.7 \
-	github.com/projectdiscovery/ratelimit						 v0.0.23 \
+	github.com/projectdiscovery/ratelimit						 v0.0.24 \
 	github.com/projectdiscovery/rawhttp						 v0.1.33 \
 	github.com/projectdiscovery/rdap						 v0.9.1-0.20221108103045-9865884d1917 \
-	github.com/projectdiscovery/retryabledns					 v1.0.50 \
-	github.com/projectdiscovery/retryablehttp-go					 v1.0.42 \
+	github.com/projectdiscovery/retryabledns					 v1.0.51 \
+	github.com/projectdiscovery/retryablehttp-go					 v1.0.44 \
 	github.com/projectdiscovery/sarif						 v0.0.1 \
 	github.com/projectdiscovery/stringsutil						 v0.0.2 \
 	github.com/projectdiscovery/tlsx						 v1.1.6-0.20231116215000-e842dc367a74 \
 	github.com/projectdiscovery/uncover						 v1.0.7 \
-	github.com/projectdiscovery/utils						 v0.0.72 \
+	github.com/projectdiscovery/utils						 v0.0.74-0.20240115220656-48fef326de18 \
 	github.com/projectdiscovery/wappalyzergo					 v0.0.109 \
 	github.com/projectdiscovery/yamldoc-go						 v1.0.4 \
 	github.com/prometheus/client_golang						 v1.14.0 \
@@ -467,10 +467,10 @@ MODGO_MODULES=	\
 	github.com/prometheus/prometheus						 v2.5.0+incompatible \
 	github.com/quic-go/qpack							 v0.4.0 \
 	github.com/quic-go/qtls-go1-20							 v0.4.1 \
-	github.com/quic-go/quic-go							 v0.40.0 \
+	github.com/quic-go/quic-go							 v0.40.1 \
 	github.com/rcrowley/go-metrics							 v0.0.0-20181016184325-3113b8401b8a \
 	github.com/redis/go-redis/v9							 v9.1.0 \
-	github.com/refraction-networking/utls						 v1.5.4 \
+	github.com/refraction-networking/utls						 v1.6.1 \
 	github.com/remeh/sizedwaitgroup							 v1.0.0 \
 	github.com/rivo/uniseg								 v0.4.4 \
 	github.com/rogpeppe/fastuuid							 v0.0.0-20150106093220-6724a57986af \
@@ -568,7 +568,7 @@ MODGO_MODULES=	\
 	github.com/ziutek/mymysql							 v1.5.4 \
 	github.com/zmap/rc2								 v0.0.0-20190804163417-abaa70531248 \
 	github.com/zmap/zcertificate							 v0.0.1 \
-	github.com/zmap/zcrypto								 v0.0.0-20231106212110-94c8f62efae4 \
+	github.com/zmap/zcrypto								 v0.0.0-20231219022726-a1f61fb1661c \
 	github.com/zmap/zflags								 v1.4.0-beta.1.0.20200204220219-9d95409821b6 \
 	github.com/zmap/zgrab2								 v0.1.8-0.20230806160807-97ba87c0e706 \
 	github.com/zmap/zlint/v3							 v3.1.0 \
@@ -604,20 +604,20 @@ MODGO_MODULES=	\
 	go.uber.org/zap									 v1.25.0 \
 	goftp.io/server/v2								 v2.0.1 \
 	golang.org/x/arch								 v0.3.0 \
-	golang.org/x/crypto								 v0.17.0 \
-	golang.org/x/exp								 v0.0.0-20231110203233-9a3e6036ecaa \
+	golang.org/x/crypto								 v0.18.0 \
+	golang.org/x/exp								 v0.0.0-20240112132812-db7319d0e0e3 \
 	golang.org/x/image								 v0.0.0-20190802002840-cff245a6509b \
 	golang.org/x/lint								 v0.0.0-20200302205851-738671d3881b \
 	golang.org/x/mobile								 v0.0.0-20190719004257-d2bd2a29d028 \
 	golang.org/x/mod								 v0.14.0 \
-	golang.org/x/net								 v0.19.0 \
+	golang.org/x/net								 v0.20.0 \
 	golang.org/x/oauth2								 v0.11.0 \
-	golang.org/x/sync								 v0.5.0 \
-	golang.org/x/sys								 v0.15.0 \
-	golang.org/x/term								 v0.15.0 \
+	golang.org/x/sync								 v0.6.0 \
+	golang.org/x/sys								 v0.16.0 \
+	golang.org/x/term								 v0.16.0 \
 	golang.org/x/text								 v0.14.0 \
 	golang.org/x/time								 v0.3.0 \
-	golang.org/x/tools								 v0.15.0 \
+	golang.org/x/tools								 v0.17.0 \
 	golang.org/x/xerrors								 v0.0.0-20200804184101-5ec99f83aff1 \
 	google.golang.org/api								 v0.93.0 \
 	google.golang.org/appengine							 v1.6.7 \
@@ -696,12 +696,14 @@ MODGO_MODFILES=	\
 	github.com/!microsoft/go-winio				 v0.5.2 \
 	github.com/!microsoft/go-winio				 v0.6.0 \
 	github.com/!proton!mail/go-crypto			 v0.0.0-20230217124315-7d5c6f04bbb8 \
+	github.com/akrylysov/pogreb				 v0.10.1 \
 	github.com/alecthomas/template				 v0.0.0-20160405071501-a0175ee3bccc \
 	github.com/alecthomas/units				 v0.0.0-20151022065526-2efee857e7cf \
 	github.com/alecthomas/units				 v0.0.0-20190717042225-c3de453c63f4 \
 	github.com/alecthomas/units				 v0.0.0-20190924025748-f65c72e2690d \
 	github.com/andybalholm/brotli				 v1.0.1 \
 	github.com/andybalholm/brotli				 v1.0.5 \
+	github.com/andybalholm/brotli				 v1.0.6 \
 	github.com/andybalholm/cascadia				 v1.3.1 \
 	github.com/anmitsu/go-shlex				 v0.0.0-20161002113705-648efa622239 \
 	github.com/apache/thrift				 v0.12.0 \
@@ -949,6 +951,7 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/fastdialer			 v0.0.47 \
 	github.com/projectdiscovery/fastdialer			 v0.0.50 \
 	github.com/projectdiscovery/fastdialer			 v0.0.51 \
+	github.com/projectdiscovery/fastdialer			 v0.0.54-0.20240115214304-8128c100f5a8 \
 	github.com/projectdiscovery/goflags			 v0.1.23 \
 	github.com/projectdiscovery/goflags			 v0.1.26 \
 	github.com/projectdiscovery/goflags			 v0.1.27 \
@@ -963,8 +966,8 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/hmap			 v0.0.25 \
 	github.com/projectdiscovery/hmap			 v0.0.26 \
 	github.com/projectdiscovery/hmap			 v0.0.28 \
-	github.com/projectdiscovery/hmap			 v0.0.31 \
 	github.com/projectdiscovery/hmap			 v0.0.32 \
+	github.com/projectdiscovery/hmap			 v0.0.33 \
 	github.com/projectdiscovery/mapcidr			 v1.1.14 \
 	github.com/projectdiscovery/mapcidr			 v1.1.15 \
 	github.com/projectdiscovery/mapcidr			 v1.1.2 \
@@ -984,6 +987,7 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.31 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.34 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.37 \
+	github.com/projectdiscovery/retryablehttp-go		 v1.0.42 \
 	github.com/projectdiscovery/tlsx			 v1.1.5 \
 	github.com/projectdiscovery/utils			 v0.0.36 \
 	github.com/projectdiscovery/utils			 v0.0.44 \
@@ -994,8 +998,9 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/utils			 v0.0.63 \
 	github.com/projectdiscovery/utils			 v0.0.64 \
 	github.com/projectdiscovery/utils			 v0.0.66 \
-	github.com/projectdiscovery/utils			 v0.0.68 \
 	github.com/projectdiscovery/utils			 v0.0.70 \
+	github.com/projectdiscovery/utils			 v0.0.72 \
+	github.com/projectdiscovery/utils			 v0.0.73 \
 	github.com/projectdiscovery/wappalyzergo		 v0.0.77 \
 	github.com/prometheus/client_golang			 v0.9.1 \
 	github.com/prometheus/client_golang			 v0.9.3-0.20190127221311-3c4408c8b829 \
@@ -1027,8 +1032,10 @@ MODGO_MODFILES=	\
 	github.com/prometheus/procfs				 v0.7.3 \
 	github.com/prometheus/procfs				 v0.8.0 \
 	github.com/quic-go/quic-go				 v0.37.4 \
+	github.com/quic-go/quic-go				 v0.37.7 \
 	github.com/quic-go/quic-go				 v0.38.1 \
 	github.com/refraction-networking/utls			 v1.5.3 \
+	github.com/refraction-networking/utls			 v1.5.4 \
 	github.com/rivo/uniseg					 v0.1.0 \
 	github.com/rivo/uniseg					 v0.2.0 \
 	github.com/rogpeppe/go-internal				 v1.3.0 \
@@ -1086,7 +1093,6 @@ MODGO_MODFILES=	\
 	github.com/weppos/publicsuffix-go			 v0.12.0 \
 	github.com/weppos/publicsuffix-go			 v0.13.0 \
 	github.com/weppos/publicsuffix-go			 v0.15.1-0.20210511084619-b1f36a2d6c0b \
-	github.com/weppos/publicsuffix-go			 v0.15.1-0.20220724114530-e087fba66a37 \
 	github.com/weppos/publicsuffix-go			 v0.30.0 \
 	github.com/weppos/publicsuffix-go			 v0.30.1-0.20230422193905-8fecedd899db \
 	github.com/xanzy/ssh-agent				 v0.2.1 \
@@ -1102,7 +1108,6 @@ MODGO_MODFILES=	\
 	github.com/zmap/zcrypto					 v0.0.0-20201128221613-3719af1573cf \
 	github.com/zmap/zcrypto					 v0.0.0-20201211161100-e54a5822fb7e \
 	github.com/zmap/zcrypto					 v0.0.0-20210511125630-18f1e0152cfc \
-	github.com/zmap/zcrypto					 v0.0.0-20220803033029-557f3e4940be \
 	github.com/zmap/zcrypto					 v0.0.0-20230310154051-c8b263fd8300 \
 	github.com/zmap/zcrypto					 v0.0.0-20230422215203-9a665e1e9968 \
 	github.com/zmap/zcrypto					 v0.0.0-20230814193918-dbe676986518 \
@@ -1155,10 +1160,10 @@ MODGO_MODFILES=	\
 	golang.org/x/crypto					 v0.0.0-20220722155217-630584e8d5aa \
 	golang.org/x/crypto					 v0.10.0 \
 	golang.org/x/crypto					 v0.11.0 \
-	golang.org/x/crypto					 v0.12.0 \
 	golang.org/x/crypto					 v0.13.0 \
 	golang.org/x/crypto					 v0.14.0 \
 	golang.org/x/crypto					 v0.16.0 \
+	golang.org/x/crypto					 v0.17.0 \
 	golang.org/x/crypto					 v0.3.0 \
 	golang.org/x/crypto					 v0.3.1-0.20221117191849-2c476679df9a \
 	golang.org/x/crypto					 v0.4.0 \
@@ -1263,7 +1268,7 @@ MODGO_MODFILES=	\
 	golang.org/x/net					 v0.14.0 \
 	golang.org/x/net					 v0.15.0 \
 	golang.org/x/net					 v0.17.0 \
-	golang.org/x/net					 v0.18.0 \
+	golang.org/x/net					 v0.19.0 \
 	golang.org/x/net					 v0.2.0 \
 	golang.org/x/net					 v0.5.0 \
 	golang.org/x/net					 v0.6.0 \
@@ -1366,10 +1371,9 @@ MODGO_MODFILES=	\
 	golang.org/x/sys					 v0.0.0-20220811171246-fbc7d0a398ab \
 	golang.org/x/sys					 v0.1.0 \
 	golang.org/x/sys					 v0.10.0 \
-	golang.org/x/sys					 v0.11.0 \
 	golang.org/x/sys					 v0.12.0 \
 	golang.org/x/sys					 v0.13.0 \
-	golang.org/x/sys					 v0.14.0 \
+	golang.org/x/sys					 v0.15.0 \
 	golang.org/x/sys					 v0.2.0 \
 	golang.org/x/sys					 v0.3.0 \
 	golang.org/x/sys					 v0.4.0 \
@@ -1384,6 +1388,7 @@ MODGO_MODFILES=	\
 	golang.org/x/term					 v0.0.0-20210927222741-03fcf44c2211 \
 	golang.org/x/term					 v0.0.0-20220722155259-a9ba230a4035 \
 	golang.org/x/term					 v0.10.0 \
+	golang.org/x/term					 v0.15.0 \
 	golang.org/x/term					 v0.2.0 \
 	golang.org/x/term					 v0.4.0 \
 	golang.org/x/term					 v0.5.0 \
@@ -1393,7 +1398,6 @@ MODGO_MODFILES=	\
 	golang.org/x/text					 v0.0.0-20170915032832-14c0d48ead0c \
 	golang.org/x/text					 v0.10.0 \
 	golang.org/x/text					 v0.11.0 \
-	golang.org/x/text					 v0.12.0 \
 	golang.org/x/text					 v0.13.0 \
 	golang.org/x/text					 v0.3.0 \
 	golang.org/x/text					 v0.3.1-0.20180807135948-17ff2d5776d2 \
