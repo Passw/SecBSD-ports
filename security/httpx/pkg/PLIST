@@ -1,3 +1,1 @@
-@bin bin/functional-test
 @bin bin/httpx
-@bin bin/integration-test
