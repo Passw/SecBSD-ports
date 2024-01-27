@@ -1,6 +1,6 @@
 COMMENT=	multi-purpose HTTP toolkit
 
-V=	1.3.7
+V=		1.3.9
 MODGO_MODNAME=	github.com/projectdiscovery/httpx
 MODGO_VERSION=	v${V}
 
