@@ -159,10 +159,11 @@ SHA256 (go_modules/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401
 SHA256 (go_modules/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.zip) = Klz3yaJwn2Sf1QjLrLK+luT7pNU0oooSLuTXV0r0C14=
 SHA256 (go_modules/github.com/antchfx/htmlquery/@v/v1.3.0.mod) = y2zOrctaxzHOXyWVSyHTg4lWSgXP+TEWuVZEaBkNh6I=
 SHA256 (go_modules/github.com/antchfx/htmlquery/@v/v1.3.0.zip) = kEjYvltkaWHqHmXMfYy4wr8cOS17xIcd9GVrhaf/2Dg=
-SHA256 (go_modules/github.com/antchfx/xmlquery/@v/v1.3.15.mod) = c26VeljOAtvqAmNiLezefZMtujrXe749OfYBBJhbdb8=
-SHA256 (go_modules/github.com/antchfx/xmlquery/@v/v1.3.15.zip) = z5vWR5iX4cdOZPTilWupbooxD4XlRMQebOAdymomNPI=
+SHA256 (go_modules/github.com/antchfx/xmlquery/@v/v1.3.17.mod) = XH/KXcTxvrNLScZZghDa5ePOPGuZaygmFJLsKyiOPyE=
+SHA256 (go_modules/github.com/antchfx/xmlquery/@v/v1.3.17.zip) = VDQjclWy4ULXsCVzS580SP+ggNQZjOT7ZH2Cxr3Sa00=
 SHA256 (go_modules/github.com/antchfx/xpath/@v/v1.2.3.mod) = 9X8ykYTji9fMLLqXqMxqt/WajXfHUYiVGFmJcPd+vzM=
-SHA256 (go_modules/github.com/antchfx/xpath/@v/v1.2.3.zip) = fc+sX3umNx2XoqS6ayMlR+lUa/+sq6yQzE1LM99fBdQ=
+SHA256 (go_modules/github.com/antchfx/xpath/@v/v1.2.4.mod) = 9X8ykYTji9fMLLqXqMxqt/WajXfHUYiVGFmJcPd+vzM=
+SHA256 (go_modules/github.com/antchfx/xpath/@v/v1.2.4.zip) = OMg1gSLbZeto3//Iwgs+VPMOPG2wEsz/MKFB3b42aAg=
 SHA256 (go_modules/github.com/antonfisher/nested-logrus-formatter/@v/v1.3.1.mod) = isOqamhdy3+D5w1FTRFSUALJg3GKd6R6XUnJ3QCGGgc=
 SHA256 (go_modules/github.com/antonfisher/nested-logrus-formatter/@v/v1.3.1.zip) = FEBjFNf0xv1oMcxzygoUes0iJ9/IZSonbIG1RD8/g8I=
 SHA256 (go_modules/github.com/apache/thrift/@v/v0.12.0.mod) = LoE1zWTsviH7A951gdbZBcOqZ0KXy7EEEGFB3HN3v1w=
@@ -352,7 +353,6 @@ SHA256 (go_modules/github.com/creack/pty/@v/v1.1.18.mod) = BBOkGR3M1sdbDMdMtxrxV
 SHA256 (go_modules/github.com/creack/pty/@v/v1.1.18.zip) = fcrad4LgTw1LR9UNTvNfNvLID5CSMQGRSUgEKb2xduU=
 SHA256 (go_modules/github.com/creack/pty/@v/v1.1.7.mod) = XsMdMbaMi5hU4SHgnVeUROt3CLK4FaB4v6RSwuJbexQ=
 SHA256 (go_modules/github.com/creack/pty/@v/v1.1.9.mod) = 6rBwW8ShjdMVwnpOPbqPIKnhIwZfogYzlmMytczPdzE=
-SHA256 (go_modules/github.com/cyphar/filepath-securejoin/@v/v0.2.3.mod) = 3H2HZHOPLSMbofLvWkVzpI/kD2Rby4spHkIGljRXJTc=
 SHA256 (go_modules/github.com/cyphar/filepath-securejoin/@v/v0.2.4.mod) = 3H2HZHOPLSMbofLvWkVzpI/kD2Rby4spHkIGljRXJTc=
 SHA256 (go_modules/github.com/cyphar/filepath-securejoin/@v/v0.2.4.zip) = CvlOtZEz/aaf0ETa/6fWK6Do0nFtT7HEJPPirWNtPjQ=
 SHA256 (go_modules/github.com/dave/dst/@v/v0.27.2.mod) = /GeAqG9dPGyXtYU9iBeRU491N5T08Frzou3abJX/P9U=
@@ -1016,8 +1016,8 @@ SHA256 (go_modules/github.com/montanaflynn/stats/@v/v0.7.0.zip) = ZhVGvrfEn5Kix5
 SHA256 (go_modules/github.com/mreiferson/go-httpclient/@v/v0.0.0-20160630210159-31f0106b4474.mod) = 9Y+suO9vdX0cp73dkgfemh1kBDnU2go/ErVqJ6g20Ak=
 SHA256 (go_modules/github.com/mreiferson/go-httpclient/@v/v0.0.0-20201222173833-5e475fde3a4d.mod) = 9Y+suO9vdX0cp73dkgfemh1kBDnU2go/ErVqJ6g20Ak=
 SHA256 (go_modules/github.com/mreiferson/go-httpclient/@v/v0.0.0-20201222173833-5e475fde3a4d.zip) = mBalEh2fY8/NlI6mQvZiXYXqaEyCrNwHZt2gy35+gFo=
-SHA256 (go_modules/github.com/mrunalp/fileutils/@v/v0.5.0.mod) = XoLoe5PYAUYQs0fE89vH2rjy7hn89AuaV2aF6RBnTOk=
-SHA256 (go_modules/github.com/mrunalp/fileutils/@v/v0.5.0.zip) = ICpuM7UZ3cvs5wjDd5hFEUu3Mk1Mn/mJn3xPgPHnsb8=
+SHA256 (go_modules/github.com/mrunalp/fileutils/@v/v0.5.1.mod) = XoLoe5PYAUYQs0fE89vH2rjy7hn89AuaV2aF6RBnTOk=
+SHA256 (go_modules/github.com/mrunalp/fileutils/@v/v0.5.1.zip) = pLN3Cp+go9bgEzjqCxpyM66mIE3kY+dBtHj9SQqei1I=
 SHA256 (go_modules/github.com/muesli/reflow/@v/v0.3.0.mod) = 8ZPP14aU7/+C9iJsElLKnRgm3W3SwmYkIr5MTeLNtzk=
 SHA256 (go_modules/github.com/muesli/reflow/@v/v0.3.0.zip) = eOLOv1pGqbfHxS1V1KxGUMq9kTXxgAkuP0dik7uGaW4=
 SHA256 (go_modules/github.com/muesli/termenv/@v/v0.13.0.mod) = /qLIlv+jt0qZsl+xLMnNovcK0vxojQfkpUrA2r1da+w=
@@ -1071,10 +1071,10 @@ SHA256 (go_modules/github.com/opencontainers/go-digest/@v/v1.0.0.mod) = jeAlCkum
 SHA256 (go_modules/github.com/opencontainers/go-digest/@v/v1.0.0.zip) = YV77Mf9s1xA1uKo4w2Wdi02kbzzZKsgHy1BEmt/jfIY=
 SHA256 (go_modules/github.com/opencontainers/image-spec/@v/v1.0.2.mod) = Z7z4WVaRJ1BFCCvgjMc1OHhOz/x2xY267Wwx7eo/6fY=
 SHA256 (go_modules/github.com/opencontainers/image-spec/@v/v1.0.2.zip) = 2EISe2A4wadMK7YJ11vd4KycfN5cNUrILE+VPOCNDAg=
+SHA256 (go_modules/github.com/opencontainers/runc/@v/v1.1.12.mod) = 2KlOj99+lKfPS6DWb+rJzI6fXatFjinbcidxB7+aC3A=
+SHA256 (go_modules/github.com/opencontainers/runc/@v/v1.1.12.zip) = e2yHQnci0l/d8g60buJpU0atxx9MpFm8PG714xohx8Q=
 SHA256 (go_modules/github.com/opencontainers/runc/@v/v1.1.3.mod) = KkX35QURIwXP2BYELBDUQJN7eapsNEMV9pLfUuPLoMU=
 SHA256 (go_modules/github.com/opencontainers/runc/@v/v1.1.5.mod) = KkX35QURIwXP2BYELBDUQJN7eapsNEMV9pLfUuPLoMU=
-SHA256 (go_modules/github.com/opencontainers/runc/@v/v1.1.9.mod) = RSC6YnJGxi4N0T8n3fkQXMOsf6cg9gJ/EM2fgpqisqE=
-SHA256 (go_modules/github.com/opencontainers/runc/@v/v1.1.9.zip) = TaBVGlCBkDalIaRbYdOqOMCDkXbAKlQS9rQXi4zsNe0=
 SHA256 (go_modules/github.com/opencontainers/runtime-spec/@v/v1.0.3-0.20210326190908-1c3f411f0417.mod) = CerkHiSiGY1lYvcFG9cmdGbDfeg0LZrvPqonGFu5cWg=
 SHA256 (go_modules/github.com/opencontainers/runtime-spec/@v/v1.0.3-0.20210326190908-1c3f411f0417.zip) = UZfLJPT50pKHqy+G1K1G4ZodBClAsVbUWLMM4rZBzl4=
 SHA256 (go_modules/github.com/opencontainers/selinux/@v/v1.10.0.mod) = IkVUytVH6oCzS1gu5MP4SOQuVegceBOx0mq6nW75pdA=
@@ -1174,7 +1174,8 @@ SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.28.mod) = 80yrDfc
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.29.mod) = Eg7L4kkinfOrSXltF42c+hvXylqqVgJxXjAzURqVcL4=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.35.mod) = 43YlRRtwuguM8mThwDZcCfEdi1BpzBRGJNFAlIOVT1c=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.36.mod) = QB29hlK3xT5tD5Lsxbs4JRsNKvfNKBE4rKVAHMqpav8=
-SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.36.zip) = +zIgRrHW6f9VlPCTsi6IltSDyPPeU8Dl0GHVmzEwBKc=
+SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.37.mod) = AkjfSY2TOtJrsIGDkeXnJr6yyUvrPGb+ov98sekkWMM=
+SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.37.zip) = P/K/HWbxnCWRZnSgV/zt/cZibPvrIn2XVwiNLNq5IME=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.8.mod) = FkvSn4lWLbniJeoC4BBe2HlAUDekOwiboQoU7WLtNtU=
 SHA256 (go_modules/github.com/projectdiscovery/gologger/@v/v1.1.10.mod) = 0gX3omq1OlD+BAWcAYuhiLUANfyhC2j2CEEZbn1+Qps=
 SHA256 (go_modules/github.com/projectdiscovery/gologger/@v/v1.1.11.mod) = w4GKZaGIRk3yPoO6C/YlgzX8qmq8jUeFhOq+D8wX5mA=
@@ -1241,6 +1242,8 @@ SHA256 (go_modules/github.com/projectdiscovery/tlsx/@v/v1.1.6.mod) = kSr0zdCdd9u
 SHA256 (go_modules/github.com/projectdiscovery/tlsx/@v/v1.1.6.zip) = vU0dXx6TF0ox9S3WvxyldTuAEHRoEY7RZOJyoE9L+NM=
 SHA256 (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.mod) = cejCkA2RjRskAcGZJC4FPkvDy5Lx7mLgobTZhNsEifY=
 SHA256 (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.zip) = WojDu8+xJPp2ZlS1ntX5oYQH7Lo/QNcZ8OpFTumAbzI=
+SHA256 (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.35.mod) = juRHYEFGDWuS5DXNeWoMufXgFePpVwTBFz1urdmDSZU=
+SHA256 (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.35.zip) = GZbvu7HNSn17LYISY3yZLDCS6cPG3CJl7o6Mh7XmnjA=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.36.mod) = dR4+633wXYFxFNSgsr9T6O523xbkX7cY88yiF4Ehuuw=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.44.mod) = 4r5yArZkTIlq6ZYZ/m8Cot4JdXDuVgpoK+bFs/9QVSM=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.54.mod) = DGnJp+kzhTGQbUVMvG10oEiXRE1KR681hgCrUSBVfhc=
@@ -2236,7 +2239,7 @@ SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 8ikTVRI4fWZj4fCZmkkiq3CN7Uv
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = Ve0Ixd9EigM79+LCkS1NqoW4VqBchUsMh8zIXH8/v8c=
 SHA256 (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.mod) = W6+HkS6bnGFVJJiJDke0WyjQPHOLYw7fbXxwxlsKxGI=
 SHA256 (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.zip) = vSSS2dsFNiwv7NCz0PYALImm2Q1nj7k7QVgpiriDc28=
-SHA256 (nuclei-v3.1.8.zip) = KNuk5MoW9l1rTFKdgm32iBiF51nCUWbfYrpsdyahkv0=
+SHA256 (nuclei-v3.1.10.zip) = 0Pa3kKhcrulCyuOGhIyJxOl0TWTJI7TLPxQwPW3isi0=
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.mod) = 222
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.zip) = 27045
 SIZE (go_modules/bitbucket.org/creachadair/shell/@v/v0.0.7.mod) = 89
@@ -2398,10 +2401,11 @@ SIZE (go_modules/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2
 SIZE (go_modules/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.zip) = 5367
 SIZE (go_modules/github.com/antchfx/htmlquery/@v/v1.3.0.mod) = 181
 SIZE (go_modules/github.com/antchfx/htmlquery/@v/v1.3.0.zip) = 10314
-SIZE (go_modules/github.com/antchfx/xmlquery/@v/v1.3.15.mod) = 180
-SIZE (go_modules/github.com/antchfx/xmlquery/@v/v1.3.15.zip) = 28221
+SIZE (go_modules/github.com/antchfx/xmlquery/@v/v1.3.17.mod) = 180
+SIZE (go_modules/github.com/antchfx/xmlquery/@v/v1.3.17.zip) = 29043
 SIZE (go_modules/github.com/antchfx/xpath/@v/v1.2.3.mod) = 41
-SIZE (go_modules/github.com/antchfx/xpath/@v/v1.2.3.zip) = 34738
+SIZE (go_modules/github.com/antchfx/xpath/@v/v1.2.4.mod) = 41
+SIZE (go_modules/github.com/antchfx/xpath/@v/v1.2.4.zip) = 35578
 SIZE (go_modules/github.com/antonfisher/nested-logrus-formatter/@v/v1.3.1.mod) = 54
 SIZE (go_modules/github.com/antonfisher/nested-logrus-formatter/@v/v1.3.1.zip) = 7046
 SIZE (go_modules/github.com/apache/thrift/@v/v0.12.0.mod) = 32
@@ -2591,7 +2595,6 @@ SIZE (go_modules/github.com/creack/pty/@v/v1.1.18.mod) = 38
 SIZE (go_modules/github.com/creack/pty/@v/v1.1.18.zip) = 26597
 SIZE (go_modules/github.com/creack/pty/@v/v1.1.7.mod) = 29
 SIZE (go_modules/github.com/creack/pty/@v/v1.1.9.mod) = 39
-SIZE (go_modules/github.com/cyphar/filepath-securejoin/@v/v0.2.3.mod) = 54
 SIZE (go_modules/github.com/cyphar/filepath-securejoin/@v/v0.2.4.mod) = 54
 SIZE (go_modules/github.com/cyphar/filepath-securejoin/@v/v0.2.4.zip) = 9553
 SIZE (go_modules/github.com/dave/dst/@v/v0.27.2.mod) = 327
@@ -3255,8 +3258,8 @@ SIZE (go_modules/github.com/montanaflynn/stats/@v/v0.7.0.zip) = 75630
 SIZE (go_modules/github.com/mreiferson/go-httpclient/@v/v0.0.0-20160630210159-31f0106b4474.mod) = 43
 SIZE (go_modules/github.com/mreiferson/go-httpclient/@v/v0.0.0-20201222173833-5e475fde3a4d.mod) = 43
 SIZE (go_modules/github.com/mreiferson/go-httpclient/@v/v0.0.0-20201222173833-5e475fde3a4d.zip) = 6689
-SIZE (go_modules/github.com/mrunalp/fileutils/@v/v0.5.0.mod) = 45
-SIZE (go_modules/github.com/mrunalp/fileutils/@v/v0.5.0.zip) = 8322
+SIZE (go_modules/github.com/mrunalp/fileutils/@v/v0.5.1.mod) = 45
+SIZE (go_modules/github.com/mrunalp/fileutils/@v/v0.5.1.zip) = 8345
 SIZE (go_modules/github.com/muesli/reflow/@v/v0.3.0.mod) = 136
 SIZE (go_modules/github.com/muesli/reflow/@v/v0.3.0.zip) = 32234
 SIZE (go_modules/github.com/muesli/termenv/@v/v0.13.0.mod) = 267
@@ -3310,10 +3313,10 @@ SIZE (go_modules/github.com/opencontainers/go-digest/@v/v1.0.0.mod) = 52
 SIZE (go_modules/github.com/opencontainers/go-digest/@v/v1.0.0.zip) = 34573
 SIZE (go_modules/github.com/opencontainers/image-spec/@v/v1.0.2.mod) = 44
 SIZE (go_modules/github.com/opencontainers/image-spec/@v/v1.0.2.zip) = 170711
+SIZE (go_modules/github.com/opencontainers/runc/@v/v1.1.12.mod) = 1254
+SIZE (go_modules/github.com/opencontainers/runc/@v/v1.1.12.zip) = 793887
 SIZE (go_modules/github.com/opencontainers/runc/@v/v1.1.3.mod) = 1022
 SIZE (go_modules/github.com/opencontainers/runc/@v/v1.1.5.mod) = 1022
-SIZE (go_modules/github.com/opencontainers/runc/@v/v1.1.9.mod) = 1254
-SIZE (go_modules/github.com/opencontainers/runc/@v/v1.1.9.zip) = 781939
 SIZE (go_modules/github.com/opencontainers/runtime-spec/@v/v1.0.3-0.20210326190908-1c3f411f0417.mod) = 46
 SIZE (go_modules/github.com/opencontainers/runtime-spec/@v/v1.0.3-0.20210326190908-1c3f411f0417.zip) = 95039
 SIZE (go_modules/github.com/opencontainers/selinux/@v/v1.10.0.mod) = 111
@@ -3413,7 +3416,8 @@ SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.28.mod) = 995
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.29.mod) = 995
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.35.mod) = 995
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.36.mod) = 997
-SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.36.zip) = 93631
+SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.37.mod) = 997
+SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.37.zip) = 93634
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.8.mod) = 1040
 SIZE (go_modules/github.com/projectdiscovery/gologger/@v/v1.1.10.mod) = 888
 SIZE (go_modules/github.com/projectdiscovery/gologger/@v/v1.1.11.mod) = 889
@@ -3480,6 +3484,8 @@ SIZE (go_modules/github.com/projectdiscovery/tlsx/@v/v1.1.6.mod) = 5395
 SIZE (go_modules/github.com/projectdiscovery/tlsx/@v/v1.1.6.zip) = 218933
 SIZE (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.mod) = 5083
 SIZE (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.zip) = 78628
+SIZE (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.35.mod) = 1164
+SIZE (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.35.zip) = 41024
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.36.mod) = 3570
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.44.mod) = 3631
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.54.mod) = 3631
@@ -4475,4 +4481,4 @@ SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 106
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = 20937
 SIZE (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.mod) = 43
 SIZE (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.zip) = 158069
-SIZE (nuclei-v3.1.8.zip) = 2431993
+SIZE (nuclei-v3.1.10.zip) = 2440678

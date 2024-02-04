@@ -55,8 +55,8 @@ MODGO_MODULES=	\
 	github.com/andygrunwald/go-jira							 v1.16.0 \
 	github.com/anmitsu/go-shlex							 v0.0.0-20200514113438-38f4b401e2be \
 	github.com/antchfx/htmlquery							 v1.3.0 \
-	github.com/antchfx/xmlquery							 v1.3.15 \
-	github.com/antchfx/xpath							 v1.2.3 \
+	github.com/antchfx/xmlquery							 v1.3.17 \
+	github.com/antchfx/xpath							 v1.2.4 \
 	github.com/antonfisher/nested-logrus-formatter					 v1.3.1 \
 	github.com/apache/thrift							 v0.13.0 \
 	github.com/armon/circbuf							 v0.0.0-20150827004946-bbbad097214e \
@@ -376,7 +376,7 @@ MODGO_MODULES=	\
 	github.com/modocache/gover							 v0.0.0-20171022184752-b58185e213c5 \
 	github.com/montanaflynn/stats							 v0.7.0 \
 	github.com/mreiferson/go-httpclient						 v0.0.0-20201222173833-5e475fde3a4d \
-	github.com/mrunalp/fileutils							 v0.5.0 \
+	github.com/mrunalp/fileutils							 v0.5.1 \
 	github.com/muesli/reflow							 v0.3.0 \
 	github.com/muesli/termenv							 v0.15.1 \
 	github.com/mwitkow/go-conntrack							 v0.0.0-20190716064945-2f068394615f \
@@ -398,7 +398,7 @@ MODGO_MODULES=	\
 	github.com/op/go-logging							 v0.0.0-20160315200505-970db520ece7 \
 	github.com/opencontainers/go-digest						 v1.0.0 \
 	github.com/opencontainers/image-spec						 v1.0.2 \
-	github.com/opencontainers/runc							 v1.1.9 \
+	github.com/opencontainers/runc							 v1.1.12 \
 	github.com/opencontainers/runtime-spec						 v1.0.3-0.20210326190908-1c3f411f0417 \
 	github.com/opencontainers/selinux						 v1.10.0 \
 	github.com/opentracing-contrib/go-observer					 v0.0.0-20170622124052-a52f23424492 \
@@ -437,7 +437,7 @@ MODGO_MODULES=	\
 	github.com/projectdiscovery/freeport						 v0.0.5 \
 	github.com/projectdiscovery/go-smb2						 v0.0.0-20240129202741-052cc450c6cb \
 	github.com/projectdiscovery/goconfig						 v0.0.1 \
-	github.com/projectdiscovery/goflags						 v0.1.36 \
+	github.com/projectdiscovery/goflags						 v0.1.37 \
 	github.com/projectdiscovery/gologger						 v1.1.12 \
 	github.com/projectdiscovery/gostruct						 v0.0.2 \
 	github.com/projectdiscovery/gozero						 v0.0.1 \
@@ -457,6 +457,7 @@ MODGO_MODULES=	\
 	github.com/projectdiscovery/stringsutil						 v0.0.2 \
 	github.com/projectdiscovery/tlsx						 v1.1.6 \
 	github.com/projectdiscovery/uncover						 v1.0.7 \
+	github.com/projectdiscovery/useragent						 v0.0.35 \
 	github.com/projectdiscovery/utils						 v0.0.76 \
 	github.com/projectdiscovery/wappalyzergo					 v0.0.109 \
 	github.com/projectdiscovery/yamldoc-go						 v1.0.4 \
@@ -706,6 +707,7 @@ MODGO_MODFILES=	\
 	github.com/andybalholm/brotli				 v1.0.6 \
 	github.com/andybalholm/cascadia				 v1.3.1 \
 	github.com/anmitsu/go-shlex				 v0.0.0-20161002113705-648efa622239 \
+	github.com/antchfx/xpath				 v1.2.3 \
 	github.com/apache/thrift				 v0.12.0 \
 	github.com/asaskevich/govalidator			 v0.0.0-20210307081110-f21760c49a8d \
 	github.com/aws/aws-sdk-go				 v1.27.0 \
@@ -735,7 +737,6 @@ MODGO_MODFILES=	\
 	github.com/cpuguy83/go-md2man/v2			 v2.0.0-20190314233015-f79a8a8ca69d \
 	github.com/creack/pty					 v1.1.7 \
 	github.com/creack/pty					 v1.1.9 \
-	github.com/cyphar/filepath-securejoin			 v0.2.3 \
 	github.com/davecgh/go-spew				 v1.1.0 \
 	github.com/dlclark/regexp2				 v1.4.0 \
 	github.com/dlclark/regexp2				 v1.4.1-0.20201116162257-a2a8dda75c91 \
@@ -956,6 +957,7 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/goflags			 v0.1.28 \
 	github.com/projectdiscovery/goflags			 v0.1.29 \
 	github.com/projectdiscovery/goflags			 v0.1.35 \
+	github.com/projectdiscovery/goflags			 v0.1.36 \
 	github.com/projectdiscovery/goflags			 v0.1.8 \
 	github.com/projectdiscovery/gologger			 v1.1.10 \
 	github.com/projectdiscovery/gologger			 v1.1.11 \
