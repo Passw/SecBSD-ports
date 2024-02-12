@@ -2,22 +2,25 @@ COMMENT=	information gathering suite
 CATEGORIES=	security
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-DIST_TUPLE=	github laramies theHarvester 4.4.4 .
+DIST_TUPLE=	github laramies theHarvester 4.5.1 .
 
 HOMEPAGE=	https://github.com/laramies/theHarvester
 
 # GPLv2
 PERMIT_PACKAGE=	Yes
+
 NO_BUILD=	Yes
 NO_TEST=	Yes
 
 MODULES=	lang/python
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		devel/py-certifi${MODPY_FLAVOR} \
+BUILD_DEPENDS=	devel/py-vcversioner${MODPY_FLAVOR}
+
+RUN_DEPENDS=	devel/py-certifi${MODPY_FLAVOR} \
 		devel/py-dateutil${MODPY_FLAVOR} \
 		devel/py-fastapi${MODPY_FLAVOR} \
 		devel/py-retrying${MODPY_FLAVOR} \
+		devel/py-pyee${MODPY_FLAVOR} \
 		devel/py-setuptools${MODPY_FLAVOR} \
 		devel/py-slowapi${MODPY_FLAVOR} \
 		devel/py-ujson${MODPY_FLAVOR} \
@@ -49,6 +52,6 @@ do-install:
 	rm -rf ${WRKDIST}/.github ${WRKDIST}/theHarvester-logo.*
 	cp -r ${WRKDIST} ${INSTDIR}
 	chmod 755 ${INSTDIR}/theHarvester.py
-	ln -s ${TRUEPREFIX}/share/theharvester/theHarvester.py ${PREFIX}/bin/theHarvester
+	ln -s ${TRUEPREFIX}/share/theharvester/theHarvester.py ${PREFIX}/bin/theharvester
 
 .include <bsd.port.mk>
