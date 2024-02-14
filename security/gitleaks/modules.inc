@@ -6,6 +6,7 @@ MODGO_MODULES =	\
 	cloud.google.com/go/pubsub				 v1.3.1 \
 	cloud.google.com/go/storage				 v1.10.0 \
 	dmitri.shuralyov.com/gpu/mtl				 v0.0.0-20190408044501-666a987793e9 \
+	github.com/!bobu!sumisu/aho-corasick			 v1.0.3 \
 	github.com/!burnt!sushi/toml				 v0.3.1 \
 	github.com/!burnt!sushi/xgb				 v0.0.0-20160522181843-27f122750802 \
 	github.com/antihax/optional				 v1.0.0 \
@@ -101,7 +102,6 @@ MODGO_MODULES =	\
 	github.com/muesli/termenv				 v0.15.1 \
 	github.com/pascaldekloe/goe				 v0.0.0-20180627143212-57f6aae5913c \
 	github.com/pelletier/go-toml				 v1.9.3 \
-	github.com/petar-dambovaliev/aho-corasick		 v0.0.0-20211021192214-5ab2d9280aa9 \
 	github.com/pkg/errors					 v0.9.1 \
 	github.com/pkg/sftp					 v1.10.1 \
 	github.com/pmezard/go-difflib				 v1.0.0 \

@@ -1,4 +1,4 @@
-SHA256 (gitleaks-v8.18.0.zip) = 1qKPE5uLvG1hvUCg3kdv0Qhrt/owBNPZsLqYc55iRys=
+SHA256 (gitleaks-v8.18.2.zip) = PdvP2K8nC3e0OlWbxjTOOsd25QtSy1PrARYCOOOmCi8=
 SHA256 (go_modules/cloud.google.com/go/@v/v0.26.0.mod) = IhijTyC5cbwZUhbUGV9XUgoqy9hd5/wxrPxEAmZwTBE=
 SHA256 (go_modules/cloud.google.com/go/@v/v0.34.0.mod) = IhijTyC5cbwZUhbUGV9XUgoqy9hd5/wxrPxEAmZwTBE=
 SHA256 (go_modules/cloud.google.com/go/@v/v0.38.0.mod) = IRVe7cPkx6CccZziPHA/vxTDSspC7QDcCHdN5uu+gAc=
@@ -45,6 +45,8 @@ SHA256 (go_modules/cloud.google.com/go/storage/@v/v1.6.0.mod) = LyqETUzzdDAyU04Q
 SHA256 (go_modules/cloud.google.com/go/storage/@v/v1.8.0.mod) = UAjocNysCFV4giSP2IjSizFIH41AmKkZHeRz2Q4yS2A=
 SHA256 (go_modules/dmitri.shuralyov.com/gpu/mtl/@v/v0.0.0-20190408044501-666a987793e9.mod) = +sTF2PaC+eyXchsvyf1TBiqxcLLSt/q4/8EK4YOhlR4=
 SHA256 (go_modules/dmitri.shuralyov.com/gpu/mtl/@v/v0.0.0-20190408044501-666a987793e9.zip) = ylMwkB/NqD0JVTrDYldtGWxTEVe8nFAudrI3zKJitAA=
+SHA256 (go_modules/github.com/!bobu!sumisu/aho-corasick/@v/v1.0.3.mod) = zyHImAIYZ5j2iPlcRyqTystmwM6CJw9blffW7NlFi18=
+SHA256 (go_modules/github.com/!bobu!sumisu/aho-corasick/@v/v1.0.3.zip) = fxLeWlDHfWAmrWCQWBPWp4JqVIm8l9rYh6bQcsnqi+0=
 SHA256 (go_modules/github.com/!burnt!sushi/toml/@v/v0.3.1.mod) = KAIbQYClnDmTYHqVsY4jDdC8a+pSQv/o6ou/tPT3tNc=
 SHA256 (go_modules/github.com/!burnt!sushi/toml/@v/v0.3.1.zip) = gVxuWUdF8tiEL/mksFacZpXmzf1eB+Wz2Y0GtyykHjw=
 SHA256 (go_modules/github.com/!burnt!sushi/xgb/@v/v0.0.0-20160522181843-27f122750802.mod) = luveICsJL29NHzkwvAfPGKVpmZjd6lG5T+hYETspqNg=
@@ -304,8 +306,6 @@ SHA256 (go_modules/github.com/pascaldekloe/goe/@v/v0.0.0-20180627143212-57f6aae5
 SHA256 (go_modules/github.com/pascaldekloe/goe/@v/v0.0.0-20180627143212-57f6aae5913c.zip) = +htlOi5GAZQVA5Phhq+WfIsdJIESUqrBL5q0R0vu/cY=
 SHA256 (go_modules/github.com/pelletier/go-toml/@v/v1.9.3.mod) = wOwmx/hD02ii1ak5A1nFZ+vjFhcb1lHTHc6tG7Lgetk=
 SHA256 (go_modules/github.com/pelletier/go-toml/@v/v1.9.3.zip) = pS9KDV2Pbpi7/Ek+yUfhvkS48wQAXSBZ7MTFk4txKWE=
-SHA256 (go_modules/github.com/petar-dambovaliev/aho-corasick/@v/v0.0.0-20211021192214-5ab2d9280aa9.mod) = DuO7KE+Lw1IjgFkE5xTExVcMds6KDEFN40uF/xXoVE8=
-SHA256 (go_modules/github.com/petar-dambovaliev/aho-corasick/@v/v0.0.0-20211021192214-5ab2d9280aa9.zip) = i3tK4ijmxfNIIqPNfHx8O65n16B/cQfgqbz12zc0Hr0=
 SHA256 (go_modules/github.com/pkg/errors/@v/v0.8.1.mod) = 3yjGqCPxgddheWlxd8DFlDxv+zjzwQstxTvjYO59RYk=
 SHA256 (go_modules/github.com/pkg/errors/@v/v0.9.1.mod) = 3yjGqCPxgddheWlxd8DFlDxv+zjzwQstxTvjYO59RYk=
 SHA256 (go_modules/github.com/pkg/errors/@v/v0.9.1.zip) = 1MNri80GFikKORMhXg9TuTG9bgBnBZbylg3xtEryvQc=
@@ -758,7 +758,7 @@ SHA256 (go_modules/rsc.io/quote/v3/@v/v3.1.0.mod) = shHZ8WtVQpcPA6LmJJ30UDgwSjeh
 SHA256 (go_modules/rsc.io/quote/v3/@v/v3.1.0.zip) = tDTLv8MsF7UijQsO3erqib707JvZC1yPxVtk+M4T7rk=
 SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.mod) = oq5uhUCkC4XldwPMYYuZxbEHU4bZWOiZmg4tTALzpwU=
 SHA256 (go_modules/rsc.io/sampler/@v/v1.3.0.zip) = 2iArDagDqyZhq5imgLuk9kEjoyblQMJVgrbNu53BFKo=
-SIZE (gitleaks-v8.18.0.zip) = 250499
+SIZE (gitleaks-v8.18.2.zip) = 282492
 SIZE (go_modules/cloud.google.com/go/@v/v0.26.0.mod) = 27
 SIZE (go_modules/cloud.google.com/go/@v/v0.34.0.mod) = 27
 SIZE (go_modules/cloud.google.com/go/@v/v0.38.0.mod) = 1006
@@ -805,6 +805,8 @@ SIZE (go_modules/cloud.google.com/go/storage/@v/v1.6.0.mod) = 736
 SIZE (go_modules/cloud.google.com/go/storage/@v/v1.8.0.mod) = 622
 SIZE (go_modules/dmitri.shuralyov.com/gpu/mtl/@v/v0.0.0-20190408044501-666a987793e9.mod) = 36
 SIZE (go_modules/dmitri.shuralyov.com/gpu/mtl/@v/v0.0.0-20190408044501-666a987793e9.zip) = 33828
+SIZE (go_modules/github.com/!bobu!sumisu/aho-corasick/@v/v1.0.3.mod) = 51
+SIZE (go_modules/github.com/!bobu!sumisu/aho-corasick/@v/v1.0.3.zip) = 5064167
 SIZE (go_modules/github.com/!burnt!sushi/toml/@v/v0.3.1.mod) = 34
 SIZE (go_modules/github.com/!burnt!sushi/toml/@v/v0.3.1.zip) = 56132
 SIZE (go_modules/github.com/!burnt!sushi/xgb/@v/v0.0.0-20160522181843-27f122750802.mod) = 33
@@ -1064,8 +1066,6 @@ SIZE (go_modules/github.com/pascaldekloe/goe/@v/v0.0.0-20180627143212-57f6aae591
 SIZE (go_modules/github.com/pascaldekloe/goe/@v/v0.0.0-20180627143212-57f6aae5913c.zip) = 25325
 SIZE (go_modules/github.com/pelletier/go-toml/@v/v1.9.3.mod) = 45
 SIZE (go_modules/github.com/pelletier/go-toml/@v/v1.9.3.zip) = 126646
-SIZE (go_modules/github.com/petar-dambovaliev/aho-corasick/@v/v0.0.0-20211021192214-5ab2d9280aa9.mod) = 58
-SIZE (go_modules/github.com/petar-dambovaliev/aho-corasick/@v/v0.0.0-20211021192214-5ab2d9280aa9.zip) = 75616
 SIZE (go_modules/github.com/pkg/errors/@v/v0.8.1.mod) = 29
 SIZE (go_modules/github.com/pkg/errors/@v/v0.9.1.mod) = 29
 SIZE (go_modules/github.com/pkg/errors/@v/v0.9.1.zip) = 17866
