@@ -714,6 +714,9 @@ share/metasploit/data/exploits/CVE-2023-21768/CVE-2023-21768.x64.dll
 share/metasploit/data/exploits/CVE-2023-21839/
 share/metasploit/data/exploits/CVE-2023-21839/PayloadRuns.class
 share/metasploit/data/exploits/CVE-2023-21839/PayloadRuns.java
+share/metasploit/data/exploits/CVE-2023-22518/
+share/metasploit/data/exploits/CVE-2023-22518/entities.xml
+share/metasploit/data/exploits/CVE-2023-22518/exportDescriptor.properties
 share/metasploit/data/exploits/CVE-2023-28252/
 share/metasploit/data/exploits/CVE-2023-28252/CVE-2023-28252.x64.dll
 share/metasploit/data/exploits/CVE-2023-34039/
@@ -742,6 +745,8 @@ share/metasploit/data/exploits/CVE-2023-34039/id_rsa_vnera_keypair_6.9.0_platfor
 share/metasploit/data/exploits/CVE-2023-36874/
 share/metasploit/data/exploits/CVE-2023-36874/CVE-2023-36874.exe
 share/metasploit/data/exploits/CVE-2023-36874/Report.wer
+share/metasploit/data/exploits/CVE-2023-4911/
+share/metasploit/data/exploits/CVE-2023-4911/cve_2023_4911.py
 share/metasploit/data/exploits/QTJavaExploit.class
 share/metasploit/data/exploits/R7_2015_17/
 share/metasploit/data/exploits/R7_2015_17/stream.raw
@@ -2306,6 +2311,7 @@ share/metasploit/docs/metasploit-framework.wiki/kerberos/
 share/metasploit/docs/metasploit-framework.wiki/kerberos/kerberoasting.md
 share/metasploit/docs/metasploit-framework.wiki/kerberos/overview.md
 share/metasploit/docs/metasploit-framework.wiki/kerberos/service_authentication.md
+share/metasploit/docs/metasploit-framework.wiki/kerberos/unconstrained_delegation.md
 share/metasploit/docs/navigation.rb
 share/metasploit/docs/robots.txt
 share/metasploit/documentation/
@@ -2492,6 +2498,7 @@ share/metasploit/documentation/modules/auxiliary/gather/
 share/metasploit/documentation/modules/auxiliary/gather/adobe_coldfusion_fileread_cve_2023_26360.md
 share/metasploit/documentation/modules/auxiliary/gather/advantech_webaccess_creds.md
 share/metasploit/documentation/modules/auxiliary/gather/apache_superset_cookie_sig_priv_esc.md
+share/metasploit/documentation/modules/auxiliary/gather/asrep.md
 share/metasploit/documentation/modules/auxiliary/gather/asterisk_creds.md
 share/metasploit/documentation/modules/auxiliary/gather/billquick_txtid_sqli.md
 share/metasploit/documentation/modules/auxiliary/gather/browser_getprivateip.md
@@ -2530,6 +2537,7 @@ share/metasploit/documentation/modules/auxiliary/gather/nuuo_cms_bruteforce.md
 share/metasploit/documentation/modules/auxiliary/gather/nuuo_cms_file_download.md
 share/metasploit/documentation/modules/auxiliary/gather/oats_downloadservlet_traversal.md
 share/metasploit/documentation/modules/auxiliary/gather/office365userenum.md
+share/metasploit/documentation/modules/auxiliary/gather/owncloud_phpinfo_reader.md
 share/metasploit/documentation/modules/auxiliary/gather/peplink_bauth_sqli.md
 share/metasploit/documentation/modules/auxiliary/gather/pimcore_creds_sqli.md
 share/metasploit/documentation/modules/auxiliary/gather/piwigo_cve_2023_26876.md
@@ -2547,6 +2555,7 @@ share/metasploit/documentation/modules/auxiliary/gather/samsung_browser_sop_bypa
 share/metasploit/documentation/modules/auxiliary/gather/shodan_honeyscore.md
 share/metasploit/documentation/modules/auxiliary/gather/shodan_host.md
 share/metasploit/documentation/modules/auxiliary/gather/snare_registry.md
+share/metasploit/documentation/modules/auxiliary/gather/splunk_raw_server_info.md
 share/metasploit/documentation/modules/auxiliary/gather/suite_crm_export_sqli.md
 share/metasploit/documentation/modules/auxiliary/gather/teamtalk_creds.md
 share/metasploit/documentation/modules/auxiliary/gather/tplink_archer_c7_traversal.md
@@ -2802,6 +2811,8 @@ share/metasploit/documentation/modules/auxiliary/scanner/mysql/
 share/metasploit/documentation/modules/auxiliary/scanner/mysql/mysql_authbypass_hashdump.md
 share/metasploit/documentation/modules/auxiliary/scanner/mysql/mysql_login.md
 share/metasploit/documentation/modules/auxiliary/scanner/mysql/mysql_version.md
+share/metasploit/documentation/modules/auxiliary/scanner/nessus/
+share/metasploit/documentation/modules/auxiliary/scanner/nessus/nessus_rest_login.md
 share/metasploit/documentation/modules/auxiliary/scanner/nfs/
 share/metasploit/documentation/modules/auxiliary/scanner/nfs/nfsmount.md
 share/metasploit/documentation/modules/auxiliary/scanner/nntp/
@@ -2878,6 +2889,7 @@ share/metasploit/documentation/modules/auxiliary/scanner/ssh/juniper_backdoor.md
 share/metasploit/documentation/modules/auxiliary/scanner/ssh/libssh_auth_bypass.md
 share/metasploit/documentation/modules/auxiliary/scanner/ssh/ssh_enum_git_keys.md
 share/metasploit/documentation/modules/auxiliary/scanner/ssh/ssh_enumusers.md
+share/metasploit/documentation/modules/auxiliary/scanner/ssh/ssh_identify_pubkeys.md
 share/metasploit/documentation/modules/auxiliary/scanner/ssh/ssh_login.md
 share/metasploit/documentation/modules/auxiliary/scanner/ssh/ssh_login_pubkey.md
 share/metasploit/documentation/modules/auxiliary/scanner/ssh/ssh_version.md
@@ -3027,6 +3039,7 @@ share/metasploit/documentation/modules/exploit/linux/http/cisco_ucs_cloupia_scri
 share/metasploit/documentation/modules/exploit/linux/http/cisco_ucs_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/control_web_panel_login_cmd_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/cpi_tararchive_upload.md
+share/metasploit/documentation/modules/exploit/linux/http/craftcms_unauth_rce_cve_2023_41892.md
 share/metasploit/documentation/modules/exploit/linux/http/cve_2019_1663_cisco_rmi_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/dcos_marathon.md
 share/metasploit/documentation/modules/exploit/linux/http/denyall_waf_exec.md
@@ -3052,6 +3065,7 @@ share/metasploit/documentation/modules/exploit/linux/http/geutebruck_cmdinject_c
 share/metasploit/documentation/modules/exploit/linux/http/geutebruck_instantrec_bof.md
 share/metasploit/documentation/modules/exploit/linux/http/geutebruck_testaction_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/github_enterprise_secret.md
+share/metasploit/documentation/modules/exploit/linux/http/glinet_unauth_rce_cve_2023_50445.md
 share/metasploit/documentation/modules/exploit/linux/http/glpi_htmlawed_php_injection.md
 share/metasploit/documentation/modules/exploit/linux/http/goahead_ldpreload.md
 share/metasploit/documentation/modules/exploit/linux/http/goautodial_3_rce_code_injection.md
@@ -3070,6 +3084,7 @@ share/metasploit/documentation/modules/exploit/linux/http/ipfire_bashbug_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/ipfire_oinkcode_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/ipfire_pakfire_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/ipfire_proxy_exec.md
+share/metasploit/documentation/modules/exploit/linux/http/ivanti_connect_secure_rce_cve_2023_46805.md
 share/metasploit/documentation/modules/exploit/linux/http/ivanti_csa_unauth_rce_cve_2021_44529.md
 share/metasploit/documentation/modules/exploit/linux/http/ivanti_sentry_misc_log_service.md
 share/metasploit/documentation/modules/exploit/linux/http/jenkins_cli_deserialization.md
@@ -3088,6 +3103,7 @@ share/metasploit/documentation/modules/exploit/linux/http/logsign_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/lucee_admin_imgprocess_file_write.md
 share/metasploit/documentation/modules/exploit/linux/http/magnusbilling_unauth_rce_cve_2023_30258.md
 share/metasploit/documentation/modules/exploit/linux/http/mailcleaner_exec.md
+share/metasploit/documentation/modules/exploit/linux/http/majordomo_cmd_inject_cve_2023_50917.md
 share/metasploit/documentation/modules/exploit/linux/http/metabase_setup_token_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/microfocus_obr_cmd_injection.md
 share/metasploit/documentation/modules/exploit/linux/http/microfocus_secure_messaging_gateway.md
@@ -3156,6 +3172,7 @@ share/metasploit/documentation/modules/exploit/linux/http/trendmicro_websecurity
 share/metasploit/documentation/modules/exploit/linux/http/ueb_api_rce.md
 share/metasploit/documentation/modules/exploit/linux/http/unraid_auth_bypass_exec.md
 share/metasploit/documentation/modules/exploit/linux/http/vestacp_exec.md
+share/metasploit/documentation/modules/exploit/linux/http/vinchin_backup_recovery_cmd_inject.md
 share/metasploit/documentation/modules/exploit/linux/http/vmware_nsxmgr_xstream_rce_cve_2021_39144.md
 share/metasploit/documentation/modules/exploit/linux/http/vmware_vcenter_analytics_file_upload.md
 share/metasploit/documentation/modules/exploit/linux/http/vmware_vcenter_vsan_health_rce.md
@@ -3185,6 +3202,7 @@ share/metasploit/documentation/modules/exploit/linux/local/abrt_raceabrt_priv_es
 share/metasploit/documentation/modules/exploit/linux/local/abrt_sosreport_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/af_packet_chocobo_root_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/af_packet_packet_set_ring_priv_esc.md
+share/metasploit/documentation/modules/exploit/linux/local/ansible_node_deployer.md
 share/metasploit/documentation/modules/exploit/linux/local/apport_abrt_chroot_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/apt_package_manager_persistence.md
 share/metasploit/documentation/modules/exploit/linux/local/asan_suid_executable_priv_esc.md
@@ -3203,6 +3221,7 @@ share/metasploit/documentation/modules/exploit/linux/local/cve_2022_0847_dirtypi
 share/metasploit/documentation/modules/exploit/linux/local/cve_2022_0995_watch_queue.md
 share/metasploit/documentation/modules/exploit/linux/local/cve_2022_1043_io_uring_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/diamorphine_rootkit_signal_priv_esc.md
+share/metasploit/documentation/modules/exploit/linux/local/docker_cgroup_escape.md
 share/metasploit/documentation/modules/exploit/linux/local/docker_priviledged_container_escape.md
 share/metasploit/documentation/modules/exploit/linux/local/docker_runc_escape.md
 share/metasploit/documentation/modules/exploit/linux/local/exim4_deliver_message_priv_esc.md
@@ -3210,6 +3229,7 @@ share/metasploit/documentation/modules/exploit/linux/local/f5_create_user.md
 share/metasploit/documentation/modules/exploit/linux/local/glibc_ld_audit_dso_load_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/glibc_origin_expansion_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/glibc_realpath_priv_esc.md
+share/metasploit/documentation/modules/exploit/linux/local/glibc_tunables_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/hp_xglance_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/juju_run_agent_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/ktsuss_suid_priv_esc.md
@@ -3232,6 +3252,8 @@ share/metasploit/documentation/modules/exploit/linux/local/rds_atomic_free_op_nu
 share/metasploit/documentation/modules/exploit/linux/local/rds_rds_page_copy_user_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/recvmmsg_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/reptile_rootkit_reptile_cmd_priv_esc.md
+share/metasploit/documentation/modules/exploit/linux/local/runc_cwd_priv_esc.md
+share/metasploit/documentation/modules/exploit/linux/local/saltstack_salt_minion_deployer.md
 share/metasploit/documentation/modules/exploit/linux/local/service_persistence.md
 share/metasploit/documentation/modules/exploit/linux/local/servu_ftp_server_prepareinstallation_priv_esc.md
 share/metasploit/documentation/modules/exploit/linux/local/sock_sendpage.md
@@ -3303,6 +3325,7 @@ share/metasploit/documentation/modules/exploit/linux/upnp/
 share/metasploit/documentation/modules/exploit/linux/upnp/belkin_wemo_upnp_exec.md
 share/metasploit/documentation/modules/exploit/linux/upnp/dlink_dir859_exec_ssdpcgi.md
 share/metasploit/documentation/modules/exploit/linux/upnp/dlink_dir859_subscribe_exec.md
+share/metasploit/documentation/modules/exploit/linux/upnp/dlink_upnp_msearch_exec.md
 share/metasploit/documentation/modules/exploit/mainframe/
 share/metasploit/documentation/modules/exploit/mainframe/ftp/
 share/metasploit/documentation/modules/exploit/mainframe/ftp/ftp_jcl_creds.md
@@ -3335,6 +3358,7 @@ share/metasploit/documentation/modules/exploit/multi/http/adobe_coldfusion_rce_c
 share/metasploit/documentation/modules/exploit/multi/http/agent_tesla_panel_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/apache_activemq_upload_jsp.md
 share/metasploit/documentation/modules/exploit/multi/http/apache_apisix_api_default_token_rce.md
+share/metasploit/documentation/modules/exploit/multi/http/apache_commons_text4shell.md
 share/metasploit/documentation/modules/exploit/multi/http/apache_couchdb_erlang_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/apache_druid_cve_2023_25194.md
 share/metasploit/documentation/modules/exploit/multi/http/apache_flink_jar_upload_exec.md
@@ -3343,6 +3367,8 @@ share/metasploit/documentation/modules/exploit/multi/http/apache_normalize_path_
 share/metasploit/documentation/modules/exploit/multi/http/apache_rocketmq_update_config.md
 share/metasploit/documentation/modules/exploit/multi/http/atlassian_confluence_namespace_ognl_injection.md
 share/metasploit/documentation/modules/exploit/multi/http/atlassian_confluence_rce_cve_2023_22515.md
+share/metasploit/documentation/modules/exploit/multi/http/atlassian_confluence_rce_cve_2023_22527.md
+share/metasploit/documentation/modules/exploit/multi/http/atlassian_confluence_unauth_backup.md
 share/metasploit/documentation/modules/exploit/multi/http/atlassian_confluence_webwork_ognl_injection.md
 share/metasploit/documentation/modules/exploit/multi/http/atlassian_crowd_pdkinstall_plugin_upload_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/atutor_upload_traversal.md
@@ -3350,6 +3376,7 @@ share/metasploit/documentation/modules/exploit/multi/http/axis2_deployer.md
 share/metasploit/documentation/modules/exploit/multi/http/baldr_upload_exec.md
 share/metasploit/documentation/modules/exploit/multi/http/bitbucket_env_var_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/builderengine_upload_exec.md
+share/metasploit/documentation/modules/exploit/multi/http/cacti_pollers_sqli_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/caidao_php_backdoor_exec.md
 share/metasploit/documentation/modules/exploit/multi/http/churchinfo_upload_exec.md
 share/metasploit/documentation/modules/exploit/multi/http/cisco_dcnm_upload_2019.md
@@ -3363,6 +3390,7 @@ share/metasploit/documentation/modules/exploit/multi/http/confluence_widget_conn
 share/metasploit/documentation/modules/exploit/multi/http/cve_2021_35464_forgerock_openam.md
 share/metasploit/documentation/modules/exploit/multi/http/dotcms_file_upload_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/drupal_drupageddon.md
+share/metasploit/documentation/modules/exploit/multi/http/fortra_goanywhere_mft_rce_cve_2024_0204.md
 share/metasploit/documentation/modules/exploit/multi/http/fortra_goanywhere_rce_cve_2023_0669.md
 share/metasploit/documentation/modules/exploit/multi/http/freenas_exec_raw.md
 share/metasploit/documentation/modules/exploit/multi/http/getsimplecms_unauth_code_exec.md
@@ -3399,6 +3427,7 @@ share/metasploit/documentation/modules/exploit/multi/http/maracms_upload_exec.md
 share/metasploit/documentation/modules/exploit/multi/http/mediawiki_syntaxhighlight.md
 share/metasploit/documentation/modules/exploit/multi/http/microfocus_obm_auth_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/microfocus_ucmdb_unauth_deser.md
+share/metasploit/documentation/modules/exploit/multi/http/mirth_connect_cve_2023_43208.md
 share/metasploit/documentation/modules/exploit/multi/http/monitorr_webshell_rce_cve_2020_28871.md
 share/metasploit/documentation/modules/exploit/multi/http/monstra_fileupload_exec.md
 share/metasploit/documentation/modules/exploit/multi/http/moodle_admin_shell_upload.md
@@ -3467,6 +3496,7 @@ share/metasploit/documentation/modules/exploit/multi/http/vtiger_logo_upload_exe
 share/metasploit/documentation/modules/exploit/multi/http/weblogic_admin_handle_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/werkzeug_debug_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/wp_ait_csv_rce.md
+share/metasploit/documentation/modules/exploit/multi/http/wp_backup_migration_php_filter.md
 share/metasploit/documentation/modules/exploit/multi/http/wp_catch_themes_demo_import.md
 share/metasploit/documentation/modules/exploit/multi/http/wp_crop_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/wp_db_backup_rce.md
@@ -3479,6 +3509,7 @@ share/metasploit/documentation/modules/exploit/multi/http/wp_plugin_modern_event
 share/metasploit/documentation/modules/exploit/multi/http/wp_plugin_sp_project_document_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/wp_popular_posts_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/wp_responsive_thumbnail_slider_upload.md
+share/metasploit/documentation/modules/exploit/multi/http/wp_royal_elementor_addons_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/wp_simple_file_list_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/wso2_file_upload_rce.md
 share/metasploit/documentation/modules/exploit/multi/http/zabbix_script_exec.md
@@ -3588,6 +3619,7 @@ share/metasploit/documentation/modules/exploit/unix/http/pihole_whitelist_exec.m
 share/metasploit/documentation/modules/exploit/unix/http/quest_kace_systems_management_rce.md
 share/metasploit/documentation/modules/exploit/unix/http/raspap_rce.md
 share/metasploit/documentation/modules/exploit/unix/http/schneider_electric_net55xx_encoder.md
+share/metasploit/documentation/modules/exploit/unix/http/splunk_xslt_authenticated_rce.md
 share/metasploit/documentation/modules/exploit/unix/http/syncovery_linux_rce_2022_36534.md
 share/metasploit/documentation/modules/exploit/unix/http/xdebug_unauth_exec.md
 share/metasploit/documentation/modules/exploit/unix/http/zivif_ipcheck_exec.md
@@ -3639,6 +3671,7 @@ share/metasploit/documentation/modules/exploit/unix/webapp/wp_plainview_activity
 share/metasploit/documentation/modules/exploit/unix/webapp/wp_wpdiscuz_unauthenticated_file_upload.md
 share/metasploit/documentation/modules/exploit/unix/webapp/xymon_useradm_cmd_exec.md
 share/metasploit/documentation/modules/exploit/unix/webapp/zoneminder_lang_exec.md
+share/metasploit/documentation/modules/exploit/unix/webapp/zoneminder_snapshots.md
 share/metasploit/documentation/modules/exploit/unix/x11/
 share/metasploit/documentation/modules/exploit/unix/x11/x11_keyboard_exec.md
 share/metasploit/documentation/modules/exploit/windows/
@@ -3678,6 +3711,7 @@ share/metasploit/documentation/modules/exploit/windows/fileformat/office_excel_s
 share/metasploit/documentation/modules/exploit/windows/fileformat/office_ms17_11882.md
 share/metasploit/documentation/modules/exploit/windows/fileformat/office_word_hta.md
 share/metasploit/documentation/modules/exploit/windows/fileformat/syncbreeze_xml.md
+share/metasploit/documentation/modules/exploit/windows/fileformat/theme_dll_hijack_cve_2023_38146.md
 share/metasploit/documentation/modules/exploit/windows/fileformat/vlc_mkv.md
 share/metasploit/documentation/modules/exploit/windows/fileformat/winrar_ace.md
 share/metasploit/documentation/modules/exploit/windows/fileformat/winrar_cve_2023_38831.md
@@ -3746,6 +3780,7 @@ share/metasploit/documentation/modules/exploit/windows/http/octopusdeploy_deploy
 share/metasploit/documentation/modules/exploit/windows/http/plesk_mylittleadmin_viewstate.md
 share/metasploit/documentation/modules/exploit/windows/http/plex_unpickle_dict_rce.md
 share/metasploit/documentation/modules/exploit/windows/http/prtg_authenticated_rce.md
+share/metasploit/documentation/modules/exploit/windows/http/prtg_authenticated_rce_cve_2023_32781.md
 share/metasploit/documentation/modules/exploit/windows/http/serviio_checkstreamurl_cmd_exec.md
 share/metasploit/documentation/modules/exploit/windows/http/sharepoint_data_deserialization.md
 share/metasploit/documentation/modules/exploit/windows/http/sharepoint_ssi_viewstate.md
@@ -3975,6 +4010,8 @@ share/metasploit/documentation/modules/post/linux/
 share/metasploit/documentation/modules/post/linux/dos/
 share/metasploit/documentation/modules/post/linux/dos/xen_420_dos.md
 share/metasploit/documentation/modules/post/linux/gather/
+share/metasploit/documentation/modules/post/linux/gather/ansible.md
+share/metasploit/documentation/modules/post/linux/gather/ansible_playbook_error_message_file_reader.md
 share/metasploit/documentation/modules/post/linux/gather/apache_nifi_credentials.md
 share/metasploit/documentation/modules/post/linux/gather/checkcontainer.md
 share/metasploit/documentation/modules/post/linux/gather/checkvm.md
@@ -3988,6 +4025,7 @@ share/metasploit/documentation/modules/post/linux/gather/hashdump.md
 share/metasploit/documentation/modules/post/linux/gather/manageengine_password_manager_creds.md
 share/metasploit/documentation/modules/post/linux/gather/mimipenguin.md
 share/metasploit/documentation/modules/post/linux/gather/phpmyadmin_credsteal.md
+share/metasploit/documentation/modules/post/linux/gather/puppet.md
 share/metasploit/documentation/modules/post/linux/gather/vcenter_secrets_dump.md
 share/metasploit/documentation/modules/post/linux/manage/
 share/metasploit/documentation/modules/post/linux/manage/adduser.md
@@ -4011,6 +4049,7 @@ share/metasploit/documentation/modules/post/multi/gather/irssi_creds.md
 share/metasploit/documentation/modules/post/multi/gather/jboss_gather.md
 share/metasploit/documentation/modules/post/multi/gather/jenkins_gather.md
 share/metasploit/documentation/modules/post/multi/gather/maven_creds.md
+share/metasploit/documentation/modules/post/multi/gather/memory_search.md
 share/metasploit/documentation/modules/post/multi/gather/minio_client.md
 share/metasploit/documentation/modules/post/multi/gather/netrc_creds.md
 share/metasploit/documentation/modules/post/multi/gather/saltstack_salt.md
@@ -4121,6 +4160,7 @@ share/metasploit/documentation/modules/post/windows/gather/credentials/tlen.md
 share/metasploit/documentation/modules/post/windows/gather/credentials/veeam_credential_dump.md
 share/metasploit/documentation/modules/post/windows/gather/credentials/viber.md
 share/metasploit/documentation/modules/post/windows/gather/credentials/whatsupgold_credential_dump.md
+share/metasploit/documentation/modules/post/windows/gather/credentials/winbox_settings.md
 share/metasploit/documentation/modules/post/windows/gather/credentials/windows_autologin.md
 share/metasploit/documentation/modules/post/windows/gather/credentials/windows_sam_hivenightmare.md
 share/metasploit/documentation/modules/post/windows/gather/credentials/windowslivemail.md
@@ -4176,6 +4216,7 @@ share/metasploit/documentation/modules/post/windows/manage/forward_pageant.md
 share/metasploit/documentation/modules/post/windows/manage/hashcarve.md
 share/metasploit/documentation/modules/post/windows/manage/install_python.md
 share/metasploit/documentation/modules/post/windows/manage/install_ssh.md
+share/metasploit/documentation/modules/post/windows/manage/kerberos_tickets.md
 share/metasploit/documentation/modules/post/windows/manage/killav.md
 share/metasploit/documentation/modules/post/windows/manage/make_token.md
 share/metasploit/documentation/modules/post/windows/manage/mssql_local_auth_bypass.md
@@ -6759,8 +6800,6 @@ share/metasploit/lib/metasploit/framework/login_scanner/wowza_streaming_engine_m
 share/metasploit/lib/metasploit/framework/login_scanner/x3.rb
 share/metasploit/lib/metasploit/framework/login_scanner/zabbix.rb
 share/metasploit/lib/metasploit/framework/mssql/
-share/metasploit/lib/metasploit/framework/mssql/base.rb
-share/metasploit/lib/metasploit/framework/mssql/client.rb
 share/metasploit/lib/metasploit/framework/mssql/tdssslproxy.rb
 share/metasploit/lib/metasploit/framework/ntds/
 share/metasploit/lib/metasploit/framework/ntds/account.rb
@@ -6876,9 +6915,12 @@ share/metasploit/lib/msf/base/sessions/meterpreter_x86_osx.rb
 share/metasploit/lib/msf/base/sessions/meterpreter_x86_win.rb
 share/metasploit/lib/msf/base/sessions/meterpreter_zarch_linux.rb
 share/metasploit/lib/msf/base/sessions/mettle_config.rb
+share/metasploit/lib/msf/base/sessions/mysql.rb
 share/metasploit/lib/msf/base/sessions/pingback.rb
+share/metasploit/lib/msf/base/sessions/postgresql.rb
 share/metasploit/lib/msf/base/sessions/powershell.rb
 share/metasploit/lib/msf/base/sessions/scriptable.rb
+share/metasploit/lib/msf/base/sessions/smb.rb
 share/metasploit/lib/msf/base/sessions/ssh_command_shell_bind.rb
 share/metasploit/lib/msf/base/sessions/ssh_command_shell_reverse.rb
 share/metasploit/lib/msf/base/sessions/tty.rb
@@ -7125,9 +7167,11 @@ share/metasploit/lib/msf/core/exploit/jsobfu.rb
 share/metasploit/lib/msf/core/exploit/kernel_mode.rb
 share/metasploit/lib/msf/core/exploit/local/
 share/metasploit/lib/msf/core/exploit/local.rb
+share/metasploit/lib/msf/core/exploit/local/ansible.rb
 share/metasploit/lib/msf/core/exploit/local/compile_c.rb
 share/metasploit/lib/msf/core/exploit/local/linux.rb
 share/metasploit/lib/msf/core/exploit/local/linux_kernel.rb
+share/metasploit/lib/msf/core/exploit/local/saltstack.rb
 share/metasploit/lib/msf/core/exploit/local/sap_smd_agent_unencrypted_property.rb
 share/metasploit/lib/msf/core/exploit/local/windows_kernel.rb
 share/metasploit/lib/msf/core/exploit/ntlm.rb
@@ -7171,6 +7215,10 @@ share/metasploit/lib/msf/core/exploit/remote/ftp.rb
 share/metasploit/lib/msf/core/exploit/remote/ftp_server.rb
 share/metasploit/lib/msf/core/exploit/remote/gdb.rb
 share/metasploit/lib/msf/core/exploit/remote/http/
+share/metasploit/lib/msf/core/exploit/remote/http/atlassian/
+share/metasploit/lib/msf/core/exploit/remote/http/atlassian/confluence/
+share/metasploit/lib/msf/core/exploit/remote/http/atlassian/confluence/payload_plugin.rb
+share/metasploit/lib/msf/core/exploit/remote/http/atlassian/confluence/version.rb
 share/metasploit/lib/msf/core/exploit/remote/http/cisco_ios_xe.rb
 share/metasploit/lib/msf/core/exploit/remote/http/drupal.rb
 share/metasploit/lib/msf/core/exploit/remote/http/exchange/
@@ -7261,6 +7309,7 @@ share/metasploit/lib/msf/core/exploit/remote/http/nifi.rb
 share/metasploit/lib/msf/core/exploit/remote/http/nifi/auth.rb
 share/metasploit/lib/msf/core/exploit/remote/http/nifi/dbconnectionpool.rb
 share/metasploit/lib/msf/core/exploit/remote/http/nifi/processor.rb
+share/metasploit/lib/msf/core/exploit/remote/http/php_filter_chain.rb
 share/metasploit/lib/msf/core/exploit/remote/http/pihole.rb
 share/metasploit/lib/msf/core/exploit/remote/http/sap_sol_man_eem_miss_auth.rb
 share/metasploit/lib/msf/core/exploit/remote/http/sharepoint.rb
@@ -7352,6 +7401,7 @@ share/metasploit/lib/msf/core/exploit/remote/kerberos/ticket/storage/write_only.
 share/metasploit/lib/msf/core/exploit/remote/kerberos/ticket_converter.rb
 share/metasploit/lib/msf/core/exploit/remote/ldap/
 share/metasploit/lib/msf/core/exploit/remote/ldap.rb
+share/metasploit/lib/msf/core/exploit/remote/ldap/queries.rb
 share/metasploit/lib/msf/core/exploit/remote/ldap/server.rb
 share/metasploit/lib/msf/core/exploit/remote/log4_shell.rb
 share/metasploit/lib/msf/core/exploit/remote/ms_icpr.rb
@@ -7610,6 +7660,7 @@ share/metasploit/lib/msf/core/opt_regexp.rb
 share/metasploit/lib/msf/core/opt_rhosts.rb
 share/metasploit/lib/msf/core/opt_string.rb
 share/metasploit/lib/msf/core/option_container.rb
+share/metasploit/lib/msf/core/optional_session.rb
 share/metasploit/lib/msf/core/payload/
 share/metasploit/lib/msf/core/payload.rb
 share/metasploit/lib/msf/core/payload/adapter/
@@ -7820,6 +7871,7 @@ share/metasploit/lib/msf/core/post/windows/file_info.rb
 share/metasploit/lib/msf/core/post/windows/file_system.rb
 share/metasploit/lib/msf/core/post/windows/kiwi.rb
 share/metasploit/lib/msf/core/post/windows/ldap.rb
+share/metasploit/lib/msf/core/post/windows/lsa.rb
 share/metasploit/lib/msf/core/post/windows/mssql.rb
 share/metasploit/lib/msf/core/post/windows/net_api.rb
 share/metasploit/lib/msf/core/post/windows/packrat.rb
@@ -7882,6 +7934,7 @@ share/metasploit/lib/msf/core/session/provider/multi_command_execution.rb
 share/metasploit/lib/msf/core/session/provider/multi_command_shell.rb
 share/metasploit/lib/msf/core/session/provider/single_command_execution.rb
 share/metasploit/lib/msf/core/session/provider/single_command_shell.rb
+share/metasploit/lib/msf/core/session_compatibility.rb
 share/metasploit/lib/msf/core/session_event.rb
 share/metasploit/lib/msf/core/session_manager.rb
 share/metasploit/lib/msf/core/site_reference.rb
@@ -7985,6 +8038,7 @@ share/metasploit/lib/msf/ui/console/command_dispatcher/db/analyze.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/db/common.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/db/klist.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/developer.rb
+share/metasploit/lib/msf/ui/console/command_dispatcher/dns.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/encoder.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/evasion.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/exploit.rb
@@ -7994,6 +8048,7 @@ share/metasploit/lib/msf/ui/console/command_dispatcher/nop.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/payload.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/post.rb
 share/metasploit/lib/msf/ui/console/command_dispatcher/resource.rb
+share/metasploit/lib/msf/ui/console/command_dispatcher/session.rb
 share/metasploit/lib/msf/ui/console/driver.rb
 share/metasploit/lib/msf/ui/console/framework_event_manager.rb
 share/metasploit/lib/msf/ui/console/module_action_commands.rb
@@ -8003,6 +8058,7 @@ share/metasploit/lib/msf/ui/console/module_option_tab_completion.rb
 share/metasploit/lib/msf/ui/console/table.rb
 share/metasploit/lib/msf/ui/console/table_print/
 share/metasploit/lib/msf/ui/console/table_print/age_formatter.rb
+share/metasploit/lib/msf/ui/console/table_print/blank_formatter.rb
 share/metasploit/lib/msf/ui/console/table_print/custom_color_styler.rb
 share/metasploit/lib/msf/ui/console/table_print/highlight_substring_styler.rb
 share/metasploit/lib/msf/ui/console/table_print/omit_column_header.rb
@@ -8397,6 +8453,7 @@ share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/
 share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/def_netapi32.rb
 share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/def_ntdll.rb
 share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/def_psapi.rb
+share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/def_secur32.rb
 share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/def_shell32.rb
 share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/def_spoolss.rb
 share/metasploit/lib/rex/post/meterpreter/extensions/stdapi/railgun/def/windows/def_user32.rb
@@ -8500,8 +8557,42 @@ share/metasploit/lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/w
 share/metasploit/lib/rex/post/meterpreter/ui/console/command_dispatcher/unhook.rb
 share/metasploit/lib/rex/post/meterpreter/ui/console/command_dispatcher/winpmem.rb
 share/metasploit/lib/rex/post/meterpreter/ui/console/interactive_channel.rb
+share/metasploit/lib/rex/post/mysql/
+share/metasploit/lib/rex/post/mysql.rb
+share/metasploit/lib/rex/post/mysql/ui/
+share/metasploit/lib/rex/post/mysql/ui.rb
+share/metasploit/lib/rex/post/mysql/ui/console/
+share/metasploit/lib/rex/post/mysql/ui/console.rb
+share/metasploit/lib/rex/post/mysql/ui/console/command_dispatcher/
+share/metasploit/lib/rex/post/mysql/ui/console/command_dispatcher.rb
+share/metasploit/lib/rex/post/mysql/ui/console/command_dispatcher/client.rb
+share/metasploit/lib/rex/post/mysql/ui/console/command_dispatcher/core.rb
+share/metasploit/lib/rex/post/mysql/ui/console/command_dispatcher/modules.rb
 share/metasploit/lib/rex/post/permission.rb
+share/metasploit/lib/rex/post/postgresql/
+share/metasploit/lib/rex/post/postgresql.rb
+share/metasploit/lib/rex/post/postgresql/ui/
+share/metasploit/lib/rex/post/postgresql/ui.rb
+share/metasploit/lib/rex/post/postgresql/ui/console/
+share/metasploit/lib/rex/post/postgresql/ui/console.rb
+share/metasploit/lib/rex/post/postgresql/ui/console/command_dispatcher/
+share/metasploit/lib/rex/post/postgresql/ui/console/command_dispatcher.rb
+share/metasploit/lib/rex/post/postgresql/ui/console/command_dispatcher/client.rb
+share/metasploit/lib/rex/post/postgresql/ui/console/command_dispatcher/core.rb
+share/metasploit/lib/rex/post/postgresql/ui/console/command_dispatcher/modules.rb
+share/metasploit/lib/rex/post/postgresql/ui/console/interactive_sql_client.rb
 share/metasploit/lib/rex/post/process.rb
+share/metasploit/lib/rex/post/smb/
+share/metasploit/lib/rex/post/smb.rb
+share/metasploit/lib/rex/post/smb/ui/
+share/metasploit/lib/rex/post/smb/ui.rb
+share/metasploit/lib/rex/post/smb/ui/console/
+share/metasploit/lib/rex/post/smb/ui/console.rb
+share/metasploit/lib/rex/post/smb/ui/console/command_dispatcher/
+share/metasploit/lib/rex/post/smb/ui/console/command_dispatcher.rb
+share/metasploit/lib/rex/post/smb/ui/console/command_dispatcher/core.rb
+share/metasploit/lib/rex/post/smb/ui/console/command_dispatcher/modules.rb
+share/metasploit/lib/rex/post/smb/ui/console/command_dispatcher/shares.rb
 share/metasploit/lib/rex/post/thread.rb
 share/metasploit/lib/rex/post/ui.rb
 share/metasploit/lib/rex/proto/
@@ -8551,6 +8642,7 @@ share/metasploit/lib/rex/proto/dns/
 share/metasploit/lib/rex/proto/dns.rb
 share/metasploit/lib/rex/proto/dns/cache.rb
 share/metasploit/lib/rex/proto/dns/cached_resolver.rb
+share/metasploit/lib/rex/proto/dns/custom_nameserver_provider.rb
 share/metasploit/lib/rex/proto/dns/packet.rb
 share/metasploit/lib/rex/proto/dns/resolver.rb
 share/metasploit/lib/rex/proto/dns/server.rb
@@ -8581,6 +8673,7 @@ share/metasploit/lib/rex/proto/http/packet/header.rb
 share/metasploit/lib/rex/proto/http/request.rb
 share/metasploit/lib/rex/proto/http/response.rb
 share/metasploit/lib/rex/proto/http/server.rb
+share/metasploit/lib/rex/proto/http/server_client.rb
 share/metasploit/lib/rex/proto/http/web_socket/
 share/metasploit/lib/rex/proto/http/web_socket.rb
 share/metasploit/lib/rex/proto/http/web_socket/amazon_ssm.rb
@@ -8702,6 +8795,9 @@ share/metasploit/lib/rex/proto/mqtt.rb
 share/metasploit/lib/rex/proto/mqtt/client.rb
 share/metasploit/lib/rex/proto/ms_crtd.rb
 share/metasploit/lib/rex/proto/ms_dtyp.rb
+share/metasploit/lib/rex/proto/mssql/
+share/metasploit/lib/rex/proto/mssql/client.rb
+share/metasploit/lib/rex/proto/mssql/client_mixin.rb
 share/metasploit/lib/rex/proto/natpmp/
 share/metasploit/lib/rex/proto/natpmp.rb
 share/metasploit/lib/rex/proto/natpmp/constants.rb
@@ -8766,6 +8862,7 @@ share/metasploit/lib/rex/proto/smb/constants.rb
 share/metasploit/lib/rex/proto/smb/crypt.rb
 share/metasploit/lib/rex/proto/smb/evasions.rb
 share/metasploit/lib/rex/proto/smb/exceptions.rb
+share/metasploit/lib/rex/proto/smb/server.rb
 share/metasploit/lib/rex/proto/smb/simple_client/
 share/metasploit/lib/rex/proto/smb/simple_client.rb
 share/metasploit/lib/rex/proto/smb/simple_client/open_file.rb
@@ -9414,6 +9511,7 @@ share/metasploit/modules/auxiliary/gather/apache_rave_creds.rb
 share/metasploit/modules/auxiliary/gather/apache_superset_cookie_sig_priv_esc.rb
 share/metasploit/modules/auxiliary/gather/apple_safari_ftp_url_cookie_theft.rb
 share/metasploit/modules/auxiliary/gather/apple_safari_webarchive_uxss.rb
+share/metasploit/modules/auxiliary/gather/asrep.rb
 share/metasploit/modules/auxiliary/gather/asterisk_creds.rb
 share/metasploit/modules/auxiliary/gather/avtech744_dvr_accounts.rb
 share/metasploit/modules/auxiliary/gather/billquick_txtid_sqli.rb
@@ -9496,6 +9594,7 @@ share/metasploit/modules/auxiliary/gather/nuuo_cms_file_download.rb
 share/metasploit/modules/auxiliary/gather/oats_downloadservlet_traversal.rb
 share/metasploit/modules/auxiliary/gather/office365userenum.py
 share/metasploit/modules/auxiliary/gather/opennms_xxe.rb
+share/metasploit/modules/auxiliary/gather/owncloud_phpinfo_reader.rb
 share/metasploit/modules/auxiliary/gather/peplink_bauth_sqli.rb
 share/metasploit/modules/auxiliary/gather/pimcore_creds_sqli.rb
 share/metasploit/modules/auxiliary/gather/piwigo_cve_2023_26876.rb
@@ -9518,6 +9617,7 @@ share/metasploit/modules/auxiliary/gather/shodan_host.rb
 share/metasploit/modules/auxiliary/gather/shodan_search.rb
 share/metasploit/modules/auxiliary/gather/snare_registry.rb
 share/metasploit/modules/auxiliary/gather/solarwinds_orion_sqli.rb
+share/metasploit/modules/auxiliary/gather/splunk_raw_server_info.rb
 share/metasploit/modules/auxiliary/gather/ssllabs_scan.rb
 share/metasploit/modules/auxiliary/gather/suite_crm_export_sqli.rb
 share/metasploit/modules/auxiliary/gather/teamtalk_creds.rb
@@ -10580,6 +10680,7 @@ share/metasploit/modules/exploits/linux/http/cisco_ucs_cloupia_script_rce.rb
 share/metasploit/modules/exploits/linux/http/cisco_ucs_rce.rb
 share/metasploit/modules/exploits/linux/http/control_web_panel_login_cmd_exec.rb
 share/metasploit/modules/exploits/linux/http/cpi_tararchive_upload.rb
+share/metasploit/modules/exploits/linux/http/craftcms_unauth_rce_cve_2023_41892.rb
 share/metasploit/modules/exploits/linux/http/crypttech_cryptolog_login_exec.rb
 share/metasploit/modules/exploits/linux/http/cve_2019_1663_cisco_rmi_rce.rb
 share/metasploit/modules/exploits/linux/http/dcos_marathon.rb
@@ -10631,6 +10732,7 @@ share/metasploit/modules/exploits/linux/http/geutebruck_instantrec_bof.rb
 share/metasploit/modules/exploits/linux/http/geutebruck_testaction_exec.rb
 share/metasploit/modules/exploits/linux/http/github_enterprise_secret.rb
 share/metasploit/modules/exploits/linux/http/gitlist_exec.rb
+share/metasploit/modules/exploits/linux/http/glinet_unauth_rce_cve_2023_50445.rb
 share/metasploit/modules/exploits/linux/http/glpi_htmlawed_php_injection.rb
 share/metasploit/modules/exploits/linux/http/goahead_ldpreload.rb
 share/metasploit/modules/exploits/linux/http/goautodial_3_rce_command_injection.rb
@@ -10652,6 +10754,7 @@ share/metasploit/modules/exploits/linux/http/ipfire_bashbug_exec.rb
 share/metasploit/modules/exploits/linux/http/ipfire_oinkcode_exec.rb
 share/metasploit/modules/exploits/linux/http/ipfire_pakfire_exec.rb
 share/metasploit/modules/exploits/linux/http/ipfire_proxy_exec.rb
+share/metasploit/modules/exploits/linux/http/ivanti_connect_secure_rce_cve_2023_46805.rb
 share/metasploit/modules/exploits/linux/http/ivanti_csa_unauth_rce_cve_2021_44529.rb
 share/metasploit/modules/exploits/linux/http/ivanti_sentry_misc_log_service.rb
 share/metasploit/modules/exploits/linux/http/jenkins_cli_deserialization.rb
@@ -10678,6 +10781,7 @@ share/metasploit/modules/exploits/linux/http/logsign_exec.rb
 share/metasploit/modules/exploits/linux/http/lucee_admin_imgprocess_file_write.rb
 share/metasploit/modules/exploits/linux/http/magnusbilling_unauth_rce_cve_2023_30258.rb
 share/metasploit/modules/exploits/linux/http/mailcleaner_exec.rb
+share/metasploit/modules/exploits/linux/http/majordomo_cmd_inject_cve_2023_50917.rb
 share/metasploit/modules/exploits/linux/http/metabase_setup_token_rce.rb
 share/metasploit/modules/exploits/linux/http/microfocus_obr_cmd_injection.rb
 share/metasploit/modules/exploits/linux/http/microfocus_secure_messaging_gateway.rb
@@ -10786,6 +10890,7 @@ share/metasploit/modules/exploits/linux/http/unraid_auth_bypass_exec.rb
 share/metasploit/modules/exploits/linux/http/vap2500_tools_command_exec.rb
 share/metasploit/modules/exploits/linux/http/vcms_upload.rb
 share/metasploit/modules/exploits/linux/http/vestacp_exec.rb
+share/metasploit/modules/exploits/linux/http/vinchin_backup_recovery_cmd_inject.rb
 share/metasploit/modules/exploits/linux/http/vmware_nsxmgr_xstream_rce_cve_2021_39144.rb
 share/metasploit/modules/exploits/linux/http/vmware_vcenter_analytics_file_upload.rb
 share/metasploit/modules/exploits/linux/http/vmware_vcenter_vsan_health_rce.rb
@@ -10826,6 +10931,7 @@ share/metasploit/modules/exploits/linux/local/abrt_raceabrt_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/abrt_sosreport_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/af_packet_chocobo_root_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/af_packet_packet_set_ring_priv_esc.rb
+share/metasploit/modules/exploits/linux/local/ansible_node_deployer.rb
 share/metasploit/modules/exploits/linux/local/apport_abrt_chroot_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/apt_package_manager_persistence.rb
 share/metasploit/modules/exploits/linux/local/asan_suid_executable_priv_esc.rb
@@ -10845,6 +10951,7 @@ share/metasploit/modules/exploits/linux/local/cve_2022_0995_watch_queue.rb
 share/metasploit/modules/exploits/linux/local/cve_2022_1043_io_uring_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/desktop_privilege_escalation.rb
 share/metasploit/modules/exploits/linux/local/diamorphine_rootkit_signal_priv_esc.rb
+share/metasploit/modules/exploits/linux/local/docker_cgroup_escape.rb
 share/metasploit/modules/exploits/linux/local/docker_daemon_privilege_escalation.rb
 share/metasploit/modules/exploits/linux/local/docker_privileged_container_escape.rb
 share/metasploit/modules/exploits/linux/local/docker_runc_escape.rb
@@ -10853,6 +10960,7 @@ share/metasploit/modules/exploits/linux/local/f5_create_user.rb
 share/metasploit/modules/exploits/linux/local/glibc_ld_audit_dso_load_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/glibc_origin_expansion_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/glibc_realpath_priv_esc.rb
+share/metasploit/modules/exploits/linux/local/glibc_tunables_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/hp_smhstart.rb
 share/metasploit/modules/exploits/linux/local/hp_xglance_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/juju_run_agent_priv_esc.rb
@@ -10878,6 +10986,8 @@ share/metasploit/modules/exploits/linux/local/rds_atomic_free_op_null_pointer_de
 share/metasploit/modules/exploits/linux/local/rds_rds_page_copy_user_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/recvmmsg_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/reptile_rootkit_reptile_cmd_priv_esc.rb
+share/metasploit/modules/exploits/linux/local/runc_cwd_priv_esc.rb
+share/metasploit/modules/exploits/linux/local/saltstack_salt_minion_deployer.rb
 share/metasploit/modules/exploits/linux/local/service_persistence.rb
 share/metasploit/modules/exploits/linux/local/servu_ftp_server_prepareinstallation_priv_esc.rb
 share/metasploit/modules/exploits/linux/local/sock_sendpage.rb
@@ -11084,6 +11194,7 @@ share/metasploit/modules/exploits/multi/http/agent_tesla_panel_rce.rb
 share/metasploit/modules/exploits/multi/http/ajaxplorer_checkinstall_exec.rb
 share/metasploit/modules/exploits/multi/http/apache_activemq_upload_jsp.rb
 share/metasploit/modules/exploits/multi/http/apache_apisix_api_default_token_rce.rb
+share/metasploit/modules/exploits/multi/http/apache_commons_text4shell.rb
 share/metasploit/modules/exploits/multi/http/apache_couchdb_erlang_rce.rb
 share/metasploit/modules/exploits/multi/http/apache_druid_cve_2023_25194.rb
 share/metasploit/modules/exploits/multi/http/apache_flink_jar_upload_exec.rb
@@ -11096,6 +11207,8 @@ share/metasploit/modules/exploits/multi/http/apache_roller_ognl_injection.rb
 share/metasploit/modules/exploits/multi/http/apprain_upload_exec.rb
 share/metasploit/modules/exploits/multi/http/atlassian_confluence_namespace_ognl_injection.rb
 share/metasploit/modules/exploits/multi/http/atlassian_confluence_rce_cve_2023_22515.rb
+share/metasploit/modules/exploits/multi/http/atlassian_confluence_rce_cve_2023_22527.rb
+share/metasploit/modules/exploits/multi/http/atlassian_confluence_unauth_backup.rb
 share/metasploit/modules/exploits/multi/http/atlassian_confluence_webwork_ognl_injection.rb
 share/metasploit/modules/exploits/multi/http/atlassian_crowd_pdkinstall_plugin_upload_rce.rb
 share/metasploit/modules/exploits/multi/http/atutor_sqli.rb
@@ -11107,6 +11220,7 @@ share/metasploit/modules/exploits/multi/http/bassmaster_js_injection.rb
 share/metasploit/modules/exploits/multi/http/bitbucket_env_var_rce.rb
 share/metasploit/modules/exploits/multi/http/bolt_file_upload.rb
 share/metasploit/modules/exploits/multi/http/builderengine_upload_exec.rb
+share/metasploit/modules/exploits/multi/http/cacti_pollers_sqli_rce.rb
 share/metasploit/modules/exploits/multi/http/caidao_php_backdoor_exec.rb
 share/metasploit/modules/exploits/multi/http/churchinfo_upload_exec.rb
 share/metasploit/modules/exploits/multi/http/cisco_dcnm_upload.rb
@@ -11129,6 +11243,7 @@ share/metasploit/modules/exploits/multi/http/eaton_nsm_code_exec.rb
 share/metasploit/modules/exploits/multi/http/eventlog_file_upload.rb
 share/metasploit/modules/exploits/multi/http/extplorer_upload_exec.rb
 share/metasploit/modules/exploits/multi/http/familycms_less_exec.rb
+share/metasploit/modules/exploits/multi/http/fortra_goanywhere_mft_rce_cve_2024_0204.rb
 share/metasploit/modules/exploits/multi/http/fortra_goanywhere_rce_cve_2023_0669.rb
 share/metasploit/modules/exploits/multi/http/freenas_exec_raw.rb
 share/metasploit/modules/exploits/multi/http/gestioip_exec.rb
@@ -11195,6 +11310,7 @@ share/metasploit/modules/exploits/multi/http/metasploit_static_secret_key_base.r
 share/metasploit/modules/exploits/multi/http/metasploit_webui_console_command_execution.rb
 share/metasploit/modules/exploits/multi/http/microfocus_obm_auth_rce.rb
 share/metasploit/modules/exploits/multi/http/microfocus_ucmdb_unauth_deser.rb
+share/metasploit/modules/exploits/multi/http/mirth_connect_cve_2023_43208.rb
 share/metasploit/modules/exploits/multi/http/mma_backdoor_upload.rb
 share/metasploit/modules/exploits/multi/http/mobilecartly_upload_exec.rb
 share/metasploit/modules/exploits/multi/http/monitorr_webshell_rce_cve_2020_28871.rb
@@ -11338,6 +11454,7 @@ share/metasploit/modules/exploits/multi/http/webpagetest_upload_exec.rb
 share/metasploit/modules/exploits/multi/http/werkzeug_debug_rce.rb
 share/metasploit/modules/exploits/multi/http/wikka_spam_exec.rb
 share/metasploit/modules/exploits/multi/http/wp_ait_csv_rce.rb
+share/metasploit/modules/exploits/multi/http/wp_backup_migration_php_filter.rb
 share/metasploit/modules/exploits/multi/http/wp_catch_themes_demo_import.rb
 share/metasploit/modules/exploits/multi/http/wp_crop_rce.rb
 share/metasploit/modules/exploits/multi/http/wp_db_backup_rce.rb
@@ -11351,6 +11468,7 @@ share/metasploit/modules/exploits/multi/http/wp_plugin_modern_events_calendar_rc
 share/metasploit/modules/exploits/multi/http/wp_plugin_sp_project_document_rce.rb
 share/metasploit/modules/exploits/multi/http/wp_popular_posts_rce.rb
 share/metasploit/modules/exploits/multi/http/wp_responsive_thumbnail_slider_upload.rb
+share/metasploit/modules/exploits/multi/http/wp_royal_elementor_addons_rce.rb
 share/metasploit/modules/exploits/multi/http/wp_simple_file_list_rce.rb
 share/metasploit/modules/exploits/multi/http/wso2_file_upload_rce.rb
 share/metasploit/modules/exploits/multi/http/x7chat2_php_exec.rb
@@ -11580,6 +11698,7 @@ share/metasploit/modules/exploits/unix/http/pihole_whitelist_exec.rb
 share/metasploit/modules/exploits/unix/http/quest_kace_systems_management_rce.rb
 share/metasploit/modules/exploits/unix/http/raspap_rce.rb
 share/metasploit/modules/exploits/unix/http/schneider_electric_net55xx_encoder.rb
+share/metasploit/modules/exploits/unix/http/splunk_xslt_authenticated_rce.rb
 share/metasploit/modules/exploits/unix/http/syncovery_linux_rce_2022_36534.rb
 share/metasploit/modules/exploits/unix/http/tnftp_savefile.rb
 share/metasploit/modules/exploits/unix/http/twiki_debug_plugins.rb
@@ -11771,6 +11890,7 @@ share/metasploit/modules/exploits/unix/webapp/zeroshell_exec.rb
 share/metasploit/modules/exploits/unix/webapp/zimbra_lfi.rb
 share/metasploit/modules/exploits/unix/webapp/zoneminder_lang_exec.rb
 share/metasploit/modules/exploits/unix/webapp/zoneminder_packagecontrol_exec.rb
+share/metasploit/modules/exploits/unix/webapp/zoneminder_snapshots.rb
 share/metasploit/modules/exploits/unix/webapp/zpanel_username_exec.rb
 share/metasploit/modules/exploits/unix/x11/
 share/metasploit/modules/exploits/unix/x11/x11_keyboard_exec.rb
@@ -12232,6 +12352,7 @@ share/metasploit/modules/exploits/windows/fileformat/somplplayer_m3u.rb
 share/metasploit/modules/exploits/windows/fileformat/subtitle_processor_m3u_bof.rb
 share/metasploit/modules/exploits/windows/fileformat/syncbreeze_xml.rb
 share/metasploit/modules/exploits/windows/fileformat/tfm_mmplayer_m3u_ppl_bof.rb
+share/metasploit/modules/exploits/windows/fileformat/theme_dll_hijack_cve_2023_38146.rb
 share/metasploit/modules/exploits/windows/fileformat/total_video_player_ini_bof.rb
 share/metasploit/modules/exploits/windows/fileformat/tugzip.rb
 share/metasploit/modules/exploits/windows/fileformat/ultraiso_ccd.rb
@@ -12501,6 +12622,7 @@ share/metasploit/modules/exploits/windows/http/plesk_mylittleadmin_viewstate.rb
 share/metasploit/modules/exploits/windows/http/plex_unpickle_dict_rce.rb
 share/metasploit/modules/exploits/windows/http/privatewire_gateway.rb
 share/metasploit/modules/exploits/windows/http/prtg_authenticated_rce.rb
+share/metasploit/modules/exploits/windows/http/prtg_authenticated_rce_cve_2023_32781.rb
 share/metasploit/modules/exploits/windows/http/psoproxy91_overflow.rb
 share/metasploit/modules/exploits/windows/http/rabidhamster_r4_log.rb
 share/metasploit/modules/exploits/windows/http/rejetto_hfs_exec.rb
@@ -13677,6 +13799,8 @@ share/metasploit/modules/post/linux/busybox/wget_exec.rb
 share/metasploit/modules/post/linux/dos/
 share/metasploit/modules/post/linux/dos/xen_420_dos.rb
 share/metasploit/modules/post/linux/gather/
+share/metasploit/modules/post/linux/gather/ansible.rb
+share/metasploit/modules/post/linux/gather/ansible_playbook_error_message_file_reader.rb
 share/metasploit/modules/post/linux/gather/apache_nifi_credentials.rb
 share/metasploit/modules/post/linux/gather/checkcontainer.rb
 share/metasploit/modules/post/linux/gather/checkvm.rb
@@ -13701,6 +13825,7 @@ share/metasploit/modules/post/linux/gather/mount_cifs_creds.rb
 share/metasploit/modules/post/linux/gather/openvpn_credentials.rb
 share/metasploit/modules/post/linux/gather/phpmyadmin_credsteal.rb
 share/metasploit/modules/post/linux/gather/pptpd_chap_secrets.rb
+share/metasploit/modules/post/linux/gather/puppet.rb
 share/metasploit/modules/post/linux/gather/tor_hiddenservices.rb
 share/metasploit/modules/post/linux/gather/vcenter_secrets_dump.rb
 share/metasploit/modules/post/linux/manage/
@@ -13744,6 +13869,7 @@ share/metasploit/modules/post/multi/gather/jboss_gather.rb
 share/metasploit/modules/post/multi/gather/jenkins_gather.rb
 share/metasploit/modules/post/multi/gather/lastpass_creds.rb
 share/metasploit/modules/post/multi/gather/maven_creds.rb
+share/metasploit/modules/post/multi/gather/memory_search.rb
 share/metasploit/modules/post/multi/gather/minio_client.rb
 share/metasploit/modules/post/multi/gather/multi_command.rb
 share/metasploit/modules/post/multi/gather/netrc_creds.rb
@@ -13939,6 +14065,7 @@ share/metasploit/modules/post/windows/gather/credentials/veeam_credential_dump.r
 share/metasploit/modules/post/windows/gather/credentials/viber.rb
 share/metasploit/modules/post/windows/gather/credentials/vnc.rb
 share/metasploit/modules/post/windows/gather/credentials/whatsupgold_credential_dump.rb
+share/metasploit/modules/post/windows/gather/credentials/winbox_settings.rb
 share/metasploit/modules/post/windows/gather/credentials/windows_autologin.rb
 share/metasploit/modules/post/windows/gather/credentials/windows_sam_hivenightmare.rb
 share/metasploit/modules/post/windows/gather/credentials/windowslivemail.rb
@@ -14044,6 +14171,7 @@ share/metasploit/modules/post/windows/manage/inject_ca.rb
 share/metasploit/modules/post/windows/manage/inject_host.rb
 share/metasploit/modules/post/windows/manage/install_python.rb
 share/metasploit/modules/post/windows/manage/install_ssh.rb
+share/metasploit/modules/post/windows/manage/kerberos_tickets.rb
 share/metasploit/modules/post/windows/manage/killav.rb
 share/metasploit/modules/post/windows/manage/make_token.rb
 share/metasploit/modules/post/windows/manage/migrate.rb
@@ -14373,13 +14501,19 @@ share/metasploit/spec/lib/metasploit/framework/password_crackers/
 share/metasploit/spec/lib/metasploit/framework/password_crackers/cracker_spec.rb
 share/metasploit/spec/lib/metasploit/framework/password_crackers/invalid_wordlist_spec.rb
 share/metasploit/spec/lib/metasploit/framework/password_crackers/wordlist_spec.rb
+share/metasploit/spec/lib/metasploit/framework/ssh/
+share/metasploit/spec/lib/metasploit/framework/ssh/platform_spec.rb
 share/metasploit/spec/lib/msf/
 share/metasploit/spec/lib/msf/base/
 share/metasploit/spec/lib/msf/base/serializer/
 share/metasploit/spec/lib/msf/base/serializer/readable_text_spec.rb
 share/metasploit/spec/lib/msf/base/sessions/
+share/metasploit/spec/lib/msf/base/sessions/command_shell_spec.rb
 share/metasploit/spec/lib/msf/base/sessions/mainframe_shell_spec.rb
 share/metasploit/spec/lib/msf/base/sessions/meterpreter_spec.rb
+share/metasploit/spec/lib/msf/base/sessions/mysql_spec.rb
+share/metasploit/spec/lib/msf/base/sessions/postgresql_spec.rb
+share/metasploit/spec/lib/msf/base/sessions/smb_spec.rb
 share/metasploit/spec/lib/msf/core/
 share/metasploit/spec/lib/msf/core/analyze_spec.rb
 share/metasploit/spec/lib/msf/core/author_spec.rb
@@ -14560,6 +14694,7 @@ share/metasploit/spec/lib/msf/core/rpc/v10/rpc_core_spec.rb
 share/metasploit/spec/lib/msf/core/rpc/v10/rpc_job_status_tracker_spec.rb
 share/metasploit/spec/lib/msf/core/site_reference_spec.rb
 share/metasploit/spec/lib/msf/core/target_spec.rb
+share/metasploit/spec/lib/msf/core/web_services_spec.rb
 share/metasploit/spec/lib/msf/core/windows_version_spec.rb
 share/metasploit/spec/lib/msf/database_event_spec.rb
 share/metasploit/spec/lib/msf/db_connector_spec.rb
@@ -14569,6 +14704,7 @@ share/metasploit/spec/lib/msf/db_manager/export_spec.rb
 share/metasploit/spec/lib/msf/db_manager_spec.rb
 share/metasploit/spec/lib/msf/debug_spec.rb
 share/metasploit/spec/lib/msf/exploit/
+share/metasploit/spec/lib/msf/exploit/local_spec.rb
 share/metasploit/spec/lib/msf/exploit/remote/
 share/metasploit/spec/lib/msf/exploit/remote/http/
 share/metasploit/spec/lib/msf/exploit/remote/http/kubernetes/
@@ -14653,8 +14789,28 @@ share/metasploit/spec/lib/rex/post/meterpreter/extensions/stdapi/ui_spec.rb
 share/metasploit/spec/lib/rex/post/meterpreter/packet_parser_spec.rb
 share/metasploit/spec/lib/rex/post/meterpreter/packet_spec.rb
 share/metasploit/spec/lib/rex/post/meterpreter/ui/
+share/metasploit/spec/lib/rex/post/meterpreter/ui/console/
 share/metasploit/spec/lib/rex/post/meterpreter/ui/console.rb
+share/metasploit/spec/lib/rex/post/meterpreter/ui/console/command_dispatcher/
+share/metasploit/spec/lib/rex/post/meterpreter/ui/console/command_dispatcher/core_spec.rb
 share/metasploit/spec/lib/rex/post/meterpreter_spec.rb
+share/metasploit/spec/lib/rex/post/mysql/
+share/metasploit/spec/lib/rex/post/mysql/ui/
+share/metasploit/spec/lib/rex/post/mysql/ui/console/
+share/metasploit/spec/lib/rex/post/mysql/ui/console/command_dispatcher/
+share/metasploit/spec/lib/rex/post/mysql/ui/console/command_dispatcher/core_spec.rb
+share/metasploit/spec/lib/rex/post/postgresql/
+share/metasploit/spec/lib/rex/post/postgresql/ui/
+share/metasploit/spec/lib/rex/post/postgresql/ui/console/
+share/metasploit/spec/lib/rex/post/postgresql/ui/console/command_dispatcher/
+share/metasploit/spec/lib/rex/post/postgresql/ui/console/command_dispatcher/client_spec.rb
+share/metasploit/spec/lib/rex/post/postgresql/ui/console/command_dispatcher/core_spec.rb
+share/metasploit/spec/lib/rex/post/smb/
+share/metasploit/spec/lib/rex/post/smb/ui/
+share/metasploit/spec/lib/rex/post/smb/ui/console/
+share/metasploit/spec/lib/rex/post/smb/ui/console/command_dispatcher/
+share/metasploit/spec/lib/rex/post/smb/ui/console/command_dispatcher/core_spec.rb
+share/metasploit/spec/lib/rex/post/smb/ui/console/command_dispatcher/shares_spec.rb
 share/metasploit/spec/lib/rex/proto/
 share/metasploit/spec/lib/rex/proto/acpp/
 share/metasploit/spec/lib/rex/proto/acpp/message_spec.rb
@@ -14662,6 +14818,8 @@ share/metasploit/spec/lib/rex/proto/acpp/retrieve_public.bin
 share/metasploit/spec/lib/rex/proto/crypto_asn/
 share/metasploit/spec/lib/rex/proto/crypto_asn/x509_spec.rb
 share/metasploit/spec/lib/rex/proto/crypto_asn1_spec.rb
+share/metasploit/spec/lib/rex/proto/dns/
+share/metasploit/spec/lib/rex/proto/dns/custom_nameserver_provider_spec.rb
 share/metasploit/spec/lib/rex/proto/gss/
 share/metasploit/spec/lib/rex/proto/gss/kerberos/
 share/metasploit/spec/lib/rex/proto/gss/kerberos/message_encryptor_spec.rb
@@ -15042,6 +15200,10 @@ share/metasploit/spec/support/shared/examples/msf/modules/version_compatibility_
 share/metasploit/spec/support/shared/examples/msf/simple/
 share/metasploit/spec/support/shared/examples/msf/simple/framework/
 share/metasploit/spec/support/shared/examples/msf/simple/framework/module_paths.rb
+share/metasploit/spec/support/shared/examples/msf/ui/
+share/metasploit/spec/support/shared/examples/msf/ui/console/
+share/metasploit/spec/support/shared/examples/msf/ui/console/command_dispatcher/
+share/metasploit/spec/support/shared/examples/msf/ui/console/command_dispatcher/session_spec.rb
 share/metasploit/spec/support/shared/examples/payload_cached_size_is_consistent.rb
 share/metasploit/spec/support/shared/examples/payload_not_cached.rb
 share/metasploit/spec/support/shared/examples/rex/
