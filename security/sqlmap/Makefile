@@ -1,12 +1,12 @@
-COMMENT =		penetration testing tool to detect/exploit SQL injection
+COMMENT =		SQL injection and database takeover tool
 
 GH_ACCOUNT =		sqlmapproject
 GH_PROJECT =		sqlmap
-GH_TAGNAME =		1.7.8
+GH_TAGNAME =		1.8.2
 
 CATEGORIES =		security
 
-HOMEPAGE =		http://sqlmap.org/
+HOMEPAGE =		https://sqlmap.org/
 
 # GPLv2
 PERMIT_PACKAGE =	Yes
