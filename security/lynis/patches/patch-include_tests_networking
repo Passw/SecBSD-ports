@@ -1,0 +1,39 @@
+Index: include/tests_networking
+--- include/tests_networking.orig
++++ include/tests_networking
+@@ -314,7 +314,7 @@
+             DragonFly|FreeBSD|macOS|NetBSD)
+                 FIND=$(${IFCONFIGBINARY} -l 2> /dev/null)
+             ;;
+-            OpenBSD|Solaris)
++            OpenBSD|SecBSD|Solaris)
+                 FIND=$(${IFCONFIGBINARY} -a 2> /dev/null | ${GREPBINARY} "flags=" | ${AWKBINARY} -F ": " '{ print  $1 }')
+             ;;
+             *)
+@@ -369,7 +369,7 @@
+             NetBSD)
+                 FIND=$(${IFCONFIGBINARY} -a 2> /dev/null | ${AWKBINARY} '{ if ($1=="address:") print $2 }' | ${SORTBINARY} -u)
+                 ;;
+-            OpenBSD)
++            OpenBSD | SecBSD)
+                 FIND=$(${IFCONFIGBINARY} -A 2> /dev/null | ${AWKBINARY} '{ if ($1=="lladdr") print $2 }' | ${SORTBINARY} -u)
+                 ;;
+             Solaris)
+@@ -421,7 +421,7 @@
+                 FIND=$(${IFCONFIGBINARY} -a 2> /dev/null | ${AWKBINARY} '{ if ($1=="inet") print $2 }')
+                 FIND2=$(${IFCONFIGBINARY} -a 2> /dev/null | ${AWKBINARY} '{ if ($1=="inet6") print $2 }')
+                 ;;
+-            OpenBSD)
++            OpenBSD | SecBSD)
+                 FIND=$(${IFCONFIGBINARY} -A 2> /dev/null | ${AWKBINARY} '{ if ($1=="inet") print $2 }')
+                 FIND2=$(${IFCONFIGBINARY} -A 2> /dev/null | ${AWKBINARY} '{ if ($1=="inet6") print $2 }')
+                 ;;
+@@ -501,7 +501,7 @@
+                 fi
+                 FIND2=""
+             ;;
+-            OpenBSD)
++            OpenBSD | SecBSD)
+                 if [ -n "${NETSTATBINARY}" ]; then
+                     LogText "Test: Retrieving netstat information to find listening ports"
+                     # UDP

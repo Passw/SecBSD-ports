@@ -1,0 +1,22 @@
+Index: include/osdetection
+--- include/osdetection.orig
++++ include/osdetection
+@@ -678,6 +678,18 @@
+             SYSCTL_READKEY=""
+         ;;
+ 
++        # SecBSD
++        SecBSD)
++            OS="SecBSD"
++            OS_NAME="SecBSD"
++            OS_FULLNAME=$(uname -s -r)
++            OS_KERNELVERSION=$(uname -v)
++            OS_VERSION=$(uname -r)
++            HARDWARE=$(uname -m)
++            FIND_BINARIES="whereis"
++            SYSCTL_READKEY=""
++        ;;
++
+         # Solaris / OpenSolaris / Ilumos ...
+         SunOS)
+             OS="Solaris"

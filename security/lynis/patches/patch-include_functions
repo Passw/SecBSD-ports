@@ -1,0 +1,18 @@
+Index: include/functions
+--- include/functions.orig
++++ include/functions
+@@ -1107,12 +1107,12 @@
+                     fi
+                 ;;
+ 
+-                "OpenBSD")
++                "OpenBSD" | "SecBSD")
+                     FIND=$(${IFCONFIGBINARY} | grep "lladdr " | head -1 | awk '{ print $2 }' | tr '[:upper:]' '[:lower:]')
+                     if HasData "${FIND}"; then
+                         HOSTID=$(echo ${FIND} | sha1)
+                     else
+-                        ReportException "GetHostID" "No MAC address returned on OpenBSD"
++                        ReportException "GetHostID" "No MAC address returned on OpenBSD/SecBSD"
+                     fi
+                 ;;
+ 
