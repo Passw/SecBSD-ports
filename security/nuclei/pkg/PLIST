@@ -1,5 +1,6 @@
 @bin bin/docgen
 @bin bin/fuzzplayground
 @bin bin/generate-checksum
+@bin bin/memogen
 @bin bin/nuclei
 @bin bin/tmc
