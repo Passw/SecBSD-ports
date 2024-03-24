@@ -5,7 +5,7 @@ BROKEN-powerpc64 =	needs new bootstrap
 .if "${MACHINE_ARCH}" == "i386"
 DPB_PROPERTIES =	lonesome
 .else
-DPB_PROPERTIES =	parallel parallel2
+DPB_PROPERTIES =	parallel
 .endif
 
 COMMENT-main =		compiler for Rust Language
@@ -14,16 +14,16 @@ COMMENT-clippy =	Rust linter
 COMMENT-rustfmt =	Rust code formatter
 COMMENT-src =		Rust source component
 
-V =			1.73.0
+V =			1.77.0
 DISTNAME =		rustc-${V}-src
 
 # rustc bootstrap version
-BV-aarch64 =		1.73.0-20231007
-BV-amd64 =		1.73.0-20231004
-BV-i386 =		1.73.0-20231005
+BV-aarch64 =		1.77.0-20240320
+BV-amd64 =		1.77.0-20240318
+BV-i386 =		1.77.0-20240319
 BV-powerpc64 =		1.65.0-20221213
-BV-riscv64 =		1.72.0-20230920
-BV-sparc64 =		1.72.0-20230920
+BV-riscv64 =		1.76.0-20240228
+BV-sparc64 =		1.76.0p0-20240318
 BV =			${BV-${MACHINE_ARCH}}
 
 PKGNAME =		rust-${V}
@@ -80,7 +80,7 @@ TRIPLE_ARCH-riscv64 =	riscv64gc-unknown-openbsd
 TRIPLE_ARCH-sparc64 =	sparc64-unknown-openbsd
 TRIPLE_ARCH =	${TRIPLE_ARCH-${MACHINE_ARCH}}
 
-USE_EMB_LLVM ?=	Yes
+USE_EMB_LLVM ?=		No
 
 # flags to use when building LLVM
 LLVMCXXFLAGS-aarch64 =	-fno-ret-protector
@@ -197,7 +197,7 @@ pre-configure:
 
 # - generate config.toml file
 do-configure:
-	echo 'changelog-seen = 2' >${WRKBUILD}/config.toml
+	echo 'change-id = 118703' >${WRKBUILD}/config.toml
 	echo '[build]' >>${WRKBUILD}/config.toml
 .if ${FLAVOR} == native_bootstrap
 	echo 'rustc = "${LOCALBASE}/bin/rustc"' >>${WRKBUILD}/config.toml
@@ -306,7 +306,7 @@ do-test:
 STRIP ?=	strip
 # Try to avoid strip from our ancient binutils-2.17
 .if ${LINKER_VERSION} != "lld"
-STRIP =		llvm-strip
+STRIP =		llvm-strip-${MODCLANG_VERSION}
 .endif
 
 # bootstrap target permits to regenerate the bootstrap archive
