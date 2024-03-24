@@ -1,13 +1,13 @@
 ONLY_FOR_ARCHS =	${GO_ARCHS}
 
-BIN_BOOTSTRAP_GOARCHS =	386 amd64 arm arm64
+BIN_BOOTSTRAP_GOARCHS =	386 amd64 arm arm64 mips64 riscv64
 BIN_BOOTSTRAP_VERSION = 1.20.4
 
 COMMENT =		Go programming language
 
 # increment _MODGO_SYSTEM_VERSION in go.port.mk after updating to a new
 # version, to trigger updates of go-compiled ports
-VERSION =		1.21.1
+VERSION =		1.22.1
 DISTNAME =		go${VERSION}.src
 PKGNAME =		go-${VERSION}
 PKGSPEC =		${FULLPKGNAME:S/go-/go-=/}
@@ -53,6 +53,10 @@ GOARCH =		arm
 GOARCH =		arm64
 .elif ${MACHINE_ARCH} == "i386"
 GOARCH =		386
+.elif ${MACHINE_ARCH} == "mips64"
+GOARCH =		mips64
+.elif ${MACHINE_ARCH} == "riscv64"
+GOARCH =		riscv64
 .endif
 
 MAKE_ENV +=		TMPDIR="${WRKBUILD}"

@@ -1,6 +1,10 @@
 # increment after a go compiler update to trigger updates of
 # compiled go packages (see arch-defines.mk)
-_MODGO_SYSTEM_VERSION =	4
+_MODGO_SYSTEM_VERSION =	11
+
+# not using the normal ports mechanism, but setting USE_NOBTCFI for
+# documentation in sqlports
+USE_NOBTCFI  =		Yes
 
 ONLY_FOR_ARCHS ?=	${GO_ARCHS}
 
@@ -58,6 +62,11 @@ MODGO_LIST_CMD =	${MODGO_CMD} list ${MODGO_FLAGS}
 MODGO_TEST_CMD =	${MODGO_CMD} test ${MODGO_FLAGS} ${MODGO_TEST_FLAGS}
 MODGO_BINDIR ?=		bin
 
+.if empty(DEBUG)
+# by default omit symbol table, debug information and DWARF symbol table
+MODGO_LDFLAGS +=	-s -w
+.endif
+
 .if ! empty(MODGO_LDFLAGS)
 MODGO_BUILD_CMD +=	-ldflags="${MODGO_LDFLAGS}"
 MODGO_LIST_CMD +=	-ldflags="${MODGO_LDFLAGS}"
@@ -111,10 +120,7 @@ CATEGORIES +=		lang/go
 MODGO_BUILD_TARGET =	${MODGO_BUILD_CMD} ${ALL_TARGET}
 MODGO_FLAGS +=		-v -buildvcs=false -p=${MAKE_JOBS}
 
-.if empty(DEBUG)
-# by default omit symbol table, debug information and DWARF symbol table
-MODGO_LDFLAGS +=	-s -w
-.else
+.if ! empty(DEBUG)
 MODGO_FLAGS +=		-x
 .endif
 

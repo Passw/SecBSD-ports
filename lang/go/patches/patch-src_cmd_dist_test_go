@@ -1,7 +1,7 @@
-Index: src/internal/platform/supported.go
---- src/internal/platform/supported.go.orig
-+++ src/internal/platform/supported.go
-@@ -26,7 +26,7 @@ func RaceDetectorSupported(goos, goarch string) bool {
+Index: src/cmd/dist/test.go
+--- src/cmd/dist/test.go.orig
++++ src/cmd/dist/test.go
+@@ -1554,7 +1554,7 @@ func raceDetectorSupported(goos, goarch string) bool {
  		return goarch == "amd64" || goarch == "ppc64le" || goarch == "arm64" || goarch == "s390x"
  	case "darwin":
  		return goarch == "amd64" || goarch == "arm64"
