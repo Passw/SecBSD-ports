@@ -1,21 +1,19 @@
 COMMENT =	Firefox web browser
-ONLY_FOR_ARCHS =	amd64 aarch64
+ONLY_FOR_ARCHS =	amd64 aarch64 riscv64
 
 # Don't forget to bump www/firefox-i18n after updates.
 
-MOZILLA_VERSION =	118.0.2
-MOZILLA_PROFDATA_TASKID=cPNi6RwNQgav5aOeaI2WAg
+MOZILLA_VERSION =	124.0.1
 MOZILLA_BRANCH =	release
 MOZILLA_PROJECT =	firefox
 MOZILLA_CODENAME =	browser
-REVISION =	0
 
 WRKDIST =	${WRKDIR}/${MOZILLA_DIST}-${MOZILLA_DIST_VERSION:C/b[0-9]*//}
 HOMEPAGE =	https://www.mozilla.org/firefox/
-SO_VERSION =	130.0
+SO_VERSION =	136.0
 # NOTE: Must bump minor version if any shlib's are removed from the
 # components dir to avoid pkg_add -r issues.
-MOZILLA_LIBS =	mozavcodec mozavutil mozgtk xul clearkey gkcodecs lgpllibs mozsqlite3 ipcclientcerts
+MOZILLA_LIBS =	mozavcodec mozavutil mozgtk mozwayland xul clearkey gkcodecs lgpllibs mozsqlite3 ipcclientcerts
 
 CATEGORIES =	www
 
@@ -52,20 +50,30 @@ CONFIGURE_SCRIPT =	${MODPY_BIN} ${WRKSRC}/configure.py
 CONFIGURE_ARGS +=	--prefix=${PREFIX}
 MAKE_ENV +=		BUILD_VERBOSE_LOG="1" CARGOFLAGS="-j${MAKE_JOBS}"
 CONFIGURE_ENV +=	CPPFLAGS=-Wno-backend-plugin
-CONFIGURE_ENV +=	LDFLAGS=-Wl,--threads=${MAKE_JOBS}
+CONFIGURE_ENV +=	LDFLAGS="-Wl,--threads=${MAKE_JOBS} --ld-path=${WRKDIR}/bin/ld"
 
 CONFIGURE_ARGS +=	--enable-release #1386371
 CONFIGURE_ARGS +=	--enable-sandbox
 CONFIGURE_ARGS +=	--enable-forkserver
-CONFIGURE_ARGS +=	--enable-lto=thin
 CONFIGURE_ARGS +=	--with-wasi-sysroot=${LOCALBASE}/share/wasi-sysroot
 CONFIGURE_ARGS +=	--with-libclang-path=${LOCALBASE}/llvm${MODCLANG_VERSION}/lib
+# LTO eats too much RAM on riscv64
+.if ${MACHINE_ARCH} != riscv64
+CONFIGURE_ARGS +=	--enable-lto=thin
+.endif
 
 # XXX badly formed debug ?
 DWZ = :
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 DEBUG_CONFIGURE_ARGS +=	--enable-debug-symbols \
 			--disable-install-strip
+
+# not built on riscv64
+COMMENT_FFVPX ?=
+.if ${MACHINE_ARCH} == riscv64
+COMMENT_FFVPX =		@comment 
+.endif
+SUBST_VARS +=		COMMENT_FFVPX
 
 post-install:
 	${SUBST_MAN} ${FILESDIR}/mozilla-firefox.1 \
