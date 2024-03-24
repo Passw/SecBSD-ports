@@ -53,12 +53,12 @@ EXTRACT_SUFX ?=	.tar.xz
 DIST_SUBDIR ?=	mozilla
 
 .if defined(MOZILLA_PROFDATA_TASKID)
-.if ${MOZILLA_PROJECT:Mfirefox*}
+.if 0
 DISTFILES.profdata =	${DISTNAME}-profdata${EXTRACT_SUFX}
 SITES.profdata =	https://rhaalovely.net/stuff/
 .else
 DISTFILES.profdata =	${DISTNAME}-profdata${EXTRACT_SUFX}{profdata${EXTRACT_SUFX}}
-SITES.prof =		https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/${MOZILLA_PROFDATA_TASKID}/runs/0/artifacts/public/build/
+SITES.profdata =	https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/${MOZILLA_PROFDATA_TASKID}/runs/0/artifacts/public/build/
 .endif
 CONFIGURE_ARGS +=	--enable-profile-use
 CONFIGURE_ARGS +=	--with-pgo-profile-path=${WRKDIR}/merged.profdata
@@ -93,8 +93,9 @@ CONFIGURE_ARGS +=	--with-system-icu
 .if !defined(MOZILLA_USE_DBUS)
 CONFIGURE_ARGS +=	--disable-dbus
 .else
-MODMOZ_LIB_DEPENDS +=	x11/dbus-glib
-MODMOZ_WANTLIB +=	dbus-1 dbus-glib-1
+# filepickers via portals need dbus
+MODMOZ_LIB_DEPENDS +=	x11/dbus
+MODMOZ_WANTLIB +=	dbus-1
 CONFIGURE_ARGS +=	--enable-dbus
 .endif
 
@@ -111,7 +112,8 @@ MODMOZ_BUILD_DEPENDS +=	devel/nasm
 .endif
 
 # 53 needs rust
-MODMOZ_BUILD_DEPENDS +=	lang/rust
+MODULES +=		lang/rust
+MODMOZ_WANTLIB +=	${MODRUST_WANTLIB}
 #1670807
 MODMOZ_BUILD_DEPENDS +=	devel/m4
 
