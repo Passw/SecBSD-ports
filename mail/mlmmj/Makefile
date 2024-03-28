@@ -1,6 +1,6 @@
 COMMENT=	mailing list manager
 
-DISTNAME=	mlmmj-1.4.4
+DISTNAME=	mlmmj-1.4.5
 
 CATEGORIES=	mail
 
@@ -16,14 +16,12 @@ COMPILER=	base-clang ports-gcc
 SITES=		${HOMEPAGE}/archive/
 
 LIB_DEPENDS=	converters/libiconv \
-		devel/atf
+		devel/kyua-cli
 
 WANTLIB+=	c iconv
 
-DISTFILES=	RELEASE_1_4_4${EXTRACT_SUFX}
-EXTRACT_SUFX=	.tar.gz
+DISTFILES=	RELEASE_1_4_5${EXTRACT_SUFX}
 
-WRKSRC=		${WRKDIR}/mlmmj
 WRKDIST=	${WRKDIR}/mlmmj
 
 CONFIGURE_STYLE=	autoreconf
@@ -42,5 +40,6 @@ post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/mlmmj
 	cd ${WRKSRC} && ${INSTALL_DATA} ${DOCS} ${PREFIX}/share/doc/mlmmj
 	cd ${WRKSRC} && ${INSTALL_DATA} contrib/receivestrip/README \
-		${PREFIX}/share/doc/mlmmj/README.receive-strip
+	${PREFIX}/share/doc/mlmmj/README.receive-strip
+
 .include <bsd.port.mk>
