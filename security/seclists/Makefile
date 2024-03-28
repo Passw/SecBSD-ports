@@ -2,7 +2,7 @@ COMMENT=	collection of multiple types of lists
 CATEGORIES=	security
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-DIST_TUPLE =	github danielmiessler SecLists 2023.2 .
+DIST_TUPLE =	github danielmiessler SecLists 2024.1 .
 
 HOMEPAGE=	https://github.com/danielmiessler/SecLists
 
@@ -16,7 +16,7 @@ INSTDIR=	${PREFIX}/share/seclists
 
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}
-	@tar xzf ${FULLDISTDIR}/danielmiessler-SecLists-2023.2${EXTRACT_SUFX} \
+	@tar xzf ${FULLDISTDIR}/danielmiessler-SecLists-2024.1${EXTRACT_SUFX} \
 	-C ${INSTDIR}
 	@mv ${INSTDIR}/${DISTNAME}/* ${INSTDIR}
 
