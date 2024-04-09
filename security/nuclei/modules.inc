@@ -441,8 +441,8 @@ MODGO_MODULES=	\
 	github.com/projectdiscovery/cdncheck						 v1.0.9 \
 	github.com/projectdiscovery/clistats						 v0.0.20 \
 	github.com/projectdiscovery/dnsx						 v1.1.6 \
-	github.com/projectdiscovery/dsl							 v0.0.50 \
-	github.com/projectdiscovery/fastdialer						 v0.0.64 \
+	github.com/projectdiscovery/dsl							 v0.0.51 \
+	github.com/projectdiscovery/fastdialer						 v0.0.66 \
 	github.com/projectdiscovery/fasttemplate					 v0.0.2 \
 	github.com/projectdiscovery/fdmax						 v0.0.4 \
 	github.com/projectdiscovery/freeport						 v0.0.5 \
@@ -462,16 +462,16 @@ MODGO_MODULES=	\
 	github.com/projectdiscovery/n3iwf						 v0.0.0-20230523120440-b8cd232ff1f5 \
 	github.com/projectdiscovery/networkpolicy					 v0.0.8 \
 	github.com/projectdiscovery/ratelimit						 v0.0.35 \
-	github.com/projectdiscovery/rawhttp						 v0.1.41 \
+	github.com/projectdiscovery/rawhttp						 v0.1.44 \
 	github.com/projectdiscovery/rdap						 v0.9.1-0.20221108103045-9865884d1917 \
 	github.com/projectdiscovery/retryabledns					 v1.0.58 \
-	github.com/projectdiscovery/retryablehttp-go					 v1.0.54 \
+	github.com/projectdiscovery/retryablehttp-go					 v1.0.55 \
 	github.com/projectdiscovery/sarif						 v0.0.1 \
 	github.com/projectdiscovery/stringsutil						 v0.0.2 \
 	github.com/projectdiscovery/tlsx						 v1.1.6 \
 	github.com/projectdiscovery/uncover						 v1.0.7 \
 	github.com/projectdiscovery/useragent						 v0.0.40 \
-	github.com/projectdiscovery/utils						 v0.0.87 \
+	github.com/projectdiscovery/utils						 v0.0.88 \
 	github.com/projectdiscovery/wappalyzergo					 v0.0.116 \
 	github.com/projectdiscovery/yamldoc-go						 v1.0.4 \
 	github.com/prometheus/client_golang						 v1.14.0 \
@@ -969,7 +969,7 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/fastdialer			 v0.0.55 \
 	github.com/projectdiscovery/fastdialer			 v0.0.59 \
 	github.com/projectdiscovery/fastdialer			 v0.0.61 \
-	github.com/projectdiscovery/fastdialer			 v0.0.62 \
+	github.com/projectdiscovery/fastdialer			 v0.0.65 \
 	github.com/projectdiscovery/goflags			 v0.1.23 \
 	github.com/projectdiscovery/goflags			 v0.1.28 \
 	github.com/projectdiscovery/goflags			 v0.1.36 \
@@ -1000,8 +1000,7 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.42 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.48 \
 	github.com/projectdiscovery/retryablehttp-go		 v1.0.49 \
-	github.com/projectdiscovery/retryablehttp-go		 v1.0.51 \
-	github.com/projectdiscovery/retryablehttp-go		 v1.0.53 \
+	github.com/projectdiscovery/retryablehttp-go		 v1.0.54 \
 	github.com/projectdiscovery/useragent			 v0.0.38 \
 	github.com/projectdiscovery/utils			 v0.0.36 \
 	github.com/projectdiscovery/utils			 v0.0.54 \
@@ -1013,9 +1012,8 @@ MODGO_MODFILES=	\
 	github.com/projectdiscovery/utils			 v0.0.80 \
 	github.com/projectdiscovery/utils			 v0.0.81 \
 	github.com/projectdiscovery/utils			 v0.0.82 \
-	github.com/projectdiscovery/utils			 v0.0.83 \
-	github.com/projectdiscovery/utils			 v0.0.84 \
 	github.com/projectdiscovery/utils			 v0.0.85 \
+	github.com/projectdiscovery/utils			 v0.0.86 \
 	github.com/projectdiscovery/wappalyzergo		 v0.0.112 \
 	github.com/projectdiscovery/wappalyzergo		 v0.0.77 \
 	github.com/prometheus/client_golang			 v0.9.1 \
