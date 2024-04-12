@@ -1,6 +1,6 @@
 COMMENT=		http parameter discovery suite
 
-MODPY_EGG_VERSION=	2.2.1
+MODPY_EGG_VERSION=	2.2.5
 DISTNAME=		arjun-${MODPY_EGG_VERSION}
 
 CATEGORIES=		security
@@ -18,8 +18,8 @@ MODPY_PYBUILD=		setuptools
 FLAVOR=			python3
 FLAVORS=		python3
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		www/py-requests${MODPY_FLAVOR} \
-		textproc/py-dicttoxml${MODPY_FLAVOR}
+RUN_DEPENDS=	www/py-requests${MODPY_FLAVOR} \
+		textproc/py-dicttoxml${MODPY_FLAVOR} \
+		devel/py-ratelimit${MODPY_FLAVOR}
 
 .include <bsd.port.mk>
