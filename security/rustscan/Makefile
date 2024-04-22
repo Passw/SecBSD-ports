@@ -2,9 +2,9 @@ COMMENT=	fast port scanner in Rust
 CATEGORIES=	security
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-DIST_TUPLE=     github RustScan RustScan 2.1.1 . #GPLv3
+DIST_TUPLE=     github RustScan RustScan 2.2.2 . #GPLv3
 
-PKGNAME=	rustscan-2.1.1
+PKGNAME=	rustscan-2.2.2
 
 HOMEPAGE=	https://github.com/RustScan/RustScan
 
@@ -14,6 +14,7 @@ WANTLIB+=	c c++abi m pthread
 
 MODULES=	devel/cargo
 BUILD_DEPENDS=	security/rust-ring
+RUN_DEPENDS=	net/nmap
 
 CONFIGURE_STYLE=	cargo
 SEPARATE_BUILD=		Yes
