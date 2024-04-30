@@ -5,4 +5,5 @@
 @bin bin/integration-test
 @bin bin/memogen
 @bin bin/nuclei
+@bin bin/scan-charts
 @bin bin/tmc

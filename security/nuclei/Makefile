@@ -2,7 +2,7 @@ COMMENT=	customizable vulnerability scanner
 CATEGORIES=     security
 MAINTAINER=     Purple Rain <purplerain@secbsd.org>
 
-MODGO_VERSION=  v3.2.4
+MODGO_VERSION=  v3.2.5
 MODGO_MODNAME=	github.com/projectdiscovery/nuclei/v3
 DISTNAME=	nuclei-${MODGO_VERSION}
 
