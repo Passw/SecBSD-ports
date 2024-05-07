@@ -1,19 +1,22 @@
-COMMENT=	customizable vulnerability scanner
-CATEGORIES=     security
-MAINTAINER=     Purple Rain <purplerain@secbsd.org>
+COMMENT=		customizable vulnerability scanner
 
-MODGO_VERSION=  v3.2.5
-MODGO_MODNAME=	github.com/projectdiscovery/nuclei/v3
-DISTNAME=	nuclei-${MODGO_VERSION}
+MODGO_MODNAME=		github.com/projectdiscovery/nuclei/v3
+MODGO_VERSION=  	v3.2.6
 
-HOMEPAGE=	https://github.com/projectdiscovery/nuclei
+DISTNAME=		nuclei-${MODGO_VERSION}
+
+CATEGORIES=     	security
+
+HOMEPAGE=		https://projectdiscovery.io
+
+MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
 # MIT
-PERMIT_PACKAGE=	Yes
+PERMIT_PACKAGE=		Yes
 
-WANTLIB+=	c pthread
+WANTLIB+=		c pthread
 
-MODULES=	lang/go
+MODULES=		lang/go
 
 .include "modules.inc"
 
