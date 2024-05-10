@@ -43,6 +43,7 @@ MAINTAINER =	Kurt Mosiejczuk <kmos@openbsd.org>
 PERMIT_PACKAGE =	Yes
 
 .if ${VERSION} == "2.7"
+V_SUBDIR =		${VERSION}
 MULTI_PACKAGES =	-main -tests -tools -gdbm -idle -tkinter -bsddb
 DEBUG_PACKAGES ?=	-main -gdbm -tkinter -bsddb
 
@@ -50,6 +51,7 @@ DEBUG_PACKAGES ?=	-main -gdbm -tkinter -bsddb
 # setup.py:allow_db_version). XXX revisit if databases/db/v4 is updated to 4.7
 ONLY_FOR_ARCHS-bsddb=	amd64 i386
 .else
+V_SUBDIR =		3
 MULTI_PACKAGES =	-main -tests -gdbm -idle -tkinter
 DEBUG_PACKAGES ?=	-main -gdbm -tkinter
 .endif
@@ -59,7 +61,7 @@ COMPILER_LANGS =	c
 
 # All subpackages depend on the main python package.
 
-RUN_DEPENDS =		${FULLPKGNAME-main}:lang/python/${VERSION},-main
+RUN_DEPENDS =		${FULLPKGNAME-main}:lang/python/${V_SUBDIR},-main
 LIB_DEPENDS =
 
 LIB_DEPENDS-main +=	archivers/bzip2 \
@@ -70,18 +72,15 @@ RUN_DEPENDS-main =
 WANTLIB-main +=		bz2 c crypto expat ffi intl m curses panel pthread \
 			readline sqlite3 ssl util z
 .if ${VERSION} != "2.7"
-LIB_DEPENDS-main +=	archivers/xz
-WANTLIB-main +=		lzma
-.endif
-.if ${VERSION} == "3.11"
-LIB_DEPENDS-main +=	security/libb2
-WANTLIB-main +=		b2
+LIB_DEPENDS-main +=	archivers/xz \
+			security/libb2
+WANTLIB-main +=		b2 lzma
 .endif
 
 WANTLIB-tests =
 WANTLIB-tools =
 
-LIB_DEPENDS-bsddb =	lang/python/${VERSION},-main
+LIB_DEPENDS-bsddb =	lang/python/${V_SUBDIR},-main
 .if ${MACHINE_ARCH} == "i386" || ${MACHINE_ARCH} == "amd64"
 # XXX recursion: if we have java, then db/v4 depends on libxml
 LIB_DEPENDS-bsddb +=	databases/db/v4,no_tcl,no_java,bootstrap
@@ -91,10 +90,10 @@ LIB_DEPENDS-bsddb +=	databases/db/v4
 WANTLIB-bsddb =		lib/db4/db>=4 pthread python${VERSION}
 
 LIB_DEPENDS-gdbm =	databases/gdbm \
-			lang/python/${VERSION},-main
+			lang/python/${V_SUBDIR},-main
 WANTLIB-gdbm =		gdbm>=3 pthread python${VERSION}
 
-RUN_DEPENDS-idle =	lang/python/${VERSION},-tkinter \
+RUN_DEPENDS-idle =	lang/python/${V_SUBDIR},-tkinter \
 			${RUN_DEPENDS}
 WANTLIB-idle =
 
@@ -106,7 +105,7 @@ MODTK_VERSION =		8.5
 MODTK_VERSION =		8.6
 .endif
 
-LIB_DEPENDS-tkinter =	lang/python/${VERSION},-main \
+LIB_DEPENDS-tkinter =	lang/python/${V_SUBDIR},-main \
 			${MODTK_LIB_DEPENDS}
 WANTLIB-tkinter =	pthread python${VERSION} \
 			${MODTK_WANTLIB}
@@ -130,7 +129,9 @@ CONFIGURE_ARGS +=	--with-lto
 .    if ${MACHINE_ARCH} != "arm" && ${MACHINE_ARCH} != "powerpc"
 # On armv7, clang errors out due to lack of memory.
 # On powerpc, the python binary would crash by "Segmentation fault".
-CONFIGURE_ARGS +=	--enable-optimizations
+# XXX lld from llvm-16 errors out with:
+# ld.lld: error: relocation R_X86_64_PC32 cannot be used against symbol '__profd_isdigit'; recompile with -fPIC
+#CONFIGURE_ARGS +=	--enable-optimizations
 .    endif
 .  endif
 TEST_IS_INTERACTIVE =	Yes
@@ -144,13 +145,8 @@ MAKE_FLAGS +=	LD_LIBRARY_PATH=${WRKSRC} PATH="${WRKDIST}:${PORTPATH}"
 MAKE_FLAGS +=	CFLAGS_NODIST='-I${LOCALBASE}/include' LDFLAGS_NODIST='-L${WRKSRC} -L${LOCALBASE}/lib/'
 FAKE_FLAGS +=	RANLIB=:
 
-# Used in PLISTs for files which should not be installed for non-default
-# versions of Python (i.e. /usr/local/bin/python3).
-# Overridden in subdirectory for the default version.
-PY_DEFAULTONLY ?= "@comment "
-
 PY_PLATFORM =	openbsd${OSMAJOR}
-SUBST_VARS +=	FULL_VERSION VERSION_SPEC PY_PLATFORM PY_DEFAULTONLY
+SUBST_VARS +=	FULL_VERSION VERSION_SPEC PY_PLATFORM
 
 # Python itself is clean, but some dlopen()'d extensions e.g. QtWebKit
 # require W|X mappings and/or don't have the required landing pads for
@@ -203,6 +199,9 @@ post-install:
 		's@#!/usr/local/bin/python@#!${PREFIX}/bin/python${VERSION}@' \
 		${PREFIX}/bin/pip${VERSION}
 .endif
+	if [ -e ${FILESDIR}/EXTERNALLY-MANAGED ]; then \
+		${INSTALL_DATA} ${FILESDIR}/EXTERNALLY-MANAGED \
+		${PREFIX}/lib/python${VERSION}/EXTERNALLY-MANAGED; fi # PEP-668
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/python${VERSION}
 	${INSTALL_DATA} ${FILESDIR}/CHANGES.OpenBSD \
 		${PREFIX}/share/doc/python${VERSION}/CHANGES.OpenBSD
