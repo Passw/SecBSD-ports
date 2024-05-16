@@ -472,7 +472,7 @@ MODGO_MODULES =	\
 	github.com/projectdiscovery/stringsutil						 v0.0.2 \
 	github.com/projectdiscovery/tlsx						 v1.1.6 \
 	github.com/projectdiscovery/uncover						 v1.0.7 \
-	github.com/projectdiscovery/useragent						 v0.0.48 \
+	github.com/projectdiscovery/useragent						 v0.0.49 \
 	github.com/projectdiscovery/utils						 v0.0.92 \
 	github.com/projectdiscovery/wappalyzergo					 v0.0.120 \
 	github.com/projectdiscovery/yamldoc-go						 v1.0.4 \
@@ -978,7 +978,6 @@ MODGO_MODFILES =	\
 	github.com/projectdiscovery/goflags			 v0.1.36 \
 	github.com/projectdiscovery/goflags			 v0.1.40 \
 	github.com/projectdiscovery/goflags			 v0.1.41 \
-	github.com/projectdiscovery/goflags			 v0.1.49 \
 	github.com/projectdiscovery/goflags			 v0.1.8 \
 	github.com/projectdiscovery/gologger			 v1.1.10 \
 	github.com/projectdiscovery/gologger			 v1.1.11 \
@@ -1018,6 +1017,7 @@ MODGO_MODFILES =	\
 	github.com/projectdiscovery/utils			 v0.0.85 \
 	github.com/projectdiscovery/utils			 v0.0.88 \
 	github.com/projectdiscovery/utils			 v0.0.90 \
+	github.com/projectdiscovery/utils			 v0.0.91 \
 	github.com/projectdiscovery/wappalyzergo		 v0.0.112 \
 	github.com/projectdiscovery/wappalyzergo		 v0.0.77 \
 	github.com/prometheus/client_golang			 v0.9.1 \

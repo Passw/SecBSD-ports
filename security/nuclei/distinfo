@@ -1206,7 +1206,6 @@ SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.23.mod) = Jv2U3Eg
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.36.mod) = QB29hlK3xT5tD5Lsxbs4JRsNKvfNKBE4rKVAHMqpav8=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.40.mod) = pjhpls67sFFRAv5aVe0bzk5yhlFAWaiM6/tuAyQghuQ=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.41.mod) = Uxc53GnmbqkcB9P+dtbzvwdydvhEfnFFLOK0kjic+B8=
-SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.49.mod) = sg2FsgxpKntNqpW0TuXsk8ojFZATWuK+rqNMeEIO3X8=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.50.mod) = lslYlHhqmffD9JPSmz2l8Pi815cyA7MM+ljKPJfp+Ps=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.50.zip) = 4KWPlj/Vd3cemFVt68tEayqQIr09T6nQf8oBsxwMqEk=
 SHA256 (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.8.mod) = FkvSn4lWLbniJeoC4BBe2HlAUDekOwiboQoU7WLtNtU=
@@ -1278,8 +1277,8 @@ SHA256 (go_modules/github.com/projectdiscovery/tlsx/@v/v1.1.6.zip) = vU0dXx6TF0o
 SHA256 (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.mod) = cejCkA2RjRskAcGZJC4FPkvDy5Lx7mLgobTZhNsEifY=
 SHA256 (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.zip) = WojDu8+xJPp2ZlS1ntX5oYQH7Lo/QNcZ8OpFTumAbzI=
 SHA256 (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.38.mod) = ILUEi2TU6rqhqaaYmW/dbUcRdcG75TIFeZFHQ7URCI4=
-SHA256 (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.48.mod) = 34azpfi/JtlVVgCQS7Cv4jvPxSJ2kg30vYyt3E4Jtns=
-SHA256 (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.48.zip) = SIEwCsCD1rEgX7jWWLce1YkVIV1W2HXwPRh0dCEBR3s=
+SHA256 (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.49.mod) = SoFonyy93xDHkZIRuHSR6NVhNJJgK545RyOd97Vhts4=
+SHA256 (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.49.zip) = MvkwlX2m6umf9prn0PZLW8nmi1PYLHcN8v6LtwN/eSU=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.36.mod) = dR4+633wXYFxFNSgsr9T6O523xbkX7cY88yiF4Ehuuw=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.54.mod) = DGnJp+kzhTGQbUVMvG10oEiXRE1KR681hgCrUSBVfhc=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.55.mod) = DGnJp+kzhTGQbUVMvG10oEiXRE1KR681hgCrUSBVfhc=
@@ -1292,6 +1291,7 @@ SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.82.mod) = fASVgaLVM
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.85.mod) = 36cPS7QcFBOgas8zE+nNGirZkInoc1SZj2x3gxlCyFQ=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.88.mod) = o8WWrIaSE3A6bMkfjgSiNbxTwpUHAhQghJgyD4Twiwo=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.90.mod) = J35HyJ63nRMNrh0b7zlbbpZ76x9kQxP+OrcVUWPbBYg=
+SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.91.mod) = Y0udtia/v3igE37I0WLPIfs2o9JJzqK8gzI894Makwg=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.92.mod) = mDUpzuQ9g6l7fI6pgHAh0bVH8d8MgVZjC3bJyZggijY=
 SHA256 (go_modules/github.com/projectdiscovery/utils/@v/v0.0.92.zip) = qA8EUvYo8LTkVnJ9GX0s0U5ZwI+i34OZzDKO+SANFFo=
 SHA256 (go_modules/github.com/projectdiscovery/wappalyzergo/@v/v0.0.112.mod) = Z1FW2aF5JwWK18LRp7gzM4XJxgGuofg4/dmX1FmkU+A=
@@ -2289,7 +2289,7 @@ SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 8ikTVRI4fWZj4fCZmkkiq3CN7Uv
 SHA256 (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = Ve0Ixd9EigM79+LCkS1NqoW4VqBchUsMh8zIXH8/v8c=
 SHA256 (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.mod) = W6+HkS6bnGFVJJiJDke0WyjQPHOLYw7fbXxwxlsKxGI=
 SHA256 (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.zip) = vSSS2dsFNiwv7NCz0PYALImm2Q1nj7k7QVgpiriDc28=
-SHA256 (nuclei-v3.2.6.zip) = 4wjdZulBZTrw40wggi++41dRlBlmZ315ANfXARpGD9U=
+SHA256 (nuclei-v3.2.7.zip) = LlAbD5M9WU96FR4q/XiyrA0FICndXbBk9QbNw574GNU=
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.mod) = 222
 SIZE (go_modules/aead.dev/minisign/@v/v0.2.0.zip) = 27045
 SIZE (go_modules/bitbucket.org/creachadair/shell/@v/v0.0.7.mod) = 89
@@ -3498,7 +3498,6 @@ SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.23.mod) = 995
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.36.mod) = 997
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.40.mod) = 997
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.41.mod) = 997
-SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.49.mod) = 1134
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.50.mod) = 1134
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.50.zip) = 93907
 SIZE (go_modules/github.com/projectdiscovery/goflags/@v/v0.1.8.mod) = 1040
@@ -3570,8 +3569,8 @@ SIZE (go_modules/github.com/projectdiscovery/tlsx/@v/v1.1.6.zip) = 218933
 SIZE (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.mod) = 5083
 SIZE (go_modules/github.com/projectdiscovery/uncover/@v/v1.0.7.zip) = 78628
 SIZE (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.38.mod) = 1127
-SIZE (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.48.mod) = 1264
-SIZE (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.48.zip) = 39363
+SIZE (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.49.mod) = 1264
+SIZE (go_modules/github.com/projectdiscovery/useragent/@v/v0.0.49.zip) = 39224
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.36.mod) = 3570
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.54.mod) = 3631
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.55.mod) = 3631
@@ -3584,6 +3583,7 @@ SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.82.mod) = 5385
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.85.mod) = 5454
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.88.mod) = 5521
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.90.mod) = 5521
+SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.91.mod) = 5521
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.92.mod) = 5465
 SIZE (go_modules/github.com/projectdiscovery/utils/@v/v0.0.92.zip) = 242486
 SIZE (go_modules/github.com/projectdiscovery/wappalyzergo/@v/v0.0.112.mod) = 279
@@ -4581,4 +4581,4 @@ SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.mod) = 106
 SIZE (go_modules/sigs.k8s.io/yaml/@v/v1.2.0.zip) = 20937
 SIZE (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.mod) = 43
 SIZE (go_modules/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.zip) = 158069
-SIZE (nuclei-v3.2.6.zip) = 2671619
+SIZE (nuclei-v3.2.7.zip) = 2672492
