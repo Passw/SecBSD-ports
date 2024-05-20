@@ -1,7 +1,7 @@
 Index: mojo/public/c/system/thunks.cc
 --- mojo/public/c/system/thunks.cc.orig
 +++ mojo/public/c/system/thunks.cc
-@@ -23,7 +23,7 @@
+@@ -25,7 +25,7 @@
  #include "mojo/public/c/system/message_pipe.h"
  
  #if BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_WIN) || \
@@ -34,6 +34,6 @@ Index: mojo/public/c/system/thunks.cc
  #if BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_WIN) || \
 -    BUILDFLAG(IS_FUCHSIA)
 +    BUILDFLAG(IS_FUCHSIA) || BUILDFLAG(IS_BSD)
-   absl::optional<base::ScopedNativeLibrary> library_;
+   std::optional<base::ScopedNativeLibrary> library_;
  #endif
  };
