@@ -3,10 +3,13 @@ BROKEN-powerpc64 =	Check failed: false. OS architecture not handled. (powerpc64)
 USE_WXNEEDED=		Yes
 
 DPB_PROPERTIES=		parallel parallel2
+.if ${MACHINE_ARCH:Mi386}
+DPB_PROPERTIES+=	lonesome
+.endif
 
 COMMENT=		Chromium browser
 
-V=			118.0.5993.70
+V=			124.0.6367.207
 
 DISTNAME=		chromium-${V}
 
@@ -14,11 +17,10 @@ DISTFILES+=		${CHROMIUM_DISTFILES} \
 			${REGRESS_DISTFILES}
 
 DISTFILES.a+=		${PROFILE_DISTFILES} \
-			libudev-openbsd-20221108-c3330efd.tar.gz \
 			${REGRESS_DISTFILES.a}
 
 CHROMIUM_DISTFILES+=	chromium-${V}${EXTRACT_SUFX}
-PROFILE_DISTFILES+=	chrome-linux-${V}-llvm13.profdata${EXTRACT_SUFX}
+PROFILE_DISTFILES+=	chrome-linux-${V}-llvm17.profdata${EXTRACT_SUFX}
 REGRESS_DISTFILES+=	chromium-${V}-testdata${EXTRACT_SUFX}
 REGRESS_DISTFILES.a+=	test_fonts-336e775eec536b2d785cc80eff6ac39051931286.tar.gz
 
@@ -44,29 +46,30 @@ SITES=		https://commondatastorage.googleapis.com/chromium-browser-official/
 SITES.a=	http://nerd.hu/distfiles/
 
 MODULES=	lang/clang lang/python x11/qt5
-MODQT5_DEPS=	No
 
-COMPILER =		ports-clang
-MODCLANG_VERSION =	16
-
+MODCLANG_VERSION=	17
+MODQT5_DEPS=		No
 MODPY_RUNDEP=		No
+
+COMPILER=		ports-clang
 
 # uses pledge()
 WANTLIB+=	GL X11 Xau Xcomposite Xdamage Xdmcp Xext Xfixes Xft Xi Xrandr
-WANTLIB+=	Xrender Xtst atk-1.0 atk-bridge-2.0 atspi c c++ c++abi cairo
+WANTLIB+=	Xrender Xtst aom atk-1.0 atk-bridge-2.0 atspi c cairo
 WANTLIB+=	cbor crypto cups dav1d dbus-1 drm event execinfo expat ffi fido2
 WANTLIB+=	fontconfig freetype fribidi gbm gio-2.0 glib-2.0 gmodule-2.0
 WANTLIB+=	gobject-2.0 graphite2 gthread-2.0 harfbuzz harfbuzz-gobject
 WANTLIB+=	harfbuzz-subset iconv icudata icui18n icuuc intl jpeg kvm m
 WANTLIB+=	nspr4 nss3 nssutil3 openh264 opus pango-1.0 pangocairo-1.0
 WANTLIB+=	pangoft2-1.0 pcre2-8 pixman-1 plc4 plds4 png pthread pthread smime3
-WANTLIB+=	snappy sndio usbhid util xcb xcb-render xcb-shm xkbcommon xml2
+WANTLIB+=	sndio usbhid util vpx xcb xcb-render xcb-shm xkbcommon xml2
 WANTLIB+=	xshmfence xslt z
 
 RUN_DEPENDS=	devel/xdg-utils \
 		devel/desktop-file-utils \
 		fonts/noto/fonts \
 		graphics/libexif \
+		sysutils/libudev-openbsd \
 		x11/gtk+3,-main \
 		x11/gtk+4,-guic \
 		x11/gtk+3,-cups
@@ -74,6 +77,7 @@ BUILD_DEPENDS=	archivers/bzip2 \
 		devel/gperf \
 		devel/bison \
 		lang/node \
+		lang/rust \
 		shells/bash \
 		sysutils/flock \
 		sysutils/pciutils \
@@ -82,11 +86,12 @@ BUILD_DEPENDS=	archivers/bzip2 \
 		x11/qt5/qtbase,-main \
 		${MODGCC4_CPPDEP} \
 		${RUN_DEPENDS}
-LIB_DEPENDS=	archivers/snappy \
-		audio/opus \
+LIB_DEPENDS=	audio/opus \
 		devel/pango \
 		graphics/jpeg \
+		multimedia/aom \
 		multimedia/dav1d \
+		multimedia/libvpx \
 		multimedia/openh264 \
 		security/nss \
 		textproc/icu4c \
@@ -95,8 +100,6 @@ LIB_DEPENDS=	archivers/snappy \
 		x11/xkbcommon \
 		print/cups,-libs \
 		${MODGCC4_CPPLIBDEP}
-
-BUILD_DEPENDS+=	sysutils/libudev-openbsd:build
 
 USE_GMAKE=	Yes
 
@@ -138,15 +141,17 @@ BUILDDIR=	${WRKSRC}/out/${BUILDTYPE}
 # removes them from the bundled third_party directory and replaces them
 # with hooks to use them from the system.
 GN_SYSTEM_LIBS=	dav1d \
+		fontconfig \
 		icu \
+		libaom \
 		libevent \
 		libjpeg \
 		libpng \
+		libvpx \
 		libxml \
 		libxslt \
 		openh264 \
-		opus \
-		snappy
+		opus
 
 GN_ARGS=	enable_nacl=false \
 		is_official_build=true \
@@ -155,8 +160,7 @@ GN_ARGS=	enable_nacl=false \
 		optimize_webui=true \
 		enable_remoting=false \
 		enable_hangout_services_extension=true \
-		enable_rust=false \
-		use_bundled_fontconfig=false \
+		enable_log_error_not_reached=true \
 		use_kerberos=false \
 		use_sndio=true \
 		use_cups=true \
@@ -176,8 +180,17 @@ GN_ARGS=	enable_nacl=false \
 		disable_fieldtrial_testing_config=true \
 		extra_cppflags=\"-idirafter ${LOCALBASE}/include -idirafter ${X11BASE}/include\" \
 		fatal_linker_warnings=false \
-		use_custom_libcxx=false \
-		use_udev=true
+		use_custom_libcxx=true \
+		use_custom_libunwind=true \
+		use_udev=true \
+		v8_enable_cet_ibt=true
+
+# rust
+RUSTC_VERSION!!=rustc -V
+MAKE_ENV+=	RUSTC_BOOTSTRAP=1
+GN_ARGS+=	enable_rust=true \
+		rust_sysroot_absolute=\"${LOCALBASE}\" \
+		rustc_version=\"${RUSTC_VERSION}\"
 
 # notyet
 GN_ARGS+=	use_vaapi=false
@@ -308,6 +321,7 @@ do-install:
 .if ${MACHINE_ARCH} != "aarch64"
 	# SwiftShader
 	${INSTALL_DATA} ${BUILDDIR}/libvk_swiftshader.so ${PREFIX}/${DIST_TARGET_DIR}
+	${INSTALL_DATA} ${BUILDDIR}/vk_swiftshader_icd.json ${PREFIX}/${DIST_TARGET_DIR}
 .endif
 
 .if ${FLAVOR:Mcomponent}
@@ -328,8 +342,6 @@ do-install:
     unveil.gpu unveil.main unveil.utility_audio unveil.utility_network unveil.utility_video
 	${INSTALL_DATA} ${FILESDIR}/${f} ${PREFIX}/share/examples/chromium
 .endfor
-	${INSTALL_DATA} ${WRKDIR}/sysutils/libudev-openbsd/build-${MACHINE_ARCH}/libudev.so.0.0 \
-		${PREFIX}/${DIST_TARGET_DIR}/libudev.so.0
 
 pre-test:
 .for _d in ${REGRESS_DISTFILES:C/:[0-9]$//}
