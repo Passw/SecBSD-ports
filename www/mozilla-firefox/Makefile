@@ -3,14 +3,14 @@ ONLY_FOR_ARCHS =	amd64 aarch64 riscv64
 
 # Don't forget to bump www/firefox-i18n after updates.
 
-MOZILLA_VERSION =	124.0.1
+MOZILLA_VERSION =	126.0
 MOZILLA_BRANCH =	release
 MOZILLA_PROJECT =	firefox
 MOZILLA_CODENAME =	browser
 
 WRKDIST =	${WRKDIR}/${MOZILLA_DIST}-${MOZILLA_DIST_VERSION:C/b[0-9]*//}
 HOMEPAGE =	https://www.mozilla.org/firefox/
-SO_VERSION =	136.0
+SO_VERSION =	138.0
 # NOTE: Must bump minor version if any shlib's are removed from the
 # components dir to avoid pkg_add -r issues.
 MOZILLA_LIBS =	mozavcodec mozavutil mozgtk mozwayland xul clearkey gkcodecs lgpllibs mozsqlite3 ipcclientcerts
@@ -71,7 +71,7 @@ DEBUG_CONFIGURE_ARGS +=	--enable-debug-symbols \
 # not built on riscv64
 COMMENT_FFVPX ?=
 .if ${MACHINE_ARCH} == riscv64
-COMMENT_FFVPX =		@comment 
+COMMENT_FFVPX =		@comment # needs a trailing space
 .endif
 SUBST_VARS +=		COMMENT_FFVPX
 
