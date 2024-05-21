@@ -1,11 +1,9 @@
 COMMENT=	audit git repos for secrets
 
-V=	8.18.2
 MODGO_MODNAME=	github.com/zricethezav/gitleaks/v8
-MODGO_VERSION=	v${V}
+MODGO_VERSION=	v8.18.2
 
 DISTNAME=	gitleaks-${MODGO_VERSION}
-PKGNAME=	gitleaks-${V}
 
 CATEGORIES=	security
 
