@@ -3,7 +3,7 @@ https://dev.gnupg.org/T6442
 Index: configure
 --- configure.orig
 +++ configure
-@@ -6826,7 +6826,7 @@ else
+@@ -7524,7 +7524,7 @@ else $as_nop
      lt_cv_sys_max_cmd_len=8192;
      ;;
  
@@ -12,7 +12,16 @@ Index: configure
      # This has been around since 386BSD, at least.  Likely further.
      if test -x /sbin/sysctl; then
        lt_cv_sys_max_cmd_len=`/sbin/sysctl -n kern.argmax`
-@@ -7951,7 +7951,7 @@ old_postuninstall_cmds=
+@@ -7976,7 +7976,7 @@ freebsd* | dragonfly*)
+     i*86 )
+       # Not sure whether the presence of OpenBSD here was a mistake.
+       # Let's accept both of them until this is cleared up.
+-      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|DragonFly)/i[3-9]86 (compact )?demand paged shared library'
++      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|DragonFly|SecBSD)/i[3-9]86 (compact )?demand paged shared library'
+       lt_cv_file_magic_cmd=/usr/bin/file
+       lt_cv_file_magic_test_file=`echo /usr/lib/libc.so.*`
+       ;;
+@@ -8706,7 +8706,7 @@ old_postuninstall_cmds=
  
  if test -n "$RANLIB"; then
    case $host_os in
@@ -21,7 +30,7 @@ Index: configure
      old_postinstall_cmds="$old_postinstall_cmds~\$RANLIB -t \$tool_oldlib"
      ;;
    *)
-@@ -10745,7 +10745,7 @@ $as_echo_n "checking whether the $compiler linker ($LD
+@@ -11606,7 +11606,7 @@ printf %s "checking whether the $compiler linker ($LD)
      # we just hope/assume this is gcc and not c89 (= MSVC++)
      with_gnu_ld=yes
      ;;
@@ -30,12 +39,16 @@ Index: configure
      with_gnu_ld=no
      ;;
    linux* | k*bsd*-gnu | gnu*)
-@@ -18809,7 +18809,7 @@ _ACEOF
- fi
- done
+@@ -20027,6 +20027,12 @@ ac_fn_c_check_func "$LINENO" "getentropy" "ac_cv_func_
+ if test "x$ac_cv_func_getentropy" = xyes
+ then :
+   printf "%s\n" "#define HAVE_GETENTROPY 1" >>confdefs.h
++
++fi
++ac_fn_c_check_func "$LINENO" "getrandom" "ac_cv_func_getrandom"
++if test "x$ac_cv_func_getrandom" = xyes
++then :
++  printf "%s\n" "#define HAVE_GETRANDOM 1" >>confdefs.h
  
--for ac_func in explicit_bzero explicit_memset getentropy
-+for ac_func in explicit_bzero explicit_memset getentropy getrandom
- do :
-   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
- ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"
+ fi
+ 

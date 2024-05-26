@@ -17,9 +17,9 @@ GH_COMMIT=		8cce591efc4db1691b0f1d2a74395714e87f0dcc
 MODULES=		lang/python
 
 RUN_DEPENDS=		devel/py-colorama${MODPY_FLAVOR} \
-			www/py-emailprotections \
+			www/py-emailprotections${MODPY_FLAVOR} \
 			net/py-dnslib${MODPY_FLAVOR} \
-			www/py-tldextract
+			www/py-tldextract${MODPY_FLAVOR}
 
 NO_BUILD=		Yes
 

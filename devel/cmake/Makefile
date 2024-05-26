@@ -2,10 +2,11 @@ DPB_PROPERTIES =	parallel
 
 COMMENT =	portable build system
 
-VER =		3.27.6
-EPOCH =		0
+VER =		3.28.3
+EPOCH =		1
 DISTNAME =	cmake-${VER}
 CATEGORIES =	devel
+REVISION =	0
 
 HOMEPAGE =	https://www.cmake.org/
 
@@ -16,9 +17,8 @@ SITES =		https://www.cmake.org/files/v${VER:R}/
 # BSD
 PERMIT_PACKAGE =	Yes
 
-WANTLIB += ${COMPILER_LIBCXX} archive c curl curses expat form
+WANTLIB += ${COMPILER_LIBCXX} archive c curl curses execinfo expat form
 WANTLIB += jsoncpp m rhash uv z
-WANTLIB += execinfo
 
 COMPILER =		base-clang ports-gcc
 
@@ -66,6 +66,8 @@ TEST_DEPENDS +=		devel/git
 SUBST_FILES =	${WRKSRC}/Source/cmLocalGenerator.cxx \
 		${WRKSRC}/Source/CPack/cmCPackGenerator.cxx \
 		${WRKSRC}/bootstrap
+
+UPDATE_PLIST_ARGS =	-i MODPY_VERSION
 
 post-patch:
 	find ${WRKSRC}/Modules -name "*.cmake" \

@@ -1,6 +1,0 @@
-@bin bin/newsraft
-@man man/man1/newsraft.1
-share/doc/pkg-readmes/${PKGSTEM}
-share/examples/newsraft/
-share/examples/newsraft/config
-share/examples/newsraft/feeds

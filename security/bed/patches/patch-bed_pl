@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: bed.pl
+--- bed.pl.orig
++++ bed.pl
+@@ -8,6 +8,8 @@
+ #
+ use Getopt::Std;
+ use Socket;
++use FindBin;
++use lib $FindBin::Bin;
+ my $SOCKET = "";
+ 
+ # which plugins do we support? insert your plugin ( dummy ) here...

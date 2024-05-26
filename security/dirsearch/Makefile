@@ -8,8 +8,7 @@ PERMIT_PACKAGE=	Yes
 
 MODULES=	lang/python
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		net/py-socks${MODPY_FLAVOR} \
+RUN_DEPENDS=	net/py-socks${MODPY_FLAVOR} \
 		www/py-jinja2${MODPY_FLAVOR} \
 		devel/py-certifi${MODPY_FLAVOR} \
 		www/py-urllib3${MODPY_FLAVOR} \

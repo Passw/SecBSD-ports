@@ -1,6 +1,6 @@
 COMMENT=	subdomain discovery tool
 
-V=	2.6.3
+V=	2.6.5
 MODGO_MODNAME=	github.com/projectdiscovery/subfinder/v2
 MODGO_VERSION=	v${V}
 

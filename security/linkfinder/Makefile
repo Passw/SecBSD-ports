@@ -17,7 +17,8 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/python
 MODPY_ADJ_FILES=	linkfinder.py
 
-RUN_DEPENDS=		devel/py-jsbeautifier
+RUN_DEPENDS=		devel/py-jsbeautifier${MODPY_FLAVOR} \
+			devel/py-six${MODPY_FLAVOR}
 
 MODPY_PYBUILD=		setuptools
 

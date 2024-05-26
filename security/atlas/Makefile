@@ -20,8 +20,7 @@ MODPY_ADJ_FILES=	atlas.py \
 			tamper/*.py \
 			waf/*.py
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		www/py-requests${MODPY_FLAVOR} \
+RUN_DEPENDS=	www/py-requests${MODPY_FLAVOR} \
 		www/py-urllib3${MODPY_FLAVOR} \
 		textproc/py-humanfriendly${MODPY_FLAVOR}
 

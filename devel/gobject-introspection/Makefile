@@ -1,11 +1,12 @@
 COMMENT=		GObject Introspection
 
-GNOME_VERSION=		1.76.1
+GNOME_VERSION=		1.80.1
 GNOME_PROJECT=		gobject-introspection
+REVISION=		0
 
 CATEGORIES=		devel
 
-SHARED_LIBS += girepository-1.0          3.1 # 1.0.0
+SHARED_LIBS += girepository-1.0          3.2 # 1.0.0
 
 MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 
@@ -17,17 +18,21 @@ MODULES=		devel/meson \
 			lang/python \
 			x11/gnome
 
+COMPILER=		base-clang ports-gcc
+COMPILER_LANGS=		c
+
 WANTLIB += c ffi gio-2.0 glib-2.0 gmodule-2.0 gobject-2.0 m
 
-LIB_DEPENDS=		devel/glib2
+# cairo is only needed for tests;
+# prevent cyclic dependency: g-o-i -> cairo -> glib2 -> g-o-i
+CONFIGURE_ARGS +=	-Dcairo=disabled
+LIB_DEPENDS=		devel/glib2,bootstrap
 
 BUILD_DEPENDS=		devel/bison \
-			graphics/cairo \
 			textproc/py-markdown${MODPY_FLAVOR} \
 			www/py-mako${MODPY_FLAVOR}
 
-RUN_DEPENDS=		graphics/cairo \
-			textproc/py-markdown${MODPY_FLAVOR} \
+RUN_DEPENDS=		textproc/py-markdown${MODPY_FLAVOR} \
 			www/py-mako${MODPY_FLAVOR}
 
 # g-ir-scanner uses distutils functions. these are overridden by setuptools

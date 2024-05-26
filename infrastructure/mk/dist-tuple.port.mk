@@ -25,13 +25,13 @@ ERRORS += "Fatal: invalid choice for DIST_TUPLE: ${_template}"
 .    endif
 
 _subdir =
-.    if "${_id}" == "HASH" || "${_id:C/^[0-9a-f]{40}$/HASH/}" != "HASH"
+.    if "${_id}" == "HASH" || "${_id:C/^[0-9a-f]{10,40}$/HASH/}" != "HASH"
 # set DISTNAME if not done by the port and add refs/tags/ subdir
 DISTNAME ?= ${_project}-${_id:C/^(v|V|ver|[Rr]el|[Rr]elease)[-._]?([0-9])/\2/}
 _subdir =	refs/tags/
-#WRKDIST ?= ${WRKDIR}/${_project}-${_id:C/^(v|V|ver|[Rr]el|[Rr]elease)[-._]?([0-9])/\2/}
+_DT_WRKDIST ?= ${WRKDIR}/${_project}-${_id:C/^(v|V|ver|[Rr]el|[Rr]elease)[-._]?([0-9])/\2/}
 .    else
-#WRKDIST ?= ${WRKDIR}/${_project}-${_id}
+_DT_WRKDIST ?= ${WRKDIR}/${_project:C,^.*/,,}-${_id}
 .    endif
 
 .    for _subst in S,<account>,${_account},g:S,<project>,${_project},g:S,<id>,${_id},g:S,<subdir>,${_subdir},g:S,<site>,${SITES.${_template}},g
@@ -45,7 +45,7 @@ HOMEPAGE ?=	${TEMPLATE_HOMEPAGE.${_template}:${_subst}}
 MODDIST-TUPLE_post-extract += \
 	t=${WRKDIST}/${_targetdir}; [[ -d $$t ]] && rmdir $$t \
 	|| mkdir -p `dirname $$t` ; \
-	mv ${WRKDIR}/${_project}-${_id:S/refs\/tags\///:S/^v//} $$t;
+	mv ${WRKDIR}/${_project:T}-${_id:S/refs\/tags\///:S/^v//} $$t;
 .      endif
 .    endfor
 

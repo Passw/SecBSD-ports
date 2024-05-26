@@ -20,17 +20,18 @@ PATCHORIG=		.orig.port
 
 MODULES =		lang/python
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			databases/py-mssql${MODPY_FLAVOR} \
+BUILD_DEPENDS=		databases/iodbc \
+			databases/freetds
+
+RUN_DEPENDS=		databases/py-mssql${MODPY_FLAVOR} \
 			devel/py-pexpect${MODPY_FLAVOR} \
 			graphics/py-qrcode${MODPY_FLAVOR} \
 			graphics/py-Pillow${MODPY_FLAVOR} \
 			net/ettercap \
+			security/dsniff \
 			net/py-impacket \
 			net/wget \
 			security/aircrack-ng \
-			security/dsniff \
-			security/metasploit \
 			security/py-cryptodome${MODPY_FLAVOR} \
 			security/py-openssl${MODPY_FLAVOR} \
 			security/py-pefile${MODPY_FLAVOR} \

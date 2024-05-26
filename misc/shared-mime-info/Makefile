@@ -1,7 +1,8 @@
 COMMENT=		shared mime database for desktops
 
-V=			2.3
+V=			2.4
 DISTNAME=		shared-mime-info-${V}
+REVISION=		0
 
 CATEGORIES=		misc
 
@@ -15,7 +16,15 @@ PERMIT_PACKAGE=	Yes
 # uses pledge() and unveil()
 WANTLIB += ${COMPILER_LIBCXX} c glib-2.0 xml2
 
-SITES=	https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/${V}/
+# C++17
+COMPILER=		base-clang ports-gcc
+
+# need to add this for gcc
+# revisit when gcc drops it
+EXTRA_ports-gcc=	-lstdc++fs
+LDFLAGS+=		${EXTRA_${CHOSEN_COMPILER}}
+
+SITES=			https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/${V}/
 
 MODULES=		devel/meson \
 			lang/python
@@ -30,6 +39,7 @@ LIB_DEPENDS=		devel/glib2 \
 
 # XXX needs https://gitlab.freedesktop.org/xdg/xdgmime sources for tests
 CONFIGURE_ARGS +=	-Dxdgmime-path=${WRKSRC}/xdgmime
+CONFIGURE_ENV +=	LDFLAGS="${LDFLAGS}"
 
 pre-configure:
 	sed -i 's|/usr/local|${PREFIX}|g' ${WRKSRC}/src/update-mime-database.cpp

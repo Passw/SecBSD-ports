@@ -19,7 +19,7 @@ WANTLIB+=	c pthread
 
 MODULES=	lang/go
 
-MODGO_MODULES=	\
+MODGO_MODULES =	\
 	github.com/davecgh/go-spew		 v1.1.0 \
 	github.com/fanliao/go-promise		 v0.0.0-20141029170127-1890db352a72 \
 	github.com/google/go-cmp		 v0.5.9 \
@@ -50,7 +50,7 @@ MODGO_MODULES=	\
 	golang.org/x/tools			 v0.14.0 \
 	gopkg.in/yaml.v3			 v3.0.0
 
-MODGO_MODFILES=	\
+MODGO_MODFILES =	\
 	github.com/josharian/native	 v1.0.1-0.20221213033349-c1e37c09b531 \
 	github.com/pierrec/lz4/v4	 v4.1.14 \
 	github.com/u-root/uio		 v0.0.0-20230220225925-ffce2a382923 \

@@ -4,8 +4,8 @@
 COMMENT=		GNOME music playing application
 
 GNOME_PROJECT=		gnome-music
-GNOME_VERSION=		44.0
-REVISION=		2
+GNOME_VERSION=		46.0
+REVISION=		0
 
 # GPLv2+
 PERMIT_PACKAGE=		Yes
@@ -21,7 +21,7 @@ MODGNOME_TOOLS +=	gtk-update-icon-cache
 MODGNOME_LDFLAGS=	-L${X11BASE}/lib
 
 BUILD_DEPENDS=		devel/py-gobject3${MODPY_FLAVOR} \
-			devel/libsoup \
+			devel/libsoup3 \
 			x11/gnome/grilo-plugins \
 			x11/gnome/libadwaita \
 			x11/gnome/libdazzle \
@@ -30,7 +30,7 @@ BUILD_DEPENDS=		devel/py-gobject3${MODPY_FLAVOR} \
 			x11/gnome/tracker3
 
 RUN_DEPENDS=		devel/py-gobject3${MODPY_FLAVOR} \
-			devel/libsoup \
+			devel/libsoup3 \
 			x11/gnome/grilo-plugins \
 			x11/gnome/libadwaita \
 			x11/gnome/libdazzle \

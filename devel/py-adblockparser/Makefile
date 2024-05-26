@@ -19,6 +19,9 @@ GH_COMMIT=		4089612d65018d38dbb88dd7f697bcb07814014d
 
 MODULES=		lang/python
 
+FLAVORS=		python3
+FLAVOR=			python3
+
 MODPY_PYBUILD=		setuptools
 
 .include <bsd.port.mk>

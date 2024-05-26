@@ -1,6 +1,6 @@
 COMMENT=		tool to find security issues in Python code
 
-MODPY_EGG_VERSION=	1.7.5
+MODPY_EGG_VERSION=	1.7.6
 DISTNAME=		bandit-${MODPY_EGG_VERSION}
 
 CATEGORIES=		security
@@ -20,8 +20,9 @@ MODPY_PYBUILD=		setuptools
 FLAVOR=			python3
 FLAVORS=		python3
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		devel/py-colorama${MODPY_FLAVOR} \
+BUILD_DEPENDS=  devel/py-pbr${MODPY_FLAVOR}
+
+RUN_DEPENDS=	devel/py-colorama${MODPY_FLAVOR} \
 		devel/py-importlib-metadata${MODPY_FLAVOR} \
 		devel/py-gitpython${MODPY_FLAVOR} \
 		devel/py-rich${MODPY_FLAVOR} \

@@ -2,24 +2,25 @@ USE_WXNEEDED=		Yes
 
 COMMENT=		next generation GNOME shell
 
-# !!! check/fix CONFIGURE_ARGS (-Dgnome_shell_version=XX) in x11/arc-theme on
-# major upgrade
 GNOME_PROJECT=		gnome-shell
-# sync with meta/gnome "V" variable
-GNOME_VERSION=		44.5
+# check/fix CONFIGURE_ARGS (-Dgnome_shell_version=XX) in x11/arc-theme on
+# major upgrade;
+GNOME_VERSION=		45.6
+REVISION=		0
 
 # GPLv2+
 PERMIT_PACKAGE=		Yes
 
 WANTLIB += X11 Xfixes atk-1.0 atk-bridge-2.0 c cairo ecal-2.0
-WANTLIB += edataserver-1.2 gcr-4 gdk-3 gdk_pixbuf-2.0 gio-2.0
-WANTLIB += girepository-1.0 gjs glib-2.0 gnome-autoar-0 gnome-desktop-4
-WANTLIB += gobject-2.0 graphene-1.0 gtk-3 gtk-4 ical-glib intl
-WANTLIB += json-glib-1.0 m mutter-12 pango-1.0
-WANTLIB += polkit-agent-1 polkit-gobject-1 pulse pulse-mainloop-glib
-WANTLIB += lib/mutter-12/mutter-clutter-12
-WANTLIB += lib/mutter-12/mutter-cogl-12
-WANTLIB += lib/mutter-12/mutter-cogl-pango-12
+WANTLIB += edataserver-1.2 gcr-4 gdk_pixbuf-2.0 gio-2.0 girepository-1.0
+WANTLIB += gjs glib-2.0 gnome-autoar-0 gnome-desktop-4 gobject-2.0
+WANTLIB += graphene-1.0 gtk-4 ical-glib intl json-glib-1.0 m mutter-13
+WANTLIB += pango-1.0 pipewire-0.3 polkit-agent-1 polkit-gobject-1
+WANTLIB += pulse pulse-mainloop-glib
+WANTLIB += lib/mutter-13/mutter-clutter-13
+WANTLIB += lib/mutter-13/mutter-cogl-13
+WANTLIB += lib/mutter-13/mutter-cogl-pango-13
+WANTLIB += lib/mutter-13/mutter-mtk-13
 
 MODULES=		devel/dconf \
 			devel/meson \
@@ -39,6 +40,7 @@ RUN_DEPENDS +=		devel/gsettings-desktop-schemas
 
 LIB_DEPENDS=		audio/pulseaudio \
 			databases/evolution-data-server \
+			multimedia/pipewire/pipewire,-libs \
 			sysutils/polkit \
 			x11/gnome/autoar \
 			x11/gnome/gcr4 \
@@ -66,6 +68,9 @@ RUN_DEPENDS +=		sysutils/consolekit
 # gnome-shell-extension-tool, gnome-shell-perf-tool
 RUN_DEPENDS +=		devel/py-gobject3${MODPY_FLAVOR}
 
+# needs libgstpipewire.so for screencast recorder
+RUN_DEPENDS +=		multimedia/pipewire/pipewire
+
 # Don't depend on evolution to lower down the amount of dependencies and
 # because most users want to be able to choose their PIM. Evolution can
 # be installed separately or as part of the "gnome-extra" meta-package.
@@ -89,8 +94,8 @@ RUN_DEPENDS +=		x11/gnome/weather
 # prevents => The URI "help:gnome-help/index" does not point to a valid page.
 RUN_DEPENDS +=		x11/gnome/user-docs
 
-# gkbd-keyboard-display
-RUN_DEPENDS +=		x11/gnome/libgnomekbd
+# js/ui/status/keyboard.js
+RUN_DEPENDS +=		x11/gnome/tecla
 
 # add required introspection libs that are not in the dependency chain
 RUN_DEPENDS +=		inputmethods/ibus \

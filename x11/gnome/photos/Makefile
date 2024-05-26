@@ -2,7 +2,7 @@ COMMENT=		access, organize and share your photos on GNOME
 
 GNOME_PROJECT=		gnome-photos
 GNOME_VERSION=		44.0
-REVISION=		0
+REVISION=		3
 
 CATEGORIES=		graphics
 
@@ -24,10 +24,10 @@ BUILD_DEPENDS=		devel/gsettings-desktop-schemas
 
 RUN_DEPENDS=		devel/gsettings-desktop-schemas
 
-LIB_DEPENDS=		geo/geocode-glib,soup3 \
+LIB_DEPENDS=		geo/geocode-glib \
 			graphics/gegl04 \
 			graphics/libgexiv2 \
-			sysutils/libportal,-gtk3 \
+			sysutils/flatpak/libportal,-gtk3 \
 			x11/gnome/libdazzle \
 			x11/gnome/online-accounts \
 			x11/gnome/tracker3 \

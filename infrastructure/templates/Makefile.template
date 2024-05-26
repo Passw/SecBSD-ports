@@ -36,17 +36,23 @@ DISTNAME =	???
 #PKGNAME-foo =	???	for multi packages
 
 #
-# github:
-# /releases/ -> preferred. ignore GH_*, just use SITES and DISTNAME.
-# /archive/ ->  GH_ACCOUNT and GH_PROJECT, plus either GH_TAGNAME or GH_COMMIT.
+# On source code hosting platforms use static tarballs over generated ones.
+# It's easy to distinguish between them on github, gitlab and codeberg by
+# looking at the file URL:
+# /releases/ -> preferred. Use SITES and DISTNAME.
+# /archive/ -> use DIST_TUPLE (use only if there is no release version).
 #
-# set DISTNAME if using GH_COMMIT, or if using GH_TAGNAME and the tag is not in
-# the format "v1.00" or "1.00".
-#
-#GH_ACCOUNT =	username
-#GH_PROJECT =	project
-#GH_TAGNAME =	1.0
-#GH_COMMIT =	abab123456789abacafeabab123123b1e4ble4bl
+# platform: codeberg, github, gitlab, kde, srht, gnome
+# account: usually the account or organisation name
+# project: the project or repository name
+# id: either a tag name or commit hash.
+#   Tag names with standard tag formats, like 1.0.1 or v1.0, set an
+#   appropriate PKGNAME automatically. Otherwise, set it yourself.
+#   "make show=PKGNAMES" will help identify if that's needed.
+#   For a commit hash, use the full hash (not shortened), and set PKGNAME.
+# subdir: usually ".", otherwise the extracted files are moved to another
+#   directory under WRKDIST. Mostly useful for git submodules.
+#DIST_TUPLE +=	platform account project id subdir
 
 # for any port that creates shared libraries.
 # both libtool and cmake automatically set filenames based on this variable.
@@ -102,7 +108,6 @@ SITES =		???
 # for grabbing DISTFILES from SITES.sufx
 #DISTFILES.sufx = ...
 #EXTRACT_ONLY =		???
-
 
 # Needs to be specified if tarball does not end with .tar.gz
 #EXTRACT_SUFX =		.tar.bz2
@@ -174,7 +179,8 @@ SITES =		???
 #	  gnu [autoconf] [old] [dest]: gnu style configure (old: no
 #	  sysconfdir), (dest: add DESTDIR, does not handle it),
 #	  autoconf: run autoconf to regenerate configure script. implies gnu.
-#	            (see also "do-gen" target below).
+#	  autoreconf: run autoreconf (or other script passed in AUTORECONF) to
+#	   generate configure. implies gnu. adds dependencies automatically.
 #	XXX: cygnus products do NOT use autoconf for making the main
 #		configure from configure.in
 #	  imake [noman]: port uses imake for configuration.
@@ -197,6 +203,23 @@ SITES =		???
 #AUTOMAKE_VERSION =	??? (defaults to 1.4)
 # config.guess and others are copied here
 #MODGNU_CONFIG_GUESS_DIRS = ??? (defaults to ${WRKSRC})
+
+# common examples:
+# - port has ready-generated autoconf configure script that can be used as-is:
+#CONFIGURE_STYLE =	gnu
+# - ready-generated script needs patching: preferably patch the input files
+#   (configure.in, configure.ac, *.m4) rather than the generated script, this
+#   is less likely to break during updates) - prefer to use the same version
+#   of autoconf as was used upstream:
+#CONFIGURE_STYLE =	gnu
+#AUTOCONF_VERSION =	2.71
+# - either no generated script was included (common with projects using git
+#   archives), or both autoconf and automake input files need patching:
+#CONFIGURE_STYLE =	autoreconf
+#AUTOCONF_VERSION =	2.71
+#AUTOMAKE_VERSION =	1.16
+#AUTORECONF =		./autogen.sh (optional; "autoreconf --force --install"
+#					is used by default)
 
 # Is the build automagic or is it interactive
 #

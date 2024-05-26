@@ -1,4 +1,4 @@
-COMMENT=	Selenium webdriver Chrome replacement
+COMMENT=	selenium webdriver Chrome replacement
 
 MODPY_EGG_VERSION=	3.5.0
 
@@ -12,8 +12,7 @@ HOMEPAGE=	https://github.com/ultrafunkamsterdam/undetected-chromedriver
 # GPL-3.0
 PERMIT_PACKAGE=	Yes
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		www/py-selenium${MODPY_FLAVOR} \
+RUN_DEPENDS=	www/py-selenium${MODPY_FLAVOR} \
 		www/py-requests${MODPY_FLAVOR} \
 		net/py-websockets${MODPY_FLAVOR}
 

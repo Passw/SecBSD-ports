@@ -4,7 +4,7 @@ MODGO_MODNAME=	github.com/edoardottt/cariddi
 MODGO_VERSION=	v1.3.2
 
 DISTNAME=	cariddi-${MODGO_VERSION}
-PKGNAME=	cariddi-4.1.0
+PKGNAME=	cariddi-1.3.2
 
 CATEGORIES=	security
 

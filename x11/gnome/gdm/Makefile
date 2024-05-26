@@ -1,13 +1,12 @@
 COMMENT=		GNOME display manager
 
 GNOME_PROJECT=		gdm
-GNOME_VERSION=		44.1
+GNOME_VERSION=		46.0
 
 GH_ACCOUNT=		rnagy
 GH_PROJECT=		gdm
-GH_COMMIT=		640bb9cef3d16bffb51c198cefeb9cb83612e735
+GH_COMMIT=		b546f38c943151a0fe368560a72970bc4632666c
 EXTRACT_SUFX=		.tar.gz
-REVISION=		1
 
 DISTFILES=		${GH_DISTFILE}
 DISTFILES.puffy =	gdm-puffy.png
@@ -27,7 +26,7 @@ PERMIT_PACKAGE=		Yes
 
 WANTLIB += X11 Xau Xdmcp accountsservice c canberra canberra-gtk3
 WANTLIB += gdk-3 gdk_pixbuf-2.0 gio-2.0 glib-2.0 gobject-2.0 gtk-3
-WANTLIB += intl pam util xcb consolekit
+WANTLIB += intl pam util xcb consolekit json-glib-1.0
 
 MODULES=		devel/dconf \
 			devel/meson \
@@ -56,9 +55,10 @@ BUILD_DEPENDS +=	devel/dconf
 RUN_DEPENDS +=		x11/gnome/orca
 
 LIB_DEPENDS=		audio/libcanberra,-gtk3 \
+			devel/json-glib \
 			security/openpam \
 			sysutils/accountsservice>=22.08.8p3 \
-			sysutils/consolekit>=1.2.6p0
+			sysutils/consolekit>=1.2.6p4
 
 MODGNOME_TOOLS=		gobject-introspection yelp
 MODGNOME_CPPFLAGS=	-I${X11BASE}/include
@@ -92,7 +92,6 @@ CONFIGURE_ARGS=		-Ddefault-pam-config=none \
 			-Dscreenshot-dir=/var/run/gdm/greeter \
 			-Dsysconfsubdir=gdm \
 			-Dsystemd-journal=false \
-			-Dwayland-support=false \
 			-Dworking-dir=/var/db/gdm \
 			-Dxauth-dir=/var/run/gdm
 
@@ -110,6 +109,7 @@ post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/gdm/etc/pam.d
 	${INSTALL_DATA} ${FILESDIR}/gdm-* \
 		${PREFIX}/share/examples/gdm/etc/pam.d
+	${SUBST_CMD} ${WRKSRC}/daemon/gdm-local-display-factory.c
 	${SUBST_CMD} -m 0644 -c -o ${SHAREOWN} -g ${SHAREGRP} \
 		${FILESDIR}/10_org.gnome.login-screen.gschema.override \
 		${PREFIX}/share/glib-2.0/schemas/10_org.gnome.login-screen.gschema.override

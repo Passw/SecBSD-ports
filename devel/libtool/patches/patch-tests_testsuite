@@ -1,0 +1,12 @@
+Index: tests/testsuite
+--- tests/testsuite.orig
++++ tests/testsuite
+@@ -23416,7 +23416,7 @@ at_fn_group_banner 109 'deplibs-ident.at:32' \
+   "build tree relpaths" "                            " 16
+ at_xfail=no
+       case $host in
+-                 *-*-aix*|hppa*-*-hpux*|*-*-interix*|*-*-openbsd*) false;;
++                 *-*-aix*|hppa*-*-hpux*|*-*-interix*|*-*-openbsd*|*-*-secbsd*) false;;
+                  *):;;
+                esac && at_xfail=yes
+ (

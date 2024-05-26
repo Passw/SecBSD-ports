@@ -1,4 +1,4 @@
-CATEGORIES +=	lang/rust
+MODULES +=	lang/rust
 
 # List of static dependencies. The format is cratename-version.
 # MODCARGO_CRATES will be downloaded from SITES_CRATESIO.
@@ -24,20 +24,9 @@ MODCARGO_VENDOR_DIR ?= ${WRKSRC}/modcargo-crates
 MODCARGO_CARGOTOML ?= ${WRKSRC}/Cargo.toml
 
 # WANTLIB for Rust compiled code
-# it should be kept in sync with lang/rust code
-# - c/pthread : all syscalls
-# - c++abi / libgcc.a : unwind
-MODCARGO_WANTLIB = c pthread
-
-.if "${MARCHINE_ARCH}" != "sparc64"
-MODCARGO_WANTLIB +=	c++abi
-.else
-# libgcc.a is static
-MODCARGO_WANTLIB +=
-.endif
+MODCARGO_WANTLIB = ${MODRUST_WANTLIB}
 
 CHECK_LIB_DEPENDS_ARGS += -S MODCARGO_WANTLIB="${MODCARGO_WANTLIB}"
-CHECK_LIB_DEPENDS_ARGS += -F c++abi
 
 # Define SITES_CRATESIO for crates.io
 SITES.cargo =	https://crates.io/api/v1/crates/
@@ -212,11 +201,14 @@ MODCARGO_post-extract += \
 	${ECHO_MSG} "[modcargo] Patching ${_cratename}-${_cratever} to use archivers/zstd" ; \
 	sed -i -e 's,^fn main() {,fn main() { println!("cargo:rustc-link-lib=zstd"); return;,' \
 		${MODCARGO_VENDOR_DIR}/${_cratename}-${_cratever}/build.rs ;
-.    elif "${_cratename}" == "ring"
+.    elif "${_cratename}" == "ring" && "${_cratever:C/0.16\..*/0.16/}" == "0.16"
 MODCARGO_post-extract += \
 	${ECHO_MSG} "[modcargo] Replacing libsrc for ${_cratename}-${_cratever}" ; \
 	rm -rf -- ${MODCARGO_VENDOR_DIR}/${_cratename}-${_cratever} ; \
 	cp -Rp ${LOCALBASE}/share/ring-${_cratever} ${MODCARGO_VENDOR_DIR}/ ;
+.    elif "${_cratename}" == "ring" && "${_cratever}" == "0.17.8" && ${MACHINE_ARCH:Mi386}
+# Requires SSE2 on i386
+MODCARGO_RUSTFLAGS += "-Ctarget-cpu=pentium4"
 .    endif
 .  endfor
 .endif
@@ -236,13 +228,25 @@ MODCARGO_post-patch += \
 MODCARGO_configure = \
 	mkdir -p ${WRKDIR}/.cargo; \
 	\
-	echo "[net]" >${WRKDIR}/.cargo/config; \
-	echo "offline = true" >>${WRKDIR}/.cargo/config; \
-	echo "[source.modcargo]" >>${WRKDIR}/.cargo/config; \
+	echo "[build]" >${WRKDIR}/.cargo/config.toml; \
+	echo "rustc = '${MODRUST_RUSTC_BIN}'" >>${WRKDIR}/.cargo/config.toml; \
+	echo "rustdoc = '${MODRUST_RUSTDOC_BIN}'" >>${WRKDIR}/.cargo/config.toml; \
+	\
+	echo "[net]" >>${WRKDIR}/.cargo/config.toml; \
+	echo "offline = true" >>${WRKDIR}/.cargo/config.toml; \
+	\
+	echo "[term]" >>${WRKDIR}/.cargo/config.toml; \
+	echo "verbose = true" >>${WRKDIR}/.cargo/config.toml; \
+	echo "color = 'never'" >>${WRKDIR}/.cargo/config.toml; \
+	echo "progress.when = 'never'" >>${WRKDIR}/.cargo/config.toml; \
+	\
+	echo "[source.modcargo]" >>${WRKDIR}/.cargo/config.toml; \
 	echo "directory = '${MODCARGO_VENDOR_DIR}'" \
-		>>${WRKDIR}/.cargo/config; \
-	echo "[source.crates-io]" >>${WRKDIR}/.cargo/config; \
-	echo "replace-with = 'modcargo'" >>${WRKDIR}/.cargo/config;
+		>>${WRKDIR}/.cargo/config.toml; \
+	\
+	echo "[source.crates-io]" >>${WRKDIR}/.cargo/config.toml; \
+	echo "replace-with = 'modcargo'" >>${WRKDIR}/.cargo/config.toml; \
+	ln -fs ${WRKDIR}/.cargo/config.toml ${WRKDIR}/.cargo/config;
 
 # set profile (based on 'release' profile) for 'build' and 'test'
 # see https://doc.rust-lang.org/cargo/reference/profiles.html#release
@@ -274,15 +278,9 @@ MODCARGO_configure += ;
 .endif
 
 # Build dependencies.
-MODCARGO_BUILD_DEPENDS = lang/rust
 
 # devel/cargo-generate-vendor is mandatory for hooks.
 BUILD_DEPENDS +=	devel/cargo-generate-vendor
-
-MODCARGO_BUILDDEP ?=	Yes
-.if ${MODCARGO_BUILDDEP:L} == "yes"
-BUILD_DEPENDS +=	${MODCARGO_BUILD_DEPENDS}
-.endif
 
 # Location of cargo binary (default to devel/cargo binary)
 MODCARGO_CARGO_BIN ?=	${LOCALBASE}/bin/cargo
@@ -294,6 +292,8 @@ MODCARGO_TARGET_DIR ?=	${WRKBUILD}/target
 #  - CARGO_HOME: local cache of the registry index
 #  - CARGO_BUILD_JOBS: configure number of jobs to run
 #  - CARGO_TARGET_DIR: location of where to place all generated artifacts
+#  - CARGO_NET_OFFLINE: avoid accessing the network
+#  - CARGO_TERM_*: output configuration (verbose, no color, no progress bar)
 #  - RUST_BACKTRACE: enable backtrace on error
 #  - RUSTC: path of rustc binary (default to lang/rust)
 #  - RUSTDOC: path of rustdoc binary (default to lang/rust)
@@ -304,9 +304,13 @@ MODCARGO_ENV += \
 	CARGO_HOME=${WRKDIR}/cargo-home \
 	CARGO_BUILD_JOBS=${MAKE_JOBS} \
 	CARGO_TARGET_DIR=${MODCARGO_TARGET_DIR} \
+	CARGO_NET_OFFLINE=true \
+	CARGO_TERM_VERBOSE=true \
+	CARGO_TERM_COLOR=never \
+	CARGO_TERM_PROGRESS_WHEN=never \
 	RUST_BACKTRACE=full \
-	RUSTC=${LOCALBASE}/bin/rustc \
-	RUSTDOC=${LOCALBASE}/bin/rustdoc \
+	RUSTC=${MODRUST_RUSTC_BIN} \
+	RUSTDOC=${MODRUST_RUSTDOC_BIN} \
 	RUSTFLAGS="${MODCARGO_RUSTFLAGS}"
 
 # Helper to shorten cargo calls.
@@ -335,8 +339,7 @@ MODCARGO_TEST_ARGS +=		--no-default-features
 # Helper for updating a crate.
 MODCARGO_CARGO_UPDATE = \
 	${MODCARGO_CARGO_RUN} update \
-		--manifest-path ${MODCARGO_CARGOTOML} \
-		--verbose
+		--manifest-path ${MODCARGO_CARGOTOML}
 
 # Use module targets ?
 MODCARGO_BUILD ?=	Yes
@@ -347,9 +350,7 @@ MODCARGO_TEST ?=	Yes
 MODCARGO_BUILD_TARGET = \
 	${MODCARGO_CARGO_RUN} build \
 		--manifest-path ${MODCARGO_CARGOTOML} \
-		--offline \
 		--release \
-		--verbose \
 		${MODCARGO_BUILD_ARGS} ;
 
 .if !target(do-build) && ${MODCARGO_BUILD:L} == "yes"
@@ -357,16 +358,20 @@ do-build:
 	@${MODCARGO_BUILD_TARGET}
 .endif
 
-MODCARGO_INSTALL_TARGET_PATH ?= .
+MODCARGO_INSTALL_TARGET_PATHS ?= .
 
 # Define the install target.
-MODCARGO_INSTALL_TARGET = \
+MODCARGO_INSTALL_TARGET = :;
+
+.for _p in ${MODCARGO_INSTALL_TARGET_PATHS}
+MODCARGO_INSTALL_TARGET += \
 	${MODCARGO_CARGO_RUN} install \
 		--root="${PREFIX}" \
-		--path ${MODCARGO_INSTALL_TARGET_PATH} \
-		--offline \
-		--verbose \
-		${MODCARGO_INSTALL_ARGS} ; \
+		--path ${_p} \
+		${MODCARGO_INSTALL_ARGS} ;
+.endfor
+
+MODCARGO_INSTALL_TARGET += \
 	rm -- "${PREFIX}/.crates.toml" "${PREFIX}/.crates2.json" ;
 
 .if !target(do-install) && ${MODCARGO_INSTALL:L} == "yes"
@@ -378,9 +383,7 @@ do-install:
 MODCARGO_TEST_TARGET = \
 	${MODCARGO_CARGO_RUN} test \
 		--manifest-path ${MODCARGO_CARGOTOML} \
-		--offline \
 		--release \
-		--verbose \
 		${MODCARGO_TEST_ARGS} ;
 
 .if !target(do-test) && ${MODCARGO_TEST:L} == "yes"

@@ -1,15 +1,15 @@
 Index: configure
 --- configure.orig
 +++ configure
-@@ -3000,6 +3000,7 @@ dragonfly*) template=netbsd ;;
+@@ -2996,6 +2996,7 @@ dragonfly*) template=netbsd ;;
     mingw*) template=win32 ;;
    netbsd*) template=netbsd ;;
   openbsd*) template=openbsd ;;
-+ secbsd*) template=secbsd ;;
++  secbsd*) template=secbsd ;;
   solaris*) template=solaris ;;
  esac
  
-@@ -12767,7 +12768,7 @@ if ac_fn_c_try_link "$LINENO"; then :
+@@ -12510,7 +12511,7 @@ if ac_fn_c_try_link "$LINENO"; then :
        # recognize dependent libraries; assume curses is needed if we didn't
        # find any dependency.
        case $host_os in
@@ -18,7 +18,7 @@ Index: configure
            if test x"$pgac_lib" = x"" ; then
              pgac_lib=" -lcurses"
            fi ;;
-@@ -17198,7 +17199,7 @@ fi
+@@ -16449,7 +16450,7 @@ fi
  
  # On OpenBSD and Solaris, getopt() doesn't do what we want for long options
  # (i.e., allow '-' as a flag character), so use our version on those platforms.
@@ -27,12 +27,12 @@ Index: configure
    case " $LIBOBJS " in
    *" getopt.$ac_objext "* ) ;;
    *) LIBOBJS="$LIBOBJS getopt.$ac_objext"
-@@ -20020,7 +20021,7 @@ if test x"$pgac_cv_prog_cc_ldflags__Wl__dead_strip_dyl
-   LDFLAGS="$LDFLAGS -Wl,-dead_strip_dylibs"
+@@ -19227,7 +19228,7 @@ if test x"$pgac_cv_prog_cc_LDFLAGS__Wl__dead_strip_dyl
  fi
+ 
  
 -elif test "$PORTNAME" = "openbsd"; then
 +elif test "$PORTNAME" = "openbsd" -o "$PORTNAME" = "secbsd"; then
-   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether $CC supports -Wl,-Bdynamic" >&5
- $as_echo_n "checking whether $CC supports -Wl,-Bdynamic... " >&6; }
- if ${pgac_cv_prog_cc_ldflags__Wl__Bdynamic+:} false; then :
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether $CC supports -Wl,-Bdynamic, for LDFLAGS" >&5
+ $as_echo_n "checking whether $CC supports -Wl,-Bdynamic, for LDFLAGS... " >&6; }
+ if ${pgac_cv_prog_cc_LDFLAGS__Wl__Bdynamic+:} false; then :

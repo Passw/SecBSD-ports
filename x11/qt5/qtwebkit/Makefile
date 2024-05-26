@@ -1,6 +1,7 @@
 COMMENT =		QtWebKit with a more modern WebKit code base
 
 USE_WXNEEDED =		Yes
+USE_NOBTCFI =		Yes
 FIX_EXTRACT_PERMISSIONS = Yes
 
 CATEGORIES =		www
@@ -13,7 +14,7 @@ PKGNAME =		qtwebkit-${VERSION}
 PKGSPEC =		qtwebkit->=${VERSION}v0
 
 EPOCH =			0
-REVISION =		9
+REVISION =		11
 
 SHARED_LIBS +=  Qt5WebKit               3.1 # 5.9
 SHARED_LIBS +=  Qt5WebKitWidgets        3.1 # 5.9

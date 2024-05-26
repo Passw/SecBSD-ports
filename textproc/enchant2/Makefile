@@ -1,10 +1,10 @@
 COMMENT=		generic spell checking library
 
-V=			2.6.1
+V=			2.7.3
 DISTNAME=		enchant-${V}
 PKGNAME=		enchant2-${V}
 
-SHARED_LIBS +=  enchant-2            1.0      # 8.1
+SHARED_LIBS +=  enchant-2            1.1      # 9.3
 
 CATEGORIES=		textproc
 
@@ -15,13 +15,16 @@ MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 # LGPLv2.1
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += ${COMPILER_LIBCXX} aspell c curses glib-2.0 gmodule-2.0
-WANTLIB += hunspell-1.7 iconv intl m pcre2-8
+WANTLIB += ${COMPILER_LIBCXX} aspell c curses ffi gio-2.0 glib-2.0
+WANTLIB += gmodule-2.0 gobject-2.0 hunspell-1.7 iconv intl m pcre2-8
+WANTLIB += z
 
-SITES =		https://github.com/AbiWord/enchant/releases/download/v${V}/
+SITES=			https://github.com/AbiWord/enchant/releases/download/v${V}/
 
 # c++11
-COMPILER =		base-clang ports-gcc
+COMPILER=		base-clang ports-gcc
+
+USE_GMAKE=		Yes
 
 LIB_DEPENDS=		devel/glib2 \
 			textproc/aspell/core \

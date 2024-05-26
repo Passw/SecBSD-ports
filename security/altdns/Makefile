@@ -20,8 +20,8 @@ MODPY_PYBUILD=		setuptools
 FLAVOR=			python3
 FLAVORS=		python3
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		devel/py-configargparse${MODPY_FLAVOR} \
+RUN_DEPENDS=	devel/py-configargparse${MODPY_FLAVOR} \
+		devel/py-six${MODPY_FLAVOR} \
 		graphics/py-termcolor${MODPY_FLAVOR} \
 		net/py-dnspython${MODPY_FLAVOR} \
 		www/py-tldextract${MODPY_FLAVOR}

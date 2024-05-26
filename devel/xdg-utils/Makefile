@@ -4,14 +4,8 @@
 
 COMMENT=		utilities to assist desktop integration tasks
 
-DISTNAME=		xdg-utils-1.1.3.20210805
-REVISION=		0
-
-# use a git checkout; releases are not made regularly
-COMMIT=			1a58bc28f6844898532daf9ee1bf6da7764955a9
-SITES=	https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/${COMMIT}/
-WRKDIST=		${WRKDIR}/xdg-utils-${COMMIT}
-EXTRACT_SUFX=		.tar.gz
+V=			1.2.1
+DISTNAME=		xdg-utils-${V}
 
 CATEGORIES=		devel
 
@@ -22,7 +16,8 @@ MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 # MIT
 PERMIT_PACKAGE=	Yes
 
-#SITES=		https://portland.freedesktop.org/download/
+SITES=			https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v${V}/
+WRKDIST=		${WRKDIR}/xdg-utils-v${V}-356c380ad6fecc9ce6bea1f6a77986ba67402c80
 
 PKG_ARCH=		*
 USE_GMAKE=		Yes

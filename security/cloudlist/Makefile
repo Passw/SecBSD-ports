@@ -1,7 +1,7 @@
 COMMENT=	find assets from cloud providers
 
 MODGO_MODNAME=	github.com/projectdiscovery/cloudlist
-MODGO_VERSION=	v1.0.3
+MODGO_VERSION=	v1.0.4
 
 DISTNAME=	cloudlist-${MODGO_VERSION}
 

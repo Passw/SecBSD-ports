@@ -21,4 +21,7 @@ RUN_DEPENDS=		net/py-dnspython${MODPY_FLAVOR}
 
 MODPY_PYBUILD=		setuptools
 
+FLAVOR=			python3
+FLAVORS=		python3
+
 .include <bsd.port.mk>

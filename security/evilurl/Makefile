@@ -19,8 +19,7 @@ PERMIT_PACKAGE=	Yes
 MODULES=	lang/python
 MODPY_ADJ_FILES=evilurl.py
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		security/py-nmap${MODPY_FLAVOR} \
+RUN_DEPENDS=	security/py-nmap${MODPY_FLAVOR} \
 		www/py-whois${MODPY_FLAVOR} \
 		devel/py-future${MODPY_FLAVOR} \
 		net/nmap

@@ -1,0 +1,21 @@
+Index: configure
+--- configure.orig
++++ configure
+@@ -3022,7 +3022,7 @@ case "${ENABLE_GOLD}" in
+       *-*-elf* | *-*-sysv4* | *-*-unixware* | *-*-eabi* | hppa*64*-*-hpux* \
+       | *-*-linux* | *-*-gnu* | frv-*-uclinux* | *-*-irix5* | *-*-irix6* \
+       | *-*-netbsd* | *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* \
+-      | *-*-solaris2* | *-*-nto* | *-*-nacl*)
++      | *-*-secbsd* | *-*-solaris2* | *-*-nto* | *-*-nacl*)
+         case "${target}" in
+           *-*-linux*aout* | *-*-linux*oldld*)
+             ;;
+@@ -3216,7 +3216,7 @@ if test x$enable_libgomp = x ; then
+     case "${target}" in
+     *-*-linux* | *-*-gnu* | *-*-k*bsd*-gnu | *-*-kopensolaris*-gnu)
+ 	;;
+-    *-*-netbsd* | *-*-freebsd* | *-*-openbsd* | *-*-dragonfly*)
++    *-*-netbsd* | *-*-freebsd* | *-*-openbsd* | *-*-dragonfly* | *-*-secbsd*)
+ 	;;
+     *-*-solaris2* | *-*-hpux11*)
+ 	;;

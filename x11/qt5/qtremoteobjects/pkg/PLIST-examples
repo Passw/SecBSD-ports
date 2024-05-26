@@ -1,4 +1,4 @@
-@conflict qtremoteobjects-<5.15.2p0
+@conflict qtremoteobjects-<5.15.12p0
 lib/qt5/examples/
 lib/qt5/examples/remoteobjects/
 lib/qt5/examples/remoteobjects/clientapp/
@@ -87,6 +87,7 @@ lib/qt5/examples/remoteobjects/ssl/sslserver/cert/
 lib/qt5/examples/remoteobjects/ssl/sslserver/cert/cert.qrc
 lib/qt5/examples/remoteobjects/ssl/sslserver/cert/client.crt
 lib/qt5/examples/remoteobjects/ssl/sslserver/cert/client.key
+lib/qt5/examples/remoteobjects/ssl/sslserver/cert/readme
 lib/qt5/examples/remoteobjects/ssl/sslserver/cert/rootCA.key
 lib/qt5/examples/remoteobjects/ssl/sslserver/cert/rootCA.pem
 lib/qt5/examples/remoteobjects/ssl/sslserver/cert/rootCA.srl
@@ -105,6 +106,7 @@ lib/qt5/examples/remoteobjects/websockets/common/cert/
 lib/qt5/examples/remoteobjects/websockets/common/cert/cert.qrc
 lib/qt5/examples/remoteobjects/websockets/common/cert/client.crt
 lib/qt5/examples/remoteobjects/websockets/common/cert/client.key
+lib/qt5/examples/remoteobjects/websockets/common/cert/readme
 lib/qt5/examples/remoteobjects/websockets/common/cert/rootCA.key
 lib/qt5/examples/remoteobjects/websockets/common/cert/rootCA.pem
 lib/qt5/examples/remoteobjects/websockets/common/cert/rootCA.srl

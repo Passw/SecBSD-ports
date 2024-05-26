@@ -1,5 +1,3 @@
-# XXX add support for tracker3? (-Dtracker=enabled)
-
 DPB_PROPERTIES=		parallel
 
 COMMENT-main=		multi-platform graphical toolkit
@@ -9,17 +7,22 @@ COMMENT-guic=		gtk+ icon theme caching utility
 COMMENT-media=		gtk+ media engine
 
 GNOME_PROJECT=		gtk
-GNOME_VERSION=		4.12.3
+GNOME_VERSION=		4.14.4
 
 PKGNAME-main=		gtk+4-${GNOME_VERSION}
 PKGNAME-cups=		gtk+4-cups-${GNOME_VERSION}
 PKGNAME-demos=		gtk+4-demos-${GNOME_VERSION}
 PKGNAME-guic=		gtk4-update-icon-cache-${GNOME_VERSION}
 PKGNAME-media=		gtk+4-media-${GNOME_VERSION}
+REVISION-cups=		0
+REVISION-demos=		0
+REVISION-guic=		0
+REVISION-main=		0
+REVISION-media=		0
 
 CATEGORIES=		x11 devel
 
-SHARED_LIBS += gtk-4                     5.0 # 1.2000.3
+SHARED_LIBS += gtk-4                     5.2 # 1.1400.4
 
 HOMEPAGE=		http://www.gtk.org/
 
@@ -46,12 +49,19 @@ MODPY_RUNDEP=		No
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 BUILD_DEPENDS=		devel/py-gobject3${MODPY_FLAVOR} \
+			graphics/shaderc \
 			textproc/py-docutils${MODPY_FLAVOR} \
+			wayland/wayland-protocols \
 			www/sassc
+
+# needs BTN_LEFT
+BUILD_DEPENDS +=	wayland/libinput-openbsd
 
 LIB_DEPENDS-main=	devel/pango \
 			graphics/gdk-pixbuf2 \
-			graphics/graphene
+			graphics/graphene \
+			wayland/wayland \
+			x11/xkbcommon
 RUN_DEPENDS-main=	${RUN_DEPENDS}
 
 # convenient dependency to prevent hunting what needs what:
@@ -65,6 +75,7 @@ WANTLIB-main += c cairo cairo-gobject cairo-script-interpreter epoxy
 WANTLIB-main += fontconfig fribidi gdk_pixbuf-2.0 gio-2.0 glib-2.0
 WANTLIB-main += gmodule-2.0 gobject-2.0 graphene-1.0 harfbuzz intl
 WANTLIB-main += jpeg m pango-1.0 pangocairo-1.0 pangoft2-1.0 png tiff
+WANTLIB-main += wayland-client wayland-egl xkbcommon
 
 LIB_DEPENDS-cups=	print/cups,-libs \
 			${BASE_PKGPATH},-main=${GNOME_VERSION}
@@ -89,22 +100,18 @@ WANTLIB-guic += c gdk_pixbuf-2.0 glib-2.0 intl
 LIB_DEPENDS-media=	multimedia/gstreamer1/plugins-bad \
 			${BASE_PKGPATH},-main=${GNOME_VERSION}
 
-WANTLIB-media += gio-2.0 glib-2.0 gobject-2.0 gstgl-1.0 gstplayer-1.0
-WANTLIB-media += gstreamer-1.0 gstvideo-1.0 gtk-4 m
+WANTLIB-media += gio-2.0 glib-2.0 gobject-2.0 graphene-1.0 gstallocators-1.0
+WANTLIB-media += gstgl-1.0 gstplayer-1.0 gstreamer-1.0 gstvideo-1.0
+WANTLIB-media += gtk-4 m
 
 TEST_IS_INTERACTIVE=	x11
+# needs lib/gstreamer-1.0/libgstpipewire.so and the pipewire server
+TEST_DEPENDS=		multimedia/pipewire/pipewire
 
 CONFIGURE_ARGS=		-Dman-pages=true
 
-# disable wayland for now
-CONFIGURE_ARGS +=	-Dwayland-backend=false
-#LIB_DEPENDS +=		x11/xkbcommon
-
-# preference for media-gstreamer
-CONFIGURE_ARGS +=	-Dmedia-ffmpeg=disabled
-
-# Disable colord until proven useful
-#CONFIGURE_ARGS +=      -Dcolord=true
+# XXX ld: error: undefined symbol: vkCreateWaylandSurfaceKHR
+CONFIGURE_ARGS +=	-Dvulkan=disabled
 
 .include <bsd.port.arch.mk>
 .if !${PROPERTIES:Mclang}

@@ -2,11 +2,12 @@ COMMENT=		overrides for the gobject-introspection-based pygst bindings
 
 DISTNAME=		gst-python-${V}
 PKGNAME=		py-gstreamer1-${V}
+REVISION=		0
 
 HOMEPAGE=		http://gstreamer.freedesktop.org/modules/gst-python.html
 
 WANTLIB += ${MODPY_WANTLIB}
-WANTLIB += glib-2.0 gmodule-2.0 gobject-2.0 gstreamer-1.0
+WANTLIB += glib-2.0 gobject-2.0 gstreamer-1.0
 
 SITES=			${SITE_GST:=gst-python/}
 

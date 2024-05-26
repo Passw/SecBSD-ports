@@ -1,10 +1,10 @@
 COMMENT =		Python API for advanced date calculations
 
-MODPY_EGG_VERSION =	2.8.2
+MODPY_EGG_VERSION =	2.9.0
 DISTNAME =		python-dateutil-${MODPY_EGG_VERSION}
 PKGNAME =		${DISTNAME:S/^python-/py-/}
 CATEGORIES =		devel
-REVISION =		3
+REVISION =		0
 
 HOMEPAGE =		https://dateutil.readthedocs.org/
 

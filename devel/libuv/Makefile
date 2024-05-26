@@ -1,11 +1,11 @@
 COMMENT =	multi-platform library for asynchronous I/O
 
-VER =		1.44.2
+VER =		1.48.0
 DISTNAME =	libuv-v${VER}
 PKGNAME =	libuv-${VER}
 CATEGORIES =	devel
 
-SHARED_LIBS +=  uv                   4.1      # 1.0
+SHARED_LIBS +=  uv                   4.2      # 1.0
 
 HOMEPAGE =	https://libuv.org/
 
@@ -15,6 +15,10 @@ SITES =		https://dist.libuv.org/dist/v${VER}/
 PERMIT_PACKAGE = Yes
 
 WANTLIB += pthread
+
+# stdatomic.h
+COMPILER =	base-clang ports-gcc
+COMPILER_LANGS = c
 
 BUILD_DEPENDS =	textproc/py-sphinx
 

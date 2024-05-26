@@ -1,3 +1,0 @@
-$CONFIG = array (
-  'integrity.check.disabled' => true,
-);

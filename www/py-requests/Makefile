@@ -1,6 +1,7 @@
 COMMENT=	elegant and simple HTTP library for Python
 
-MODPY_EGG_VERSION=	2.31.0
+# 2.33 expected to move to hatchling
+MODPY_EGG_VERSION=	2.32.1
 DISTNAME=	requests-${MODPY_EGG_VERSION}
 PKGNAME=	py-${DISTNAME}
 
@@ -19,8 +20,7 @@ FLAVOR=		python3
 MODPY_PI=	Yes
 MODPY_PYBUILD=	setuptools
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		archivers/py-brotli${MODPY_FLAVOR} \
+RUN_DEPENDS=	archivers/py-brotli${MODPY_FLAVOR} \
 		devel/py-certifi${MODPY_FLAVOR} \
 		net/py-idna${MODPY_FLAVOR} \
 		textproc/py-charset-normalizer${MODPY_FLAVOR} \

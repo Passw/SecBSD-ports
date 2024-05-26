@@ -1,0 +1,57 @@
+Index: bfd/configure
+--- bfd/configure.orig
++++ bfd/configure
+@@ -6319,7 +6319,7 @@ else
+     lt_cv_sys_max_cmd_len=8192;
+     ;;
+ 
+-  netbsd* | freebsd* | openbsd* | darwin* | dragonfly*)
++  netbsd* | freebsd* | openbsd* | darwin* | dragonfly* | secbsd*)
+     # This has been around since 386BSD, at least.  Likely further.
+     if test -x /sbin/sysctl; then
+       lt_cv_sys_max_cmd_len=`/sbin/sysctl -n kern.argmax`
+@@ -6675,7 +6675,7 @@ freebsd* | dragonfly*)
+     i*86 )
+       # Not sure whether the presence of OpenBSD here was a mistake.
+       # Let's accept both of them until this is cleared up.
+-      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|DragonFly)/i[3-9]86 (compact )?demand paged shared library'
++      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|DragonFly|SecBSD)/i[3-9]86 (compact )?demand paged shared library'
+       lt_cv_file_magic_cmd=/usr/bin/file
+       lt_cv_file_magic_test_file=`echo /usr/lib/libc.so.*`
+       ;;
+@@ -7133,7 +7133,7 @@ old_postuninstall_cmds=
+ 
+ if test -n "$RANLIB"; then
+   case $host_os in
+-  openbsd*)
++  openbsd* | secbsd*)
+     old_postinstall_cmds="$old_postinstall_cmds~\$RANLIB -t \$oldlib"
+     ;;
+   *)
+@@ -9359,7 +9359,7 @@ $as_echo_n "checking whether the $compiler linker ($LD
+     # we just hope/assume this is gcc and not c89 (= MSVC++)
+     with_gnu_ld=yes
+     ;;
+-  openbsd*)
++  openbsd* | secbsd*)
+     with_gnu_ld=no
+     ;;
+   esac
+@@ -15148,7 +15148,7 @@ if test "${target}" = "${host}"; then
+ 	COREFILE=''
+ 	TRAD_HEADER='"hosts/i386bsd.h"'
+ 	;;
+-  i[3-7]86-*-netbsd* | i[3-7]86-*-knetbsd*-gnu | i[3-7]86-*-openbsd*)
++  i[3-7]86-*-netbsd* | i[3-7]86-*-knetbsd*-gnu | i[3-7]86-*-openbsd* | i[3-7]86-*-secbsd*)
+ 	COREFILE=netbsd-core.lo
+ 	;;
+   i[3-7]86-esix-sysv3*)
+@@ -15272,7 +15272,7 @@ rm -f core conftest.err conftest.$ac_objext conftest.$
+   x86_64-*-linux*)
+ 	CORE_HEADER='"hosts/x86-64linux.h"'
+ 	;;
+-  x86_64-*-netbsd* | x86_64-*-openbsd*)
++  x86_64-*-netbsd* | x86_64-*-openbsd* | x86_64-*-secbsd*)
+ 	COREFILE=netbsd-core.lo
+ 	;;
+   esac

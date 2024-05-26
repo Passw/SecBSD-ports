@@ -1,7 +1,6 @@
 @option no-default-conflict
 @option is-branch
 @conflict llvm-${LLVM_PKGSPEC}
-@conflict lldb-<10.0.0p0
 @pkgpath devel/llvm,-main
 bin/analyze-build-${LLVM_MAJOR}
 bin/bugpoint-${LLVM_MAJOR}
@@ -2853,7 +2852,7 @@ ${CLANG_INCLUDE_PATH}/stdatomic.h
 @comment ${CLANG_INCLUDE_PATH}/stdint.h
 ${CLANG_INCLUDE_PATH}/stdnoreturn.h
 ${CLANG_INCLUDE_PATH}/tbmintrin.h
-@comment ${CLANG_INCLUDE_PATH}/tgmath.h
+${CLANG_INCLUDE_PATH}/tgmath.h
 ${CLANG_INCLUDE_PATH}/tmmintrin.h
 ${CLANG_INCLUDE_PATH}/tsxldtrkintrin.h
 ${CLANG_INCLUDE_PATH}/uintrintrin.h

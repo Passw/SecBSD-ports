@@ -1,4 +1,0 @@
-bin/pf-badhost
-@man man/man1/pf-badhost.1
-share/pf-badhost/
-share/pf-badhost/pf-badhost.sh

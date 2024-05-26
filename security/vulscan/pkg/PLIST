@@ -1,0 +1,14 @@
+share/nmap/scripts/vulscan/
+share/nmap/scripts/vulscan/COPYING.TXT
+share/nmap/scripts/vulscan/README.md
+share/nmap/scripts/vulscan/cve.csv
+share/nmap/scripts/vulscan/exploitdb.csv
+share/nmap/scripts/vulscan/openvas.csv
+share/nmap/scripts/vulscan/osvdb.csv
+share/nmap/scripts/vulscan/scipvuldb.csv
+share/nmap/scripts/vulscan/securityfocus.csv
+share/nmap/scripts/vulscan/securitytracker.csv
+share/nmap/scripts/vulscan/update.ps1
+share/nmap/scripts/vulscan/update.sh
+share/nmap/scripts/vulscan/vulscan.nse
+share/nmap/scripts/vulscan/xforce.csv

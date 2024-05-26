@@ -1,0 +1,5 @@
+bin/barq
+share/barq/
+share/barq/LICENSE
+share/barq/README.md
+share/barq/barq.py

@@ -3,20 +3,30 @@ NOT_FOR_ARCHS=		${GCC3_ARCHS}
 COMMENT-main=		International Components for Unicode
 COMMENT-wwwdata=	ICU data file for use with /var/www chroot jails
 
-VERSION=		73.2
+VERSION=		74.2
 DISTNAME=		icu4c-${VERSION:S/./_/g}-src
 PKGNAME-main=		icu4c-${VERSION}
 PKGNAME-wwwdata=	icu4c-wwwdata-${VERSION}
-REVISION-main=		0
 EPOCH-main=		0
 EPOCH-wwwdata=		0
+
+REVISION-main=		0
+REVISION-medatada=	0
+
+# XXX see also post-extract;
+# install: /usr/ports/pobj/icu4c-74_2-src/icu/source/../LICENSE: No such file or directory
+# https://github.com/unicode-org/icu/commit/312bae866003461bcd4022855ac7ec60546b81f7
+SITES.licence=		https://raw.githubusercontent.com/unicode-org/icu/main/
+DISTFILES.licence=	LICENSE
+EXTRACT_ONLY=		${DISTFILES}
+DIST_SUBDIR=		icu4c
 
 # XXX libicudata is not recognized as a SHARED_LIBS by the ports tools because
 # it's missing the '.note.openbsd.ident' section ("-nodefaultlibs -nostdlib" in
 # LDFLAGS); @lib and LIBicudata_VERSION must be added manually;
 # (see ports/infrastructure/lib/OpenBSD/FS2.pm)
 MAJ_V=			${VERSION:R}
-SO_VERSION=		22.1
+SO_VERSION=		22.2
 .for _lib in icudata icui18n icuio icutest icutu icuuc
 SHARED_LIBS+=		${_lib} ${SO_VERSION}
 .endfor
@@ -29,7 +39,7 @@ HOMEPAGE=		https://icu.unicode.org
 
 MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 
-# ICU: http://source.icu-project.org/repos/icu/icu/trunk/license.html
+# ICUv3: http://source.icu-project.org/repos/icu/icu/trunk/license.html
 PERMIT_PACKAGE=		Yes
 
 WANTLIB-main=		c m pthread ${COMPILER_LIBCXX}
@@ -37,6 +47,8 @@ WANTLIB-main=		c m pthread ${COMPILER_LIBCXX}
 COMPILER =		base-clang ports-gcc base-gcc
 
 SITES=			https://github.com/unicode-org/icu/releases/download/release-${VERSION:S/./-/g}/
+
+FIX_EXTRACT_PERMISSIONS=	Yes
 
 EXTRACT_SUFX=		.tgz
 
@@ -80,6 +92,9 @@ SUBST_VARS +=		ENDIAN_DATA
 TEST_ENV +=		ICU_DATA="${WRKBUILD}/data/out/build/${ENDIAN_DATA}"
 
 TEST_DEPENDS=		${BASE_PKGPATH}=${VERSION}
+
+post-extract:
+	cp ${FULLDISTDIR}/LICENSE ${WRKDIR}/
 
 post-install:
 	find ${PREFIX}/lib -type l -name 'libicu*.so*' -delete

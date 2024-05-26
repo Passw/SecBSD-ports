@@ -18,8 +18,7 @@ MODPY_PYBUILD=		setuptools
 FLAVOR=			python3
 FLAVORS=		python3
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		databases/py-mongo${MODPY_FLAVOR} \
+RUN_DEPENDS=	databases/py-mongo${MODPY_FLAVOR} \
 		devel/py-urwid${MODPY_FLAVOR}
 
 NO_TEST=	Yes

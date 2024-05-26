@@ -1,0 +1,2 @@
+BED stands for Bruteforce Exploit Detector. It is designed to check
+daemons for potential buffer overflows, format strings, etc.

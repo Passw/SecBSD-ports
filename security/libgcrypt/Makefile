@@ -5,12 +5,12 @@ USE_NOEXECONLY=		Yes
 
 COMMENT=		crypto library based on code used in GnuPG
 
-DISTNAME=		libgcrypt-1.10.2
+DISTNAME=		libgcrypt-1.10.3
 REVISION=		0
 
 CATEGORIES=		security
 
-SHARED_LIBS +=  gcrypt               21.1     # 24.2
+SHARED_LIBS +=  gcrypt               21.1     # 24.3
 
 HOMEPAGE=		https://www.gnupg.org/software/libgcrypt/index.html
 
@@ -29,8 +29,8 @@ CONFIGURE_STYLE=	gnu
 CONFIGURE_ARGS=		--enable-static \
 			--disable-drng-support
 
-MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} \
-				${WRKSRC}/build-aux
+
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/build-aux
 
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 

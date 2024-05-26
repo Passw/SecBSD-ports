@@ -8,7 +8,7 @@ DIST_SUBDIR?=	aspell
 
 EXTRACT_SUFX?=	.tar.bz2
 
-HOMEPAGE?=	http://aspell.sourceforge.net/
+HOMEPAGE?=	https://aspell.sourceforge.net/
 
 # GPLv2 - LGPLv2 - FDL - CC ShareAlike
 PERMIT_PACKAGE?=	Yes

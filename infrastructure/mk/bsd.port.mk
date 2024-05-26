@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1627 2023/09/27 21:41:16 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1638 2024/02/29 21:20:51 thfr Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -70,6 +70,9 @@ _MAKEFILE_INC_DONE ?=	Yes
 ECHO_MSG ?=				:
 .endif
 
+UNLINKED ?=
+BUILD_UNLINKED ?=
+
 # include guard so that other parts don't include this twice
 _BSD_PORT_MK = Done
 
@@ -78,7 +81,7 @@ FETCH_PACKAGES ?= No
 CLEANDEPENDS ?= No
 BULK ?= Auto
 INSTALL_DEBUG_PACKAGES ?= No
-
+ 
 .if ${FETCH_PACKAGES:L} == "yes"
 ERRORS += "Fatal: old syntax for FETCH_PACKAGES, see ports(7)"
 .endif
@@ -228,6 +231,7 @@ PARALLEL_MAKE_FLAGS ?= -j${MAKE_JOBS}
 TRY_BROKEN ?= No
 
 USE_CCACHE ?= No
+USE_SCCACHE ?= No
 
 WARNINGS ?= no
 
@@ -326,6 +330,15 @@ CHOSEN_COMPILER ?= gcc3
 .endif
 COMPILER_LIBCXX ?= ${LIBCXX}
 
+# support for compiler-specific flags.  example usage:
+# CFLAGS_base-gcc =	-std=gnu99
+.if defined(CFLAGS_${CHOSEN_COMPILER}) && ${COMPILER_LANGS:Mc}
+CFLAGS += ${CFLAGS_${CHOSEN_COMPILER}}
+.endif
+.if defined(CXXFLAGS_${CHOSEN_COMPILER})  && ${COMPILER_LANGS:Mc++}
+CXXFLAGS += ${CXXFLAGS_${CHOSEN_COMPILER}}
+.endif
+
 ###
 ### Variable setup that can happen after modules
 ###
@@ -423,8 +436,8 @@ BUILD_DEPENDS += devel/libtool
 LIBTOOL ?= /usr/bin/libtool
 MAKE_ENV += PORTSDIR="${PORTSDIR}"
 .  endif
-# Massage into an intermediate variable because python does
-# not parse variables with trailing spaces properly and adds
+# Massage into an intermediate variable because python does 
+# not parse variables with trailing spaces properly and adds 
 # a bogus "" argument.
 _LIBTOOL = ${LIBTOOL}
 .if !empty(LIBTOOL_FLAGS)
@@ -436,6 +449,7 @@ MAKE_FLAGS += LIBTOOL="${_LIBTOOL}" ${_lt_libs}
 .endif
 # log for the SHARED_LIBS override
 MAKE_FLAGS += SHARED_LIBS_LOG=${WRKBUILD}/shared_libs.log
+
 NO_CCACHE ?= No
 CCACHE_ENV ?=
 .if ${USE_CCACHE:L} == "yes" && ${NO_CCACHE:L} == "no" && ${NO_BUILD:L} == "no"
@@ -446,6 +460,18 @@ CONFIGURE_ENV += CCACHE_DIR=${CCACHE_DIR}
 COMPILER_WRAPPER += env CCACHE_DIR=${CCACHE_DIR} ${CCACHE_ENV} ccache
 .  if !exists(${LOCALBASE}/bin/ccache)
 ERRORS += "Fatal: USE_CCACHE is set, but ccache is not installed."
+.  endif
+.endif
+
+NO_SCCACHE ?= No
+SCCACHE_ENV ?=
+.if ${USE_SCCACHE:L} == "yes" && ${NO_SCCACHE:L} == "no" && ${NO_BUILD:L} == "no"
+SCCACHE_DIR ?= ${WRKOBJDIR_${PKGPATH}}/.sccache
+MAKE_ENV += SCCACHE_SERVER_PORT=44226 SCCACHE_DIR=${SCCACHE_DIR} ${SCCACHE_ENV}
+MAKE_ENV += RUSTC_WRAPPER=${LOCALBASE}/bin/sccache
+CONFIGURE_ENV += SCCACHE_SERVER_PORT=44226 SCCACHE_DIR=${SCCACHE_DIR}
+.  if !exists(${LOCALBASE}/bin/sccache)
+ERRORS += "Fatal: USE_SCCACHE is set, but sccache is not installed."
 .  endif
 .endif
 
@@ -795,8 +821,19 @@ _NONDEFAULT_LD = Yes
 .endif
 _NONDEFAULT_LD ?= No
 .if ${_NONDEFAULT_LD:L} == "yes"
-.  if !exists(${_LD_PROGRAM})
+.  if !exists(${_LD_PROGRAM}) && ${USE_LLD:L} != "ports"
 IGNORE = "requires ${_LD_PROGRAM}"
+.  endif
+.endif
+_f =
+.if !empty(UNLINKED)
+.  for _e in ${BUILD_UNLINKED}
+.    if !empty(UNLINKED:M${_e})
+_f = build
+.    endif
+.  endfor
+.  if empty(_f)
+IGNORE += "Not built because unlinked \(${UNLINKED}\)"
 .  endif
 .endif
 
@@ -805,10 +842,10 @@ IGNORE = "requires ${_LD_PROGRAM}"
 # used to write wrappers to WRKDIR/bin which is at the head of the PATH.
 .if ${PROPERTIES:Mclang}
 .  if !${COMPILER_LINKS:Mclang}
-COMPILER_LINKS += clang /usr/bin/clang
+COMPILER_LINKS += clang /usr/bin/clang 
 .  endif
 .  if !${COMPILER_LINKS:Mclang++}
-COMPILER_LINKS += clang++ /usr/bin/clang++
+COMPILER_LINKS += clang++ /usr/bin/clang++ 
 .  endif
 .endif
 .if ! ${COMPILER_LINKS:Mcc}
@@ -857,10 +894,12 @@ _WRKDIRS += ${WRKOBJDIR_MFS}/${_WRKDIR_STEM}
 WRKDIST ?= ${WRKDIR}/${GH_PROJECT}-${GH_TAGNAME:C/^[vV]([0-9])/\1/}
 .elif !empty(GH_COMMIT)
 WRKDIST ?= ${WRKDIR}/${GH_PROJECT}-${GH_COMMIT}
-.elif !defined(DISTNAME)
-WRKDIST ?= ${WRKDIR}
-.else
+.elif defined(DISTNAME)
 WRKDIST ?= ${WRKDIR}/${DISTNAME}
+.elif !empty(_DT_WRKDIST)
+WRKDIST ?= ${_DT_WRKDIST}
+.else
+WRKDIST ?= ${WRKDIR}
 .endif
 
 WRKSRC ?= ${WRKDIST}
@@ -880,7 +919,7 @@ ALL_TARGET ?= all
 FAKE_TARGET ?= ${INSTALL_TARGET}
 
 TEST_TARGET ?= test
-TEST_FLAGS ?=
+TEST_FLAGS ?= 
 TEST_ENV ?=
 ALL_TEST_FLAGS = ${MAKE_FLAGS} ${TEST_FLAGS}
 ALL_TEST_ENV = ${MAKE_ENV} ${TEST_ENV}
@@ -945,7 +984,7 @@ PKGPATHS += ${FULLPKGPATH${_s}}
 PKGFILES += ${_PKG_REPO}${_DBG_PKGFILE${_s}}
 PKGNAMES += debug-${FULLPKGNAME${_s}}
 #PKGPATHS += debug/${FULLPKGPATH${_s}} # XXX sqlports doesn't like it
-.  endif
+.  endif 
 .endfor
 
 _PACKAGE_LINKS =
@@ -1210,7 +1249,7 @@ _pkg_cookie${_S} += ${_DBG_PACKAGE_COOKIE${_S}}
 
 # Finish filling out package command, and package dependencies
 PKG_ARGS${_S} += -DCOMMENT=${_COMMENT${_S}:Q} -d ${DESCR${_S}}
-PKG_ARGS${_S} += -f ${PLIST${_S}}
+PKG_ARGS${_S} += -f ${PLIST${_S}} 
 PKG_ARGS${_S} += -DFULLPKGPATH=${FULLPKGPATH${_S}}
 .  if defined(MESSAGE${_S}) && !empty(MESSAGE${_S})
 PKG_ARGS${_S} += -M ${MESSAGE${_S}}
@@ -1257,7 +1296,7 @@ HOMEPAGE ?= https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 .else
 # There are two types of ports with DISTFILES but no actionable SITES:
 # - FETCH_MANUALLY
-# - orphaned port, defaults to SITES_BACKUP
+# - orphaned port, defaults to SITE_BACKUP
 SITES ?=
 .endif
 
@@ -1308,7 +1347,8 @@ _ALL_VARIABLES += BROKEN COMES_WITH \
 	COMPILER COMPILER_LANGS COMPILER_LINKS \
 	SUBST_VARS UPDATE_PLIST_ARGS \
 	PKGPATHS DEBUG_PACKAGES DEBUG_CONFIGURE_ARGS \
-	FIX_CRLF_FILES EXTRACT_FILES DIST_TUPLE DIST_TUPLE_MV
+	FIX_CRLF_FILES EXTRACT_FILES DIST_TUPLE DIST_TUPLE_MV \
+	UNLINKED
 .if !empty(MODULES)
 .  for _m in ${MODULES}
 _ALL_VARIABLES += ${.VARIABLES:MMOD${_m:T:U}*}
@@ -1689,8 +1729,8 @@ ${_v}_DEPENDS${_s} := ${${_v}_DEPENDS${_s}:C,^([^:]+/[^:<=>]+)([<=>][^:]+)$,STEM
 .endfor
 
 
-_BUILDLIB_DEPENDS =
-_BUILDWANTLIB =
+_BUILDLIB_DEPENDS = 
+_BUILDWANTLIB = 
 # strip inter-multi-packages dependencies during building
 .for _path in ${PKGPATH:S,^mystuff/,,}
 .  for _s in ${BUILD_PACKAGES}
@@ -2018,7 +2058,6 @@ _wrap_install_commands += ${_PBUILD} install -m ${BINMODE} ${PORTSDIR}/infrastru
 _cat = {cat1,cat2,cat3,cat3f,cat3p,cat4,cat5,cat6,cat7,cat8,cat9,catl,catn}
 _man = ${_cat:S/cat/man/g}
 _treebase = ${WRKINST}${LOCALBASE}
-_nls = ${_treebase}/share/nls
 _FAKE_TREE_LIST = \
 	${WRKINST}${BASESYSCONFDIR}/{firmware,rc.d} \
 	${_treebase}/bin \
@@ -2035,18 +2074,6 @@ _FAKE_TREE_LIST = \
 	${_treebase}/sbin \
 	${_treebase}/share/{dict,examples,misc,pkgconfig,skel} \
 	${_treebase}/share/doc/pkg-readmes \
-	${_nls}/{C,da_DK.ISO_8859-1,de_AT.ISO_8859-1,de_CH.ISO_8859-1} \
-	${_nls}/{de_DE.ISO_8859-1,el_GR.ISO_8859-7,en_AU.ISO_8859-1} \
-	${_nls}/{en_CA.ISO_8859-1,en_GB.ISO_8859-1,en_US.ISO_8859-1} \
-	${_nls}/{es_ES.ISO_8859-1,et_EE.ISO-8859-1,fi_FI.ISO_8859-1} \
-	${_nls}/{fr_BE.ISO_8859-1,fr_CA.ISO_8859-1,fr_CH.ISO_8859-1} \
-	${_nls}/fr_FR.ISO_8859-1 \
-	${_nls}/{hr_HR.ISO_8859-2,is_IS.ISO_8859-1,it_CH.ISO_8859-1} \
-	${_nls}/{it_IT.ISO_8859-1,ja_JP.EUC,ko_KR.EUC,lt_LN.ASCII} \
-	${_nls}/{lt_LN.ISO_8859-1,lt_LN.ISO_8859-2,nl_BE.ISO_8859-1} \
-	${_nls}/{no_NO.ISO_8859-1,pl_PL.ISO_8859-2,pt_PT.ISO_8859-1} \
-	${_nls}/{ru_RU.CP866,ru_RU.ISO_8859-5,ru_RU.KOI8-R} \
-	${_nls}/{sv_SE.ISO_8859-1,uk_UA.KOI8-U} \
 	${WRKINST}${VARBASE}/{db,games,log,spool,www}
 
 # packing list utilities.  This generates a packing list from the WRKINST
@@ -2977,7 +3004,7 @@ ${_GEN_COOKIE}: ${_PATCH_COOKIE}
 	@${_PMAKE_COOKIE} $@
 
  # The real configure
-
+ 
 # run as _pbuild
 _pre-configure-modules:
 .for _m in ${MODULES:T:U}
@@ -3038,7 +3065,7 @@ ${_BUILD_COOKIE}: ${_CONFIGURE_COOKIE}
 	@${_PMAKE} post-build
 .  endif
 .endif
-	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY}
+	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY} 
 	@${_PMAKE_COOKIE} $@
 
 ${_TEST_COOKIE}: ${_BUILD_COOKIE}
@@ -3123,7 +3150,7 @@ ${_FAKE_COOKIE}: ${_BUILD_COOKIE}
 	@${_SUDOMAKESYS} post-install ${FAKE_SETUP}
 .endif
 	@${_SUDOMAKESYS} _post-install-modules ${FAKE_SETUP}
-	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY}
+	@${_check_wrkdir} ${WRKDIR} ${_TS_COOKIE} ${WRKDIR_CHANGES_OKAY} 
 	@${_PBUILD} ${_MAKE_COOKIE} $@
 
 ${_WRKDEBUG}/Makefile: ${_FAKE_COOKIE}
@@ -3236,7 +3263,7 @@ _internal-subpackage: ${_PACKAGE_COOKIES${SUBPACKAGE}}
 
 # first we special case _REFETCH stuff, specifically get them from our mirrors
 # _REFETCH_INFO is set by _internal-checksum if REFETCH
-_REFETCH_INFO ?=
+_REFETCH_INFO ?= 
 
 # list is pretty much self explanatory
 .for f cipher value in ${_REFETCH_INFO}
@@ -3397,7 +3424,7 @@ _internal-clean:
 .if ${_clean:Mpackages} || ${_clean:Mpackage} && ${_clean:Msub}
 	${_PBUILD} rm -f ${_PACKAGE_COOKIES} ${_WRKDEBUG}/Makefile
 	${_PFETCH} rm -f ${_CACHE_PACKAGE_COOKIES}
-	${_PBUILD} rm -f ${_UPDATE_COOKIES}
+	${_PBUILD} rm -f ${_UPDATE_COOKIES} 
 .elif ${_clean:Mpackage}
 	${_PBUILD} rm -f ${_PACKAGE_COOKIES${SUBPACKAGE}} ${_DBG_PACKAGE_COOKIE${SUBPACKAGE}}
 	${_PBUILD} rm -f ${_UPDATE_COOKIE${SUBPACKAGE}}
@@ -3802,6 +3829,12 @@ verbose-show:
 . endif
 .endfor
 
+check-sqlports:
+	@cd ${PORTSDIR}/databases/sqlports && ${MAKE} prepare
+	@t=`mktemp /tmp/sqlports.XXXXXXXXXX`; \
+	echo "result database in $$t"; \
+	PORTSDIR=${PORTSDIR} perl ${PORTSDIR}/databases/sqlports/files/mksqlitedb -t ${FULLPKGPATH} $$t
+
 _all_phony = ${_recursive_depends_targets} \
 	${_recursive_targets} ${_dangerous_recursive_targets} \
 	_build-dir-depends _hook-post-install \
@@ -3833,7 +3866,7 @@ _all_phony = ${_recursive_depends_targets} \
 	_recurse-show-run-depends show-run-depends \
 	_post-extract-finalize _post-patch-finalize _pre-fake-modules \
 	_gen-finalize _post-install-modules fix-permissions \
-	_copy-debug-info show-debug-info
+	_copy-debug-info show-debug-info check-sqlports
 
 .if defined(_DEBUG_TARGETS)
 .  for _t in ${_all_phony}

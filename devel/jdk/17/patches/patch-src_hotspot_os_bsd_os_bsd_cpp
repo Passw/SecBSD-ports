@@ -1,18 +1,17 @@
-Add support for detecting the primordial thread
+Use the correct number of cpus when hw.smt=0
 
 Index: src/hotspot/os/bsd/os_bsd.cpp
 --- src/hotspot/os/bsd/os_bsd.cpp.orig
 +++ src/hotspot/os/bsd/os_bsd.cpp
-@@ -2491,6 +2491,12 @@ static void current_stack_region(address * bottom, siz
-          os::current_stack_pointer() < *bottom + *size, "just checking");
- }
+@@ -294,7 +294,11 @@ void os::Bsd::initialize_system_info() {
  
-+#ifdef __OpenBSD__
-+bool os::is_primordial_thread() {
-+  return (pthread_main_np() == 1);
-+}
+   // get processors count via hw.ncpus sysctl
+   mib[0] = CTL_HW;
++#if defined(HW_NCPUONLINE)
++  mib[1] = HW_NCPUONLINE;
++#else
+   mib[1] = HW_NCPU;
 +#endif
-+
- address os::current_stack_base() {
-   address bottom;
-   size_t size;
+   len = sizeof(cpu_val);
+   if (sysctl(mib, 2, &cpu_val, &len, NULL, 0) != -1 && cpu_val >= 1) {
+     assert(len == sizeof(cpu_val), "unexpected data size");

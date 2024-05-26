@@ -4,6 +4,7 @@ MODPY_EGG_VERSION=	68.0.0
 DISTNAME=		setuptools-${MODPY_EGG_VERSION}
 PKGNAME=		py-${DISTNAME}
 EPOCH=			0
+REVISION=		0
 
 CATEGORIES=		devel
 
@@ -17,7 +18,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/python
 
 MODPY_PI=		Yes
-MODPY_PYBUILD=		Yes
+MODPY_PYBUILD=		other
 MODPY_PYTEST=		Yes
 # test_editable_install.py needs pip_run
 MODPY_PYTEST_ARGS =	setuptools/tests \
@@ -34,6 +35,7 @@ TEST_DEPENDS=		devel/py-jaraco-envs${MODPY_FLAVOR} \
 			devel/py-path${MODPY_FLAVOR} \
 			devel/py-pip${MODPY_FLAVOR} \
 			devel/py-test-cov${MODPY_FLAVOR} \
+			devel/py-test-timeout${MODPY_FLAVOR} \
 			devel/py-test-xdist${MODPY_FLAVOR} \
 			devel/py-wheel${MODPY_FLAVOR} \
 			sysutils/py-filelock${MODPY_FLAVOR} \

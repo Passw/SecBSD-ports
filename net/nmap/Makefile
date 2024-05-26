@@ -1,9 +1,8 @@
 COMMENT-main=	scan ports and fingerprint stack of network hosts
 
-MODPY_EGG_VERSION=	7.91
+MODPY_EGG_VERSION=	7.92
 DISTNAME=		nmap-${MODPY_EGG_VERSION}
 PKGNAME-main=		${DISTNAME}
-REVISION=		5
 
 CATEGORIES=	net security
 SITES=		${HOMEPAGE}/dist/
@@ -32,9 +31,6 @@ DEBUG_PACKAGES=	${BUILD_PACKAGES}
 CONFIGURE_STYLE=autoconf
 AUTOCONF_VERSION=2.69
 
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/libpcap ${WRKSRC}/libssh2 \
-			${WRKSRC}/ncat
-
 CONFIGURE_ENV=	CFLAGS="${CFLAGS} -I${LOCALBASE}/include" \
 		CPPFLAGS="${CPPFLAGS} -I${LOCALBASE}/include -I${MODLUA_INCL_DIR}" \
 		CXXFLAGS="${CXXFLAGS} -I${LOCALBASE}/include" \
@@ -50,6 +46,9 @@ CONFIGURE_ARGS=	--with-libpcap=included \
 		--without-nmap-update \
 		--without-zenmap \
 		--disable-nls
+
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/libpcap ${WRKSRC}/libssh2 \
+		${WRKSRC}/ncat
 
 WANTLIB-main=	${COMPILER_LIBCXX} ${MODLUA_WANTLIB} \
 		c crypto m ssl ssh2 pcre z

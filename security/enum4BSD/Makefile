@@ -16,8 +16,7 @@ GH_ACCOUNT=		CiscoCXSecurity
 GH_PROJECT=		enum4linux
 GH_COMMIT=		1de6e8630a36b5230c65e2130b24ea5a85b706b4
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			net/samba
+RUN_DEPENDS=		net/samba
 
 NO_BUILD=		Yes
 

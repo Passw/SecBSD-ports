@@ -1,1 +1,2 @@
-FastAPI framework.
+Python @deprecated decorator to deprecate old python classes, functions
+or methods.

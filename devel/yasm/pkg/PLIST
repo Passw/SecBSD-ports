@@ -31,7 +31,7 @@ include/libyasm/section.h
 include/libyasm/symrec.h
 include/libyasm/valparam.h
 include/libyasm/value.h
-@static-lib lib/libyasm.a
+lib/libyasm.a
 @man man/man1/yasm.1
 @man man/man7/yasm_arch.7
 @man man/man7/yasm_dbgfmts.7

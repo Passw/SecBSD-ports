@@ -1,9 +1,10 @@
 COMMENT =		Python library to support the IDNA protocol
 
-MODPY_EGG_VERSION =	3.4
+MODPY_EGG_VERSION =	3.7
 DISTNAME =		idna-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
 CATEGORIES =		net
+REVISION =		0
 
 HOMEPAGE =		https://github.com/kjd/idna
 

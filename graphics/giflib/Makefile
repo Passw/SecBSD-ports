@@ -1,12 +1,12 @@
 COMMENT=	tools and library routines for working with GIF images
 
-DISTNAME=	giflib-5.2.1
-SHARED_LIBS +=	gif                  9.0      # 7.1
+DISTNAME=	giflib-5.2.2
+SHARED_LIBS +=	gif                  9.1      # 7.1
 CATEGORIES=	graphics
 
 SITES=		${SITE_SOURCEFORGE:=giflib/}
 
-HOMEPAGE=	http://giflib.sourceforge.net/
+HOMEPAGE=	https://giflib.sourceforge.net/
 
 # MIT
 PERMIT_PACKAGE=	Yes

@@ -1,8 +1,0 @@
-
-Weaponized web shell.
-
-Help:
-
-$ weevely generate <password> <path>
-$ weevely <URL> <password> [cmd]
-$ man weevely

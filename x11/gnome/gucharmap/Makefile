@@ -1,11 +1,6 @@
 COMMENT=		Unicode character map for the GNOME project
 
-GNOME_PROJECT=		gucharmap
-GNOME_VERSION=		15.1.1
-
-# override gnome MODULE
-SITES =			https://gitlab.gnome.org/GNOME/${GNOME_PROJECT}/-/archive/${GNOME_VERSION}/
-EXTRACT_SUFX =		.tar.gz
+DIST_TUPLE=		gnome GNOME gucharmap 15.1.4 .
 
 SHARED_LIBS += gucharmap_2_90            7.1 # 7.0.0
 

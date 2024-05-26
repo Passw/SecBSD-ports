@@ -13,9 +13,22 @@ CATEGORIES?=	security net
 
 HOMEPAGE?=	https://www.openssl.org/
 
+MAINTAINER?=	Theo Buehler <tb@openbsd.org>
+
 # OpenSSL
 PERMIT_PACKAGE?=	Yes
 
-SITES?=		https://www.openssl.org/source/ \
-		https://www.openssl.org/source/old/${V:C/.$//}/ \
-		ftp://ftp.openssl.org/source/
+.if ${DISTNAME:Mopenssl*}
+EOPENSSL_V?=	eopenssl${V:R:S/.//}
+SUBST_VARS+=	EOPENSSL_V
+.endif
+
+.if ${V:M1*}
+SITES?=		https://github.com/openssl/openssl/releases/download/OpenSSL_${V:S/./_/g}/ \
+		https://www.openssl.org/source/ \
+		https://www.openssl.org/source/old/${V:C/.$//}/
+.else
+SITES?=		https://github.com/openssl/openssl/releases/download/openssl-$V/ \
+		https://www.openssl.org/source/ \
+		https://www.openssl.org/source/old/${V:R}/
+.endif

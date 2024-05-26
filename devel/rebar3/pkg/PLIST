@@ -1,2 +1,0 @@
-@pkgpath devel/rebar
-bin/rebar3-${ERL_VERSION}

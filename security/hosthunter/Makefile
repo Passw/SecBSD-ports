@@ -20,8 +20,7 @@ MODULES=		lang/python
 
 MODPY_ADJ_FILES=	hosthunter.py
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			www/py-requests${MODPY_FLAVOR} \
+RUN_DEPENDS=		www/py-requests${MODPY_FLAVOR} \
 			devel/py-jsonschema${MODPY_FLAVOR} \
 			devel/py-validator-collection${MODPY_FLAVOR} \
 			www/py-urllib3${MODPY_FLAVOR} \

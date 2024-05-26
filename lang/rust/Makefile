@@ -9,21 +9,22 @@ DPB_PROPERTIES =	parallel
 .endif
 
 COMMENT-main =		compiler for Rust Language
-COMMENT-gdb =		Rust debugger through gdb
+COMMENT-gdb =		Rust debugger through gdb and lldb
 COMMENT-clippy =	Rust linter
 COMMENT-rustfmt =	Rust code formatter
+COMMENT-bootstrap =	Rust binary bootstrap
 COMMENT-src =		Rust source component
 
-V =			1.77.0
+V =			1.78.0
 DISTNAME =		rustc-${V}-src
 
 # rustc bootstrap version
-BV-aarch64 =		1.77.0-20240320
-BV-amd64 =		1.77.0-20240318
-BV-i386 =		1.77.0-20240319
+BV-aarch64 =		1.78.0
+BV-amd64 =		1.78.0
+BV-i386 =		1.78.0
 BV-powerpc64 =		1.65.0-20221213
-BV-riscv64 =		1.76.0-20240228
-BV-sparc64 =		1.76.0p0-20240318
+BV-riscv64 =		1.77.0-20240401
+BV-sparc64 =		1.77.2
 BV =			${BV-${MACHINE_ARCH}}
 
 PKGNAME =		rust-${V}
@@ -31,9 +32,10 @@ PKGNAME-main =		rust-${V}
 PKGNAME-gdb =		rust-gdb-${V}
 PKGNAME-clippy =	rust-clippy-${V}
 PKGNAME-rustfmt =	rust-rustfmt-${V}
+PKGNAME-bootstrap =	rust-bootstrap-${V}
 PKGNAME-src =		rust-src-${V}
 
-MULTI_PACKAGES =	-main -gdb -clippy -rustfmt -src
+MULTI_PACKAGES =	-main -gdb -clippy -rustfmt -bootstrap -src
 
 CATEGORIES =		lang
 
@@ -45,7 +47,6 @@ MAINTAINER =		Sebastien Marie <semarie@kapouay.eu.org>
 PERMIT_PACKAGE =	Yes
 
 WANTLIB-main =		${COMPILER_LIBCXX} c crypto curl m pthread ssh2 ssl z
-WANTLIB-gdb =
 WANTLIB-clippy =	${COMPILER_LIBCXX} c m pthread
 WANTLIB-rustfmt =	${COMPILER_LIBCXX} c m pthread
 
@@ -67,7 +68,7 @@ DISTFILES.bsp +=	${BOOTSTRAP}
 .include <bsd.port.arch.mk>
 BOOTSTRAP =		${BOOTSTRAP-${MACHINE_ARCH}}
 .for m in ${ONLY_FOR_ARCHS}
-BOOTSTRAP-$m =		rustc-bootstrap-${m}-${BV-$m}${EXTRACT_SUFX}
+BOOTSTRAP-$m =		rustc-bootstrap-${m}-${BV-$m}.tar.lz
 SUPDISTFILES.bsp +=	${BOOTSTRAP-$m}
 .endfor
 
@@ -155,7 +156,8 @@ LIB_DEPENDS-main +=	${LIB_DEPENDS} \
 			security/libssh2
 
 RUN_DEPENDS-gdb +=	lang/rust,-main \
-			devel/gdb
+			devel/gdb \
+			devel/llvm/16,-lldb
 RUN_DEPENDS-clippy +=	lang/rust,-main
 RUN_DEPENDS-rustfmt +=	lang/rust,-main
 RUN_DEPENDS-src +=	lang/rust,-main
@@ -254,7 +256,7 @@ do-build:
 		rust-std rustc cargo clippy rustfmt rust-src
 	rm -rf -- ${WRKBUILD}/build/tmp
 
-COMPONENTS ?=	rustc-${V}-${TRIPLE_ARCH} \
+COMPONENTS =	rustc-${V}-${TRIPLE_ARCH} \
 		rust-std-${V}-${TRIPLE_ARCH} \
 		cargo-${V}-${TRIPLE_ARCH} \
 		clippy-${V}-${TRIPLE_ARCH} \
@@ -274,8 +276,7 @@ do-install:
 	rm -rf ${WRKBUILD}/_extractdist
 .endfor
 	# cleanup
-	rm ${PREFIX}/bin/rust-lldb \
-		${PREFIX}/lib/rustlib/{install.log,uninstall.sh,rust-installer-version} \
+	rm ${PREFIX}/lib/rustlib/{install.log,uninstall.sh,rust-installer-version} \
 		${PREFIX}/lib/rustlib/components \
 		${PREFIX}/lib/rustlib/manifest-*
 	-find ${PREFIX}/lib/rustlib/src -name '*${PATCHORIG}' -delete
@@ -284,6 +285,17 @@ do-install:
 		${TRIPLE_ARCH} \
 		${LIBRUST_HASH} \
 		${LIBRUST_REHASH}
+	# create a bootstrap tarball
+	cd ${PREFIX} && pax -w \
+		-f ${PREFIX}/lib/rustc-bootstrap-${MACHINE_ARCH}.tar \
+		-s ',^,rustc-bootstrap-${MACHINE_ARCH}-${V}/,' \
+		bin/{rustc,rustdoc,cargo} \
+		lib/rustlib/${TRIPLE_ARCH}/
+	cd ${PREFIX} && ldd bin/{rustc,rustdoc,cargo} \
+	| awk '$$3 == "rlib" { print $$7 }' | sort -u \
+	| pax -wa \
+		-f ${PREFIX}/lib/rustc-bootstrap-${MACHINE_ARCH}.tar \
+		-s ',^.*/,rustc-bootstrap-${MACHINE_ARCH}-${V}/lib/,' \
 	# replace libraries by link
 	for lib in ${PREFIX}/lib/lib*.* ; do \
 		libname=$${lib##*/} ; \
@@ -303,33 +315,9 @@ do-install:
 do-test:
 	${TEST_BIN} test --jobs=${MAKE_JOBS} --no-fail-fast
 
-STRIP ?=	strip
-# Try to avoid strip from our ancient binutils-2.17
-.if ${LINKER_VERSION} != "lld"
-STRIP =		llvm-strip-${MODCLANG_VERSION}
-.endif
-
-# bootstrap target permits to regenerate the bootstrap archive
-BOOTSTRAPDIR=${WRKDIR}/rustc-bootstrap-${MACHINE_ARCH}-${V}-new
-bootstrap: build
-	${_PBUILD} rm -rf ${BOOTSTRAPDIR}
-	${_PBUILD} mkdir -p ${BOOTSTRAPDIR}/{bin,lib}
-	${MAKE} clean=fake
-	${MAKE} fake \
-		PREFIX="${BOOTSTRAPDIR}" \
-		COMPONENTS="rustc-${V}-${TRIPLE_ARCH} rust-std-${V}-${TRIPLE_ARCH} cargo-${V}-${TRIPLE_ARCH}" \
-		FAKE_SETUP=""
-	${_PBUILD} rm -rf ${BOOTSTRAPDIR}/{man,share} \
-		${BOOTSTRAPDIR}/bin/rust-gdb*
-	${_PBUILD} ${STRIP} ${BOOTSTRAPDIR}/lib/lib*.so \
-		${BOOTSTRAPDIR}/lib/rustlib/${TRIPLE_ARCH}/lib/lib*.so
-.for _bin in rustc rustdoc cargo
-	${_PBUILD} ${STRIP} ${BOOTSTRAPDIR}/bin/${_bin}
-	ldd ${BOOTSTRAPDIR}/bin/${_bin} \
-		| sed -ne 's,.* \(/.*/lib/lib.*\.so.[.0-9]*\)$$,\1,p' \
-		| xargs -r -J % ${_PBUILD} cp % ${BOOTSTRAPDIR}/lib || true
-	${BOOTSTRAPDIR}/bin/${_bin} -vV >/dev/null
-	${_PBUILD} chmod -R a+rX ${BOOTSTRAPDIR}
-.endfor
+bootstrap: fake
+	tarlz --solid -z \
+		${WRKINST}${PREFIX}/lib/rustc-bootstrap-${MACHINE_ARCH}.tar \
+		-o rustc-bootstrap-${MACHINE_ARCH}-${V}.tar.lz
 
 .include <bsd.port.mk>

@@ -1,7 +1,7 @@
 Index: setup.py
 --- setup.py.orig
 +++ setup.py
-@@ -51,6 +51,7 @@ from _common import MACOS  # NOQA
+@@ -53,6 +53,7 @@ from _common import MACOS  # NOQA
  from _common import NETBSD  # NOQA
  from _common import OPENBSD  # NOQA
  from _common import POSIX  # NOQA
@@ -9,18 +9,18 @@ Index: setup.py
  from _common import SUNOS  # NOQA
  from _common import WINDOWS  # NOQA
  from _common import hilite  # NOQA
-@@ -234,7 +235,7 @@ elif FREEBSD:
-         libraries=["devstat"],
-         **py_limited_api)
+@@ -289,7 +290,7 @@ elif FREEBSD:
+         # fmt: on
+     )
  
 -elif OPENBSD:
 +elif OPENBSD or SECBSD:
      macros.append(("PSUTIL_OPENBSD", 1))
      ext = Extension(
          'psutil._psutil_bsd',
-@@ -470,7 +471,7 @@ def main():
+@@ -552,7 +553,7 @@ def main():
                      missdeps("pkg install gcc python%s" % py3)
-                 elif which('mport'):   # MidnightBSD
+                 elif which('mport'):  # MidnightBSD
                      missdeps("mport install gcc python%s" % py3)
 -            elif OPENBSD:
 +            elif OPENBSD or SECBSD:

@@ -19,10 +19,14 @@ GH_COMMIT=		7fc1efff2ebc6110bb4b96eb61a4c736f5f43a92
 
 MODULES=		lang/python
 
-RUN_DEPENDS=		net/py-dnslib${MODPY_FLAVOR} \
-			www/py-tldextract \
-			devel/py-future${MODPY_FLAVOR}
+RUN_DEPENDS=		devel/py-future${MODPY_FLAVOR} \
+			net/py-dnslib${MODPY_FLAVOR} \
+			www/py-tldextract${MODPY_FLAVOR}
 
 MODPY_PYBUILD=		setuptools
+
+FLAVOR=			python3
+FLAVORS=		python3
+
 
 .include <bsd.port.mk>

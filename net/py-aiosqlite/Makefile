@@ -1,18 +1,18 @@
-COMMENT=		asyncio bridge to sqlite3 module
+COMMENT=	asyncio bridge to sqlite3 module
 
 MODPY_EGG_VERSION=	0.19.0
 
-DISTNAME=		aiosqlite-${MODPY_EGG_VERSION}
-PKGNAME=		py-${DISTNAME}
+DISTNAME=	aiosqlite-${MODPY_EGG_VERSION}
+PKGNAME=	py-${DISTNAME}
 
-CATEGORIES=		net
+CATEGORIES=	net
 
-HOMEPAGE=		https://github.com/omnilib/aiosqlite
+HOMEPAGE=	https://github.com/omnilib/aiosqlite
 
-MAINTAINER=		Purple Rain <purplerain@secbsd.org>
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # MIT
-PERMIT_PACKAGE=		Yes
+PERMIT_PACKAGE=	Yes
 
 MODULES=	lang/python
 MODPY_PI=	Yes

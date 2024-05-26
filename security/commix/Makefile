@@ -1,6 +1,6 @@
 COMMENT=		command injection and exploitation tool
 
-MODPY_EGG_VERSION=	3.7
+MODPY_EGG_VERSION=	3.9
 DISTNAME=		commix-${MODPY_EGG_VERSION}
 
 CATEGORIES=		security
@@ -14,7 +14,7 @@ PERMIT_PACKAGE=		Yes
 
 GH_ACCOUNT=		commixproject
 GH_PROJECT=		commix
-GH_COMMIT=		5b7ca292d760395c5477913b6c550c835803345b
+GH_COMMIT=		ebd5e5a434d22192d50e8c875254429d39a2c10d
 
 MODULES=		lang/python
 

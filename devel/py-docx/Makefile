@@ -1,4 +1,4 @@
-COMMENT=		create microsoft word docx files 
+COMMENT=		create microsoft word docx files
 
 MODPY_EGG_VERSION=	0.8.11
 DISTNAME=		python-docx-${MODPY_EGG_VERSION}
@@ -23,5 +23,8 @@ RUN_DEPENDS=		textproc/py-lxml${MODPY_FLAVOR}
 
 MODPY_PYBUILD=		setuptools
 NO_TEST=		Yes
+
+FLAVOR=			python3
+FLAVORS=		python3
 
 .include <bsd.port.mk>

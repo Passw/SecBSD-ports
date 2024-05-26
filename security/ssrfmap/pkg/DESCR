@@ -1,0 +1,3 @@
+SSRF are often used to leverage actions on other services, this framework aims
+to find and exploit these services easily. SSRFmap takes a Burp request file as
+input and a parameter to fuzz.

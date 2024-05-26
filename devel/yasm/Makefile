@@ -14,8 +14,6 @@ PERMIT_PACKAGE=	Yes
 
 WANTLIB=	c
 
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/config
-
 CONFIGURE_STYLE= gnu
 CONFIGURE_ARGS=	--disable-python
 # there are no translations yet

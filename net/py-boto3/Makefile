@@ -1,6 +1,6 @@
 COMMENT=		AWS SDK for Python
 
-MODPY_EGG_VERSION=	1.28.56
+MODPY_EGG_VERSION=	1.34.108
 DISTNAME=		boto3-${MODPY_EGG_VERSION}
 PKGNAME=		py-${DISTNAME}
 
@@ -22,7 +22,7 @@ FLAVORS=		python3
 FLAVOR=			python3
 
 RUN_DEPENDS=		devel/py-jmespath${MODPY_FLAVOR} \
-			net/py-botocore${MODPY_FLAVOR}=1.31.${MODPY_EGG_VERSION:E} \
-			net/py-s3transfer${MODPY_FLAVOR}
+			net/py-botocore${MODPY_FLAVOR}=${MODPY_EGG_VERSION} \
+			net/py-s3transfer${MODPY_FLAVOR}>=0.10.0,<0.11.0
 
 .include <bsd.port.mk>

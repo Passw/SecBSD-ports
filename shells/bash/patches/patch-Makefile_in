@@ -1,4 +1,8 @@
 Index: Makefile.in
+
+Building the loadable modules depends on files created during the
+main build.
+
 --- Makefile.in.orig
 +++ Makefile.in
 @@ -803,7 +803,7 @@ $(srcdir)/configure:	$(srcdir)/configure.ac $(srcdir)/

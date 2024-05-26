@@ -1,0 +1,3 @@
+AWS IAM Security Assessment tool that identifies violations
+of least privilege and generates a risk-prioritized
+HTML report with a triage worksheet.

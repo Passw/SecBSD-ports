@@ -5,7 +5,7 @@ USE_WXNEEDED =		Yes
 
 COMMENT = JavaScript runtime built on Chrome's V8 JavaScript engine
 
-NODE_VERSION =		v18.18.0
+NODE_VERSION =		v20.13.1
 PLEDGE_VER =		1.1.3
 DISTFILES =		${DISTNAME}-headers.tar.gz \
 			${DISTNAME}.tar.xz
@@ -49,7 +49,7 @@ RUN_DEPENDS =		devel/gmake \
 # Needed to build js_native_api_v8_internals.h
 TEST_DEPENDS =		devel/gtest
 
-TEST_TARGET =		test-only
+TEST_TARGET =		check
 CONFIGURE_STYLE =	simple
 CONFIGURE_SCRIPT =	configure
 
@@ -71,8 +71,8 @@ SUBST_VARS +=		EOPENSSL_LIB
 
 # uses a wide range of OpenSSL API and only really supports boring/openssl
 LIB_DEPENDS +=		archivers/brotli \
-			devel/libuv \
 			net/libcares \
+			devel/libuv \
 			textproc/icu4c \
 			www/nghttp2 \
 			security/openssl/3.1
@@ -98,7 +98,6 @@ post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/node
 	${INSTALL_DATA} ${FULLDISTDIR}/${DISTNAME}-headers.tar.gz \
 		${PREFIX}/share/node/${DISTNAME}-headers.tar.gz
-	rm -r ${PREFIX}/lib/node_modules/npm/node_modules/node-pledge/build/node_gyp_bins
 	cd ${PREFIX}/lib/node_modules/npm/node_modules && for x in *; do \
 		mv $$x ../..; \
 		ln -s ../../$$x $$x; \

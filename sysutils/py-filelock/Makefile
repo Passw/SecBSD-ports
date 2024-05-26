@@ -1,8 +1,9 @@
 COMMENT=	platform independent file lock
 
-MODPY_EGG_VERSION=	3.12.4
+MODPY_EGG_VERSION=	3.14.0
 DISTNAME=	filelock-${MODPY_EGG_VERSION}
 PKGNAME=	py-${DISTNAME}
+REVISION=	0
 
 CATEGORIES=	sysutils
 

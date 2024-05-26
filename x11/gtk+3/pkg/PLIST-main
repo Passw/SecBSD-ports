@@ -62,8 +62,16 @@ include/gtk-3.0/gdk/gdkthreads.h
 include/gtk-3.0/gdk/gdktypes.h
 include/gtk-3.0/gdk/gdkversionmacros.h
 include/gtk-3.0/gdk/gdkvisual.h
+include/gtk-3.0/gdk/gdkwayland.h
 include/gtk-3.0/gdk/gdkwindow.h
 include/gtk-3.0/gdk/gdkx.h
+include/gtk-3.0/gdk/wayland/
+include/gtk-3.0/gdk/wayland/gdkwaylanddevice.h
+include/gtk-3.0/gdk/wayland/gdkwaylanddisplay.h
+include/gtk-3.0/gdk/wayland/gdkwaylandglcontext.h
+include/gtk-3.0/gdk/wayland/gdkwaylandmonitor.h
+include/gtk-3.0/gdk/wayland/gdkwaylandselection.h
+include/gtk-3.0/gdk/wayland/gdkwaylandwindow.h
 include/gtk-3.0/gdk/x11/
 include/gtk-3.0/gdk/x11/gdkx-autocleanups.h
 include/gtk-3.0/gdk/x11/gdkx11applaunchcontext.h
@@ -437,6 +445,7 @@ lib/gtk-3.0/3.0.0/immodules/
 @so lib/gtk-3.0/3.0.0/immodules/im-ti-er.so
 @so lib/gtk-3.0/3.0.0/immodules/im-ti-et.so
 @so lib/gtk-3.0/3.0.0/immodules/im-viqr.so
+@so lib/gtk-3.0/3.0.0/immodules/im-wayland.so
 @so lib/gtk-3.0/3.0.0/immodules/im-xim.so
 lib/gtk-3.0/3.0.0/printbackends/
 @so lib/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
@@ -447,9 +456,11 @@ lib/gtk-3.0/modules/
 @lib lib/libgtk-3.so.${LIBgtk-3_VERSION}
 lib/pkgconfig/gail-3.0.pc
 lib/pkgconfig/gdk-3.0.pc
+lib/pkgconfig/gdk-wayland-3.0.pc
 lib/pkgconfig/gdk-x11-3.0.pc
 lib/pkgconfig/gtk+-3.0.pc
 lib/pkgconfig/gtk+-unix-print-3.0.pc
+lib/pkgconfig/gtk+-wayland-3.0.pc
 lib/pkgconfig/gtk+-x11-3.0.pc
 @man man/man1/gtk-builder-tool.1
 @man man/man1/gtk-encode-symbolic-svg.1
@@ -483,9 +494,28 @@ share/glib-2.0/schemas/org.gtk.Settings.FileChooser.gschema.xml
 share/glib-2.0/schemas/org.gtk.exampleapp.gschema.xml
 share/gtk-3.0/
 share/gtk-3.0/emoji/
+share/gtk-3.0/emoji/bn.gresource
+share/gtk-3.0/emoji/da.gresource
 share/gtk-3.0/emoji/de.gresource
 share/gtk-3.0/emoji/es.gresource
+share/gtk-3.0/emoji/et.gresource
+share/gtk-3.0/emoji/fi.gresource
 share/gtk-3.0/emoji/fr.gresource
+share/gtk-3.0/emoji/hi.gresource
+share/gtk-3.0/emoji/hu.gresource
+share/gtk-3.0/emoji/it.gresource
+share/gtk-3.0/emoji/ja.gresource
+share/gtk-3.0/emoji/ko.gresource
+share/gtk-3.0/emoji/lt.gresource
+share/gtk-3.0/emoji/ms.gresource
+share/gtk-3.0/emoji/nb.gresource
+share/gtk-3.0/emoji/nl.gresource
+share/gtk-3.0/emoji/pl.gresource
+share/gtk-3.0/emoji/pt.gresource
+share/gtk-3.0/emoji/ru.gresource
+share/gtk-3.0/emoji/sv.gresource
+share/gtk-3.0/emoji/th.gresource
+share/gtk-3.0/emoji/uk.gresource
 share/gtk-3.0/emoji/zh.gresource
 share/gtk-3.0/gtkbuilder.rng
 share/gtk-3.0/valgrind/
@@ -628,6 +658,8 @@ share/locale/ja/LC_MESSAGES/gtk30-properties.mo
 share/locale/ja/LC_MESSAGES/gtk30.mo
 share/locale/ka/LC_MESSAGES/gtk30-properties.mo
 share/locale/ka/LC_MESSAGES/gtk30.mo
+share/locale/kab/LC_MESSAGES/gtk30-properties.mo
+share/locale/kab/LC_MESSAGES/gtk30.mo
 share/locale/kg/
 share/locale/kg/LC_MESSAGES/
 share/locale/kg/LC_MESSAGES/gtk30-properties.mo

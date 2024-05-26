@@ -1,7 +1,7 @@
 COMMENT=	extract tool from JS code
 
 MODGO_MODNAME=	github.com/BishopFox/jsluice
-MODGO_VERSION=	v0.0.0-20230629150035-2c4584eded5a
+MODGO_VERSION=	v0.0.0-20231102131223-7760081ba568
 
 DISTNAME=	jsluice-${MODGO_VERSION}
 PKGNAME=	jsluice-0.0.1

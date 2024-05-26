@@ -1,0 +1,5 @@
+bin/cardpwn
+share/cardpwn/
+share/cardpwn/LICENSE
+share/cardpwn/README.md
+share/cardpwn/cardpwn.py

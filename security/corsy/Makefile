@@ -17,8 +17,7 @@ GH_TAGNAME=		1.0-rc
 
 MODULES=		lang/python
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			net/py-tld${MODPY_FLAVOR} \
+RUN_DEPENDS=		net/py-tld${MODPY_FLAVOR} \
 			www/py-requests${MODPY_FLAVOR}
 
 NO_BUILD=		Yes

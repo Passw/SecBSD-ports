@@ -72,7 +72,7 @@ CONFIGURE_ARGS +=	\
 	-DLLVM_ENABLE_RTTI=ON \
 	-DLLVM_ENABLE_Z3_SOLVER=OFF \
 	-DLLVM_ENABLE_ZSTD=OFF \
-	-DLLVM_INCLUDE_TESTS=OFF \
+	-DLLVM_INCLUDE_TESTS=ON \
 	-DLLVM_INCLUDE_GO_TESTS=OFF \
 	-DLLVM_INCLUDE_EXAMPLES=OFF \
 	-DLLVM_INCLUDE_BENCHMARKS=OFF \
@@ -93,7 +93,9 @@ CONFIGURE_ARGS +=	\
 # OpenBSD specific options
 CONFIGURE_ARGS +=	\
 	-DLLD_ENABLE_MACHO=OFF \
-	-DLLD_ENABLE_WASM=ON
+	-DLLD_ENABLE_WASM=ON \
+	-DLLD_ENABLE_COFF=ON \
+	-DLLD_ENABLE_MINGW=ON
 
 # Disable some protections in the compiler to regain performance.
 CXXFLAGS-aarch64 =	-fno-ret-protector
@@ -183,12 +185,16 @@ post-install:
 	rm -rf ${PREFIX}/${LLVM_BASE}/man    
 
 	# search and remove headers that might conflict with base
+	# leave unwind.h in place for sparc64
 	cd ${PREFIX}/${CLANG_INCLUDE_PATH} && \
-		find . -name '*.h' | sed "s,./,,g" | while read h; \
+		find . -name '*.h' | fgrep -v -e './unwind.h' -e './tgmath.h' | sed "s,./,,g" | while read h; \
 		do \
 			if test -e /usr/include/$${h}; then rm $${h}; fi; \
 		done
 
+do-test:
+	cd ${WRKBUILD} && env -i ${MAKE_ENV} HOME=${WRKBUILD}/test LD_LIBRARY_PATH=${WRKBUILD}/lib \
+		ninja -j ${MAKE_JOBS} check-llvm-unit
 
 diff-to-base: ${_PATCH_COOKIE}
 .for _subdir in clang lld lldb llvm

@@ -1,25 +1,22 @@
 QT5NAME =		QtTools
+
 COMMENT-main =		Qt development tools
-COMMENT-webview =	Webkit-based Qt Designer plugin
-PKGNAME-webview =	qwebview-${VERSION}
-REVISION =		0
+
+KDE_COMMIT =		ba4c633c4a4731ead0c376b908bf5449796f7de1
+KDE_VERSION =		4
 
 DPB_PROPERTIES =	parallel
 
-MULTI_PACKAGES =	-main -examples -webview
+MULTI_PACKAGES =	-main -examples
 
 SHARED_LIBS +=  Qt5Designer             3.1 # 5.9
 SHARED_LIBS +=  Qt5DesignerComponents   3.0 # 5.9
 SHARED_LIBS +=  Qt5Help                 3.0 # 5.9
 
-WANTLIB-main =	${WANTLIB} ${COMPILER_LIBCXX}
-WANTLIB-main += GL c llvm${MODCLANG_VERSION}/lib/clang m pthread Qt5QmlModels
-WANTLIB-main +=	Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport
-WANTLIB-main +=	Qt5Qml Qt5Quick Qt5QuickWidgets Qt5Sql Qt5Widgets Qt5Xml
-
-WANTLIB-webview =  ${WANTLIB} ${COMPILER_LIBCXX}
-WANTLIB-webview += GL Qt5Core Qt5Designer Qt5Gui Qt5Network Qt5WebKit
-WANTLIB-webview += Qt5WebKitWidgets Qt5Widgets Qt5Xml m pthread
+WANTLIB-main += ${COMPILER_LIBCXX} GL Qt5Core Qt5DBus Qt5Gui Qt5Network
+WANTLIB-main += Qt5PrintSupport Qt5Qml Qt5QmlModels Qt5Quick Qt5QuickWidgets
+WANTLIB-main += Qt5Sql Qt5Widgets Qt5Xml c m
+WANTLIB-main += llvm${MODCLANG_VERSION}/lib/clang
 
 # avoid BDEP on ourselves
 MODQT5_DEPS =	No
@@ -35,22 +32,15 @@ LIB_DEPENDS-main =	${LIB_DEPENDS} \
 			${MODCLANG_LIB_DEPENDS} \
 			x11/qt5/qtdeclarative>=${QT5_VERSION:R},<${QT5_NEXT_VERSION}
 
-LIB_DEPENDS-webview =	${LIB_DEPENDS} \
-			${BUILD_PKGPATH}>=${QT5_VERSION},<${QT5_NEXT_VERSION} \
-			x11/qt5/qtwebkit
-
 FLAVORS =		debug
-PSEUDO_FLAVORS =	bootstrap no_examples no_webview
-FLAVOR ?=		bootstrap no_examples no_webview
+PSEUDO_FLAVORS =	bootstrap no_examples
+FLAVOR ?=		bootstrap no_examples
 
 CONFIGURE_ENV =		LLVM_INSTALL_DIR=${LOCALBASE}/llvm${MODCLANG_VERSION}
 
 .include <bsd.port.arch.mk>
 
-.if !${BUILD_PACKAGES:M-webview}
 pre-configure:
-	perl -pi -e 's/^qtHaveModule.*webkitwidgets/\# $$&/' \
-	    ${WRKSRC}/src/designer/src/plugins/plugins.pro
-.endif
+	${QT5_GEN_INCLUDES}
 
 .include <bsd.port.mk>

@@ -1,10 +1,9 @@
 COMMENT=	cryptographic recipes and primitives for Python
 
-MODPY_EGG_VERSION=	41.0.1
+MODPY_EGG_VERSION=	42.0.7
 DISTNAME=	cryptography-${MODPY_EGG_VERSION}
 DISTFILES=	cryptography-${MODPY_EGG_VERSION}${EXTRACT_SUFX}
 PKGNAME=	${MODPY_PY_PREFIX}${DISTNAME}
-REVISION=	0
 
 .include "crates.inc"
 
@@ -15,7 +14,7 @@ HOMEPAGE=	https://cryptography.io/
 # dual: BSD or Apache 2
 PERMIT_PACKAGE=	Yes
 
-WANTLIB=	${MODPY_WANTLIB} c crypto c++abi pthread ssl
+WANTLIB=	${MODPY_WANTLIB} ${MODCARGO_WANTLIB} crypto ssl
 
 FLAVORS=	python3
 FLAVOR=		python3
@@ -36,7 +35,7 @@ MODCARGO_CARGOTOML= ${WRKSRC}/src/rust/Cargo.toml
 MODCARGO_INSTALL= No
 MODCARGO_TEST=	No
 
-MAKE_ENV=	OPENSSL_DIR="/usr"
+MAKE_ENV=	OPENSSL_DIR="/usr" OPENSSL_STATIC=0
 
 BUILD_DEPENDS=	${RUN_DEPENDS} \
 		devel/py-setuptools-rust${MODPY_FLAVOR}
@@ -44,7 +43,8 @@ BUILD_DEPENDS=	${RUN_DEPENDS} \
 RUN_DEPENDS=	devel/py-cffi${MODPY_FLAVOR}>=1.4.2
 
 PORTHOME=	${WRKDIR}
-TEST_DEPENDS=	devel/py-coverage${MODPY_FLAVOR} \
+TEST_DEPENDS=	devel/py-certifi${MODPY_FLAVOR} \
+		devel/py-coverage${MODPY_FLAVOR} \
 		devel/py-hypothesis${MODPY_FLAVOR} \
 		devel/py-pretend${MODPY_FLAVOR} \
 		devel/py-test-benchmark${MODPY_FLAVOR} \

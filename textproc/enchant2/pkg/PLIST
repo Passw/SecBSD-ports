@@ -2,7 +2,6 @@
 @bin bin/enchant-lsmod-2
 include/enchant-2/
 include/enchant-2/enchant++.h
-include/enchant-2/enchant-provider.h
 include/enchant-2/enchant.h
 lib/enchant-2/
 @so lib/enchant-2/enchant_aspell.so
@@ -18,5 +17,5 @@ share/doc/enchant/
 share/doc/enchant/enchant-2.html
 share/doc/enchant/enchant-lsmod-2.html
 share/doc/enchant/enchant.html
-share/enchant-2/
-share/enchant-2/enchant.ordering
+share/enchant-2-2/
+share/enchant-2-2/enchant.ordering

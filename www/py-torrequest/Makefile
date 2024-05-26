@@ -19,8 +19,7 @@ FLAVOR=			python3
 MODPY_PI=		Yes
 MODPY_PYBUILD=		setuptools
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			net/py-socks${MODPY_FLAVOR} \
+RUN_DEPENDS=		net/py-socks${MODPY_FLAVOR} \
 			www/py-requests${MODPY_FLAVOR} \
 			net/py-stem${MODPY_FLAVOR}
 

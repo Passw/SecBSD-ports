@@ -142,6 +142,10 @@ lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}f5traff
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}f5trafficshield.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fastly.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fastly.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fortigate.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fortigate.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fortiguard.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fortiguard.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fortiweb.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}fortiweb.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}frontdoor.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
@@ -302,6 +306,8 @@ lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}urlmast
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}urlmaster.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}urlscan.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}urlscan.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}variti.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}variti.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}varnish.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}varnish.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/${MODPY_PYCACHE}viettel.${MODPY_PYC_MAGIC_TAG}${MODPY_PYOEXTENSION}
@@ -402,6 +408,8 @@ lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/f5bigipltm.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/f5firepass.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/f5trafficshield.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/fastly.py
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/fortigate.py
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/fortiguard.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/fortiweb.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/frontdoor.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/godaddy.py
@@ -482,6 +490,7 @@ lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/transip.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/uewaf.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/urlmaster.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/urlscan.py
+lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/variti.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/varnish.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/viettel.py
 lib/python${MODPY_VERSION}/site-packages/wafw00f/plugins/virusdie.py

@@ -5,6 +5,7 @@ include/libltdl/lt_system.h
 include/ltdl.h
 @static-lib lib/libltdl.a
 lib/libltdl.la
+@lib lib/libltdl.so.${LIBltdl_VERSION}
 share/aclocal/
 share/aclocal/ltdl.m4
 share/libtool/

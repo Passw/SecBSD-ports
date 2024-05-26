@@ -4,7 +4,7 @@ MODPY_EGG_VERSION =	1.3.2
 
 DISTNAME =	poetry-core-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
-REVISION =	0
+REVISION =	1
 
 CATEGORIES =	devel
 
@@ -19,7 +19,7 @@ MODPY_PI =	Yes
 FLAVOR =	python3
 FLAVORS =	python3
 
-MODPY_PYBUILD =	Yes
+MODPY_PYBUILD =	other
 
 pre-build:
 	@if [ -d ${MODPY_SITEPKG}/poetry/core ]; then \

@@ -1,7 +1,7 @@
 Index: tests/playTests.sh
 --- tests/playTests.sh.orig
 +++ tests/playTests.sh
-@@ -119,12 +119,13 @@ case "$UNAME" in
+@@ -126,12 +126,13 @@ case "$UNAME" in
    FreeBSD) MD5SUM="gmd5sum" ;;
    NetBSD) MD5SUM="md5 -n" ;;
    OpenBSD) MD5SUM="md5" ;;
@@ -16,7 +16,7 @@ Index: tests/playTests.sh
  esac
  
  assertSameMTime() {
-@@ -136,7 +137,7 @@ assertSameMTime() {
+@@ -143,7 +144,7 @@ assertSameMTime() {
  
  GET_PERMS="stat -c %a"
  case "$UNAME" in
@@ -25,7 +25,7 @@ Index: tests/playTests.sh
  esac
  
  assertFilePermissions() {
-@@ -870,7 +871,7 @@ rm -f ./*.tmp ./*.zstd
+@@ -962,7 +963,7 @@ rm -f ./*.tmp ./*.zstd
  println "frame concatenation tests completed"
  
  

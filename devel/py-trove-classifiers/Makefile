@@ -1,6 +1,6 @@
 COMMENT=	implementation of JSON Schema validation for Python
 
-MODPY_EGG_VERSION=	2023.7.6
+MODPY_EGG_VERSION=	2024.4.10
 DISTNAME=	trove-classifiers-${MODPY_EGG_VERSION}
 PKGNAME=	py-${DISTNAME}
 

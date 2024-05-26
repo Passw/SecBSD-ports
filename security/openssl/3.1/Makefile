@@ -1,12 +1,16 @@
+# static link, need bump on update:
+# mail/postfix/stable, sysutils/borgbackup/2.0
+
 .if ${MACHINE_ARCH} != aarch64 && ${MACHINE_ARCH} != amd64 && ${MACHINE_ARCH} != riscv64
 USE_NOEXECONLY =	Yes
 .endif
 
-# skip PORTROACH limit for newest version
-#PORTROACH=	limit:^3\.1
-V=		3.1.3
+PORTROACH=	limit:^3\.1
+V=		3.1.5
 PKGNAME=	openssl-${V}
-PKGSPEC=	openssl->=3.1,<3.2
+PKGSPEC=	openssl->=3.1v0,<3.2v0
+EPOCH=		0
+REVISION=	3
 
 SHLIBVER=	15.1
 SHARED_LIBS=	crypto ${SHLIBVER} \

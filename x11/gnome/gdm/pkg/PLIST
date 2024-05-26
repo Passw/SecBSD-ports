@@ -3,6 +3,7 @@
 @extraunexec rm -rf /var/db/gdm
 @extraunexec rm -rf /var/log/gdm/*
 @rcscript ${RCDIR}/gdm
+@bin bin/gdm-config
 @bin bin/gdm-screenshot
 @bin bin/gdmflexiserver
 include/gdm/
@@ -159,7 +160,6 @@ share/help/ro/
 share/help/ro/gdm/
 share/help/ro/gdm/index.docbook
 share/help/ro/gdm/legal.xml
-share/help/ru/
 share/help/ru/gdm/
 share/help/ru/gdm/index.docbook
 share/help/ru/gdm/legal.xml

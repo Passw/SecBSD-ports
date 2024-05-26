@@ -19,9 +19,8 @@ FLAVORS=		python3
 FLAVOR=			python3
 
 MODPY_PI=		Yes
-MODPY_PYBUILD=		setuptools
+MODPY_PYBUILD=          hatchling
 
-BUILD_DEPENDS+=		${RUN_DEPENDS}
 RUN_DEPENDS=		devel/py-plumbum${MODPY_FLAVOR}
 
 .include <bsd.port.mk>

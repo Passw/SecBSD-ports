@@ -1,0 +1,12 @@
+Index: tests/test_install.sh
+--- tests/test_install.sh.orig
++++ tests/test_install.sh
+@@ -6,7 +6,7 @@ make="make -C $lz4_root"
+ unamestr=$(uname)
+ if [ "$unamestr" = 'Linux' ]; then
+   make="make -C $lz4_root"
+-elif [ "$unamestr" = 'FreeBSD' ] || [ "$unamestr" = 'OpenBSD' ]; then
++elif [ "$unamestr" = 'FreeBSD' ] || [ "$unamestr" = 'OpenBSD' ] || [ "$unamestr" = 'SecBSD' ]; then
+   make="gmake -C $lz4_root"
+ fi
+ 

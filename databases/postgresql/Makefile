@@ -5,11 +5,10 @@ COMMENT-contrib=PostgreSQL RDBMS contributions
 COMMENT-plpython=Python procedural language for PostgreSQL
 COMMENT-pg_upgrade=Support for upgrading PostgreSQL data from previous version
 
-VERSION=	15.4
-PREV_MAJOR=	14
+VERSION=	16.3
+PREV_MAJOR=	15
 DISTNAME=	postgresql-${VERSION}
 PKGNAME-main=	postgresql-client-${VERSION}
-REVISION-server=0
 
 DPB_PROPERTIES=	parallel
 
@@ -17,7 +16,7 @@ CATEGORIES=	databases
 SHARED_LIBS=	ecpg		7.10 \
 		ecpg_compat	4.10 \
 		pgtypes		4.9 \
-		pq		6.14
+		pq		6.15
 
 HOMEPAGE=	https://www.postgresql.org/
 
@@ -26,9 +25,7 @@ MAINTAINER=	Jeremy Evans <jeremy@openbsd.org>
 # BSD
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c curses crypto m readline ssl z
-WANTLIB-server += pthread
-WANTLIB-contrib += pthread
+WANTLIB += c curses crypto m readline pthread ssl z
 
 SITES=		https://ftp.postgresql.org/pub/source/v${VERSION}/ \
 		ftp://ftp.postgresql.org/pub/source/v${VERSION}/
@@ -77,18 +74,6 @@ CONFIGURE_ARGS=	--disable-rpath \
 CONFIGURE_ARGS+= --disable-spinlocks
 .endif
 
-# To avoid problems with missed floating point overflow checks.
-# pgsql 10.6+ refuses to build on i386 clang unless -msse2 is set.
-# If clang gains "-fexcess-precision=standard" support then this
-# should be removed.
-MODULES+=	gcc4
-MODGCC4_ARCHS=	i386
-MODGCC4_LANGS=	c
-# An alternative workaround:
-# .if ${MACHINE_ARCH} == "i386"
-# CFLAGS +=	-msse2
-# .endif
-
 MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC}/config
 
 ALL_TARGET=	world
@@ -98,8 +83,9 @@ LIB_DEPENDS-main=	textproc/libxml
 WANTLIB-main=		${WANTLIB} execinfo xml2
 
 LIB_DEPENDS-server=	databases/postgresql=${VERSION} \
+			textproc/icu4c \
 			${LIB_DEPENDS-main}
-WANTLIB-server=		${WANTLIB-main} perl pq
+WANTLIB-server=		${WANTLIB-main} icudata icui18n icuuc perl pq
 
 RUN_DEPENDS-contrib=	databases/postgresql,-server=${VERSION}
 LIB_DEPENDS-contrib=	databases/postgresql=${VERSION} \

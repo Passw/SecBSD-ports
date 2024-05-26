@@ -1,4 +1,6 @@
 bin/meson
+lib/python${MODPY_VERSION}/
+lib/python${MODPY_VERSION}/site-packages/
 lib/python${MODPY_VERSION}/site-packages/meson-${MODPY_EGG_VERSION}.dist-info/
 lib/python${MODPY_VERSION}/site-packages/meson-${MODPY_EGG_VERSION}.dist-info/COPYING
 lib/python${MODPY_VERSION}/site-packages/meson-${MODPY_EGG_VERSION}.dist-info/METADATA

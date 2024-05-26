@@ -9,7 +9,7 @@ MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 # GPL-3.0
 PERMIT_PACKAGE=	Yes
 
-MASTER_SITES=	http://pentestmonkey.net/tools/smtp-user-enum/
+SITES=		http://pentestmonkey.net/tools/smtp-user-enum/
 
 NO_BUILD=	Yes
 

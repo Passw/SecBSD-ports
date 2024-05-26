@@ -18,8 +18,7 @@ GH_COMMIT=		99a1660e47342ec9664a9231877d24a2eff829af
 
 MODULES=		lang/python
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			www/py-mechanicalsoup \
+RUN_DEPENDS=		www/py-mechanicalsoup${MODPY_FLAVOR} \
 			www/py-requests${MODPY_FLAVOR} \
 			security/py-openssl${MODPY_FLAVOR} \
 			www/py-beautifulsoup4${MODPY_FLAVOR}

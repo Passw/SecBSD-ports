@@ -1,6 +1,6 @@
 COMMENT=	bcrypt blowfish password hashing for Python
 
-MODPY_EGG_VERSION= 4.0.1
+MODPY_EGG_VERSION= 4.1.3
 DISTNAME=	bcrypt-${MODPY_EGG_VERSION}
 DISTFILES=	bcrypt-${MODPY_EGG_VERSION}${EXTRACT_SUFX}
 PKGNAME=	py-${DISTNAME}
@@ -12,7 +12,7 @@ CATEGORIES=	security
 # Apache License 2.0
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += pthread ${MODPY_WANTLIB}
+WANTLIB += ${MODPY_WANTLIB} ${MODCARGO_WANTLIB}
 
 COMPILER=	base-clang ports-gcc
 COMPILER_LANGS=	c

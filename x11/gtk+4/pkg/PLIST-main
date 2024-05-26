@@ -3,6 +3,7 @@
 @bin bin/gtk4-builder-tool
 @bin bin/gtk4-encode-symbolic-svg
 @bin bin/gtk4-launch
+@bin bin/gtk4-path-tool
 @bin bin/gtk4-query-settings
 @bin bin/gtk4-rendernode-tool
 include/gtk-4.0/
@@ -26,6 +27,9 @@ include/gtk-4.0/gdk/gdkdevicepad.h
 include/gtk-4.0/gdk/gdkdevicetool.h
 include/gtk-4.0/gdk/gdkdisplay.h
 include/gtk-4.0/gdk/gdkdisplaymanager.h
+include/gtk-4.0/gdk/gdkdmabufformats.h
+include/gtk-4.0/gdk/gdkdmabuftexture.h
+include/gtk-4.0/gdk/gdkdmabuftexturebuilder.h
 include/gtk-4.0/gdk/gdkdrag.h
 include/gtk-4.0/gdk/gdkdragsurface.h
 include/gtk-4.0/gdk/gdkdragsurfacesize.h
@@ -62,6 +66,16 @@ include/gtk-4.0/gdk/gdkvulkancontext.h
 include/gtk-4.0/gdk/version/
 include/gtk-4.0/gdk/version/gdk-visibility.h
 include/gtk-4.0/gdk/version/gdkversionmacros.h
+include/gtk-4.0/gdk/wayland/
+include/gtk-4.0/gdk/wayland/gdkwayland.h
+include/gtk-4.0/gdk/wayland/gdkwaylanddevice.h
+include/gtk-4.0/gdk/wayland/gdkwaylanddisplay.h
+include/gtk-4.0/gdk/wayland/gdkwaylandglcontext.h
+include/gtk-4.0/gdk/wayland/gdkwaylandmonitor.h
+include/gtk-4.0/gdk/wayland/gdkwaylandpopup.h
+include/gtk-4.0/gdk/wayland/gdkwaylandseat.h
+include/gtk-4.0/gdk/wayland/gdkwaylandsurface.h
+include/gtk-4.0/gdk/wayland/gdkwaylandtoplevel.h
 include/gtk-4.0/gdk/x11/
 include/gtk-4.0/gdk/x11/gdkx-autocleanups.h
 include/gtk-4.0/gdk/x11/gdkx.h
@@ -82,17 +96,27 @@ include/gtk-4.0/gdk/x11/gdkx11utils.h
 include/gtk-4.0/gsk/
 include/gtk-4.0/gsk/gl/
 include/gtk-4.0/gsk/gl/gskglrenderer.h
+include/gtk-4.0/gsk/gpu/
+include/gtk-4.0/gsk/gpu/gskvulkanrenderer.h
 include/gtk-4.0/gsk/gsk.h
 include/gtk-4.0/gsk/gskcairorenderer.h
 include/gtk-4.0/gsk/gskenums.h
 include/gtk-4.0/gsk/gskenumtypes.h
 include/gtk-4.0/gsk/gskglshader.h
+include/gtk-4.0/gsk/gskpath.h
+include/gtk-4.0/gsk/gskpathbuilder.h
+include/gtk-4.0/gsk/gskpathmeasure.h
+include/gtk-4.0/gsk/gskpathpoint.h
 include/gtk-4.0/gsk/gskrenderer.h
 include/gtk-4.0/gsk/gskrendernode.h
 include/gtk-4.0/gsk/gskroundedrect.h
+include/gtk-4.0/gsk/gskstroke.h
 include/gtk-4.0/gsk/gsktransform.h
 include/gtk-4.0/gsk/gsktypes.h
 include/gtk-4.0/gtk/
+include/gtk-4.0/gtk/a11y/
+include/gtk-4.0/gtk/a11y/gtkatspi.h
+include/gtk-4.0/gtk/a11y/gtkatspisocket.h
 include/gtk-4.0/gtk/css/
 include/gtk-4.0/gtk/css/gtkcss.h
 include/gtk-4.0/gtk/css/gtkcssenums.h
@@ -161,6 +185,7 @@ include/gtk-4.0/gtk/gtkaboutdialog.h
 include/gtk-4.0/gtk/gtkaccelgroup.h
 include/gtk-4.0/gtk/gtkaccessible.h
 include/gtk-4.0/gtk/gtkaccessiblerange.h
+include/gtk-4.0/gtk/gtkaccessibletext.h
 include/gtk-4.0/gtk/gtkactionable.h
 include/gtk-4.0/gtk/gtkactionbar.h
 include/gtk-4.0/gtk/gtkadjustment.h
@@ -193,6 +218,7 @@ include/gtk-4.0/gtk/gtkcolumnviewcell.h
 include/gtk-4.0/gtk/gtkcolumnviewcolumn.h
 include/gtk-4.0/gtk/gtkcolumnviewrow.h
 include/gtk-4.0/gtk/gtkcolumnviewsorter.h
+include/gtk-4.0/gtk/gtkconfig.h
 include/gtk-4.0/gtk/gtkconstraint.h
 include/gtk-4.0/gtk/gtkconstraintguide.h
 include/gtk-4.0/gtk/gtkconstraintlayout.h
@@ -247,6 +273,7 @@ include/gtk-4.0/gtk/gtkgesturestylus.h
 include/gtk-4.0/gtk/gtkgestureswipe.h
 include/gtk-4.0/gtk/gtkgesturezoom.h
 include/gtk-4.0/gtk/gtkglarea.h
+include/gtk-4.0/gtk/gtkgraphicsoffload.h
 include/gtk-4.0/gtk/gtkgrid.h
 include/gtk-4.0/gtk/gtkgridlayout.h
 include/gtk-4.0/gtk/gtkgridview.h
@@ -295,6 +322,7 @@ include/gtk-4.0/gtk/gtkpicture.h
 include/gtk-4.0/gtk/gtkpopover.h
 include/gtk-4.0/gtk/gtkpopovermenu.h
 include/gtk-4.0/gtk/gtkpopovermenubar.h
+include/gtk-4.0/gtk/gtkprintdialog.h
 include/gtk-4.0/gtk/gtkprogressbar.h
 include/gtk-4.0/gtk/gtkrange.h
 include/gtk-4.0/gtk/gtkrecentmanager.h
@@ -385,6 +413,7 @@ include/gtk-4.0/unix-print/gtk/print/gtkprinter.h
 include/gtk-4.0/unix-print/gtk/print/gtkprintjob.h
 include/gtk-4.0/unix-print/gtk/print/gtkprintunixdialog.h
 lib/girepository-1.0/Gdk-4.0.typelib
+lib/girepository-1.0/GdkWayland-4.0.typelib
 lib/girepository-1.0/GdkX11-4.0.typelib
 lib/girepository-1.0/Gsk-4.0.typelib
 lib/girepository-1.0/Gtk-4.0.typelib
@@ -394,19 +423,23 @@ lib/gtk-4.0/4.0.0/media/
 lib/gtk-4.0/4.0.0/printbackends/
 @so lib/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 @lib lib/libgtk-4.so.${LIBgtk-4_VERSION}
+lib/pkgconfig/gtk4-atspi.pc
 lib/pkgconfig/gtk4-unix-print.pc
+lib/pkgconfig/gtk4-wayland.pc
 lib/pkgconfig/gtk4-x11.pc
 lib/pkgconfig/gtk4.pc
 @man man/man1/gtk4-broadwayd.1
 @man man/man1/gtk4-builder-tool.1
 @man man/man1/gtk4-encode-symbolic-svg.1
 @man man/man1/gtk4-launch.1
+@man man/man1/gtk4-path-tool.1
 @man man/man1/gtk4-query-settings.1
 @man man/man1/gtk4-rendernode-tool.1
 share/doc/pkg-readmes/${PKGSTEM}
 share/gettext/its/gtk4builder.its
 share/gettext/its/gtk4builder.loc
 share/gir-1.0/Gdk-4.0.gir
+share/gir-1.0/GdkWayland-4.0.gir
 share/gir-1.0/GdkX11-4.0.gir
 share/gir-1.0/Gsk-4.0.gir
 share/gir-1.0/Gtk-4.0.gir
@@ -416,20 +449,27 @@ share/glib-2.0/schemas/org.gtk.gtk4.Settings.EmojiChooser.gschema.xml
 share/glib-2.0/schemas/org.gtk.gtk4.Settings.FileChooser.gschema.xml
 share/gtk-4.0/
 share/gtk-4.0/emoji/
+share/gtk-4.0/emoji/bn.gresource
 share/gtk-4.0/emoji/da.gresource
 share/gtk-4.0/emoji/de.gresource
 share/gtk-4.0/emoji/es.gresource
+share/gtk-4.0/emoji/et.gresource
+share/gtk-4.0/emoji/fi.gresource
 share/gtk-4.0/emoji/fr.gresource
+share/gtk-4.0/emoji/hi.gresource
 share/gtk-4.0/emoji/hu.gresource
 share/gtk-4.0/emoji/it.gresource
+share/gtk-4.0/emoji/ja.gresource
 share/gtk-4.0/emoji/ko.gresource
 share/gtk-4.0/emoji/lt.gresource
 share/gtk-4.0/emoji/ms.gresource
+share/gtk-4.0/emoji/nb.gresource
 share/gtk-4.0/emoji/nl.gresource
 share/gtk-4.0/emoji/pl.gresource
 share/gtk-4.0/emoji/pt.gresource
 share/gtk-4.0/emoji/ru.gresource
 share/gtk-4.0/emoji/sv.gresource
+share/gtk-4.0/emoji/th.gresource
 share/gtk-4.0/emoji/uk.gresource
 share/gtk-4.0/emoji/zh.gresource
 share/gtk-4.0/gtk4builder.rng
@@ -493,6 +533,7 @@ share/locale/is/LC_MESSAGES/gtk40.mo
 share/locale/it/LC_MESSAGES/gtk40.mo
 share/locale/ja/LC_MESSAGES/gtk40.mo
 share/locale/ka/LC_MESSAGES/gtk40.mo
+share/locale/kab/LC_MESSAGES/gtk40.mo
 share/locale/kg/
 share/locale/kg/LC_MESSAGES/
 share/locale/kg/LC_MESSAGES/gtk40.mo

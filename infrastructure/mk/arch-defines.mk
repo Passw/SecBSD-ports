@@ -1,4 +1,4 @@
-# $OpenBSD: arch-defines.mk,v 1.98 2023/06/07 13:00:33 sthen Exp $
+# $OpenBSD: arch-defines.mk,v 1.106 2024/05/16 11:04:44 sthen Exp $
 #
 # ex:ts=4 sw=4 filetype=make:
 #
@@ -16,18 +16,20 @@ ALL_ARCHS = aarch64 alpha amd64 arm arm64 armv7 hppa i386 landisk loongson \
 	sh sparc64
 # normally only list MACHINE_ARCH (uname -p) names in these variables,
 # but not all powerpc have apm(4), hence the use of macppc
-APM_ARCHS = arm64 amd64 i386 loongson macppc sparc64
+APM_ARCHS = arm64 amd64 i386 loongson macppc riscv64 sparc64
 BE_ARCHS = hppa m88k mips64 powerpc powerpc64 sparc64
 LE_ARCHS = aarch64 alpha amd64 arm i386 mips64el riscv64 sh
 LP64_ARCHS = aarch64 alpha amd64 mips64 mips64el powerpc64 riscv64 sparc64
 GCC4_ARCHS = alpha hppa sh sparc64
 GCC3_ARCHS = m88k
-# XXX easier for ports that depend on mono
+# arches where certain ports are available
 MONO_ARCHS = aarch64 amd64 i386
+GO_ARCHS = aarch64 amd64 arm armv7 i386 mips64 riscv64
+LUAJIT_ARCHS = aarch64 arm amd64 i386 powerpc
+RUST_ARCHS = aarch64 amd64 i386 powerpc64 riscv64 sparc64
+# arch-specific features that ocaml ports need to know about
 OCAML_NATIVE_ARCHS = aarch64 amd64 i386
 OCAML_NATIVE_DYNLINK_ARCHS = aarch64 amd64 i386
-GO_ARCHS = aarch64 amd64 arm armv7 i386 mips64 riscv64
-RUST_ARCHS = aarch64 amd64 i386 powerpc64 riscv64 sparc64
 
 # arches where the base compiler is clang
 CLANG_ARCHS = aarch64 amd64 arm i386 mips64 mips64el powerpc powerpc64 riscv64
@@ -44,7 +46,7 @@ GCC49_ARCHS = aarch64 alpha amd64 arm hppa i386 mips64 mips64el powerpc powerpc6
 CXX11_ARCHS = ${CLANG_ARCHS} ${GCC49_ARCHS}
 DEBUGINFO_ARCHS = aarch64 amd64
 
-.for PROP in ALL APM BE LE LP64 CLANG GCC4 GCC3 GCC49 MONO LLVM \
+.for PROP in ALL APM BE LE LP64 CLANG GCC4 GCC3 GCC49 MONO LLVM LUAJIT \
                      CXX11 OCAML_NATIVE OCAML_NATIVE_DYNLINK GO \
                      LLD RUST DEBUGINFO
 .  for A B in ${MACHINE_ARCH} ${ARCH}
@@ -85,25 +87,29 @@ LLD_EMUL =
 # system version wide specifics
 _SYSTEM_VERSION = 1
 _SYSTEM_VERSION-aarch64 = 8
-_SYSTEM_VERSION-amd64 = 8
+_SYSTEM_VERSION-amd64 = 9
 _SYSTEM_VERSION-arm = 6
-_SYSTEM_VERSION-i386 = 4
+_SYSTEM_VERSION-i386 = 5
 _SYSTEM_VERSION-mips64 = 5
 _SYSTEM_VERSION-mips64el = 4
-_SYSTEM_VERSION-powerpc = 4
+_SYSTEM_VERSION-powerpc = 5
 _SYSTEM_VERSION-powerpc64 = 3
 _SYSTEM_VERSION-riscv64 = 2
 _SYSTEM_VERSION-${MACHINE_ARCH} ?= 0
 _SYSTEM_VERSION-${ARCH} ?= 0
 
 # added to version for all clang arches
-_SYSTEM_VERSION-clang = 1
+_SYSTEM_VERSION-clang = 2
 
 # defined in go.port.mk; added to version for all go arches so that
 # go-compiled packages can be updated easily for a new go compiler
 .if defined(MODULES) && ${MODULES:Mlang/go}
 _SYSTEM_VERSION-go = ${_MODGO_SYSTEM_VERSION}
 .endif
+
+# defined in rust.port.mk; added to version for all rust arches so that
+# rust-compiled packages can be updated easily for a new rust compiler/stdlib
+_SYSTEM_VERSION-rust ?= 0
 
 # @version = ${_SYSTEM_VERSION} + ${_SYSTEM_VERSION-${MACHINE_ARCH}}
 _PKG_ARGS_VERSION += -V ${_SYSTEM_VERSION} -V ${_SYSTEM_VERSION-${MACHINE_ARCH}}

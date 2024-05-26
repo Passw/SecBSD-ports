@@ -1,4 +1,4 @@
-COMMENT=		read resources from Python packages
+COMMENT=	read resources from Python packages
 
 MODPY_EGG_VERSION=	5.12.0
 

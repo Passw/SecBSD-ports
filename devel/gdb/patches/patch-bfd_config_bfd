@@ -13,7 +13,7 @@ Index: bfd/config.bfd
      targ_selvecs="aarch64_elf64_be_vec aarch64_elf32_le_vec aarch64_elf32_be_vec arm_elf32_le_vec arm_elf32_be_vec"
      want64=true
      ;;
-+  aarch64-*-openbsd*)
++  aarch64-*-openbsd* | aarch64-*-secbsd*)
 +    targ_defvec=aarch64_elf64_le_vec
 +    targ_selvecs="aarch64_elf32_le_vec arm_elf32_le_vec"
 +    want64=true
@@ -26,7 +26,25 @@ Index: bfd/config.bfd
      targ_selvecs="arm_elf32_le_vec"
      ;;
 -  arm-*-netbsdelf*)
-+  arm-*-netbsdelf* | arm-*-openbsd*)
++  arm-*-netbsdelf* | arm-*-openbsd* | arm-*-secbsd*)
      targ_defvec=arm_elf32_le_vec
      targ_selvecs="arm_elf32_be_vec"
      ;;
+@@ -628,7 +632,7 @@ case "${targ}" in
+     targ_defvec=i386_pe_vec
+     targ_selvecs="i386_pe_vec i386_pei_vec i386_elf32_vec iamcu_elf32_vec"
+     ;;
+-  i[3-7]86-*-openbsd*)
++  i[3-7]86-*-openbsd* | i[3-7]86-*-secbsd*)
+     targ_defvec=i386_elf32_vec
+     targ_selvecs="iamcu_elf32_vec"
+     ;;
+@@ -683,7 +687,7 @@ case "${targ}" in
+     targ_selvecs="i386_elf32_fbsd_vec iamcu_elf32_vec i386_coff_vec i386_pei_vec x86_64_pei_vec i386_elf32_vec x86_64_elf64_vec l1om_elf64_vec l1om_elf64_fbsd_vec k1om_elf64_vec k1om_elf64_fbsd_vec"
+     want64=true
+     ;;
+-  x86_64-*-netbsd* | x86_64-*-openbsd*)
++  x86_64-*-netbsd* | x86_64-*-openbsd* | x86_64-*-secbsd*)
+     targ_defvec=x86_64_elf64_vec
+     targ_selvecs="i386_elf32_vec iamcu_elf32_vec i386_coff_vec i386_pei_vec x86_64_pei_vec l1om_elf64_vec k1om_elf64_vec"
+     want64=true

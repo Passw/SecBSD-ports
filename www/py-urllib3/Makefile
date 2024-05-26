@@ -1,8 +1,9 @@
 COMMENT=	HTTP library for Python
 
-MODPY_EGG_VERSION= 1.26.15
+MODPY_EGG_VERSION= 1.26.18
 DISTNAME=	urllib3-${MODPY_EGG_VERSION}
 PKGNAME=	py-urllib3-${MODPY_EGG_VERSION}
+REVISION=	0
 
 CATEGORIES=	www
 
@@ -17,7 +18,8 @@ FLAVOR=		python3
 MODPY_PI=	Yes
 MODPY_PYBUILD=	setuptools
 
-TEST_DEPENDS=	devel/py-mock${MODPY_FLAVOR} \
+TEST_DEPENDS=	devel/py-dateutil${MODPY_FLAVOR} \
+		devel/py-mock${MODPY_FLAVOR} \
 		net/py-socks${MODPY_FLAVOR} \
 		sysutils/py-psutil${MODPY_FLAVOR} \
 		security/py-trustme${MODPY_FLAVOR} \

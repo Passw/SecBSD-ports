@@ -1,6 +1,10 @@
 bin/photon
 share/photon/
+share/photon/.gitignore
+share/photon/.travis.yml
+share/photon/.whitesource
 share/photon/CHANGELOG.md
+share/photon/Dockerfile
 share/photon/LICENSE.md
 share/photon/MANIFEST.in
 share/photon/README.md
@@ -24,3 +28,4 @@ share/photon/plugins/dnsdumpster.py
 share/photon/plugins/exporter.py
 share/photon/plugins/find_subdomains.py
 share/photon/plugins/wayback.py
+share/photon/requirements.txt

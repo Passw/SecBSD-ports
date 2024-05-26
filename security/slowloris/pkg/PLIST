@@ -1,7 +1,0 @@
-bin/slowloris
-share/slowloris/
-share/slowloris/LICENSE
-share/slowloris/MANIFEST.in
-share/slowloris/README.md
-share/slowloris/setup.py
-share/slowloris/slowloris.py

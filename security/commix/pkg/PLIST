@@ -12,6 +12,7 @@ share/commix/doc/translations/
 share/commix/doc/translations/README-fa-FA.md
 share/commix/doc/translations/README-gr-GR.md
 share/commix/doc/translations/README-idn-IDN.md
+share/commix/doc/translations/README-tr-TR.md
 share/commix/setup.py
 share/commix/src/
 share/commix/src/__init__.py

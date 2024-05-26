@@ -1,18 +1,18 @@
-COMMENT=		retrying library
+COMMENT=	retrying library
 
 MODPY_EGG_VERSION=	1.3.4
 
-DISTNAME=		retrying-${MODPY_EGG_VERSION}
-PKGNAME=		py-${DISTNAME}
+DISTNAME=	retrying-${MODPY_EGG_VERSION}
+PKGNAME=	py-${DISTNAME}
 
-CATEGORIES=		devel
+CATEGORIES=	devel
 
-HOMEPAGE=		https://github.com/groodt/retrying
+HOMEPAGE=	https://github.com/groodt/retrying
 
-MAINTAINER=		Purple Rain <purplerain@secbsd.org>
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # Apache-2.0
-PERMIT_PACKAGE=		Yes
+PERMIT_PACKAGE=	Yes
 
 MODULES=	lang/python
 
@@ -22,7 +22,6 @@ FLAVOR=		python3
 MODPY_PI=	Yes
 MODPY_PYBUILD=	setuptools
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		devel/py-six${MODPY_FLAVOR}
+RUN_DEPENDS=	devel/py-six${MODPY_FLAVOR}
 
 .include <bsd.port.mk>

@@ -8,7 +8,7 @@ COMMENT=		IDE for GNOME
 
 GNOME_PROJECT=		gnome-builder
 GNOME_VERSION=		43.7
-REVISION=		4
+REVISION=		10
 
 CATEGORIES=		devel
 
@@ -29,8 +29,8 @@ MODULES=		devel/dconf \
 			lang/python \
 			x11/gnome
 
+SUBST_VARS +=		MODCLANG_VERSION
 MODCLANG_COMPILER_LINKS=No
-MODCLANG_BUILDDEP=	No 
 
 MODGNOME_TOOLS=		desktop-file-utils gtk-update-icon-cache \
 			gobject-introspection yelp
@@ -57,7 +57,7 @@ LIB_DEPENDS=		devel/jsonrpc-glib \
 			devel/vte3,-gtk4 \
 			editors/editorconfig-core-c \
 			sysutils/dspy \
-			sysutils/libportal,-gtk4 \
+			sysutils/flatpak/libportal,-gtk4 \
 			textproc/cmark \
 			www/webkitgtk4,webkitgtk60 \
 			x11/gnome/libpanel \
@@ -80,9 +80,15 @@ DEBUG_PACKAGES=		${BUILD_PACKAGES}
 CONFIGURE_ARGS +=	-Db_asneeded=false
 .endif
 
-# don't pick up llvm-config(1) from base
 pre-configure:
+	${SUBST_CMD} ${WRKSRC}/src/plugins/clang/meson.build
+# don't pick up llvm-config(1) from base
 	ln -sf ${LOCALBASE}/bin/llvm-config-${MODCLANG_VERSION} \
 		${WRKDIR}/bin/llvm-config
+# XXX see src/libide/core/meson.build; prevent a dependency on git;
+# ninja: error: '/usr/local/bin/git',
+# needed by 'src/libide/core/ide-build-ident.h', missing and no known rule to make it
+	ln -sf /usr/bin/false ${WRKDIR}/bin/git
+
 
 .include <bsd.port.mk>

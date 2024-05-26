@@ -18,14 +18,15 @@ USE_NOEXECONLY = Yes
 V = 11.2.0
 FULL_VERSION = $V
 FULL_PKGVERSION = $V
-REVISION = 9
+REVISION = 13
+REVISION-c++ = 14
 
-ADASTRAP-amd64 = adastrap-amd64-$V-3.tar.xz
+ADASTRAP-amd64 = adastrap-amd64-$V-4.tar.xz
 ADASTRAP-arm = adastrap-arm-4.9.4-0.tar.xz
 ADASTRAP-hppa = adastrap-hppa-8.3.0-1.tar.xz
 ADASTRAP-i386 = adastrap-i386-$V-2.tar.xz
 ADASTRAP-mips64 = adastrap-mips64-8.4.0-0.tar.xz
-ADASTRAP-powerpc = adastrap-powerpc-$V-2.tar.xz
+ADASTRAP-powerpc = adastrap-powerpc-$V-3.tar.xz
 ADASTRAP-sparc64 = adastrap-sparc64-6.5.0-0.tar.xz
 
 PKGNAME-main =  gcc-${FULL_PKGVERSION}
@@ -132,6 +133,11 @@ MAKE_ENV += ${EXTRA_ENV}
 # .sdata.DW.ref.__gxx_personality_v0
 USE_LLD = No
 CONFIGURE_ENV += LDFLAGS="-Wl,--relax"
+.elif ${MACHINE_ARCH:Mi386}
+MODULES +=			lang/clang
+MODCLANG_VERSION =		13
+MODCLANG_COMPILER_LINKS =	No
+USE_LLD =			ports
 .endif
 
 # Note: the configure target passes CFLAGS to the configure script anyways.
@@ -240,13 +246,6 @@ LIB_DEPENDS-libs =
 CONFIG = x86_64-unknown-openbsd${OSREV}
 .endif
 
-.if ${MACHINE_ARCH} == "riscv64"
-# lld complains about .gcc_except_table referencing
-# symbols in discarded sections.  Tell gcc to split .gcc_except_table
-# so that its unused parts can also be discarded.
-EXTRA_ENV +=	PORTS_FORCE_SPLIT_SECTIONS="-ffunction-sections -fdata-sections"
-.endif
-
 post-extract:
 .for f in egcc eg++
 	echo "#! /bin/sh" >${WRKDIR}/bin/$f
@@ -270,7 +269,7 @@ post-extract:
 		${WRKDIR}/bootstrap/include/c++/*/*/bits/c++config.h
 .endif
 	-chmod 644 ${WRKDIR}/bootstrap/system-libs/lib*.so* # XXX
-	-cp /usr/lib/libc.so.96.1 ${WRKDIR}/bootstrap/system-libs/ # XXX
+	-cp `ls /usr/lib/libc.so.* | sort -t . -V | tail -1` ${WRKDIR}/bootstrap/system-libs/libc.so.* # XXX
 
 post-install:
 .if ${BUILD_PACKAGES:M-ada}

@@ -1,3 +1,11 @@
+The curl configure script wants to take control of the compiler
+flags for optimization.  The actual interactions are more complex,
+but the gist is that the flags are stripped from CFLAGS, and if
+--enable-optimize is specified, an approved optimization flag is
+added.
+
+Do not override optimization flags in CFLAGS.
+
 Index: m4/curl-compilers.m4
 --- m4/curl-compilers.m4.orig
 +++ m4/curl-compilers.m4

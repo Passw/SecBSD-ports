@@ -1,12 +1,12 @@
 COMMENT=	cross-platform multimedia library
 
-V=		2.28.3
+V=		2.30.3
 DISTNAME=	SDL2-${V}
 PKGNAME=	sdl2-${V}
 CATEGORIES=	devel
 SITES=		https://www.libsdl.org/release/
 
-SHARED_LIBS=	SDL2		0.14	# 2.28.1
+SHARED_LIBS=	SDL2		0.15	# 2.30.0
 
 HOMEPAGE=	https://www.libsdl.org/
 
@@ -17,12 +17,13 @@ DEBUG_PACKAGES=	${BUILD_PACKAGES}
 # zlib
 PERMIT_PACKAGE=	Yes
 
-WANTLIB+=	X11 Xcursor Xext Xfixes Xi Xrandr Xrender Xss m pthread samplerate
-WANTLIB+=	sndio usbhid xcb
+WANTLIB+=	X11 Xcursor Xext Xfixes Xi Xrandr Xrender Xss iconv m pthread
+WANTLIB+=	samplerate sndio usbhid xcb
 # GL library is dlopen'd
 WANTLIB+=	GL
 
-LIB_DEPENDS=	audio/libsamplerate
+LIB_DEPENDS=	audio/libsamplerate \
+		converters/libiconv
 
 USE_GMAKE=		Yes
 SEPARATE_BUILD=		Yes
@@ -46,7 +47,8 @@ CONFIGURE_ARGS+= --disable-alsa \
 		 --disable-wayland-shared \
 		 --disable-x11-shared
 CONFIGURE_ENV+=	CPPFLAGS="-I${LOCALBASE}/include" \
-		LDFLAGS="-L${LOCALBASE}/lib"
+		LDFLAGS="-L${LOCALBASE}/lib" \
+		ac_cv_header_linux_input_h=no
 
 .if ${MACHINE_ARCH} == "hppa"
 CONFIGURE_ARGS+= --disable-atomic

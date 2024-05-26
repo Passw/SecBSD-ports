@@ -22,8 +22,7 @@ FLAVOR=		python3
 MODPY_PI=	Yes
 MODPY_PYBUILD=	setuptools
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		devel/py-poetry-core${MODPY_FLAVOR} \
+RUN_DEPENDS=	devel/py-poetry-core${MODPY_FLAVOR} \
 		devel/py-limits${MODPY_FLAVOR}
 
 .include <bsd.port.mk>

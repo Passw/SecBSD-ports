@@ -1,18 +1,18 @@
-COMMENT=		standard multiprocessing module
+COMMENT=	standard multiprocessing module
 
 MODPY_EGG_VERSION=	0.9.0
 
-DISTNAME=		aiomultiprocess-${MODPY_EGG_VERSION}
-PKGNAME=		py-${DISTNAME}
+DISTNAME=	aiomultiprocess-${MODPY_EGG_VERSION}
+PKGNAME=	py-${DISTNAME}
 
-CATEGORIES=		net
+CATEGORIES=	net
 
-HOMEPAGE=		https://pypi.org/project/aiomultiprocess
+HOMEPAGE=	https://pypi.org/project/aiomultiprocess
 
-MAINTAINER=		Purple Rain <purplerain@secbsd.org>
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # MIT
-PERMIT_PACKAGE=		Yes
+PERMIT_PACKAGE=	Yes
 
 MODULES=	lang/python
 MODPY_PI=	Yes

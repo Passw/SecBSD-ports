@@ -3,7 +3,7 @@ COMMENT=		username social networks tool
 MODPY_EGG_VERSION=	0.14.3
 GH_ACCOUNT=		sherlock-project
 GH_PROJECT=		sherlock
-GH_COMMIT=		b7cd7ab72af7ef7e3bcd510545a4b71e84e0d82f
+GH_COMMIT=		55c680fde1d6eb94e55870e1be6243c88732cea8
 
 DISTNAME=		sherlock-${MODPY_EGG_VERSION}
 
@@ -18,8 +18,7 @@ PERMIT_PACKAGE=		Yes
 
 MODULES=		lang/python
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			devel/py-certifi${MODPY_FLAVOR} \
+RUN_DEPENDS=		devel/py-certifi${MODPY_FLAVOR} \
 			devel/py-colorama${MODPY_FLAVOR} \
 			math/py-pandas${MODPY_FLAVOR} \
 			net/py-socks${MODPY_FLAVOR} \

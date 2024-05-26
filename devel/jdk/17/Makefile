@@ -4,20 +4,19 @@ USE_NOBTCFI=	Yes
 DPB_PROPERTIES=	parallel
 
 COMMENT=	OpenJDK Software Development Kit v${VERSION_STR}
-BASE_VER=	17.0.8
-PATCH_VER=	7
+BASE_VER=	17.0.11
+PATCH_VER=	9
 BSD_PORT_REL=	1
 VERSION_STR=	${BASE_VER}+${PATCH_VER}-${BSD_PORT_REL}
 PACKAGE_VER=	${BASE_VER}.${PATCH_VER}.${BSD_PORT_REL}
 PKGNAME=	jdk-${PACKAGE_VER}
 PKGSTEM=	jdk-17
 EPOCH=		0
-REVISION=	0
 
 DIST_SUBDIR=	jdk
 DISTNAME=	jdk-${VERSION_STR}
 WRKDIST=	${WRKDIR}/jdk17u-jdk-${BASE_VER}-${PATCH_VER}-${BSD_PORT_REL}
-BOOTJDK_DATE=	20230630
+BOOTJDK_DATE=	20240331
 
 CATEGORIES=	devel/jdk java
 
@@ -27,8 +26,8 @@ FLAVOR?=
 HOMEPAGE=	http://openjdk.java.net/
 
 SITES=		https://github.com/battleblow/jdk17u/archive/
-SITES.boot=	https://spacehopper.org/mirrors/ \
-		http://www.intricatesoftware.com/distfiles/
+SITES.boot=	http://www.intricatesoftware.com/distfiles/ \
+		https://spacehopper.org/mirrors/
 
 MAINTAINER=	Kurt Miller <kurt@openbsd.org>
 
@@ -144,7 +143,7 @@ JVMARCH=	${MACHINE_ARCH:S/i386/x86/:S/amd64/x86_64/}
 BUILDDIR=	${WRKDIST}/build/bsd-${JVMARCH}-server-release
 IMAGEDIR=	${BUILDDIR}/images/jdk
 WRKTMP=		${WRKDIR}/tmp
- 
+
 post-extract:
 	sed -i "s|#!/bin/bash|#!\${LOCALBASE}/bin/bash|" ${WRKDIST}/configure
 	chmod +x ${WRKDIST}/configure
@@ -163,7 +162,7 @@ post-build:
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/${PKGSTEM}
-	cd ${IMAGEDIR} && tar -cf - * | tar -C ${PREFIX}/${PKGSTEM} -xf - 
+	cd ${IMAGEDIR} && tar -cf - * | tar -C ${PREFIX}/${PKGSTEM} -xf -
 
 # The bootjdk is the jdk image with some parts deleted
 # and a copy of the system shared libs needed to run it.
@@ -176,12 +175,13 @@ build-bootjdk: build
 	@${_PBUILD} mkdir -p ${WRKTMP}/bootjdk-libs
 	@cd ${IMAGEDIR} && \
 		tar -cf - * | \
-		${_PBUILD} tar -C ${WRKTMP}/bootjdk -xf - 
+		${_PBUILD} tar -C ${WRKTMP}/bootjdk -xf -
 	@cd ${WRKTMP}/bootjdk && \
 		${_PBUILD} rm -rf demo jmods man sample
 	@cd ${WRKTMP}/bootjdk/lib && \
 		${_PBUILD} rm libsplashscreen.so libinstrument.so \
-		libawt_xawt.so liblcms.so libfontmanager.so libjdwp.so libjavajpeg.so
+		libawt_xawt.so liblcms.so libfontmanager.so libjdwp.so \
+		libjavajpeg.so
 	@find ${WRKTMP}/bootjdk/lib ${WRKTMP}/bootjdk/bin \
 		-exec sh -c 'file {} | grep -q ELF && \
 		${_PBUILD} strip -S {}' \;

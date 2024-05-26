@@ -28,19 +28,11 @@ RELEASE_DIR=		${MODCARGO_TARGET_DIR}/release
 
 INSTDIR=		${PREFIX}/share/feroxbuster
 
-post-extract:
-	rm -rf ${WRKSRC}/choco_package
-	rm -rf ${WRKSRC}/install-nix.sh
-	rm -rf ${WRKSRC}/snapcraft.yaml
-	rm -rf ${WRKSRC}/Dockerfile
-	rm -rf ${WRKSRC}/Makefile*
-	mv ${WRKSRC}/ferox-config.toml.example \
-		${WRKSRC}/ferox-config.toml
-
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}
 	${INSTALL_PROGRAM} ${RELEASE_DIR}/feroxbuster ${INSTDIR}
-	cp ${WRKSRC}/ferox-config.toml ${INSTDIR}
+	cp ${WRKSRC}/ferox-config.toml.example \
+	${INSTDIR}/ferox-config.toml
 
 .include "crates.inc"
 

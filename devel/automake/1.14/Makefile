@@ -8,8 +8,6 @@ MODPY_VERSION=	${MODPY_DEFAULT_VERSION_2}
 
 AUTOCONF_VERSION=	2.69
 
-MODGNU_CONFIG_GUESS_DIRS= ${WRKSRC}/lib
-
 post-install:
 	cd ${PREFIX}/info && mv automake.info automake${SUFFIX}.info
 	perl -pi -e "s,automake\: \(automake\),automake-1\.14\: \(automake-1\.14\)," \

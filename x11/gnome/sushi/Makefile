@@ -1,11 +1,7 @@
 COMMENT=		quick previewer for Nautilus
 
 GNOME_PROJECT=		sushi
-GNOME_VERSION=		44.2
-
-# override gnome MODULE
-SITES=			https://gitlab.gnome.org/GNOME/${GNOME_PROJECT}/-/archive/${GNOME_VERSION}/
-EXTRACT_SUFX=		.tar.gz
+GNOME_VERSION=		46.0
 
 # GPLv2+
 PERMIT_PACKAGE=		Yes
@@ -27,8 +23,6 @@ RUN_DEPENDS=		devel/libsoup3 \
 			www/webkitgtk4,webkitgtk41 \
 			x11/gnome/gjs \
 			x11/gtksourceview4
-
-CONFIGURE_ARGS=		-Dwayland=disabled
 
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 

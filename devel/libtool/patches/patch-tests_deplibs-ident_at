@@ -1,0 +1,12 @@
+Index: tests/deplibs-ident.at
+--- tests/deplibs-ident.at.orig
++++ tests/deplibs-ident.at
+@@ -67,7 +67,7 @@ int main() { return a1() + a2() + a3() + c(); }
+ 	   [0],[stdout],[ignore])
+   AT_CHECK([$EGREP 'cee.*cee' stdout], 1, [ignore], [ignore])
+   AT_XFAIL_IF([case $host in
+-                 *-*-aix*|hppa*-*-hpux*|*-*-interix*|*-*-openbsd*) false;;
++                 *-*-aix*|hppa*-*-hpux*|*-*-interix*|*-*-openbsd*|*-*-secbsd*) false;;
+                  *):;;
+                esac])
+   dnl This is currently broken in libtool

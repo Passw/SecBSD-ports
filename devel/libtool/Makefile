@@ -26,8 +26,6 @@ MAKE_FLAGS+= ${_lt_libs}
 # do not set libtool(1) to /usr/bin/libtool, for obvious reasons
 USE_LIBTOOL=	No
 
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/libltdl/config
-
 CONFIGURE_STYLE= gnu
 CONFIGURE_ENV=	GREP=/usr/bin/grep \
 		ac_cv_f77_compiler_gnu=yes \
@@ -36,6 +34,8 @@ CONFIGURE_ENV=	GREP=/usr/bin/grep \
 		lt_cv_prog_compiler_static_works_F77=yes \
 		ac_cv_prog_F77=g77 \
 		ac_cv_prog_f77_g=yes
+
+MODGNU_CONFIG_GUESS_DIRS= ${WRKSRC} ${WRKSRC}/libltdl/config
 
 MULTI_PACKAGES=	-main -ltdl
 

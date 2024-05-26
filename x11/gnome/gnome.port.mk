@@ -1,13 +1,24 @@
 # Module for GNOME and MATE ports; see gnome-module(5)
 
+.if !empty(DIST_TUPLE)
+.  for _template _account _project _id _targetdir in ${DIST_TUPLE}
+# XXX add support for MATE
+.    if "${_template}" == "gnome"
+GNOME_PROJECT ?=	${_project:L}
+GNOME_VERSION ?=	${_id:C/^(v|V)[-._]?([0-9])/\2/}
+WRKDIST ?=		${WRKDIR}/${_project}-${_id}
+EXTRACT_SUFX ?=		.tar.gz
+SITES ?=		# empty
+.    endif
+.  endfor
+.endif
+
 .if (defined(GNOME_PROJECT) && defined(GNOME_VERSION)) || \
     (defined(MATE_PROJECT) && defined(MATE_VERSION))
 EXTRACT_SUFX ?=		.tar.xz
 .  if (defined(GNOME_PROJECT) && defined(GNOME_VERSION))
 DISTNAME=		${GNOME_PROJECT}-${GNOME_VERSION}
-VERSION=		${GNOME_VERSION}
 HOMEPAGE ?=		https://wiki.gnome.org/
-# XXX add support for fetching DISTFILES from gitlab
 .    if ${GNOME_VERSION:C/^([0-9]+).*/\1/:M[4-9]?}
 SITES ?=		${SITE_GNOME:=sources/${GNOME_PROJECT}/${GNOME_VERSION:C/^([0-9]+).*/\1/}/}
 .    else
@@ -17,7 +28,6 @@ SITES ?=		${SITE_GNOME:=sources/${GNOME_PROJECT}/${GNOME_VERSION:C/^([0-9]+\.[0-
 CATEGORIES +=		x11/gnome
 .  elif (defined(MATE_PROJECT) && defined(MATE_VERSION))
 DISTNAME=		${MATE_PROJECT}-${MATE_VERSION}
-VERSION=		${MATE_VERSION}
 HOMEPAGE ?=		http://mate-desktop.org/
 PORTROACH +=		limitw:1,even
 SITES ?=		http://pub.mate-desktop.org/releases/${MATE_VERSION:C/^([0-9]+\.[0-9]+).*/\1/}/

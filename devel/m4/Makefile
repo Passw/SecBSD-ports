@@ -15,10 +15,10 @@ WANTLIB=	c sigsegv
 
 LIB_DEPENDS=	devel/libsigsegv
 
-MODGNU_CONFIG_GUESS_DIRS= ${WRKSRC}/build-aux
-
 CONFIGURE_STYLE= gnu
 CONFIGURE_ARGS=	--program-prefix="g"
+
+MODGNU_CONFIG_GUESS_DIRS= ${WRKSRC}/build-aux
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/gm4

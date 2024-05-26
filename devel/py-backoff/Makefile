@@ -1,18 +1,18 @@
-COMMENT=		decoration for backoff
+COMMENT=	decoration for backoff
 
 MODPY_EGG_VERSION=	2.2.1
 
-DISTNAME=		backoff-${MODPY_EGG_VERSION}
-PKGNAME=		py-${DISTNAME}
+DISTNAME=	backoff-${MODPY_EGG_VERSION}
+PKGNAME=	py-${DISTNAME}
 
-CATEGORIES=		devel
+CATEGORIES=	devel
 
-HOMEPAGE=		https://github.com/litl/backoff
+HOMEPAGE=	https://github.com/litl/backoff
 
-MAINTAINER=		Purple Rain <purplerain@secbsd.org>
+MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # MIT
-PERMIT_PACKAGE=		Yes
+PERMIT_PACKAGE=	Yes
 
 MODULES=	lang/python
 

@@ -1,4 +1,4 @@
-# $OpenBSD: pkgpath.mk,v 1.87 2022/11/01 10:55:54 espie Exp $
+# $OpenBSD: pkgpath.mk,v 1.89 2023/11/12 12:55:08 espie Exp $
 # ex:ts=4 sw=4 filetype=make:
 #	pkgpath.mk - 2003 Marc Espie
 #	This file is in the public domain.
@@ -88,7 +88,7 @@ _pflavor_fragment = \
 			fi; \
 		done; unset IFS; \
 	fi; \
-	$$found_dir || $$reported || broken "$$dir non existent"; \
+	$$found_dir || $$reported || broken "$$subdir non existent"; \
 	$$found_dir
 
 _flavor_fragment = sawflavor=false; ${_pflavor_fragment}
@@ -206,7 +206,7 @@ _recursive_targets = \
 	update update-or-install update-or-install-all \
 	dump-vars print-plist print-plist-all \
 	print-plist-contents print-plist-libs \
-	show verbose-show show-indexed show-size show-fake-size \
+	show verbose-show show-indexed show-size show-list show-fake-size \
 	check-register check-register-all lock unlock show-prepare-test-results
 
 _dangerous_recursive_targets = \

@@ -18,8 +18,7 @@ GH_COMMIT=		6c7fecdc6346c4f5322049e38f415d5bddaa420d
 
 MODULES=		lang/python
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			www/py-requests${MODPY_FLAVOR}
+RUN_DEPENDS=		www/py-requests${MODPY_FLAVOR}
 
 NO_BUILD=		Yes
 

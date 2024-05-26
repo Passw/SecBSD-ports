@@ -19,8 +19,7 @@ FLAVOR=			python3
 MODPY_PI=		Yes
 MODPY_PYBUILD=		setuptools
 
-BUILD_DEPENDS +=	${RUN_DEPENDS}
-RUN_DEPENDS=		devel/py-hatchling${MODPY_FLAVOR} \
+BUILD_DEPENDS+=		devel/py-hatchling${MODPY_FLAVOR} \
 			devel/py-hatch-vcs${MODPY_FLAVOR}
 
 .include <bsd.port.mk>

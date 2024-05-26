@@ -2531,6 +2531,7 @@ go/src/cmd/go/testdata/script/cover_test_pkgselect.txt
 go/src/cmd/go/testdata/script/cover_test_race_issue56370.txt
 go/src/cmd/go/testdata/script/cover_var_init_order.txt
 go/src/cmd/go/testdata/script/cpu_profile_twice.txt
+go/src/cmd/go/testdata/script/darwin_lto_library_ldflag.txt
 go/src/cmd/go/testdata/script/devnull.txt
 go/src/cmd/go/testdata/script/dist_list_missing.txt
 go/src/cmd/go/testdata/script/doc.txt
@@ -5423,7 +5424,7 @@ go/src/debug/elf/testdata/compressed-32.obj
 go/src/debug/elf/testdata/compressed-64.obj
 go/src/debug/elf/testdata/gcc-386-freebsd-exec
 go/src/debug/elf/testdata/gcc-amd64-linux-exec
-go/src/debug/elf/testdata/gcc-amd64-openbsd-debug-with-rela.obj
+go/src/debug/elf/testdata/gcc-${MACHINE_ARCH}-openbsd-debug-with-rela.obj
 go/src/debug/elf/testdata/go-relocation-test-clang-arm.obj
 go/src/debug/elf/testdata/go-relocation-test-clang-x86.obj
 go/src/debug/elf/testdata/go-relocation-test-gcc424-x86-64.obj
@@ -7570,6 +7571,7 @@ go/src/internal/types/testdata/fixedbugs/issue62157.go
 go/src/internal/types/testdata/fixedbugs/issue63563.go
 go/src/internal/types/testdata/fixedbugs/issue64406.go
 go/src/internal/types/testdata/fixedbugs/issue64704.go
+go/src/internal/types/testdata/fixedbugs/issue65854.go
 go/src/internal/types/testdata/fixedbugs/issue6977.go
 go/src/internal/types/testdata/spec/
 go/src/internal/types/testdata/spec/assignability.go
@@ -13210,7 +13212,11 @@ go/test/fixedbugs/issue6513.dir/a.go
 go/test/fixedbugs/issue6513.dir/b.go
 go/test/fixedbugs/issue6513.dir/main.go
 go/test/fixedbugs/issue6513.go
+go/test/fixedbugs/issue65593.go
 go/test/fixedbugs/issue6572.go
+go/test/fixedbugs/issue66066.go
+go/test/fixedbugs/issue66066b.go
+go/test/fixedbugs/issue66096.go
 go/test/fixedbugs/issue6671.go
 go/test/fixedbugs/issue6703a.go
 go/test/fixedbugs/issue6703b.go

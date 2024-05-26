@@ -22,9 +22,9 @@ MODPY_PYBUILD=		setuptools
 FLAVOR=			python3
 FLAVORS=		python3
 
+BUILD_DEPENDS=		devel/py-setuptools_git${MODPY_FLAVOR}
 RUN_DEPENDS=		lang/cython${MODPY_FLAVOR} \
-			devel/py-setuptools_scm${MODPY_FLAVOR} \
-			devel/py-setuptools_git${MODPY_FLAVOR}
+			devel/py-setuptools_scm${MODPY_FLAVOR}
 
 LIB_DEPENDS=		databases/freetds
 

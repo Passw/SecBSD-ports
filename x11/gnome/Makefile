@@ -1,6 +1,7 @@
      SUBDIR =
      SUBDIR += accerciser
      SUBDIR += adwaita-icon-theme
+     SUBDIR += adwaita-icon-theme-legacy
      SUBDIR += aisleriot
      SUBDIR += at-spi2-core
      SUBDIR += autoar
@@ -33,8 +34,6 @@
      SUBDIR += gcr4
      SUBDIR += gdl
      SUBDIR += gdm
-     SUBDIR += gedit
-     SUBDIR += gedit-plugins
      SUBDIR += ghex
      SUBDIR += gitg
      SUBDIR += gjs
@@ -57,7 +56,6 @@
      SUBDIR += libgepub
      SUBDIR += libgnome-keyring
      SUBDIR += libgnomecanvas
-     SUBDIR += libgnomekbd
      SUBDIR += libgweather4
      SUBDIR += libmediaart
      SUBDIR += libpanel
@@ -69,6 +67,7 @@
      SUBDIR += mahjongg
      SUBDIR += maps
      SUBDIR += menus
+     SUBDIR += msgraph
      SUBDIR += music
      SUBDIR += mutter
      SUBDIR += nautilus
@@ -90,8 +89,9 @@
      SUBDIR += shell-extensions
      SUBDIR += sushi
      SUBDIR += system-monitor
-     SUBDIR += tepl
+     SUBDIR += tecla
      SUBDIR += terminal
+     SUBDIR += tetravex
      SUBDIR += text-editor
      SUBDIR += themes-extra
      SUBDIR += totem

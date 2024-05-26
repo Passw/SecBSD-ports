@@ -18,8 +18,7 @@ PERMIT_PACKAGE=		Yes
 
 MODULES=		lang/python
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			www/py-requests${MODPY_FLAVOR} \
+RUN_DEPENDS=		www/py-requests${MODPY_FLAVOR} \
 			textproc/py-coloredlogs${MODPY_FLAVOR} \
 			www/py-beautifulsoup4${MODPY_FLAVOR}
 

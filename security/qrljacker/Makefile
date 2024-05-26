@@ -28,8 +28,7 @@ MODPY_ADJ_FILES=	QRLJacker/QrlJacker.py \
 			QRLJacker/core/Settings.py \
 			QRLJacker/core/utils.py
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			devel/py-pathlib2${MODPY_FLAVOR} \
+RUN_DEPENDS=		devel/py-pathlib2${MODPY_FLAVOR} \
 			devel/py-terminaltables${MODPY_FLAVOR} \
 			graphics/py-Pillow${MODPY_FLAVOR} \
 			www/geckodriver \

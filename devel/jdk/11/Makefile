@@ -1,23 +1,22 @@
-ONLY_FOR_ARCHS=	i386 amd64 aarch64
+ONLY_FOR_ARCHS=	i386 amd64 aarch64 sparc64
 USE_WXNEEDED=	Yes
 USE_NOBTCFI=	Yes
 DPB_PROPERTIES=	parallel
 
 COMMENT=	OpenJDK Software Development Kit v${VERSION_STR}
-BASE_VER=	11.0.20
-PATCH_VER=	8
-BSD_PORT_REL=	1
+BASE_VER=	11.0.23
+PATCH_VER=	9
+BSD_PORT_REL=	2
 VERSION_STR=	${BASE_VER}+${PATCH_VER}-${BSD_PORT_REL}
 PACKAGE_VER=	${BASE_VER}.${PATCH_VER}.${BSD_PORT_REL}
 PKGNAME=	jdk-${PACKAGE_VER}
 PKGSTEM=	jdk-11
 EPOCH=		0
-REVISION=	0
 
 DIST_SUBDIR=	jdk
 DISTNAME=	jdk-${VERSION_STR}
 WRKDIST=	${WRKDIR}/jdk11u-jdk-${BASE_VER}-${PATCH_VER}-${BSD_PORT_REL}
-BOOTJDK_DATE=	20230630
+BOOTJDK_DATE=	20240331
 
 CATEGORIES=	devel/jdk java
 
@@ -27,8 +26,8 @@ FLAVOR?=
 HOMEPAGE=	http://openjdk.java.net/
 
 SITES=		https://github.com/battleblow/jdk11u/archive/
-SITES.boot=	https://spacehopper.org/mirrors/ \
-		http://www.intricatesoftware.com/distfiles/
+SITES.boot=	http://www.intricatesoftware.com/distfiles/ \
+		https://spacehopper.org/mirrors/
 
 MAINTAINER=	Kurt Miller <kurt@openbsd.org>
 
@@ -45,7 +44,8 @@ NO_TEST=	Yes
 SUPDISTFILES.boot =	\
 		openjdk-jdk11u-bootjdk-i386-${BOOTJDK_DATE}.tar.gz  \
 		openjdk-jdk11u-bootjdk-amd64-${BOOTJDK_DATE}.tar.gz \
-		openjdk-jdk11u-bootjdk-aarch64-${BOOTJDK_DATE}.tar.gz
+		openjdk-jdk11u-bootjdk-aarch64-${BOOTJDK_DATE}.tar.gz \
+		openjdk-jdk11u-bootjdk-sparc64-${BOOTJDK_DATE}.tar.gz
 
 COMPILER=	base-clang ports-gcc
 
@@ -60,7 +60,8 @@ BUILD_DEPENDS+=	jdk->=11v0,<12v0:devel/jdk/11
 BOOT_JDK=	${LOCALBASE}/jdk-11
 .else
 BOOT_JDK_DIST=	openjdk-jdk11u-bootjdk-${MACHINE_ARCH}-${BOOTJDK_DATE}.tar.gz
-.  if (${MACHINE_ARCH}==amd64) || (${MACHINE_ARCH}==i386) || (${MACHINE_ARCH}==aarch64)
+.  if (${MACHINE_ARCH}==amd64) || (${MACHINE_ARCH}==i386) || \
+     (${MACHINE_ARCH}==aarch64) || (${MACHINE_ARCH}==sparc64)
 DISTFILES.boot=	${BOOT_JDK_DIST}
 .  endif
 MAKE_ENV+=	LD_LIBRARY_PATH=${WRKDIR}/bootjdk-libs
@@ -112,6 +113,7 @@ CONFIGURE_ARGS=	DOT="" FLOCK="" GIT="" HG="" PANDOC="" \
 		--with-giflib=system \
 		--with-giflib-include=${LOCALBASE}/include \
 		--with-giflib-lib=${LOCALBASE}/lib \
+		--with-stdc++lib=dynamic \
 		--disable-option-checking \
 		--disable-ccache \
 		--disable-hotspot-gtest \
@@ -151,11 +153,11 @@ PKG_ARGS+=	-Dci=1
 PKG_ARGS+=	-Dci=0
 .endif
 
-JVMARCH=	${MACHINE_ARCH:S/i386/x86/:S/amd64/x86_64/}
+JVMARCH=	${MACHINE_ARCH:S/i386/x86/:S/amd64/x86_64/:S/sparc64/sparcv9/}
 BUILDDIR=	${WRKDIST}/build/bsd-${JVMARCH}-normal-server-release
 IMAGEDIR=	${BUILDDIR}/images/jdk
 WRKTMP=		${WRKDIR}/tmp
- 
+
 post-extract:
 	sed -i "s|#!/bin/bash|#!\${LOCALBASE}/bin/bash|" ${WRKDIST}/configure
 	chmod +x ${WRKDIST}/configure
@@ -174,7 +176,7 @@ post-build:
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/${PKGSTEM}
-	cd ${IMAGEDIR} && tar -cf - * | tar -C ${PREFIX}/${PKGSTEM} -xf - 
+	cd ${IMAGEDIR} && tar -cf - * | tar -C ${PREFIX}/${PKGSTEM} -xf -
 
 # The bootjdk is the jdk image with some parts deleted
 # and a copy of the system shared libs needed to run it.
@@ -187,17 +189,19 @@ build-bootjdk: build
 	@${_PBUILD} mkdir -p ${WRKTMP}/bootjdk-libs
 	@cd ${IMAGEDIR} && \
 		tar -cf - * | \
-		${_PBUILD} tar -C ${WRKTMP}/bootjdk -xf - 
+		${_PBUILD} tar -C ${WRKTMP}/bootjdk -xf -
 	@cd ${WRKTMP}/bootjdk && \
 		${_PBUILD} rm -rf demo jmods man sample
 	@cd ${WRKTMP}/bootjdk/lib && \
-		${_PBUILD} rm libsplashscreen.so libinstrument.so libawt_xawt.so \
-		liblcms.so libfontmanager.so libjdwp.so libjavajpeg.so
+		${_PBUILD} rm libsplashscreen.so libinstrument.so \
+		libawt_xawt.so liblcms.so libfontmanager.so libjdwp.so \
+		libjavajpeg.so
 	@find ${WRKTMP}/bootjdk/lib ${WRKTMP}/bootjdk/bin \
 		-exec sh -c 'file {} | grep -q ELF && \
 		${_PBUILD} strip -S {}' \;
 	@LD_LIBRARY_PATH="${WRKTMP}/bootjdk/lib" \
-		find ${WRKTMP}/bootjdk -type f -perm -500 -exec ldd {} + 2>/dev/null | \
+		find ${WRKTMP}/bootjdk -type f -perm -500 \
+		-exec ldd {} + 2>/dev/null | \
 		grep rlib | cut -d"/" -f 2-20 | sort -u | grep -v "\.so$$" | \
 		xargs -I % ${_PBUILD} cp /% ${WRKTMP}/bootjdk-libs
 	@cd ${WRKTMP} && \

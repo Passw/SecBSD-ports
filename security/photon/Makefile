@@ -19,8 +19,7 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/python
 MODPY_ADJ_FILES=	photon.py
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			www/py-requests${MODPY_FLAVOR} \
+RUN_DEPENDS=		www/py-requests${MODPY_FLAVOR} \
 			www/py-urllib3${MODPY_FLAVOR} \
 			net/py-tld${MODPY_FLAVOR}
 

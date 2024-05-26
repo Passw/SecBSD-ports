@@ -20,8 +20,7 @@ WANTLIB+=	c pthread
 
 MODULES=	lang/go
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		security/massdns
+RUN_DEPENDS=	security/massdns
 
 .include "modules.inc"
 

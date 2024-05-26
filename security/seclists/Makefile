@@ -3,6 +3,7 @@ CATEGORIES=	security
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 DIST_TUPLE =	github danielmiessler SecLists 2024.1 .
+PKGNAME=	seclists-2024.1
 
 HOMEPAGE=	https://github.com/danielmiessler/SecLists
 

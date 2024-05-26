@@ -1,0 +1,3 @@
+This tool will search an updated database for a specific organization's ASN then
+use the latter to look up all IP addresses (IPv4 and IPv6) registered and owned
+by the organization.

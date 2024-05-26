@@ -20,8 +20,7 @@ MODULES=		lang/python
 
 MODPY_PYBUILD=		setuptools
 
-BUILD_DEPENDS+=		${RUN_DEPENDS} \
-			devel/py-terminaltables${MODPY_FLAVOR} \
+RUN_DEPENDS=		devel/py-terminaltables${MODPY_FLAVOR} \
 			devel/py-perclip${MODPY_FLAVOR} \
 			devel/py-prompt_toolkit${MODPY_FLAVOR} \
 			devel/py-colorama${MODPY_FLAVOR} \

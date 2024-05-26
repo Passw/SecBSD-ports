@@ -1,0 +1,26 @@
+Index: configure
+--- configure.orig
++++ configure
+@@ -17738,7 +17738,7 @@ then :
+       "$GREP" CURL_DEF_TOKEN 2>/dev/null | \
+       "$SED" 's/.*CURL_DEF_TOKEN[ ][ ]*//' 2>/dev/null | \
+       "$SED" 's/["][ ]*["]//g' 2>/dev/null`
+-    if test -z "$tmp_exp" || test "$tmp_exp" = ""; then
++    if test -z "$tmp_exp" || test "$tmp_exp" = "__unix__"; then
+       tmp_exp=""
+     fi
+ 
+@@ -18777,7 +18777,7 @@ printf %s "checking if compiler accepts debug enabling
+     tmp_options=""
+     tmp_CFLAGS="$CFLAGS"
+     tmp_CPPFLAGS="$CPPFLAGS"
+-    honor_optimize_option="yes"
++    honor_optimize_option="no"
+     #
+                         #
+     if test "$want_optimize" = "assume_no" ||
+@@ -49111,4 +49111,3 @@ if test -n "$experimental"; then
+   WARNING: $experimental enabled but marked EXPERIMENTAL. Use with caution!
+ _EOF
+ fi
+-

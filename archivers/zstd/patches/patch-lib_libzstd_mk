@@ -3,7 +3,7 @@ Some compilers don't have -Wvla.
 Index: lib/libzstd.mk
 --- lib/libzstd.mk.orig
 +++ lib/libzstd.mk
-@@ -100,7 +100,7 @@ endif
+@@ -113,7 +113,7 @@ endif
  DEBUGFLAGS= -Wall -Wextra -Wcast-qual -Wcast-align -Wshadow \
              -Wstrict-aliasing=1 -Wswitch-enum -Wdeclaration-after-statement \
              -Wstrict-prototypes -Wundef -Wpointer-arith \
@@ -12,11 +12,11 @@ Index: lib/libzstd.mk
              -Wredundant-decls -Wmissing-prototypes -Wc++-compat
  CFLAGS   += $(DEBUGFLAGS) $(MOREFLAGS)
  ASFLAGS  += $(DEBUGFLAGS) $(MOREFLAGS) $(CFLAGS)
-@@ -197,6 +197,8 @@ else ifeq ($(UNAME), FreeBSD)
+@@ -217,7 +217,7 @@ else ifeq ($(UNAME), FreeBSD)
+   HASH ?= gmd5sum
  else ifeq ($(UNAME), NetBSD)
    HASH ?= md5 -n
- else ifeq ($(UNAME), OpenBSD)
-+  HASH ?= md5
+-else ifeq ($(UNAME), OpenBSD)
 +else ifeq ($(UNAME), SecBSD)
    HASH ?= md5
  endif

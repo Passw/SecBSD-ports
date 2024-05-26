@@ -92,3 +92,4 @@ share/examples/cyrus-sasl/
 %%gssapi%%
 %%ldap%%
 %%sql%%
+share/examples/cyrus-sasl/Sendmail.conf-sql

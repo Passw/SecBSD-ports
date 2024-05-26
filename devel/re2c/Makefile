@@ -19,8 +19,6 @@ SITES=		https://github.com/skvadrik/re2c/releases/download/$V/
 
 TEST_DEPENDS=	shells/bash
 
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
-
 CONFIGURE_STYLE= gnu
 
 # re2c will use bison if present at build time, but will otherwise fallback
@@ -32,5 +30,7 @@ CONFIGURE_ENV=	ac_cv_path_BISON=no
 # don't force the dep for Python; seems only used to run docutils, not for
 # a normal build from the tarball
 CONFIGURE_ENV+=	am_cv_pathless_PYTHON=python3
+
+MODGNU_CONFIG_GUESS_DIRS= ${WRKSRC} ${WRKSRC}/build-aux
 
 .include <bsd.port.mk>

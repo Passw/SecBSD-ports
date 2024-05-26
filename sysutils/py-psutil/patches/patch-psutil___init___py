@@ -1,7 +1,15 @@
 Index: psutil/__init__.py
 --- psutil/__init__.py.orig
 +++ psutil/__init__.py
-@@ -66,6 +66,7 @@ from ._common import OSX  # deprecated alias
+@@ -14,6 +14,7 @@ sensors) in Python. Supported platforms:
+  - FreeBSD
+  - OpenBSD
+  - NetBSD
++ - SecBSD
+  - Sun Solaris
+  - AIX
+ 
+@@ -66,6 +67,7 @@ from ._common import OSX  # deprecated alias
  from ._common import POSIX  # NOQA
  from ._common import POWER_TIME_UNKNOWN
  from ._common import POWER_TIME_UNLIMITED
@@ -9,7 +17,7 @@ Index: psutil/__init__.py
  from ._common import STATUS_DEAD
  from ._common import STATUS_DISK_SLEEP
  from ._common import STATUS_IDLE
-@@ -170,7 +171,7 @@ __all__ = [
+@@ -171,7 +173,7 @@ __all__ = [
      "POWER_TIME_UNKNOWN", "POWER_TIME_UNLIMITED",
  
      "BSD", "FREEBSD", "LINUX", "NETBSD", "OPENBSD", "MACOS", "OSX", "POSIX",
@@ -18,7 +26,18 @@ Index: psutil/__init__.py
  
      # "RLIM_INFINITY", "RLIMIT_AS", "RLIMIT_CORE", "RLIMIT_CPU", "RLIMIT_DATA",
      # "RLIMIT_FSIZE", "RLIMIT_LOCKS", "RLIMIT_MEMLOCK", "RLIMIT_NOFILE",
-@@ -1179,7 +1180,7 @@ class Process(object):
+@@ -410,8 +412,8 @@ class Process(object):  # noqa: UP004
+         # on PID and creation time.
+         if not isinstance(other, Process):
+             return NotImplemented
+-        if OPENBSD or NETBSD:  # pragma: no cover
+-            # Zombie processes on Open/NetBSD have a creation time of
++        if OPENBSD or SECBSD or NETBSD:  # pragma: no cover
++            # Zombie processes on Open/Sec/NetBSD have a creation time of
+             # 0.0. This covers the case when a process started normally
+             # (so it has a ctime), then it turned into a zombie. It's
+             # important to do this because is_running() depends on
+@@ -1235,7 +1237,7 @@ class Process(object):  # noqa: UP004
              try:
                  os.kill(self.pid, sig)
              except ProcessLookupError:

@@ -1,11 +1,13 @@
 COMMENT-main=	trivial database library
 COMMENT-python=	Python ${MODPY_VERSION} bindings for tdb
+REVISION-main=	0
 
 # Keep in sync with the version bundled in net/samba
-V=		1.4.9
+V=		1.4.10
 
 DISTNAME=	tdb-$V
 PKGNAME-python=	py3-${DISTNAME}
+REVISION-python=0
 
 MULTI_PACKAGES=	-main -python
 
@@ -18,7 +20,8 @@ CATEGORIES=	databases
 
 HOMEPAGE=	https://tdb.samba.org/
 
-MAINTAINER=	Jeremie Courreges-Anglas <jca@wxcvbn.org>
+MAINTAINER=	Ian McWilliam <kaosagnt@gmail.com>, \
+		Bjorn Ketelaars <bket@openbsd.org>
 
 # LGPLv3+
 PERMIT_PACKAGE=	Yes

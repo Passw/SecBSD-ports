@@ -1,11 +1,6 @@
 COMMENT =		suite of solitaire card games
 
-GNOME_PROJECT =		aisleriot
-GNOME_VERSION =		3.22.30
-
-# override gnome MODULE
-SITES =			https://gitlab.gnome.org/GNOME/${GNOME_PROJECT}/-/archive/${GNOME_VERSION}/
-EXTRACT_SUFX =		.tar.gz
+DIST_TUPLE =		gnome GNOME aisleriot 3.22.32 .
 
 CATEGORIES =		games
 

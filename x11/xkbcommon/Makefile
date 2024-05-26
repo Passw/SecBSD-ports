@@ -1,10 +1,10 @@
 COMMENT=		library to handle keyboard descriptions
 
-DISTNAME=		libxkbcommon-1.5.0
+DISTNAME=		libxkbcommon-1.7.0
 
-SHARED_LIBS += xkbcommon                 1.6 # 0.0.0
-SHARED_LIBS += xkbcommon-x11             1.2 # 0.0.0
-SHARED_LIBS += xkbregistry               0.0 # 0.0.0
+SHARED_LIBS += xkbcommon                 2.1 # 0.0.0
+SHARED_LIBS += xkbcommon-x11             2.1 # 0.0.0
+SHARED_LIBS += xkbregistry               1.1 # 0.0.0
 
 CATEGORIES=		x11 inputmethods
 
@@ -26,13 +26,15 @@ MODULES=		devel/meson
 COMPILER=		base-clang ports-gcc
 COMPILER_LANGS=		c
 
-WANTLIB += c xcb xcb-xkb xml2
+WANTLIB += c wayland-client xcb xcb-xkb xml2
 
-BUILD_DEPENDS=		devel/bison
-LIB_DEPENDS=		textproc/libxml
+BUILD_DEPENDS=		devel/bison \
+			wayland/wayland-protocols
+
+LIB_DEPENDS=		textproc/libxml \
+			wayland/wayland
 
 CONFIGURE_ARGS +=	-Denable-docs=false \
-			-Denable-wayland=false \
 			-Dx-locale-root=${X11BASE}/share/X11/locale \
 			-Dxkb-config-root=${X11BASE}/share/X11/xkb/ \
 			-Denable-xkbregistry=true

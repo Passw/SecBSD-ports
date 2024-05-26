@@ -1,10 +1,13 @@
-# !!! do not update blindly: sysutils/awscli requires a specific version
+# !!! do not update blindly, these ports require a specific version:
+# net/py-boto3
+# sysutils/awscli
 
 COMMENT=		Amazon S3 transfer manager for Python
 
-MODPY_EGG_VERSION=	0.7.0
+MODPY_EGG_VERSION=	0.10.1
 DISTNAME=		s3transfer-${MODPY_EGG_VERSION}
 PKGNAME=		py-${DISTNAME}
+REVISION=		0
 
 CATEGORIES=		net devel
 

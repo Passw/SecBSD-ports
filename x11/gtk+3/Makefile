@@ -6,15 +6,15 @@ COMMENT-main=		multi-platform graphical toolkit
 COMMENT-cups=		gtk+3 CUPS print backend
 
 GNOME_PROJECT=		gtk+
-GNOME_VERSION=		3.24.38
+GNOME_VERSION=		3.24.42
 
 PKGNAME-main=		gtk+3-${GNOME_VERSION}
 PKGNAME-cups=		gtk+3-cups-${GNOME_VERSION}
 
 CATEGORIES=		x11 devel
 
-SHARED_LIBS += gdk-3                     2201.1 # 0.2406.32
-SHARED_LIBS += gtk-3                     2201.0 # 0.2406.32
+SHARED_LIBS += gdk-3                     2201.1 # 0.2410.32
+SHARED_LIBS += gtk-3                     2201.0 # 0.2410.32
 SHARED_LIBS += gailutil-3                0.0 # 0.0.0
 
 HOMEPAGE=		http://www.gtk.org/
@@ -35,12 +35,19 @@ MODULES=		devel/dconf \
 COMPILER=		base-clang ports-gcc
 COMPILER_LANGS=		c
 
+BUILD_DEPENDS=		wayland/wayland-protocols
+
+# needs BTN_LEFT
+BUILD_DEPENDS +=	wayland/libinput-openbsd
+
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 LIB_DEPENDS-main=	${LIB_DEPENDS} \
 			devel/pango \
 			graphics/gdk-pixbuf2 \
-			x11/gnome/at-spi2-core
+			wayland/wayland \
+			x11/gnome/at-spi2-core \
+			x11/xkbcommon
 RUN_DEPENDS-main=	${RUN_DEPENDS} \
 			x11/hicolor-icon-theme
 
@@ -54,7 +61,8 @@ WANTLIB-main += X11 Xcomposite Xcursor Xdamage Xext Xfixes Xi Xinerama
 WANTLIB-main += Xrandr atk-1.0 atk-bridge-2.0 c cairo cairo-gobject
 WANTLIB-main += epoxy fontconfig fribidi gdk_pixbuf-2.0 gio-2.0 glib-2.0
 WANTLIB-main += gmodule-2.0 gobject-2.0 harfbuzz intl m pango-1.0 pangocairo-1.0
-WANTLIB-main += pangoft2-1.0
+WANTLIB-main += pangoft2-1.0 wayland-client wayland-cursor wayland-egl
+WANTLIB-main += xkbcommon
 
 LIB_DEPENDS-cups=	${LIB_DEPENDS} \
 			print/cups,-libs \
@@ -70,9 +78,6 @@ TEST_IS_INTERACTIVE=	x11
 
 CONFIGURE_ARGS=		-Dprint_backends="cups,file,lpr" \
 			-Dman=true
-
-# explicitly decativate wayland
-CONFIGURE_ARGS +=	-Dwayland_backend=false
 
 # !!! Disable colord until proven useful
 CONFIGURE_ARGS +=	-Dcolord=no

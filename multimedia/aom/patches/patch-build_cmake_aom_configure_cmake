@@ -3,20 +3,14 @@ ARM uses compiler intrinsics, so don't require GNU as.
 Index: build/cmake/aom_configure.cmake
 --- build/cmake/aom_configure.cmake.orig
 +++ build/cmake/aom_configure.cmake
-@@ -188,16 +188,6 @@ elseif(AOM_TARGET_CPU MATCHES "arm")
+@@ -192,6 +192,10 @@ elseif(AOM_TARGET_CPU MATCHES "arm")
+     if(NOT CMAKE_ASM_COMPILER)
+       set(CMAKE_ASM_COMPILER ${CMAKE_C_COMPILER} -c -mimplicit-it=always)
      endif()
-   endif()
-   find_program(as_executable_found ${AS_EXECUTABLE})
--  if(NOT as_executable_found)
--    message(
--      FATAL_ERROR
--        "Unable to find assembler and optimizations are enabled."
--        "Searched for ${AS_EXECUTABLE}. Install it, add it to your path, or "
--        "set the assembler directly by adding -DAS_EXECUTABLE=<assembler path> "
--        "to your CMake command line."
--        "To build without optimizations, add -DAOM_TARGET_CPU=generic to your "
--        "cmake command line.")
--  endif()
-   string(STRIP "${AOM_AS_FLAGS}" AOM_AS_FLAGS)
- endif()
- 
++  elseif(AOM_TARGET_SYSTEM STREQUAL "OpenBSD")
++    if(NOT CMAKE_ASM_COMPILER)
++      set(CMAKE_ASM_COMPILER ${CMAKE_C_COMPILER})
++    endif()
+   else()
+     if(NOT CMAKE_ASM_COMPILER)
+       set(CMAKE_ASM_COMPILER as)

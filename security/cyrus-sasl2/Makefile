@@ -53,6 +53,8 @@ CONFIGURE_ARGS=		--enable-static \
 			--enable-auth-sasldb \
 			--disable-sample
 
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
+
 CFLAGS +=		-fPIC
 
 USE_GMAKE=		Yes

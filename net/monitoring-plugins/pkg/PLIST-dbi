@@ -1,3 +1,0 @@
-@conflict nagios-plugins-dbi-*
-@pkgpath net/nagios/plugins,-dbi
-@bin libexec/nagios/check_dbi

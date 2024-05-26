@@ -3,17 +3,16 @@
 COMMENT=		GNOME settings daemon
 
 GNOME_PROJECT=		gnome-settings-daemon
-GNOME_VERSION=		44.1
-REVISION=		0
+GNOME_VERSION=		46.0
 
 # GPLv3
 PERMIT_PACKAGE=		Yes
 
 WANTLIB += X11 Xext Xfixes Xi c canberra canberra-gtk3 colord
-WANTLIB += cups fontconfig gdk-3 geoclue-2 geocode-glib-2 gio-2.0
-WANTLIB += glib-2.0 gnome-desktop-3 gobject-2.0 gtk-3 gweather-4
-WANTLIB += intl m notify nspr4 nss3 polkit-gobject-1 pulse pulse-mainloop-glib
-WANTLIB += upower-glib
+WANTLIB += cups fontconfig gck-2 gdk-3 geoclue-2 geocode-glib-2
+WANTLIB += gio-2.0 glib-2.0 gnome-desktop-3 gobject-2.0 gtk-3
+WANTLIB += gweather-4 intl m notify p11-kit polkit-gobject-1 pulse
+WANTLIB += pulse-mainloop-glib upower-glib wayland-client
 
 MODULES=		devel/dconf \
 			devel/meson \
@@ -23,12 +22,12 @@ LIB_DEPENDS=		audio/libcanberra,-gtk3 \
 			audio/pulseaudio \
 			devel/libnotify \
 			geo/geoclue2 \
-			geo/geocode-glib,soup3 \
+			geo/geocode-glib \
 			graphics/colord \
 			print/cups,-libs \
-			security/nss \
 			sysutils/upower \
 			x11/gnome/desktop \
+			x11/gnome/gcr4 \
 			x11/gnome/libgweather4
 
 BUILD_DEPENDS=		devel/gsettings-desktop-schemas
@@ -54,7 +53,6 @@ CONFIGURE_ARGS= 	-Dalsa=false \
 			-Dnetwork_manager=false \
 			-Drfkill=false \
 			-Dsystemd=false \
-			-Dwayland=false \
 			-Dwwan=false
 
 DEBUG_PACKAGES=		${BUILD_PACKAGES}

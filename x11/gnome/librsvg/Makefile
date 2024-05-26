@@ -1,11 +1,11 @@
-PORTROACH=		skipv:2.56.90,2.56.92,2.56.93
+PORTROACH=		skipv:2.56.90,2.56.92,2.56.93,2.58.90,2.58.91
 
 COMMENT=		SAX-based render library for SVG files
 
 # !!! /!\ make sure both distinfo are updated on version change:
 # make makesum && make RUST_ARCHS= makesum
 GNOME_PROJECT=		librsvg
-STABLE_VERSION=		2.57.0
+STABLE_VERSION=		2.58.0
 OLD_VERSION=		2.40.21
 DISTFILES.stable=	librsvg-${STABLE_VERSION}${EXTRACT_SUFX}
 DISTFILES.old= 		librsvg-${OLD_VERSION}${EXTRACT_SUFX}
@@ -19,24 +19,22 @@ DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 ### stable
 .if ${PROPERTIES:Mrust}
-SHARED_LIBS +=  rsvg-2               41.0     # 50.0
+SHARED_LIBS +=  rsvg-2               41.0     # 52.0
 GNOME_VERSION=		${STABLE_VERSION}
 MODULES +=		devel/cargo \
 			lang/python
 MODCARGO_BUILD=		No
-MODCARGO_DIST_SUBDIR=	${DIST_SUBDIR}
 MODCARGO_INSTALL=	No
 MODCARGO_TEST=		No
 MODPY_RUNDEP=		No
-BUILD_DEPENDS=		lang/rust \
-			textproc/py-docutils${MODPY_FLAVOR}
+BUILD_DEPENDS=		textproc/py-docutils${MODPY_FLAVOR}
 PKG_ARGS=		-Dold=0 -Dstable=1
 MAKE_ENV +=		${MODCARGO_ENV}
 MAKE_FLAGS +=		V=1
-WANTLIB += ${COMPILER_LIBCXX} Xau Xdmcp cairo-gobject jpeg
+WANTLIB += ${MODCARGO_WANTLIB} ${COMPILER_LIBCXX} Xau Xdmcp cairo-gobject jpeg
 .else
 ### old
-REVISION=		5
+REVISION=		6
 SHARED_LIBS +=  rsvg-2               38.2     # 42.20
 GNOME_VERSION=		${OLD_VERSION}
 PATCH_LIST=		old-patch-*

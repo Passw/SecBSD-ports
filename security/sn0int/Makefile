@@ -1,42 +1,43 @@
-ONLY_FOR_ARCHS=	aarch64 amd64
+# ring-v0.16.20 does not support those archs
+NOT_FOR_ARCHS =	powerpc64 riscv64 sparc64
 
-COMMENT=	semi-automatic OSINT framework
+BROKEN-i386 =	error[E0428]: the name `U1024` is defined multiple times
 
-GH_ACCOUNT=	kpcyrd
-GH_PROJECT=	sn0int
-GH_TAGNAME=	v0.26.0
+COMMENT =	semi-automatic OSINT framework and package manager
 
-CATEGORIES=	security
+GH_ACCOUNT =	kpcyrd
+GH_PROJECT =	sn0int
+GH_TAGNAME =	v0.26.0
 
-HOMEPAGE=	https://sn0int.readthedocs.io
+CATEGORIES =	security
 
-MAINTAINER=	Purple Rain <purplerain@secbsd.org>
+MAINTAINER =	Purple Rain <purplerain@secbsd.org>
 
 # GPLv3+
-PERMIT_PACKAGE=	Yes
+PERMIT_PACKAGE =	Yes
 
 # uses pledge()
-LIB_DEPENDS=	databases/sqlite3 security/libsodium ${MODLUA_LIB_DEPENDS}
-WANTLIB+=	c c++abi m pthread sqlite3 sodium ${MODLUA_WANTLIB}
+LIB_DEPENDS =		databases/sqlite3 security/libsodium ${MODLUA_LIB_DEPENDS}
+WANTLIB +=		m sqlite3 sodium ${MODLUA_WANTLIB} ${MODCARGO_WANTLIB}
 
-MODLUA_VERSION=	5.2
-MODLUA_SA=	Yes
+MODLUA_VERSION =	5.2
+MODLUA_SA =		Yes
 
-MODULES=	devel/cargo \
-		lang/lua
-BUILD_DEPENDS=	security/rust-ring \
-		textproc/py-sphinx,python3
-RUN_DEPENDS=	net/libmaxminddb,-asn \
-		net/libmaxminddb,-city
+MODULES =		devel/cargo \
+			lang/lua
+BUILD_DEPENDS =		security/rust-ring \
+			textproc/py-sphinx,python3
+RUN_DEPENDS =		net/libmaxminddb,-asn \
+			net/libmaxminddb,-city
 
 .include "crates.inc"
 
-CONFIGURE_STYLE=cargo
-SEPARATE_BUILD=	Yes
+CONFIGURE_STYLE =	cargo
+SEPARATE_BUILD =	Yes
 
-MODCARGO_RUSTFLAGS=-C debuginfo=0
+MODCARGO_RUSTFLAGS =	-C debuginfo=0
 
-RELEASE_DIR=	${MODCARGO_TARGET_DIR}/release
+RELEASE_DIR =		${MODCARGO_TARGET_DIR}/release
 
 do-build:
 	@${MODCARGO_BUILD_TARGET}

@@ -1,7 +1,7 @@
 COMMENT=	cloud recon tool
 
 MODGO_MODNAME=	github.com/g0ldencybersec/CloudRecon
-MODGO_VERSION=	v1.0.3
+MODGO_VERSION=	v1.0.4
 
 DISTNAME=	cloudrecon-${MODGO_VERSION}
 

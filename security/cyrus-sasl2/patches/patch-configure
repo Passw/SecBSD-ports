@@ -1,6 +1,69 @@
 Index: configure
 --- configure.orig
 +++ configure
+@@ -6948,7 +6948,7 @@ else
+     lt_cv_sys_max_cmd_len=8192;
+     ;;
+ 
+-  bitrig* | darwin* | dragonfly* | freebsd* | netbsd* | openbsd*)
++  bitrig* | darwin* | dragonfly* | freebsd* | netbsd* | openbsd* | secbsd*)
+     # This has been around since 386BSD, at least.  Likely further.
+     if test -x /sbin/sysctl; then
+       lt_cv_sys_max_cmd_len=`/sbin/sysctl -n kern.argmax`
+@@ -7365,7 +7365,7 @@ freebsd* | dragonfly*)
+     i*86 )
+       # Not sure whether the presence of OpenBSD here was a mistake.
+       # Let's accept both of them until this is cleared up.
+-      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|DragonFly)/i[3-9]86 (compact )?demand paged shared library'
++      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|SecBSD|DragonFly)/i[3-9]86 (compact )?demand paged shared library'
+       lt_cv_file_magic_cmd=/usr/bin/file
+       lt_cv_file_magic_test_file=`echo /usr/lib/libc.so.*`
+       ;;
+@@ -7435,7 +7435,7 @@ newos6*)
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+ 
+-openbsd* | bitrig*)
++openbsd* | bitrig* | secbsd*)
+   if test -z "`echo __ELF__ | $CC -E - | $GREP __ELF__`"; then
+     lt_cv_deplibs_check_method='match_pattern /lib[^/]+(\.so\.[0-9]+\.[0-9]+|\.so|_pic\.a)$'
+   else
+@@ -8054,7 +8054,7 @@ old_postuninstall_cmds=
+ 
+ if test -n "$RANLIB"; then
+   case $host_os in
+-  bitrig* | openbsd*)
++  bitrig* | openbsd* | secbsd*)
+     old_postinstall_cmds="$old_postinstall_cmds~\$RANLIB -t \$tool_oldlib"
+     ;;
+   *)
+@@ -10812,7 +10812,7 @@ $as_echo_n "checking whether the $compiler linker ($LD
+     # we just hope/assume this is gcc and not c89 (= MSVC++)
+     with_gnu_ld=yes
+     ;;
+-  openbsd* | bitrig*)
++  openbsd* | bitrig* | secbsd*)
+     with_gnu_ld=no
+     ;;
+   linux* | k*bsd*-gnu | gnu*)
+@@ -11786,7 +11786,7 @@ $as_echo "$lt_cv_irix_exported_symbol" >&6; }
+     *nto* | *qnx*)
+       ;;
+ 
+-    openbsd* | bitrig*)
++    openbsd* | bitrig* | secbsd*)
+       if test -f /usr/libexec/ld.so; then
+ 	hardcode_direct=yes
+ 	hardcode_shlibpath_var=no
+@@ -12928,7 +12928,7 @@ newsos6)
+   dynamic_linker='ldqnx.so'
+   ;;
+ 
+-openbsd* | bitrig*)
++openbsd* | bitrig* | secbsd*)
+   version_type=sunos
+   sys_lib_dlsearch_path_spec=/usr/lib
+   need_lib_prefix=no
 @@ -16879,6 +16879,7 @@ if ${ac_cv_lib_gssapi_gss_unwrap+:} false; then :
  else
    ac_check_lib_save_LIBS=$LIBS

@@ -2,11 +2,11 @@ COMMENT=	Google VP8/VP9 video codec
 
 GH_ACCOUNT=	webmproject
 GH_PROJECT=	libvpx
-GH_TAGNAME=	v1.13.1
+GH_TAGNAME=	v1.14.0
 EPOCH=		0
 CATEGORIES=	multimedia
 
-SHARED_LIBS=	vpx	16.0
+SHARED_LIBS=	vpx	17.0
 
 HOMEPAGE=	https://www.webmproject.org/
 
@@ -34,14 +34,14 @@ CONFIGURE_ARGS+=--enable-shared \
 		--enable-runtime-cpu-detect \
 		--enable-vp9-highbitdepth \
 		--prefix=${PREFIX} \
-		--disable-optimizations \
-		--disable-unit-tests
+		--enable-optimizations \
+		--enable-unit-tests \
+		--enable-decode-perf-tests \
+		--enable-encode-perf-tests
 
 .if ${MACHINE_ARCH} == "arm"
 CONFIGURE_ARGS+=--disable-neon
 .endif
-
-NO_TEST=	Yes
 
 ALL_TARGET=
 
@@ -54,5 +54,12 @@ post-install:
 	@chmod ${SHAREMODE} ${PREFIX}/lib/lib*
 	@chown ${SHAREOWN}:${SHAREGRP} ${PREFIX}/lib/pkgconfig/vpx.pc
 	@chmod ${SHAREMODE} ${PREFIX}/lib/pkgconfig/vpx.pc
+
+pre-test:
+	@if ! [ -e ${WRKBUILD}/screendata.y4m ]; then \
+		echo "\n>>> Tests require additional downloads. Please run:"; \
+		echo ">>> ${GMAKE} -C ${WRKBUILD} testdata\n"; \
+		exit 1; \
+	fi
 
 .include <bsd.port.mk>

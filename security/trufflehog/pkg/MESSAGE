@@ -1,6 +1,0 @@
-
-Find credentials in git repositories.
-
-Help:
-
-$ trufflehog git --help

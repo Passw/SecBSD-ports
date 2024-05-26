@@ -40,6 +40,8 @@ CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		PTHREAD_CFLAGS=-pthread \
 		PTHREAD_LIBS=-pthread
 
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/build-aux ${WRKSRC}/guile-readline
+
 V=		${VERSION:C,.[0-9]+$,,}
 SUBST_VARS=	V
 

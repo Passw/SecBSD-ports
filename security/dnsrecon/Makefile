@@ -5,6 +5,8 @@ DISTNAME=	dnsrecon-${MODPY_EGG_VERSION}
 
 CATEGORIES=	security
 
+HOMEPAGE=	https://github.com/darkoperator/dnsrecon
+
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
 # GPL-3.0
@@ -16,8 +18,7 @@ GH_TAGNAME=	${MODPY_EGG_VERSION}
 
 MODULES=	lang/python
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		net/py-dnspython${MODPY_FLAVOR} \
+RUN_DEPENDS=	net/py-dnspython${MODPY_FLAVOR} \
 		net/py-netaddr${MODPY_FLAVOR} \
 		textproc/py-lxml${MODPY_FLAVOR}
 

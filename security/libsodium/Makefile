@@ -18,10 +18,8 @@ SITES=		https://download.libsodium.org/libsodium/releases/ \
 
 SEPARATE_BUILD=	Yes
 
-WRKSRC=			${WRKDIR}/libsodium-stable
+WRKDIST=		${WRKDIR}/libsodium-stable
 CONFIGURE_STYLE=	gnu
-
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/build-aux
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/libsodium

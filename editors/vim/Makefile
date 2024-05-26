@@ -3,13 +3,14 @@ COMMENT-lang=	vi clone, NLS subpackage
 
 # careful with PLISTs if updating; it usually works best if you use
 # a gui flavour rather than no_x11
-V=		9.0.2018
+V=		9.1.0404
+VS=		${V:C/\.0+/./}
 
 DIST_TUPLE+=	github vim vim v$V . \
-		github vim colorschemes	22986fa2a3d2f7229efd4019fcbca411caa6afbb .
+		github vim colorschemes	661b1a62a4ebe4a65de79f1bb1c40571fe6a1b58 .
 
-PKGNAME=	vim-$V
-FULLPKGNAME-lang= vim-lang-$V
+PKGNAME=	vim-${VS}
+FULLPKGNAME-lang= vim-lang-${VS}
 FULLPKGPATH-lang= ${PKGPATH},-lang
 P=		vim${V:R:S/.//}
 CATEGORIES=	editors
@@ -127,7 +128,7 @@ WANTLIB-lang=
 WRKSRC=		${WRKDIST}/src
 SUBST_VARS=	P
 
-.if ${P} != vim90
+.if ${P} != vim91
 ERRORS=		"Fatal: Major version was updated; sync editors/vim-spell and update this check"
 .endif
 

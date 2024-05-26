@@ -1,3 +1,0 @@
-@man man/man8/flashrom.8
-@bin sbin/flashrom
-share/doc/pkg-readmes/${PKGSTEM}

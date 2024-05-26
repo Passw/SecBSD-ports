@@ -1,0 +1,11 @@
+$OpenBSD$
+
+Index: ssrfmap.py
+--- ssrfmap.py.orig
++++ ssrfmap.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python3
+ from datetime import datetime
+ from core.ssrf import SSRF
+ import requests

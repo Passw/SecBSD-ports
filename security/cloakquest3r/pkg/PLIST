@@ -1,0 +1,13 @@
+bin/cloakquest3r
+share/cloakquest3r/
+share/cloakquest3r/.gitignore
+share/cloakquest3r/LICENSE
+share/cloakquest3r/README.md
+share/cloakquest3r/cloakquest3r.ipynb
+share/cloakquest3r/cloakquest3r.py
+share/cloakquest3r/image/
+share/cloakquest3r/image/cloakquest3r.png
+share/cloakquest3r/image/snapshot_cloak.png
+share/cloakquest3r/requirements.txt
+share/cloakquest3r/wordlist.txt
+share/cloakquest3r/wordlist2.txt

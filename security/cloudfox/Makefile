@@ -1,7 +1,7 @@
 COMMENT=	cloud penetration tests
 
 MODGO_MODNAME=	github.com/BishopFox/cloudfox
-MODGO_VERSION=	v1.12.0
+MODGO_VERSION=	v1.12.2
 
 DISTNAME=	cloudfox-${MODGO_VERSION}
 
@@ -17,6 +17,8 @@ PERMIT_PACKAGE=	Yes
 WANTLIB+=	c pthread
 
 MODULES=	lang/go
+
+RUN_DEPENDS=	sysutils/awscli
 
 .include "modules.inc"
 

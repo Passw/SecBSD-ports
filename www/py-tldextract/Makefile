@@ -22,8 +22,7 @@ FLAVOR=		python3
 MODPY_PI=	Yes
 MODPY_PYBUILD=	setuptools
 
-BUILD_DEPENDS+=	${RUN_DEPENDS} \
-		net/py-idna${MODPY_FLAVOR} \
+RUN_DEPENDS=	net/py-idna${MODPY_FLAVOR} \
 		www/py-requests${MODPY_FLAVOR} \
 		www/py-requests-file${MODPY_FLAVOR} \
 		sysutils/py-filelock${MODPY_FLAVOR}

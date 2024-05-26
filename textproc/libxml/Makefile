@@ -1,13 +1,15 @@
 COMMENT-main=		XML parsing library
 COMMENT-python=		Python bindings for libxml
 
-GNOME_VERSION=		2.11.5
+GNOME_VERSION=		2.12.7
 GNOME_PROJECT=		libxml2
 
-PKGNAME-main=		libxml-${VERSION}
-PKGNAME-python=		py3-libxml-${VERSION}
+PKGNAME-main=		libxml-${GNOME_VERSION}
+PKGNAME-python=		py3-libxml-${GNOME_VERSION}
+REVISION-main=		0
+REVISION-python=	0
 
-SHARED_LIBS +=  xml2                 19.0     # 13.5
+SHARED_LIBS +=  xml2                 20.0     # 14.7
 
 CATEGORIES=		textproc
 
@@ -29,7 +31,8 @@ LIB_DEPENDS=		archivers/xz \
 CONFIGURE_STYLE=	autoreconf
 AUTOCONF_VERSION=	2.69
 AUTOMAKE_VERSION=	1.16
-CONFIGURE_ARGS+=	--enable-static \
+CONFIGURE_ARGS=		--enable-static \
+			--with-legacy \
 			--with-iconv="${LOCALBASE}" \
 			--with-lzma="${LOCALBASE}"
 
@@ -50,7 +53,7 @@ RUN_DEPENDS-main=
 
 .if ${BUILD_PACKAGES:M-python}
 MODULES+=		lang/python
-LIB_DEPENDS-python=	textproc/libxml,-main=${VERSION} \
+LIB_DEPENDS-python=	textproc/libxml,-main=${GNOME_VERSION} \
 			converters/libiconv
 WANTLIB-python=		${WANTLIB} pthread xml2
 FAKE_FLAGS=		exampledir=${PREFIX}/share/examples/libxml2

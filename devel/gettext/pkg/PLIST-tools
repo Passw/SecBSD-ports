@@ -25,15 +25,9 @@ lib/gettext/
 lib/gettext/project-id
 @bin lib/gettext/urlget
 lib/gettext/user-email
-@static-lib lib/libgettextlib.a
-lib/libgettextlib.la
-@lib lib/libgettextlib.so.${LIBgettextlib_VERSION}
 @static-lib lib/libgettextpo.a
 lib/libgettextpo.la
 @lib lib/libgettextpo.so.${LIBgettextpo_VERSION}
-@static-lib lib/libgettextsrc.a
-lib/libgettextsrc.la
-@lib lib/libgettextsrc.so.${LIBgettextsrc_VERSION}
 @man man/man1/autopoint.1
 @man man/man1/gettextize.1
 @man man/man1/msgattrib.1
@@ -2010,6 +2004,7 @@ share/locale/hr/LC_MESSAGES/gettext-tools.mo
 share/locale/id/LC_MESSAGES/gettext-tools.mo
 share/locale/it/LC_MESSAGES/gettext-tools.mo
 share/locale/ja/LC_MESSAGES/gettext-tools.mo
+share/locale/ka/LC_MESSAGES/gettext-tools.mo
 share/locale/ko/LC_MESSAGES/gettext-tools.mo
 share/locale/nb/LC_MESSAGES/gettext-tools.mo
 share/locale/nl/LC_MESSAGES/gettext-tools.mo

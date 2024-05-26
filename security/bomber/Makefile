@@ -1,10 +1,10 @@
 COMMENT=	SBOMs scanner for security vulnerabilities
 
 MODGO_MODNAME=	github.com/devops-kung-fu/bomber
-MODGO_VERSION=	v0.4.4
+MODGO_VERSION=	v0.4.8
 
 DISTNAME=	bomber-${MODGO_VERSION}
-PKGNAME=	bomber-0.4.4
+PKGNAME=	bomber-0.4.8
 
 CATEGORIES=	security
 

@@ -1,5 +1,14 @@
 bin/sqlmap
 share/sqlmap/
+share/sqlmap/.github/
+share/sqlmap/.github/CODE_OF_CONDUCT.md
+share/sqlmap/.github/CONTRIBUTING.md
+share/sqlmap/.github/FUNDING.yml
+share/sqlmap/.github/ISSUE_TEMPLATE/
+share/sqlmap/.github/ISSUE_TEMPLATE/bug_report.md
+share/sqlmap/.github/ISSUE_TEMPLATE/feature_request.md
+share/sqlmap/.github/workflows/
+share/sqlmap/.github/workflows/tests.yml
 share/sqlmap/.pylintrc
 share/sqlmap/LICENSE
 ${MODPY_COMMENT}share/sqlmap/${MODPY_PYCACHE}/

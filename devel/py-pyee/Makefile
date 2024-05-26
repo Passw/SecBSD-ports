@@ -14,16 +14,15 @@ MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 # MIT
 PERMIT_PACKAGE=	Yes
 
-BUILD_DEPENDS+=${RUN_DEPENDS} \
-		devel/py-test-runner${MODPY_FLAVOR} \
+RUN_DEPENDS=	devel/py-test-runner${MODPY_FLAVOR} \
 		devel/py-vcversioner${MODPY_FLAVOR}
 
 MODULES=	lang/python
 
-FLAVORS=	python3
-FLAVOR=		python3
-
 MODPY_PI=	Yes
 MODPY_PYBUILD=	setuptools
+
+FLAVORS=	python3
+FLAVOR=		python3
 
 .include <bsd.port.mk>
