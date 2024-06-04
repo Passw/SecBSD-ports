@@ -140,15 +140,15 @@ MODGO_MODULES =	\
 	golang.org/x/image					 v0.0.0-20190802002840-cff245a6509b \
 	golang.org/x/lint					 v0.0.0-20210508222113-6edffad5e616 \
 	golang.org/x/mobile					 v0.0.0-20190719004257-d2bd2a29d028 \
-	golang.org/x/mod					 v0.4.2 \
+	golang.org/x/mod					 v0.6.0-dev.0.20220419223038-86c51ed26bb4 \
 	golang.org/x/net					 v0.0.0-20210805182204-aaa1db679c0d \
 	golang.org/x/oauth2					 v0.0.0-20210402161424-2e8d93401602 \
 	golang.org/x/sync					 v0.0.0-20210220032951-036812b2e83c \
 	golang.org/x/sys					 v0.6.0 \
 	golang.org/x/term					 v0.0.0-20201126162022-7de9c90e9dd1 \
-	golang.org/x/text					 v0.3.6 \
+	golang.org/x/text					 v0.3.8 \
 	golang.org/x/time					 v0.0.0-20191024005414-555d28b269f0 \
-	golang.org/x/tools					 v0.1.7 \
+	golang.org/x/tools					 v0.1.12 \
 	golang.org/x/xerrors					 v0.0.0-20200804184101-5ec99f83aff1 \
 	google.golang.org/api					 v0.44.0 \
 	google.golang.org/appengine				 v1.6.7 \
@@ -322,6 +322,7 @@ MODGO_MODFILES =	\
 	golang.org/x/mod			 v0.3.0 \
 	golang.org/x/mod			 v0.4.0 \
 	golang.org/x/mod			 v0.4.1 \
+	golang.org/x/mod			 v0.4.2 \
 	golang.org/x/net			 v0.0.0-20180724234803-3673e40ba225 \
 	golang.org/x/net			 v0.0.0-20180826012351-8a410e7b638d \
 	golang.org/x/net			 v0.0.0-20181023162649-9b4f9f5ad519 \
@@ -423,6 +424,7 @@ MODGO_MODFILES =	\
 	golang.org/x/sys			 v0.0.0-20210510120138-977fb7262007 \
 	golang.org/x/sys			 v0.0.0-20210630005230-0f9fa26af87c \
 	golang.org/x/sys			 v0.0.0-20210809222454-d867a43fc93e \
+	golang.org/x/sys			 v0.0.0-20220722155257-8c9f86f7a55f \
 	golang.org/x/sys			 v0.0.0-20220811171246-fbc7d0a398ab \
 	golang.org/x/text			 v0.0.0-20170915032832-14c0d48ead0c \
 	golang.org/x/text			 v0.3.0 \
@@ -431,6 +433,7 @@ MODGO_MODFILES =	\
 	golang.org/x/text			 v0.3.3 \
 	golang.org/x/text			 v0.3.4 \
 	golang.org/x/text			 v0.3.5 \
+	golang.org/x/text			 v0.3.6 \
 	golang.org/x/time			 v0.0.0-20181108054448-85acf8d2951c \
 	golang.org/x/time			 v0.0.0-20190308202827-9d24e82272b4 \
 	golang.org/x/tools			 v0.0.0-20180917221912-90fa682c2a6e \
@@ -484,6 +487,7 @@ MODGO_MODFILES =	\
 	golang.org/x/tools			 v0.0.0-20210106214847-113979e3529a \
 	golang.org/x/tools			 v0.1.0 \
 	golang.org/x/tools			 v0.1.2 \
+	golang.org/x/tools			 v0.1.7 \
 	golang.org/x/xerrors			 v0.0.0-20190717185122-a985d3407aa7 \
 	golang.org/x/xerrors			 v0.0.0-20191011141410-1b5146add898 \
 	golang.org/x/xerrors			 v0.0.0-20191204190536-9bdfabe68543 \
