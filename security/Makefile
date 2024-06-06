@@ -78,7 +78,7 @@
      SUBDIR += massdns
      SUBDIR += medusa
      SUBDIR += metabigor
-     SUBDIR += metasploit
+#     SUBDIR += metasploit
      SUBDIR += mongoaudit
      SUBDIR += monsoon
      SUBDIR += nexfil
