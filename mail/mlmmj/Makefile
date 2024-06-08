@@ -1,6 +1,6 @@
 COMMENT=	mailing list manager
 
-V=		1.4.5
+V=		1.4.6
 
 DISTNAME=	mlmmj-${V}
 
@@ -26,12 +26,11 @@ WANTLIB+=	c iconv
 
 CONFIGURE_STYLE=	gnu
 CONFIGURE_ARGS+=	--enable-receive-strip=yes
-MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC}/build-aux
 
 CONFIGURE_ENV=	CPPFLAGS="-I${WRKSRC}/include -I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib -liconv"
 
-DOCS=	README* TUNABLES
+DOCS=	README* TUNABLES.md
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/mlmmj
