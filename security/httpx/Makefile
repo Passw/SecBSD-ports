@@ -1,11 +1,9 @@
 COMMENT=	multi-purpose HTTP toolkit
 
-V=		1.6.0
 MODGO_MODNAME=	github.com/projectdiscovery/httpx
-MODGO_VERSION=	v${V}
+MODGO_VERSION=	v1.6.3
 
 DISTNAME=	httpx-${MODGO_VERSION}
-PKGNAME=	httpx-${V}
 
 CATEGORIES=	security
 
