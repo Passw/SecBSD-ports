@@ -2,7 +2,7 @@ COMMENT=		Zed attack proxy
 CATEGORIES=		security
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
-VERSION=		2.14.0
+VERSION=		2.15.0
 DISTNAME=		ZAP_${VERSION}_Linux
 PKGNAME=		zaproxy-${VERSION}
 
