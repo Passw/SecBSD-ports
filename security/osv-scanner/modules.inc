@@ -2,12 +2,12 @@ MODGO_MODULES =	\
 	cloud.google.com/go/compute				 v1.25.1 \
 	cloud.google.com/go/compute/metadata			 v0.2.3 \
 	dario.cat/mergo						 v1.0.0 \
-	deps.dev/api/v3						 v3.0.0-20240516073147-b352d7eeeae6 \
-	deps.dev/util/maven					 v0.0.0-20240516073147-b352d7eeeae6 \
-	deps.dev/util/resolve					 v0.0.0-20240516073147-b352d7eeeae6 \
-	deps.dev/util/semver					 v0.0.0-20240516073147-b352d7eeeae6 \
+	deps.dev/api/v3						 v3.0.0-20240617015216-b147e04533eb \
+	deps.dev/util/maven					 v0.0.0-20240617015216-b147e04533eb \
+	deps.dev/util/resolve					 v0.0.0-20240617015216-b147e04533eb \
+	deps.dev/util/semver					 v0.0.0-20240617015216-b147e04533eb \
 	github.com/!burnt!sushi/toml				 v1.4.0 \
-	github.com/!cyclone!d!x/cyclonedx-go			 v0.8.0 \
+	github.com/!cyclone!d!x/cyclonedx-go			 v0.9.0 \
 	github.com/!microsoft/go-winio				 v0.6.1 \
 	github.com/!proton!mail/go-crypto			 v1.0.0 \
 	github.com/!puerkito!bio/goquery			 v1.8.1 \
@@ -27,11 +27,11 @@ MODGO_MODULES =	\
 	github.com/census-instrumentation/opencensus-proto	 v0.4.1 \
 	github.com/cespare/xxhash/v2				 v2.2.0 \
 	github.com/charmbracelet/bubbles			 v0.18.0 \
-	github.com/charmbracelet/bubbletea			 v0.26.3 \
+	github.com/charmbracelet/bubbletea			 v0.26.4 \
 	github.com/charmbracelet/glamour			 v0.7.0 \
 	github.com/charmbracelet/harmonica			 v0.2.0 \
 	github.com/charmbracelet/lipgloss			 v0.11.0 \
-	github.com/charmbracelet/x/ansi				 v0.1.1 \
+	github.com/charmbracelet/x/ansi				 v0.1.2 \
 	github.com/charmbracelet/x/input			 v0.1.0 \
 	github.com/charmbracelet/x/term				 v0.1.1 \
 	github.com/charmbracelet/x/windows			 v0.1.0 \
@@ -74,7 +74,7 @@ MODGO_MODULES =	\
 	github.com/golang/protobuf				 v1.5.4 \
 	github.com/google/go-cmdtest				 v0.4.1-0.20220921163831-55ab3332a786 \
 	github.com/google/go-cmp				 v0.6.0 \
-	github.com/google/go-containerregistry			 v0.19.1 \
+	github.com/google/go-containerregistry			 v0.19.2 \
 	github.com/google/pprof					 v0.0.0-20211214055906-6f57359322fd \
 	github.com/google/renameio				 v0.1.0 \
 	github.com/google/uuid					 v1.6.0 \
@@ -152,18 +152,18 @@ MODGO_MODULES =	\
 	github.com/yuin/goldmark				 v1.7.0 \
 	github.com/yuin/goldmark-emoji				 v1.0.2 \
 	github.com/zclconf/go-cty				 v1.10.0 \
-	golang.org/x/crypto					 v0.23.0 \
-	golang.org/x/exp					 v0.0.0-20240525044651-4c93da0ed11d \
-	golang.org/x/mod					 v0.17.0 \
-	golang.org/x/net					 v0.25.0 \
+	golang.org/x/crypto					 v0.24.0 \
+	golang.org/x/exp					 v0.0.0-20240613232115-7f521ea00fb8 \
+	golang.org/x/mod					 v0.18.0 \
+	golang.org/x/net					 v0.26.0 \
 	golang.org/x/oauth2					 v0.18.0 \
 	golang.org/x/sync					 v0.7.0 \
-	golang.org/x/sys					 v0.20.0 \
-	golang.org/x/telemetry					 v0.0.0-20240228155512-f48c80bd79b2 \
-	golang.org/x/term					 v0.20.0 \
-	golang.org/x/text					 v0.15.0 \
+	golang.org/x/sys					 v0.21.0 \
+	golang.org/x/telemetry					 v0.0.0-20240521205824-bda55230c457 \
+	golang.org/x/term					 v0.21.0 \
+	golang.org/x/text					 v0.16.0 \
 	golang.org/x/time					 v0.0.0-20210723032227-1f47c861a9ac \
-	golang.org/x/tools					 v0.21.0 \
+	golang.org/x/tools					 v0.22.0 \
 	golang.org/x/vuln					 v1.0.4 \
 	golang.org/x/xerrors					 v0.0.0-20191204190536-9bdfabe68543 \
 	google.golang.org/appengine				 v1.6.8 \
@@ -171,7 +171,7 @@ MODGO_MODULES =	\
 	google.golang.org/genproto/googleapis/api		 v0.0.0-20240318140521-94a12d6c2237 \
 	google.golang.org/genproto/googleapis/rpc		 v0.0.0-20240318140521-94a12d6c2237 \
 	google.golang.org/grpc					 v1.64.0 \
-	google.golang.org/protobuf				 v1.34.1 \
+	google.golang.org/protobuf				 v1.34.2 \
 	gopkg.in/check.v1					 v1.0.0-20201130134442-10cb98267c6c \
 	gopkg.in/ini.v1						 v1.67.0 \
 	gopkg.in/warnings.v0					 v0.1.2 \
@@ -192,6 +192,7 @@ MODGO_MODFILES =	\
 	github.com/charmbracelet/bubbletea			 v0.25.0 \
 	github.com/charmbracelet/lipgloss			 v0.9.1 \
 	github.com/charmbracelet/x/ansi				 v0.1.0 \
+	github.com/charmbracelet/x/ansi				 v0.1.1 \
 	github.com/cloudflare/circl				 v1.3.3 \
 	github.com/containerd/stargz-snapshotter/estargz	 v0.14.3 \
 	github.com/cpuguy83/go-md2man/v2			 v2.0.2 \
@@ -260,6 +261,7 @@ MODGO_MODFILES =	\
 	golang.org/x/mod					 v0.10.0 \
 	golang.org/x/mod					 v0.12.0 \
 	golang.org/x/mod					 v0.14.0 \
+	golang.org/x/mod					 v0.17.0 \
 	golang.org/x/mod					 v0.6.0 \
 	golang.org/x/mod					 v0.6.0-dev.0.20220419223038-86c51ed26bb4 \
 	golang.org/x/mod					 v0.8.0 \
@@ -306,6 +308,7 @@ MODGO_MODFILES =	\
 	golang.org/x/sys					 v0.18.0 \
 	golang.org/x/sys					 v0.19.0 \
 	golang.org/x/sys					 v0.2.0 \
+	golang.org/x/sys					 v0.20.0 \
 	golang.org/x/sys					 v0.3.0 \
 	golang.org/x/sys					 v0.5.0 \
 	golang.org/x/sys					 v0.6.0 \
@@ -334,6 +337,7 @@ MODGO_MODFILES =	\
 	golang.org/x/tools					 v0.13.0 \
 	golang.org/x/tools					 v0.17.0 \
 	golang.org/x/tools					 v0.2.0 \
+	golang.org/x/tools					 v0.21.1-0.20240508182429-e35e4ccd0d2d \
 	golang.org/x/tools					 v0.6.0 \
 	golang.org/x/tools					 v0.9.1 \
 	golang.org/x/xerrors					 v0.0.0-20190717185122-a985d3407aa7 \
