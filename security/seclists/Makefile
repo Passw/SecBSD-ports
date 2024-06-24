@@ -1,27 +1,29 @@
 COMMENT=	collection of multiple types of lists
+
+V=		2024.2
+DISTNAME=	SecLists-${V}
 CATEGORIES=	security
+
 MAINTAINER=	Purple Rain <purplerain@secbsd.org>
 
-DIST_TUPLE =	github danielmiessler SecLists 2024.1 .
-PKGNAME=	seclists-2024.1
-
-HOMEPAGE=	https://github.com/danielmiessler/SecLists
+SITES=		https://github.com/danielmiessler/SecLists/archive/refs/tags/
 
 # MIT
 PERMIT_PACKAGE=	Yes
-NO_BUILD=	Yes
 
+DISTFILES=	${V}${EXTRACT_SUFX}
 EXTRACT_ONLY=
 
 INSTDIR=	${PREFIX}/share/seclists
 
+NO_BUILD=	Yes
+
+post-extract:
+	@mkdir -p ${WRKSRC}
+	${TAR} -C ${WRKSRC} -xzf ${FULLDISTDIR}/${DISTFILES}
+
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}
-	@tar xzf ${FULLDISTDIR}/danielmiessler-SecLists-2024.1${EXTRACT_SUFX} \
-	-C ${INSTDIR}
-	@mv ${INSTDIR}/${DISTNAME}/* ${INSTDIR}
-
-post-install:
-	rm -rf ${INSTDIR}/${DISTNAME}
+	@cp -R ${WRKSRC}/${DISTNAME}/* ${INSTDIR}
 
 .include <bsd.port.mk>
