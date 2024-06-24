@@ -1,8 +1,7 @@
 COMMENT=	recursive content discovery tool
 
-GH_ACCOUNT=	epi052
-GH_PROJECT=	feroxbuster
-GH_TAGNAME=	v2.10.3
+V=		v2.10.4
+DIST_TUPLE=	github epi052 feroxbuster ${V} .
 
 CATEGORIES=	security
 
@@ -22,17 +21,16 @@ RUN_DEPENDS=	security/seclists
 CONFIGURE_STYLE=	cargo
 SEPARATE_BUILD=		Yes
 
-MODCARGO_RUSTFLAGS=	-C debuginfo=0
+RELEASE_DIR=	${MODCARGO_TARGET_DIR}/release
 
-RELEASE_DIR=		${MODCARGO_TARGET_DIR}/release
-
-INSTDIR=		${PREFIX}/share/feroxbuster
+INSTDIR=	${PREFIX}/share/feroxbuster
 
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}
 	${INSTALL_PROGRAM} ${RELEASE_DIR}/feroxbuster ${INSTDIR}
-	cp ${WRKSRC}/ferox-config.toml.example \
-	${INSTDIR}/ferox-config.toml
+	ln -s ${TRUEPREFIX}/share/feroxbuster/feroxbuster \
+	${PREFIX}/bin/feroxbuster
+	cp ${WRKSRC}/*.example ${INSTDIR}/ferox-config.toml
 
 .include "crates.inc"
 

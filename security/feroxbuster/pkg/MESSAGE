@@ -1,7 +1,0 @@
-
-Recursive content discovery tool.
-
-Help:
-
-$ cd /usr/local/share/feroxbuster
-$ ./feroxbuster -u https://server

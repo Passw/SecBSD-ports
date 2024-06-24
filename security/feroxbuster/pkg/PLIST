@@ -1,3 +1,4 @@
+bin/feroxbuster
 share/feroxbuster/
 share/feroxbuster/ferox-config.toml
 @bin share/feroxbuster/feroxbuster
