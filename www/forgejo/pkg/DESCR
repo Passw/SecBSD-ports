@@ -1,0 +1,19 @@
+Forgejo is a self-hosted lightweight version control software.
+
+Forgejo provides the following:
+
+Project management: Besides Git hosting, Forgejo offers issues, pull requests,
+wikis, kanban boards and much more to coordinate with your team.
+
+Publishing: Have something to share? Use releases to host your software for
+download, or use the package registry to publish it for docker, npm and many
+other package managers.
+
+Customizable: are many config switches to make Forgejo work exactly like you
+want.
+
+Powerful: Organizations & team permissions, CI integration, Code Search, LDAP,
+OAuth and much more. If you have advanced needs, Forgejo has you covered.
+
+Privacy: From update checker to default settings: Forgejo is built to be privacy
+first for you and your crew.
