@@ -1,6 +1,6 @@
 COMMENT=	mailing list manager
 
-V=		1.4.6
+V=		1.4.7
 
 DISTNAME=	mlmmj-${V}
 
