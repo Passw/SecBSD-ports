@@ -1,10 +1,6 @@
 # increment after a go compiler update to trigger updates of
 # compiled go packages (see arch-defines.mk)
-_MODGO_SYSTEM_VERSION =	14
-
-# not using the normal ports mechanism, but setting USE_NOBTCFI for
-# documentation in sqlports
-USE_NOBTCFI  =		Yes
+_MODGO_SYSTEM_VERSION =	16
 
 ONLY_FOR_ARCHS ?=	${GO_ARCHS}
 
@@ -27,14 +23,16 @@ _subst := ${_subst}:S/${l:U}/!$l/g
 BUILD_DEPENDS +=	${MODGO_BUILD_DEPENDS}
 .endif
 
-.if ${MACHINE_ARCH} == "amd64"
+.if ${MACHINE_ARCH} == "aarch64"
+_GOARCH =	arm64
+.elif ${MACHINE_ARCH} == "amd64"
 _GOARCH =	amd64
 .elif ${MACHINE_ARCH} == "arm"
 _GOARCH =	arm
-.elif ${MACHINE_ARCH} == "aarch64"
-_GOARCH =	arm64
 .elif ${MACHINE_ARCH} == "i386"
 _GOARCH =	386
+.elif ${MACHINE_ARCH} == "riscv64"
+_GOARCH =	riscv64
 .endif
 
 MODGO_PACKAGE_PATH =	${PREFIX}/go-pkg
