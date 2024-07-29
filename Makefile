@@ -45,6 +45,7 @@ SUBDIR += math
 SUBDIR += misc
 SUBDIR += multimedia
 SUBDIR += net
+SUBDIR += osint
 SUBDIR += print
 SUBDIR += security
 SUBDIR += shells
