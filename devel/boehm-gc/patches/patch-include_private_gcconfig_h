@@ -1,0 +1,12 @@
+Index: include/private/gcconfig.h
+--- include/private/gcconfig.h.orig
++++ include/private/gcconfig.h
+@@ -116,7 +116,7 @@ EXTERN_C_BEGIN
+ # endif
+ 
+ /* And one for OpenBSD: */
+-# if defined(__OpenBSD__)
++# if defined(__OpenBSD__) || defined(__SecBSD__)
+ #    define OPENBSD
+ # endif
+ 
