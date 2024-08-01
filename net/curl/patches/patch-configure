@@ -1,7 +1,7 @@
 Index: configure
 --- configure.orig
 +++ configure
-@@ -9232,7 +9232,7 @@ else $as_nop
+@@ -9240,7 +9240,7 @@ else $as_nop
      lt_cv_sys_max_cmd_len=8192;
      ;;
  
@@ -10,7 +10,7 @@ Index: configure
      # This has been around since 386BSD, at least.  Likely further.
      if test -x /sbin/sysctl; then
        lt_cv_sys_max_cmd_len=`/sbin/sysctl -n kern.argmax`
-@@ -9768,7 +9768,7 @@ freebsd* | dragonfly* | midnightbsd*)
+@@ -9776,7 +9776,7 @@ freebsd* | dragonfly* | midnightbsd*)
      i*86 )
        # Not sure whether the presence of OpenBSD here was a mistake.
        # Let's accept both of them until this is cleared up.
@@ -19,7 +19,7 @@ Index: configure
        lt_cv_file_magic_cmd=$FILECMD
        lt_cv_file_magic_test_file=`echo /usr/lib/libc.so.*`
        ;;
-@@ -9838,7 +9838,7 @@ newos6*)
+@@ -9846,7 +9846,7 @@ newos6*)
    lt_cv_deplibs_check_method=pass_all
    ;;
  
@@ -28,7 +28,7 @@ Index: configure
    if test -z "`echo __ELF__ | $CC -E - | $GREP __ELF__`"; then
      lt_cv_deplibs_check_method='match_pattern /lib[^/]+(\.so\.[0-9]+\.[0-9]+|\.so|_pic\.a)$'
    else
-@@ -10512,7 +10512,7 @@ old_postuninstall_cmds=
+@@ -10520,7 +10520,7 @@ old_postuninstall_cmds=
  
  if test -n "$RANLIB"; then
    case $host_os in
@@ -37,7 +37,7 @@ Index: configure
      old_postinstall_cmds="$old_postinstall_cmds~\$RANLIB -t \$tool_oldlib"
      ;;
    *)
-@@ -13813,7 +13813,7 @@ printf %s "checking whether the $compiler linker ($LD)
+@@ -13821,7 +13821,7 @@ printf %s "checking whether the $compiler linker ($LD)
      # we just hope/assume this is gcc and not c89 (= MSVC++ or ICC)
      with_gnu_ld=yes
      ;;
@@ -46,7 +46,7 @@ Index: configure
      with_gnu_ld=no
      ;;
    linux* | k*bsd*-gnu | gnu*)
-@@ -14795,7 +14795,7 @@ printf "%s\n" "$lt_cv_irix_exported_symbol" >&6; }
+@@ -14803,7 +14803,7 @@ printf "%s\n" "$lt_cv_irix_exported_symbol" >&6; }
      *nto* | *qnx*)
        ;;
  
@@ -55,7 +55,7 @@ Index: configure
        if test -f /usr/libexec/ld.so; then
  	hardcode_direct=yes
  	hardcode_shlibpath_var=no
-@@ -15941,7 +15941,7 @@ newsos6)
+@@ -15949,7 +15949,7 @@ newsos6)
    dynamic_linker='ldqnx.so'
    ;;
  
@@ -64,3 +64,17 @@ Index: configure
    version_type=sunos
    sys_lib_dlsearch_path_spec=/usr/lib
    need_lib_prefix=no
+@@ -17746,7 +17746,7 @@ then :
+       "$GREP" CURL_DEF_TOKEN 2>/dev/null | \
+       "$SED" 's/.*CURL_DEF_TOKEN[ ][ ]*//' 2>/dev/null | \
+       "$SED" 's/["][ ]*["]//g' 2>/dev/null`
+-    if test -z "$tmp_exp" || test "$tmp_exp" = ""; then
++    if test -z "$tmp_exp" || test "$tmp_exp" = "__unix__"; then
+       tmp_exp=""
+     fi
+ 
+@@ -49261,4 +49261,3 @@ if test -n "$experimental"; then
+ printf "%s\n" "$as_me: WARNING: $a is enabled but marked EXPERIMENTAL. Use with caution!" >&2;}
+  done
+ fi
+-
