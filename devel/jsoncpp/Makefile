@@ -15,7 +15,7 @@ HOMEPAGE =		https://github.com/open-source-parsers/jsoncpp/wiki
 # Public Domain / MIT
 PERMIT_PACKAGE =	Yes
 
-WANTLIB =		m ${COMPILER_LIBCXX}
+WANTLIB =		c m ${COMPILER_LIBCXX}
 
 COMPILER =		base-clang ports-gcc base-gcc
 
@@ -27,6 +27,11 @@ CONFIGURE_STYLE =	meson
 MODPY_RUNDEP =		No
 
 TEST_ENV +=	LD_PRELOAD=${WRKBUILD}/libjsoncpp.so.${LIBjsoncpp_VERSION}
+
+CXXFLAGS +=     -I${LOCALBASE}/lib
+LDFLAGS +=	-L${LOCALBASE}/lib -lc
+
+CONFIGURE_ARGS +=-Dcpp_args="${CXXFLAGS}" -Dcpp_link_args="${LDFLAGS}"
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/jsoncpp

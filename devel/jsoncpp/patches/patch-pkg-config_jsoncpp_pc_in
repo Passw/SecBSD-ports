@@ -1,0 +1,15 @@
+Index: pkg-config/jsoncpp.pc.in
+--- pkg-config/jsoncpp.pc.in.orig
++++ pkg-config/jsoncpp.pc.in
+@@ -1,7 +1,7 @@
+-prefix=@CMAKE_INSTALL_PREFIX@
+-exec_prefix=@CMAKE_INSTALL_PREFIX@
+-libdir=@libdir_for_pc_file@
+-includedir=@includedir_for_pc_file@
++prefix=${TRUEPREFIX}
++exec_prefix=${TRUEPREFIX}
++libdir=${TRUEPREFIX}/lib
++includedir=${TRUEPREFIX}/include/jsoncpp
+ 
+ Name: jsoncpp
+ Description: A C++ library for interacting with JSON
