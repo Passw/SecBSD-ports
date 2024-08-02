@@ -2,11 +2,10 @@ DPB_PROPERTIES =	parallel
 
 COMMENT =	portable build system
 
-VER =		3.28.3
+VER =		3.30.1
 EPOCH =		1
 DISTNAME =	cmake-${VER}
 CATEGORIES =	devel
-REVISION =	0
 
 HOMEPAGE =	https://www.cmake.org/
 
@@ -17,8 +16,9 @@ SITES =		https://www.cmake.org/files/v${VER:R}/
 # BSD
 PERMIT_PACKAGE =	Yes
 
-WANTLIB += ${COMPILER_LIBCXX} archive c curl curses execinfo expat form
+WANTLIB += ${COMPILER_LIBCXX} archive c curl curses expat form
 WANTLIB += jsoncpp m rhash uv z
+WANTLIB += execinfo
 
 COMPILER =		base-clang ports-gcc
 
@@ -41,10 +41,8 @@ CONFIGURE_ARGS =	--datadir=share/cmake \
 			--no-qt-gui \
 			--parallel=${MAKE_JOBS} \
 			--prefix=${PREFIX} \
-			--sphinx-html \
 			--system-libs \
 			--no-system-cppdap \
-			--sphinx-man \
 			--verbose
 
 CONFIGURE_ENV +=	MAKE=${MAKE_PROGRAM}
