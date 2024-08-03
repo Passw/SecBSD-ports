@@ -1,12 +1,13 @@
-COMMENT =		SQL injection and database takeover tool
+COMMENT =		penetration testing tool to detect/exploit SQL injection
 
 GH_ACCOUNT =		sqlmapproject
 GH_PROJECT =		sqlmap
-GH_TAGNAME =		1.8.2
+GH_TAGNAME =		1.8.7
+REVISION =		1
 
 CATEGORIES =		security
 
-HOMEPAGE =		https://sqlmap.org/
+HOMEPAGE =		http://sqlmap.org/
 
 # GPLv2
 PERMIT_PACKAGE =	Yes
@@ -28,6 +29,6 @@ do-install:
 	rm ${INSTDIR}/{.{gitattributes,gitignore},README.md}
 	rm -rf ${INSTDIR}/doc
 	ln -s ${TRUEPREFIX}/share/sqlmap/sqlmap.py ${PREFIX}/bin/sqlmap
-	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py ${INSTDIR}
+	${MODPY_COMPILEALL} ${INSTDIR}
 
 .include <bsd.port.mk>
