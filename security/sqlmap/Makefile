@@ -7,7 +7,7 @@ REVISION =		1
 
 CATEGORIES =		security
 
-HOMEPAGE =		http://sqlmap.org/
+HOMEPAGE =		https://sqlmap.org/
 
 # GPLv2
 PERMIT_PACKAGE =	Yes
