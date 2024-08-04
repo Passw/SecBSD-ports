@@ -9,7 +9,7 @@ Index: Source/kwsys/CMakeLists.txt
        COMPILE_DEFINITIONS KWSYS_CXX_HAS_RLIMIT64=1)
    endif()
 -  if(UNIX AND NOT KWSYS_NO_EXECINFO)
-+  if(UNIX AND NOT KWSYS_NO_EXECINFO AND NOT (CMAKE_SYSTEM MATCHES "OpenBSD"))
++  if(UNIX AND NOT KWSYS_NO_EXECINFO AND NOT (CMAKE_SYSTEM MATCHES "SecBSD"))
      include(CheckIncludeFileCXX)
      # check for simple stack trace
      # usually it's in libc but on FreeBSD

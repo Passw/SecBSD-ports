@@ -18,7 +18,6 @@ PERMIT_PACKAGE =	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} archive c curl curses expat form
 WANTLIB += jsoncpp m rhash uv z
-WANTLIB += execinfo
 
 COMPILER =		base-clang ports-gcc
 
