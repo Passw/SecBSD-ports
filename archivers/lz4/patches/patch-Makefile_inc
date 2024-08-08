@@ -1,7 +1,7 @@
 Index: Makefile.inc
 --- Makefile.inc.orig
 +++ Makefile.inc
-@@ -79,7 +79,7 @@ VOID  := /dev/null
+@@ -81,7 +81,7 @@ VOID  := /dev/null
    endif
  endif
  
