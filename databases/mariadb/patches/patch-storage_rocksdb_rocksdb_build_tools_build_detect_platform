@@ -1,0 +1,19 @@
+Index: storage/rocksdb/rocksdb/build_tools/build_detect_platform
+--- storage/rocksdb/rocksdb/build_tools/build_detect_platform.orig
++++ storage/rocksdb/rocksdb/build_tools/build_detect_platform
+@@ -205,6 +205,15 @@ EOF
+ 	FIND=gfind
+ 	WATCH=gnuwatch
+         ;;
++    SecBSD)
++        PLATFORM=OS_SECBSD
++        CXX=clang++
++        COMMON_FLAGS="$COMMON_FLAGS -fno-builtin-memcmp -D_REENTRANT -DOS_SECBSD"
++        PLATFORM_LDFLAGS="$PLATFORM_LDFLAGS -pthread"
++        # PORT_FILES=port/secbsd/secbsd_specific.cc
++        FIND=gfind
++        WATCH=gnuwatch
++        ;;
+     DragonFly)
+         PLATFORM=OS_DRAGONFLYBSD
+         COMMON_FLAGS="$COMMON_FLAGS -fno-builtin-memcmp -D_REENTRANT -DOS_DRAGONFLYBSD"

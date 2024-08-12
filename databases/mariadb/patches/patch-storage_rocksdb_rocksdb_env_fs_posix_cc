@@ -1,0 +1,39 @@
+Index: storage/rocksdb/rocksdb/env/fs_posix.cc
+--- storage/rocksdb/rocksdb/env/fs_posix.cc.orig
++++ storage/rocksdb/rocksdb/env/fs_posix.cc
+@@ -144,7 +144,7 @@ class PosixFileSystem : public FileSystem {
+       return IOStatus::IOError(fname,
+                                "Direct I/O not supported in RocksDB lite");
+ #endif  // !ROCKSDB_LITE
+-#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SOLARIS)
++#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SECBSD) && !defined(OS_SOLARIS)
+       flags |= O_DIRECT;
+ #endif
+     }
+@@ -196,7 +196,7 @@ class PosixFileSystem : public FileSystem {
+       return IOStatus::IOError(fname,
+                                "Direct I/O not supported in RocksDB lite");
+ #endif  // !ROCKSDB_LITE
+-#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SOLARIS)
++#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SECBSD) && !defined(OS_SOLARIS)
+       flags |= O_DIRECT;
+       TEST_SYNC_POINT_CALLBACK("NewRandomAccessFile:O_DIRECT", &flags);
+ #endif
+@@ -270,7 +270,7 @@ class PosixFileSystem : public FileSystem {
+                                "Direct I/O not supported in RocksDB lite");
+ #endif  // ROCKSDB_LITE
+       flags |= O_WRONLY;
+-#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SOLARIS)
++#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SECBSD) && !defined(OS_SOLARIS)
+       flags |= O_DIRECT;
+ #endif
+       TEST_SYNC_POINT_CALLBACK("NewWritableFile:O_DIRECT", &flags);
+@@ -363,7 +363,7 @@ class PosixFileSystem : public FileSystem {
+                                "Direct I/O not supported in RocksDB lite");
+ #endif  // !ROCKSDB_LITE
+       flags |= O_WRONLY;
+-#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SOLARIS)
++#if !defined(OS_MACOSX) && !defined(OS_OPENBSD) && !defined(OS_SECBSD) && !defined(OS_SOLARIS)
+       flags |= O_DIRECT;
+ #endif
+       TEST_SYNC_POINT_CALLBACK("NewWritableFile:O_DIRECT", &flags);

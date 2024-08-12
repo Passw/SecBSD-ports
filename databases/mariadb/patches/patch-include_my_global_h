@@ -1,0 +1,12 @@
+Index: include/my_global.h
+--- include/my_global.h.orig
++++ include/my_global.h
+@@ -62,7 +62,7 @@
+ #define _POSIX_THREAD_CPUTIME
+ #endif /* __CYGWIN__ */
+ 
+-#if defined(__OpenBSD__) && (OpenBSD >= 200411)
++#if defined(__SecBSD__) && (SecBSD >= 202404)
+ #define HAVE_ERRNO_AS_DEFINE
+ #endif
+ 

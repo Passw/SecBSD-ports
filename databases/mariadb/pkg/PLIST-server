@@ -677,6 +677,7 @@ share/mysql/korean/
 share/mysql/korean/errmsg.sys
 share/mysql/maria_add_gis_sp.sql
 share/mysql/maria_add_gis_sp_bootstrap.sql
+%%rocksdb%%
 share/mysql/mysql_performance_tables.sql
 share/mysql/mysql_sys_schema.sql
 share/mysql/mysql_system_tables.sql
@@ -706,4 +707,3 @@ share/mysql/swedish/errmsg.sys
 share/mysql/ukrainian/
 share/mysql/ukrainian/errmsg.sys
 %%le%%
-%%rocksdb%%

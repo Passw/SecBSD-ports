@@ -3764,6 +3764,7 @@ share/mysql-test/plugin/metadata_lock_info/metadata_lock_info/t/
 share/mysql-test/plugin/metadata_lock_info/metadata_lock_info/t/global_read_lock.test
 share/mysql-test/plugin/metadata_lock_info/metadata_lock_info/t/table_metadata_lock.test
 share/mysql-test/plugin/metadata_lock_info/metadata_lock_info/t/user_lock.test
+%%rocksdb%%
 share/mysql-test/plugin/myisam/
 share/mysql-test/plugin/myisam/mtr2/
 share/mysql-test/plugin/myisam/mtr2/README
@@ -17174,4 +17175,3 @@ share/mysql-test/suite/wsrep/t/wsrep_variables_wsrep_off.cnf
 share/mysql-test/suite/wsrep/t/wsrep_variables_wsrep_off.test
 share/mysql-test/valgrind.supp
 %%le%%
-%%rocksdb%%

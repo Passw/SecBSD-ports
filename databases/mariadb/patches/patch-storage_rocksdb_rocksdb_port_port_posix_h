@@ -1,0 +1,31 @@
+Index: storage/rocksdb/rocksdb/port/port_posix.h
+--- storage/rocksdb/rocksdb/port/port_posix.h.orig
++++ storage/rocksdb/rocksdb/port/port_posix.h
+@@ -45,7 +45,7 @@
+   #define PLATFORM_IS_LITTLE_ENDIAN (BYTE_ORDER == LITTLE_ENDIAN)
+   #include <alloca.h>
+ #elif defined(OS_FREEBSD) || defined(OS_OPENBSD) || defined(OS_NETBSD) || \
+-    defined(OS_DRAGONFLYBSD) || defined(OS_ANDROID)
++    defined(OS_SECBSD) || defined(OS_DRAGONFLYBSD) || defined(OS_ANDROID)
+   #include <sys/endian.h>
+   #include <sys/types.h>
+   #define PLATFORM_IS_LITTLE_ENDIAN (_BYTE_ORDER == _LITTLE_ENDIAN)
+@@ -65,7 +65,7 @@
+ 
+ #if defined(OS_MACOSX) || defined(OS_SOLARIS) || defined(OS_FREEBSD) ||\
+     defined(OS_NETBSD) || defined(OS_OPENBSD) || defined(OS_DRAGONFLYBSD) ||\
+-    defined(OS_ANDROID) || defined(CYGWIN) || defined(OS_AIX)
++    defined(OS_SECBSD) || defined(OS_ANDROID) || defined(CYGWIN) || defined(OS_AIX)
+ // Use fread/fwrite/fflush on platforms without _unlocked variants
+ #define fread_unlocked fread
+ #define fwrite_unlocked fwrite
+@@ -73,7 +73,8 @@
+ #endif
+ 
+ #if defined(OS_MACOSX) || defined(OS_FREEBSD) ||\
+-    defined(OS_OPENBSD) || defined(OS_DRAGONFLYBSD)
++    defined(OS_OPENBSD) || defined(OS_DRAGONFLYBSD) ||\
++    defined(OS_SECBSD)
+ // Use fsync() on platforms without fdatasync()
+ #define fdatasync fsync
+ #endif

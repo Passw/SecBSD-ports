@@ -1,0 +1,12 @@
+Index: storage/rocksdb/build_rocksdb.cmake
+--- storage/rocksdb/build_rocksdb.cmake.orig
++++ storage/rocksdb/build_rocksdb.cmake
+@@ -96,6 +96,8 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "NetBSD")
+   add_definitions(-DOS_NETBSD)
+ elseif(CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
+   add_definitions(-DOS_OPENBSD)
++elseif(CMAKE_SYSTEM_NAME MATCHES "SecBSD")
++  add_definitions(-DOS_SECBSD)
+ elseif(CMAKE_SYSTEM_NAME MATCHES "DragonFly")
+   add_definitions(-DOS_DRAGONFLYBSD)
+ elseif(CMAKE_SYSTEM_NAME MATCHES "Android")

@@ -1,0 +1,12 @@
+Index: BUILD/check-cpu
+--- BUILD/check-cpu.orig
++++ BUILD/check-cpu
+@@ -140,7 +140,7 @@ check_cpu () {
+     # Fallback when there is no /proc/cpuinfo
+     CPUINFO=" "
+     case "`uname -s`" in
+-      FreeBSD|OpenBSD)
++      FreeBSD|OpenBSD|SecBSD)
+         cpu_family=`uname -m`;
+         model_name=`sysctl -n hw.model`
+         ;;

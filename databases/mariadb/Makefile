@@ -5,7 +5,7 @@ COMMENT-tests=	multithreaded SQL database (regression test suite/benchmark)
 VERSION=	10.9.8
 DISTNAME=	mariadb-${VERSION}
 PKGNAME-main=	mariadb-client-${VERSION}
-REVISION-server= 0
+REVISION-server= 1
 EPOCH=		1
 CATEGORIES=	databases
 SITES=		https://downloads.mariadb.com/MariaDB/${DISTNAME}/source/ \
@@ -75,7 +75,7 @@ CONFIGURE_ARGS+=-DCMAKE_INSTALL_PREFIX="${PREFIX}" \
 		-DINSTALL_SQLBENCHDIR="share/mysql-bench" \
 		-DINSTALL_SUPPORTFILESDIR="share/examples/mysql" \
 		-DMYSQL_UNIX_ADDR="${SOCKET_DIR}/mysql.sock" \
-		-DCOMPILATION_COMMENT='OpenBSD port: ${FULLPKGNAME-server}' \
+		-DCOMPILATION_COMMENT='SecBSD port: ${FULLPKGNAME-server}' \
 		-DPLUGIN_OQGRAPH=NO \
 		-DWITH_EXTERNAL_ZLIB=On \
 		-DWITH_PCRE=system \

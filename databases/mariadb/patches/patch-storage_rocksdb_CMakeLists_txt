@@ -17,3 +17,21 @@ Index: storage/rocksdb/CMakeLists.txt
  # This plugin needs recent C++ compilers (it is using C++11 features)
  # Skip build for the old compilers
  SET(CXX11_FLAGS)
+@@ -198,7 +189,7 @@ ADD_DEPENDENCIES(rocksdb_aux_lib GenError)
+ 
+ # MARIAROCKS-TODO: how to properly depend on -lrt ?
+ TARGET_LINK_LIBRARIES(rocksdb_aux_lib rocksdblib ${ZLIB_LIBRARY})
+-if (UNIX AND NOT APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
++if (UNIX AND NOT APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "SecBSD")
+   TARGET_LINK_LIBRARIES(rocksdb_aux_lib -lrt)
+ endif()
+ TARGET_LINK_LIBRARIES(rocksdb_aux_lib ${ATOMIC_EXTRA_LIBS})
+@@ -249,7 +240,7 @@ ENDIF()
+ #  ADD_SUBDIRECTORY(unittest)
+ #ENDIF()
+ 
+-if (UNIX AND NOT APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
++if (UNIX AND NOT APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "SecBSD")
+   SET(rocksdb_static_libs ${rocksdb_static_libs} "-lrt")
+ endif()
+ 
