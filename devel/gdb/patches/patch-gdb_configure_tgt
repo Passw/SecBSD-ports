@@ -1,20 +1,11 @@
 Index: gdb/configure.tgt
 --- gdb/configure.tgt.orig
 +++ gdb/configure.tgt
-@@ -104,7 +104,7 @@ case "${targ}" in
- 	os_obs="fbsd-tdep.o solib-svr4.o";;
- *-*-netbsd* | *-*-knetbsd*-gnu)
- 	os_obs="nbsd-tdep.o solib-svr4.o";;
--*-*-openbsd*)
-+*-*-openbsd* | *-*-secbsd*)
- 	os_obs="obsd-tdep.o solib-svr4.o";;
- esac
- 
 @@ -131,6 +131,13 @@ aarch64*-*-linux*)
  	build_gdbserver=yes
  	;;
  
-+aarch64*-*-openbsd* | aarch64*-*-secbsd*)
++aarch64*-*-openbsd*)
 +	# Target: OpenBSD/arm64
 +	gdb_target_obs="aarch64-tdep.o aarch64-obsd-tdep.o arch/aarch64-insn.o \
 +			obsd-tdep.o solib-svr4.o \
@@ -24,24 +15,6 @@ Index: gdb/configure.tgt
  alpha*-*-linux*)
  	# Target: Little-endian Alpha running Linux
  	gdb_target_obs="alpha-mdebug-tdep.o alpha-linux-tdep.o \
-@@ -177,7 +184,7 @@ arm*-*-netbsd* | arm*-*-knetbsd*-gnu)
- 	# Target: NetBSD/arm
- 	gdb_target_obs="arm-nbsd-tdep.o"
- 	;;
--arm*-*-openbsd*)
-+arm*-*-openbsd* | arm*-*-secbsd)
- 	# Target: OpenBSD/arm
- 	gdb_target_obs="arm-bsd-tdep.o arm-obsd-tdep.o"
- 	;;
-@@ -276,7 +283,7 @@ i[34567]86-*-netbsd* | i[34567]86-*-knetbsd*-gnu)
- 	# Target: NetBSD/i386
- 	gdb_target_obs="i386-bsd-tdep.o i386-nbsd-tdep.o "
- 	;;
--i[34567]86-*-openbsd*)
-+i[34567]86-*-openbsd* | i[34567]86-*-secbsd*)
- 	# Target: OpenBSD/i386
- 	gdb_target_obs="i386-bsd-tdep.o i386-obsd-tdep.o bsd-uthread.o"
- 	;;
 @@ -506,6 +513,12 @@ powerpc-*-openbsd*)
  	gdb_target_obs="rs6000-tdep.o ppc-sysv-tdep.o ppc-obsd-tdep.o \
  			ravenscar-thread.o ppc-ravenscar-thread.o"
@@ -55,25 +28,16 @@ Index: gdb/configure.tgt
  powerpc-*-aix* | rs6000-*-* | powerpc64-*-aix*)
  	# Target: PowerPC running AIX
  	gdb_target_obs="rs6000-tdep.o rs6000-aix-tdep.o xcoffread.o \
-@@ -554,6 +567,12 @@ riscv*-*-linux*)
+@@ -552,6 +565,12 @@ riscv*-*-linux*)
+ 	# Target: Linux/RISC-V
+ 	gdb_target_obs="riscv-linux-tdep.o glibc-tdep.o \
   			linux-tdep.o solib-svr4.o symfile-mem.o linux-record.o"
- 	;;
- 
++	;;
++
 +riscv*-*-openbsd*)
 +	# Target: OpenBSD/riscv
 +	# XXX is that list enough?
 +	gdb_target_obs="riscv-obsd-tdep.o"
-+	;;
-+
- riscv*-*-*)
- 	# Target: RISC-V architecture
- 	gdb_target_obs=""
-@@ -759,7 +778,7 @@ x86_64-*-netbsd* | x86_64-*-knetbsd*-gnu)
- 	# Target: NetBSD/amd64
- 	gdb_target_obs="amd64-nbsd-tdep.o ${i386_tobjs}"
  	;;
--x86_64-*-openbsd*)
-+x86_64-*-openbsd* | x86_64-*-secbsd*)
- 	# Target: OpenBSD/amd64
- 	gdb_target_obs="amd64-obsd-tdep.o ${i386_tobjs} \
- 			i386-bsd-tdep.o i386-obsd-tdep.o \
+ 
+ riscv*-*-*)

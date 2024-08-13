@@ -1,36 +1,15 @@
 Index: gdb/configure.host
 --- gdb/configure.host.orig
 +++ gdb/configure.host
-@@ -85,6 +85,8 @@ case "${host}" in
+@@ -85,6 +85,7 @@ case "${host}" in
  
  aarch64*-*-linux*)	gdb_host=linux ;;
  aarch64*-*-freebsd*)	gdb_host=fbsd ;;
-+aarch64*-*-openbsd* | aarch64*-*-secbsd*)
-+			gdb_host=obsd64 ;;
++aarch64*-*-openbsd*)	gdb_host=obsd64 ;;
  
  alpha*-*-linux*)	gdb_host=alpha-linux ;;
  alpha*-*-netbsd* | alpha*-*-knetbsd*-gnu)
-@@ -95,7 +97,8 @@ arm*-*-freebsd*)	gdb_host=fbsd ;;
- arm*-*-linux*)		gdb_host=linux ;;
- arm*-*-netbsdelf* | arm*-*-knetbsd*-gnu)
- 			gdb_host=nbsdelf ;;
--arm*-*-openbsd*)	gdb_host=nbsdelf ;;
-+arm*-*-openbsd* | arm*-*-secbsd*)
-+			gdb_host=nbsdelf ;;
- 
- hppa*-*-linux*)		gdb_host=linux ;;
- hppa*-*-netbsd*)	gdb_host=nbsd ;;
-@@ -113,7 +116,8 @@ i[34567]86-*-msdosdjgpp*) gdb_host=go32 ;;
- i[34567]86-*-linux*)	gdb_host=linux ;;
- i[34567]86-*-gnu*)	gdb_host=i386gnu ;;
- i[3456]86-*-nto*) 	gdb_host=nto ;;
--i[34567]86-*-openbsd*)	gdb_host=obsd ;;
-+i[34567]86-*-openbsd* | i[34567]86-*-secbsd*)
-+			gdb_host=obsd ;;
- i[34567]86-*-solaris2* | x86_64-*-solaris2*)
- 			gdb_host=sol2 ;;
- i[34567]86-*-cygwin*)	gdb_host=cygwin ;;
-@@ -139,12 +143,14 @@ powerpc*-*-freebsd*)	gdb_host=fbsd ;;
+@@ -139,12 +140,14 @@ powerpc*-*-freebsd*)	gdb_host=fbsd ;;
  powerpc-*-netbsd* | powerpc-*-knetbsd*-gnu)
  			gdb_host=nbsd ;;
  powerpc-*-openbsd*)	gdb_host=obsd ;;
@@ -45,13 +24,3 @@ Index: gdb/configure.host
  
  s390*-*-linux*)		gdb_host=linux ;;
  
-@@ -177,7 +183,8 @@ x86_64-*-freebsd* | x86_64-*-kfreebsd*-gnu)
- 			gdb_host=fbsd64 ;;
- x86_64-*-netbsd* | x86_64-*-knetbsd*-gnu)
- 			gdb_host=nbsd64 ;;
--x86_64-*-openbsd*)	gdb_host=obsd64 ;;
-+x86_64-*-openbsd* | x86_64-*-secbsd*)
-+			gdb_host=obsd64 ;;
- x86_64-*-mingw*)        gdb_host=mingw64
- 			gdb_host_obs=mingw-hdep.o
- 			;;

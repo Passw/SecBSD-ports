@@ -6,7 +6,7 @@ Index: bfd/configure
      ;;
  
 -  netbsd* | freebsd* | openbsd* | darwin* | dragonfly*)
-+  netbsd* | freebsd* | openbsd* | darwin* | dragonfly* | secbsd*)
++  netbsd* | freebsd* | openbsd* | secbsd* | darwin* | dragonfly*)
      # This has been around since 386BSD, at least.  Likely further.
      if test -x /sbin/sysctl; then
        lt_cv_sys_max_cmd_len=`/sbin/sysctl -n kern.argmax`
@@ -15,7 +15,7 @@ Index: bfd/configure
        # Not sure whether the presence of OpenBSD here was a mistake.
        # Let's accept both of them until this is cleared up.
 -      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|DragonFly)/i[3-9]86 (compact )?demand paged shared library'
-+      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|DragonFly|SecBSD)/i[3-9]86 (compact )?demand paged shared library'
++      lt_cv_deplibs_check_method='file_magic (FreeBSD|OpenBSD|SecBSD|DragonFly)/i[3-9]86 (compact )?demand paged shared library'
        lt_cv_file_magic_cmd=/usr/bin/file
        lt_cv_file_magic_test_file=`echo /usr/lib/libc.so.*`
        ;;
@@ -37,6 +37,15 @@ Index: bfd/configure
      with_gnu_ld=no
      ;;
    esac
+@@ -15115,7 +15115,7 @@ if test "${target}" = "${host}"; then
+ 	;;
+   arm-*-freebsd* | arm-*-kfreebsd*-gnu)
+ 	COREFILE='' ;;
+-  arm-*-netbsd* | arm-*-openbsd*)
++  arm-*-netbsd* | arm-*-openbsd* | arm-*-secbsd*)
+ 	COREFILE=netbsd-core.lo
+ 	;;
+   arm-*-riscix)		COREFILE=trad-core.lo ;;
 @@ -15148,7 +15148,7 @@ if test "${target}" = "${host}"; then
  	COREFILE=''
  	TRAD_HEADER='"hosts/i386bsd.h"'
