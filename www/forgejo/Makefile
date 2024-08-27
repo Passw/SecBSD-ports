@@ -3,6 +3,7 @@ COMMENT=	self-hosted lightweight version control
 V=		7.0.5
 DISTNAME=	forgejo-src-${V}
 PKGNAME=	forgejo-${V}
+REVISION=	0
 
 SITES=		https://codeberg.org/forgejo/forgejo/releases/download/v${V}/
 
@@ -46,6 +47,7 @@ do-install:
 	ln -s ${VARBASE}/www/forgejo ${PREFIX}/share/forgejo/public
 
 post-install:
+	${MODGO_WORKSPACE}/bin/gitea docs --man > ${PREFIX}/man/man1/forgejo.1
 	@find ${WRKINST}/ -type f \
 		\( -name '*.beforesubst' -o -name '*${PATCHORIG}' \) -delete
 

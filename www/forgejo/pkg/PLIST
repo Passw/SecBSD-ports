@@ -1,9 +1,26 @@
+@newgroup _forgejo:900
+@newuser _forgejo:900:_forgejo::Forgejo Account:/var/forgejo:/bin/sh
 @rcscript ${RCDIR}/forgejo
+@man man/man1/forgejo.1
 @bin sbin/forgejo
 share/doc/pkg-readmes/${PKGSTEM}
 share/forgejo/
 share/forgejo/conf/
+@mode 750
+@owner _forgejo
+@group _forgejo
+@sample ${SYSCONFDIR}/forgejo/
+@mode
+@owner
+@group
 share/forgejo/conf/app.example.ini
+@mode 640
+@owner _forgejo
+@group _forgejo
+@sample ${SYSCONFDIR}/forgejo/app.ini
+@mode
+@owner
+@group
 share/forgejo/options/
 share/forgejo/options/gitignore/
 share/forgejo/options/gitignore/AL
