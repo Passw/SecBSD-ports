@@ -1,9 +1,8 @@
 COMMENT=	self-hosted lightweight version control
 
-V=		7.0.5
+V=		7.0.8
 DISTNAME=	forgejo-src-${V}
 PKGNAME=	forgejo-${V}
-REVISION=	0
 
 SITES=		https://codeberg.org/forgejo/forgejo/releases/download/v${V}/
 

@@ -969,6 +969,7 @@ share/forgejo/options/locale/locale_el-GR.ini
 share/forgejo/options/locale/locale_en-US.ini
 share/forgejo/options/locale/locale_eo.ini
 share/forgejo/options/locale/locale_es-ES.ini
+share/forgejo/options/locale/locale_et.ini
 share/forgejo/options/locale/locale_fa-IR.ini
 share/forgejo/options/locale/locale_fi-FI.ini
 share/forgejo/options/locale/locale_fil.ini
@@ -982,6 +983,8 @@ share/forgejo/options/locale/locale_it-IT.ini
 share/forgejo/options/locale/locale_ja-JP.ini
 share/forgejo/options/locale/locale_ko-KR.ini
 share/forgejo/options/locale/locale_lv-LV.ini
+share/forgejo/options/locale/locale_ml-IN.ini
+share/forgejo/options/locale/locale_nb_NO.ini
 share/forgejo/options/locale/locale_nl-NL.ini
 share/forgejo/options/locale/locale_pl-PL.ini
 share/forgejo/options/locale/locale_pt-BR.ini
@@ -990,9 +993,12 @@ share/forgejo/options/locale/locale_ru-RU.ini
 share/forgejo/options/locale/locale_si-LK.ini
 share/forgejo/options/locale/locale_sk-SK.ini
 share/forgejo/options/locale/locale_sl.ini
+share/forgejo/options/locale/locale_sr-SP.ini
 share/forgejo/options/locale/locale_sv-SE.ini
 share/forgejo/options/locale/locale_tr-TR.ini
 share/forgejo/options/locale/locale_uk-UA.ini
+share/forgejo/options/locale/locale_vi.ini
+share/forgejo/options/locale/locale_yi.ini
 share/forgejo/options/locale/locale_zh-CN.ini
 share/forgejo/options/locale/locale_zh-HK.ini
 share/forgejo/options/locale/locale_zh-TW.ini
