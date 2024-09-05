@@ -64,7 +64,7 @@ MODGO_MODULES =	\
 	github.com/felixge/fgprof				 v0.9.3 \
 	github.com/gkampitakis/ciinfo				 v0.3.0 \
 	github.com/gkampitakis/go-diff				 v1.3.2 \
-	github.com/gkampitakis/go-snaps				 v0.5.6 \
+	github.com/gkampitakis/go-snaps				 v0.5.7 \
 	github.com/gliderlabs/ssh				 v0.3.7 \
 	github.com/go-git/gcfg					 v1.5.1-0.20230307220236-3a3c6141e376 \
 	github.com/go-git/go-billy/v5				 v5.5.0 \
@@ -136,7 +136,7 @@ MODGO_MODULES =	\
 	github.com/stretchr/objx				 v0.5.2 \
 	github.com/stretchr/testify				 v1.9.0 \
 	github.com/terminalstatic/go-xsd-validate		 v0.1.5 \
-	github.com/tidwall/gjson				 v1.17.1 \
+	github.com/tidwall/gjson				 v1.17.3 \
 	github.com/tidwall/match				 v1.1.1 \
 	github.com/tidwall/pretty				 v1.2.1 \
 	github.com/tidwall/sjson				 v1.2.5 \
@@ -156,10 +156,10 @@ MODGO_MODULES =	\
 	github.com/zclconf/go-cty				 v1.10.0 \
 	golang.org/x/crypto					 v0.25.0 \
 	golang.org/x/exp					 v0.0.0-20240719175910-8a7402abbf56 \
-	golang.org/x/mod					 v0.19.0 \
+	golang.org/x/mod					 v0.20.0 \
 	golang.org/x/net					 v0.27.0 \
 	golang.org/x/oauth2					 v0.20.0 \
-	golang.org/x/sync					 v0.7.0 \
+	golang.org/x/sync					 v0.8.0 \
 	golang.org/x/sys					 v0.22.0 \
 	golang.org/x/telemetry					 v0.0.0-20240521205824-bda55230c457 \
 	golang.org/x/term					 v0.22.0 \
@@ -264,6 +264,7 @@ MODGO_MODFILES =	\
 	golang.org/x/mod					 v0.12.0 \
 	golang.org/x/mod					 v0.14.0 \
 	golang.org/x/mod					 v0.17.0 \
+	golang.org/x/mod					 v0.19.0 \
 	golang.org/x/mod					 v0.6.0 \
 	golang.org/x/mod					 v0.6.0-dev.0.20220419223038-86c51ed26bb4 \
 	golang.org/x/mod					 v0.8.0 \
@@ -290,6 +291,7 @@ MODGO_MODFILES =	\
 	golang.org/x/sync					 v0.2.0 \
 	golang.org/x/sync					 v0.4.0 \
 	golang.org/x/sync					 v0.6.0 \
+	golang.org/x/sync					 v0.7.0 \
 	golang.org/x/sys					 v0.0.0-20190215142949-d0b11bdaac8a \
 	golang.org/x/sys					 v0.0.0-20191026070338-33540a1f6037 \
 	golang.org/x/sys					 v0.0.0-20201119102817-f84b799fce68 \
