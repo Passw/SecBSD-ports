@@ -1,7 +1,7 @@
 COMMENT=		customizable vulnerability scanner
 
 MODGO_MODNAME=		github.com/projectdiscovery/nuclei/v3
-MODGO_VERSION=		v3.3.1
+MODGO_VERSION=		v3.3.2
 
 DISTNAME=		nuclei-${MODGO_VERSION}
 
