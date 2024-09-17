@@ -1,6 +1,6 @@
 COMMENT=	recursive content discovery tool
 
-V=		v2.10.4
+V=		v2.11.0
 DIST_TUPLE=	github epi052 feroxbuster ${V} .
 
 CATEGORIES=	security
