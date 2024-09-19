@@ -1,13 +1,13 @@
 ONLY_FOR_ARCHS =	${GO_ARCHS}
 
 BIN_BOOTSTRAP_GOARCHS =	386 amd64 arm arm64 riscv64
-BIN_BOOTSTRAP_VERSION = 1.20.4
+BIN_BOOTSTRAP_VERSION = 1.22.5
 
 COMMENT =		Go programming language
 
 # increment _MODGO_SYSTEM_VERSION in go.port.mk after updating to a new
 # version, to trigger updates of go-compiled ports
-VERSION =		1.22.5
+VERSION =		1.23.1
 DISTNAME =		go${VERSION}.src
 PKGNAME =		go-${VERSION}
 PKGSPEC =		${FULLPKGNAME:S/go-/go-=/}
@@ -83,6 +83,9 @@ ERRORS += "Fatal: This flavor requires an installed go package"
 
 GOCFG =			/${GOOS}_${GOARCH}
 GOTOOLS =		pkg/tool/${GOCFG}
+
+post-patch:
+	rm ${WRKSRC}/cmd/internal/obj/x86/asm_test.go${PATCHORIG}
 
 do-configure:
 .	if ${GOARCH} == "unknown"
