@@ -1,6 +1,6 @@
 COMMENT=	information gathering tool
 
-V=	1.2.7
+V=		1.3.0
 MODGO_MODNAME=	github.com/edoardottt/scilla
 MODGO_VERSION=	v${V}
 
