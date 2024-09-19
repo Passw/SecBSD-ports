@@ -1,6 +1,6 @@
 COMMENT=		solidity contract oriented programming language
 
-V=			0.8.21
+V=			0.8.27
 DISTNAME=		solidity_${V}
 PKGNAME=		solidity-${V}
 
@@ -13,7 +13,7 @@ MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 # GPL-3.0
 PERMIT_PACKAGE=		Yes
 
-SITES=			https://github.com/ethereum/solidity/releases/download/v0.8.21/
+SITES=			https://github.com/ethereum/solidity/releases/download/v${V}/
 
 WANTLIB+=		c m gmp pthread z3 ${COMPILER_LIBCXX}
 
