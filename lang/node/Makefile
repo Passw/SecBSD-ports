@@ -5,7 +5,7 @@ USE_WXNEEDED =		Yes
 
 COMMENT = JavaScript runtime built on Chrome's V8 JavaScript engine
 
-NODE_VERSION =		v20.13.1
+NODE_VERSION =		v20.17.0
 PLEDGE_VER =		1.1.3
 DISTFILES =		${DISTNAME}-headers.tar.gz \
 			${DISTNAME}.tar.xz
@@ -32,7 +32,7 @@ MODULES =		lang/python
 WANTLIB += c execinfo m pthread ${COMPILER_LIBCXX}
 WANTLIB += z brotlienc brotlidec
 WANTLIB += icudata icui18n icuuc cares nghttp2 uv
-WANTLIB += lib/eopenssl31/ssl lib/eopenssl31/crypto
+WANTLIB += lib/eopenssl32/ssl lib/eopenssl32/crypto
 
 COMPILER =		base-clang ports-gcc
 
@@ -75,10 +75,10 @@ LIB_DEPENDS +=		archivers/brotli \
 			devel/libuv \
 			textproc/icu4c \
 			www/nghttp2 \
-			security/openssl/3.1
+			security/openssl/3.2
 
-EOPENSSL_LIB =		${LOCALBASE}/lib/eopenssl31
-EOPENSSL_INC =		${LOCALBASE}/include/eopenssl31
+EOPENSSL_LIB =		${LOCALBASE}/lib/eopenssl32
+EOPENSSL_INC =		${LOCALBASE}/include/eopenssl32
 
 post-extract:
 	mv ${WRKDIR}/node-pledge-${PLEDGE_VER} \
@@ -91,10 +91,8 @@ pre-configure:
 		${WRKDIST}/tools/test.py
 
 post-install:
-	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py \
-		${PREFIX}/lib/node_modules/npm/node_modules/node-gyp/gyp
-	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py \
-		${PREFIX}/lib/node_modules/npm/node_modules/node-gyp/update-gyp.py
+	${MODPY_COMPILEALL} \
+		${PREFIX}/lib/node_modules/npm/node_modules/node-gyp
 	${INSTALL_DATA_DIR} ${PREFIX}/share/node
 	${INSTALL_DATA} ${FULLDISTDIR}/${DISTNAME}-headers.tar.gz \
 		${PREFIX}/share/node/${DISTNAME}-headers.tar.gz
