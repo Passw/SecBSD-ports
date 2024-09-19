@@ -29,6 +29,7 @@ share/seclists/Discovery/DNS/fierce-hostlist.txt
 share/seclists/Discovery/DNS/italian-subdomains.txt
 share/seclists/Discovery/DNS/n0kovo_subdomains.txt
 share/seclists/Discovery/DNS/namelist.txt
+share/seclists/Discovery/DNS/services-names.txt
 share/seclists/Discovery/DNS/shubs-stackoverflow.txt
 share/seclists/Discovery/DNS/shubs-subdomains.txt
 share/seclists/Discovery/DNS/sortedcombined-knock-dnsrecon-fierce-reconng.txt
@@ -454,6 +455,7 @@ share/seclists/Discovery/Web-Content/raft-small-words-lowercase.txt
 share/seclists/Discovery/Web-Content/raft-small-words.txt
 share/seclists/Discovery/Web-Content/reverse-proxy-inconsistencies.txt
 share/seclists/Discovery/Web-Content/ror.txt
+share/seclists/Discovery/Web-Content/rssfeed-files.txt
 share/seclists/Discovery/Web-Content/sap-analytics-cloud.txt
 share/seclists/Discovery/Web-Content/sap.txt
 share/seclists/Discovery/Web-Content/sharepoint-ennumeration.txt
@@ -5057,7 +5059,6 @@ share/seclists/Fuzzing/User-Agents/user-agents-whatismybrowserdotcom-small.txt
 share/seclists/Fuzzing/Windows-Attacks.fuzzdb.txt
 share/seclists/Fuzzing/XML-FUZZ.txt
 share/seclists/Fuzzing/XSS/
-share/seclists/Fuzzing/XSS-Fuzzing
 share/seclists/Fuzzing/XSS/README.md
 share/seclists/Fuzzing/XSS/human-friendly/
 share/seclists/Fuzzing/XSS/human-friendly/README.md
@@ -5085,6 +5086,7 @@ share/seclists/Fuzzing/XSS/robot-friendly/XSS-EnDe-evation.txt
 share/seclists/Fuzzing/XSS/robot-friendly/XSS-EnDe-h4k.txt
 share/seclists/Fuzzing/XSS/robot-friendly/XSS-EnDe-mario.txt
 share/seclists/Fuzzing/XSS/robot-friendly/XSS-EnDe-xssAttacks.txt
+share/seclists/Fuzzing/XSS/robot-friendly/XSS-Fuzzing.txt
 share/seclists/Fuzzing/XSS/robot-friendly/XSS-Jhaddix.txt
 share/seclists/Fuzzing/XSS/robot-friendly/XSS-OFJAAAH.txt
 share/seclists/Fuzzing/XSS/robot-friendly/XSS-RSNAKE.txt
@@ -5456,6 +5458,10 @@ share/seclists/Passwords/Common-Credentials/100k-most-used-passwords-NCSC.txt
 share/seclists/Passwords/Common-Credentials/10k-most-common.txt
 share/seclists/Passwords/Common-Credentials/1900-2020.txt
 share/seclists/Passwords/Common-Credentials/500-worst-passwords.txt
+share/seclists/Passwords/Common-Credentials/Language-Specific/
+share/seclists/Passwords/Common-Credentials/Language-Specific/README.md
+share/seclists/Passwords/Common-Credentials/Language-Specific/Spanish_1000-common-usernames-and-passwords.txt
+share/seclists/Passwords/Common-Credentials/Language-Specific/Spanish_common-usernames-and-passwords.txt
 share/seclists/Passwords/Common-Credentials/SplashData-2014.txt
 share/seclists/Passwords/Common-Credentials/SplashData-2015-1.txt
 share/seclists/Passwords/Common-Credentials/SplashData-2015-2.txt

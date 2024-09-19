@@ -1,6 +1,6 @@
 COMMENT=	collection of multiple types of lists
 
-V=		2024.2
+V=		2024.3
 DISTNAME=	SecLists-${V}
 CATEGORIES=	security
 
