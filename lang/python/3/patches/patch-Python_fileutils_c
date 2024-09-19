@@ -6,7 +6,7 @@ Index: Python/fileutils.c
   * 2b. If fdwalk(3) isn't available, just do a plain close(2) loop.
   */
 -#ifdef __FreeBSD__
-+#if defined(__FreeBSD__) || defined(__OpenBSD__)
++#if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__SecBSD__)
  #  define USE_CLOSEFROM
 -#endif /* __FreeBSD__ */
 +#endif /* __FreeBSD__ || __OpenBSD__ */

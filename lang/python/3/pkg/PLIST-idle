@@ -1,11 +1,7 @@
 @option no-default-conflict
 @option is-branch
 @conflict python-idle-${VERSION_SPEC}
-<<<<<<< PLIST-idle
 @conflict python-idle->=3,<${FULL_VERSION}p0
-=======
-@conflict python-idle->=3,<3.11.10p0
->>>>>>> 1.5
 @pkgpath lang/python/3.2,-idle
 @pkgpath lang/python/3.3,-idle
 @pkgpath lang/python/3.4,-idle
@@ -18,11 +14,9 @@
 @pkgpath lang/python/3.11,-idle
 bin/idle3
 bin/idle3.11
-lib/python3.11/idlelib/
 lib/python3.11/idlelib/CREDITS.txt
 lib/python3.11/idlelib/ChangeLog
 lib/python3.11/idlelib/HISTORY.txt
-lib/python3.11/idlelib/Icons/
 lib/python3.11/idlelib/Icons/README.txt
 lib/python3.11/idlelib/Icons/folder.gif
 lib/python3.11/idlelib/Icons/idle.ico
@@ -44,7 +38,6 @@ lib/python3.11/idlelib/README.txt
 lib/python3.11/idlelib/TODO.txt
 lib/python3.11/idlelib/__init__.py
 lib/python3.11/idlelib/__main__.py
-lib/python3.11/idlelib/__pycache__/
 lib/python3.11/idlelib/__pycache__/__init__.cpython-311.opt-1.pyc
 lib/python3.11/idlelib/__pycache__/__init__.cpython-311.opt-2.pyc
 lib/python3.11/idlelib/__pycache__/__init__.cpython-311.pyc
@@ -259,10 +252,8 @@ lib/python3.11/idlelib/hyperparser.py
 lib/python3.11/idlelib/idle.bat
 lib/python3.11/idlelib/idle.py
 lib/python3.11/idlelib/idle.pyw
-lib/python3.11/idlelib/idle_test/
 lib/python3.11/idlelib/idle_test/README.txt
 lib/python3.11/idlelib/idle_test/__init__.py
-lib/python3.11/idlelib/idle_test/__pycache__/
 lib/python3.11/idlelib/idle_test/__pycache__/__init__.cpython-311.opt-1.pyc
 lib/python3.11/idlelib/idle_test/__pycache__/__init__.cpython-311.opt-2.pyc
 lib/python3.11/idlelib/idle_test/__pycache__/__init__.cpython-311.pyc
