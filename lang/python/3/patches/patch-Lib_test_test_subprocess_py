@@ -1,0 +1,12 @@
+Index: Lib/test/test_subprocess.py
+--- Lib/test/test_subprocess.py.orig
++++ Lib/test/test_subprocess.py
+@@ -2440,7 +2440,7 @@ class POSIXProcessTestCase(BaseTestCase):
+         getattr(p, method)(*args)
+         return p
+ 
+-    @unittest.skipIf(sys.platform.startswith(('netbsd', 'openbsd')),
++    @unittest.skipIf(sys.platform.startswith(('netbsd', 'openbsd', 'secbsd')),
+                      "Due to known OS bug (issue #16762)")
+     def _kill_dead_process(self, method, *args):
+         # Do not inherit file handles from the parent.

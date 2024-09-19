@@ -1,0 +1,12 @@
+Index: Lib/test/test_crypt.py
+--- Lib/test/test_crypt.py.orig
++++ Lib/test/test_crypt.py
+@@ -54,7 +54,7 @@ class CryptTestCase(unittest.TestCase):
+ 
+     def test_methods(self):
+         self.assertTrue(len(crypt.methods) >= 1)
+-        if sys.platform.startswith('openbsd'):
++        if sys.platform.startswith('secbsd'):
+             self.assertEqual(crypt.methods, [crypt.METHOD_BLOWFISH])
+         else:
+             self.assertEqual(crypt.methods[-1], crypt.METHOD_CRYPT)

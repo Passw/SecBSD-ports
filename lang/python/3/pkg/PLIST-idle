@@ -1,7 +1,11 @@
 @option no-default-conflict
 @option is-branch
 @conflict python-idle-${VERSION_SPEC}
+<<<<<<< PLIST-idle
 @conflict python-idle->=3,<${FULL_VERSION}p0
+=======
+@conflict python-idle->=3,<3.11.10p0
+>>>>>>> 1.5
 @pkgpath lang/python/3.2,-idle
 @pkgpath lang/python/3.3,-idle
 @pkgpath lang/python/3.4,-idle

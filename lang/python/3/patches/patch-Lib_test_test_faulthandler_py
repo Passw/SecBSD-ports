@@ -1,0 +1,12 @@
+Index: Lib/test/test_faulthandler.py
+--- Lib/test/test_faulthandler.py.orig
++++ Lib/test/test_faulthandler.py
+@@ -284,7 +284,7 @@ class FaultHandlerTests(unittest.TestCase):
+     def test_fatal_error_without_gil(self):
+         self.check_fatal_error_func(True)
+ 
+-    @unittest.skipIf(sys.platform.startswith('openbsd'),
++    @unittest.skipIf(sys.platform.startswith('secbsd'),
+                      "Issue #12868: sigaltstack() doesn't work on "
+                      "OpenBSD if Python is compiled with pthread")
+     @unittest.skipIf(not hasattr(faulthandler, '_stack_overflow'),

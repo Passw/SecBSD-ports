@@ -1,0 +1,21 @@
+Index: Lib/test/test_threadsignals.py
+--- Lib/test/test_threadsignals.py.orig
++++ Lib/test/test_threadsignals.py
+@@ -75,7 +75,7 @@ class ThreadSignals(unittest.TestCase):
+                      'Issue 34004: musl does not allow interruption of locks '
+                      'by signals.')
+     # Issue #20564: sem_timedwait() cannot be interrupted on OpenBSD
+-    @unittest.skipIf(sys.platform.startswith('openbsd'),
++    @unittest.skipIf(sys.platform.startswith('secbsd'),
+                      'lock cannot be interrupted on OpenBSD')
+     def test_lock_acquire_interruption(self):
+         # Mimic receiving a SIGINT (KeyboardInterrupt) with SIGALRM while stuck
+@@ -106,7 +106,7 @@ class ThreadSignals(unittest.TestCase):
+                      'Issue 34004: musl does not allow interruption of locks '
+                      'by signals.')
+     # Issue #20564: sem_timedwait() cannot be interrupted on OpenBSD
+-    @unittest.skipIf(sys.platform.startswith('openbsd'),
++    @unittest.skipIf(sys.platform.startswith('secbsd'),
+                      'lock cannot be interrupted on OpenBSD')
+     def test_rlock_acquire_interruption(self):
+         # Mimic receiving a SIGINT (KeyboardInterrupt) with SIGALRM while stuck

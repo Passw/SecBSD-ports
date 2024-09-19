@@ -173,20 +173,22 @@ DPB_PROPERTIES +=	nojunk
 .elif ${MODPY_PYBUILD:L} != no
 BUILD_DEPENDS +=	devel/py-build${MODPY_FLAVOR} \
 			devel/py-installer${MODPY_FLAVOR}
-.  if ${MODPY_PYBUILD} == flit_core
+.  if ${MODPY_PYBUILD} == flit
+BUILD_DEPENDS +=	devel/py-flit${MODPY_FLAVOR}
+.  elif ${MODPY_PYBUILD} == flit_core
 BUILD_DEPENDS +=	devel/py-flit_core${MODPY_FLAVOR}
 .  elif ${MODPY_PYBUILD} == flit_scm
 BUILD_DEPENDS +=	devel/py-flit_scm${MODPY_FLAVOR}
-.  elif ${MODPY_PYBUILD} == flit
-BUILD_DEPENDS +=	devel/py-flit${MODPY_FLAVOR}
-.  elif ${MODPY_PYBUILD} == hatchling
-BUILD_DEPENDS +=	devel/py-hatchling${MODPY_FLAVOR}
 .  elif ${MODPY_PYBUILD} == hatch-vcs
 BUILD_DEPENDS +=	devel/py-hatch-vcs${MODPY_FLAVOR}
+.  elif ${MODPY_PYBUILD} == hatchling
+BUILD_DEPENDS +=	devel/py-hatchling${MODPY_FLAVOR}
 .  elif ${MODPY_PYBUILD} == jupyter_packaging
 BUILD_DEPENDS +=	devel/py-jupyter_packaging${MODPY_FLAVOR}
 .  elif ${MODPY_PYBUILD} == maturin
 BUILD_DEPENDS +=	devel/maturin
+.  elif ${MODPY_PYBUILD} == pdm
+BUILD_DEPENDS +=	devel/py-pdm-backend${MODPY_FLAVOR}
 .  elif ${MODPY_PYBUILD} == poetry-core
 BUILD_DEPENDS +=	devel/py-poetry-core${MODPY_FLAVOR}
 .  elif ${MODPY_PYBUILD} == setuptools || ${MODPY_PYBUILD} == setuptools_scm
@@ -196,7 +198,7 @@ BUILD_DEPENDS +=	devel/py-setuptools${MODPY_FLAVOR} \
 BUILD_DEPENDS +=	devel/py-setuptools_scm${MODPY_FLAVOR}
 .    endif
 .  elif !${MODPY_PYBUILD:L:Mother}
-ERRORS +=		"Fatal: unknown MODPY_PYBUILD value (flit_core, flit_scm, flit, hatchling, hatch-vcs, jupyter_packaging, maturin, other, poetry-core, setuptools, setuptools_scm)"
+ERRORS +=		"Fatal: unknown MODPY_PYBUILD value (flit, flit_core, flit_scm, hatch-vcs, hatchling, jupyter_packaging, pdm, maturin, other, poetry-core, setuptools, setuptools_scm)"
 .  endif
 .else
 # Try to detect the case where a port will build regardless of setuptools
@@ -262,7 +264,8 @@ MODPY_TEST_DIR ?=	${WRKSRC}
 
 MODPY_TEST_CMD = cd ${MODPY_TEST_DIR} && ${SETENV} ${ALL_TEST_ENV} ${MODPY_BIN}
 .if ${MODPY_PYTEST:L} == "yes"
-MODPY_TEST_CMD +=	-m pytest
+MODPY_PYTEST_USERARGS ?=
+MODPY_TEST_CMD +=	-m pytest ${MODPY_PYTEST_USERARGS}
 MODPY_TEST_LIBDIR ?=	${WRKSRC}/build/lib:${WRKSRC}/build/lib.openbsd-${OSREV}-${ARCH}-cpython-${MODPY_MAJORMINOR}:${WRKSRC}/lib.openbsd-${OSREV}-${ARCH}-${MODPY_VERSION}
 .else
 MODPY_TEST_CMD +=	./${MODPY_SETUP} ${MODPY_SETUP_ARGS}
@@ -292,6 +295,12 @@ MODPY_BIN_ADJ =	perl -pi \
 MODPY_ADJ_FILES ?=
 .if !empty(MODPY_ADJ_FILES)
 MODPYTHON_pre-configure += cd ${WRKSRC} && ${MODPY_BIN_ADJ} ${MODPY_ADJ_FILES}
+.endif
+
+.if ${MODPY_VERSION} == ${MODPY_DEFAULT_VERSION_2}
+MODPY_COMPILEALL = ${MODPY_BIN} -m compileall
+.else
+MODPY_COMPILEALL = ${MODPY_BIN} -m compileall -j ${MAKE_JOBS} -s ${WRKINST} -o 0 -o 1
 .endif
 
 .if ${MODPY_PYBUILD:L} != no

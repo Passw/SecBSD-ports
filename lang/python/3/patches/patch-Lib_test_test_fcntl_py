@@ -1,0 +1,12 @@
+Index: Lib/test/test_fcntl.py
+--- Lib/test/test_fcntl.py.orig
++++ Lib/test/test_fcntl.py
+@@ -24,7 +24,7 @@ def get_lockdata():
+     else:
+         start_len = "qq"
+ 
+-    if (sys.platform.startswith(('netbsd', 'freebsd', 'openbsd'))
++    if (sys.platform.startswith(('netbsd', 'freebsd', 'openbsd', 'secbsd'))
+         or sys.platform == 'darwin'):
+         if struct.calcsize('l') == 8:
+             off_t = 'l'
