@@ -15,16 +15,20 @@ COMMENT-rustfmt =	Rust code formatter
 COMMENT-bootstrap =	Rust binary bootstrap
 COMMENT-src =		Rust source component
 
-V =			1.78.0
+V =			1.81.0
 DISTNAME =		rustc-${V}-src
+REVISION-gdb =		0
+REVISION-clippy =	0
+REVISION-rustfmt =	0
+REVISION-src =		0
 
 # rustc bootstrap version
-BV-aarch64 =		1.78.0
-BV-amd64 =		1.78.0
-BV-i386 =		1.78.0
+BV-aarch64 =		1.80.1
+BV-amd64 =		1.81.0
+BV-i386 =		1.81.0
 BV-powerpc64 =		1.65.0-20221213
-BV-riscv64 =		1.77.0-20240401
-BV-sparc64 =		1.77.2
+BV-riscv64 =		1.80.1
+BV-sparc64 =		1.80.1
 BV =			${BV-${MACHINE_ARCH}}
 
 PKGNAME =		rust-${V}
@@ -145,7 +149,7 @@ BUILD_DEPENDS +=	devel/gdb
 
 .if !${USE_EMB_LLVM:L:Myes}
 MODULES +=			lang/clang
-MODCLANG_VERSION =		16
+MODCLANG_VERSION =		17
 MODCLANG_COMPILER_LINKS =	No
 .else
 WANTLIB-main +=		execinfo
@@ -155,12 +159,15 @@ LIB_DEPENDS-main +=	${LIB_DEPENDS} \
 			net/curl \
 			security/libssh2
 
-RUN_DEPENDS-gdb +=	lang/rust,-main \
-			devel/gdb \
-			devel/llvm/16,-lldb
-RUN_DEPENDS-clippy +=	lang/rust,-main
-RUN_DEPENDS-rustfmt +=	lang/rust,-main
-RUN_DEPENDS-src +=	lang/rust,-main
+RUN_DEPENDS-gdb +=	${FULLPKGNAME-main}:${FULLPKGPATH-main} \
+			devel/gdb
+# BUILD_LLDB is defined by /usr/share/mk/bsd.own.mk
+.if ${BUILD_LLDB:L} == yes
+RUN_DEPENDS-gdb +=	devel/llvm/17,-lldb
+.endif
+RUN_DEPENDS-clippy +=	${FULLPKGNAME-main}:${FULLPKGPATH-main}
+RUN_DEPENDS-rustfmt +=	${FULLPKGNAME-main}:${FULLPKGPATH-main}
+RUN_DEPENDS-src +=	${FULLPKGNAME-main}:${FULLPKGPATH-main}
 
 PKG_ARCH-src =		*
 
@@ -199,7 +206,7 @@ pre-configure:
 
 # - generate config.toml file
 do-configure:
-	echo 'change-id = 118703' >${WRKBUILD}/config.toml
+	echo 'change-id = 125535' >${WRKBUILD}/config.toml
 	echo '[build]' >>${WRKBUILD}/config.toml
 .if ${FLAVOR} == native_bootstrap
 	echo 'rustc = "${LOCALBASE}/bin/rustc"' >>${WRKBUILD}/config.toml
@@ -310,7 +317,7 @@ do-install:
 		${PREFIX}/share/bash-completion/completions
 	-rmdir -p ${PREFIX}/etc/bash_completion.d
 	# compile python stuff
-	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py ${PREFIX}/lib/rustlib/etc
+	${MODPY_COMPILEALL} ${PREFIX}/lib/rustlib/etc
 
 do-test:
 	${TEST_BIN} test --jobs=${MAKE_JOBS} --no-fail-fast
