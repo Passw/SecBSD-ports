@@ -4,8 +4,8 @@ MODPY_EGG_VERSION= 1.0.3
 DISTNAME=	wesng-${MODPY_EGG_VERSION}
 # definitions.zip isn't in the pypi release, and is updated frequently;
 # fetch it from upstream's github repo instead
-DEF_DATE=	20240914
-DEF_COMMITHASH=	bf6457a5a43f5390a3b2551e37ae7abca1874637
+DEF_DATE=	20240921
+DEF_COMMITHASH=	88c464c228395016bed7031160cc31d53e8e3ba8
 
 HOMEPAGE=	https://github.com/bitsadmin/wesng
 
