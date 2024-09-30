@@ -25,8 +25,8 @@ MODLUA_SA =		Yes
 
 MODULES =		devel/cargo \
 			lang/lua
-BUILD_DEPENDS =		security/rust-ring
-
+BUILD_DEPENDS =		security/rust-ring \
+			textproc/py-sphinx,python3
 RUN_DEPENDS =		net/libmaxminddb,-asn \
 			net/libmaxminddb,-city
 
@@ -41,11 +41,14 @@ RELEASE_DIR =		${MODCARGO_TARGET_DIR}/release
 
 do-build:
 	@${MODCARGO_BUILD_TARGET}
+	${LOCALBASE}/bin/sphinx-build -Nb man ${WRKSRC}/docs ${WRKBUILD}
 	${RELEASE_DIR}/sn0int completions bash > ${WRKBUILD}/sn0int.bash
 	${RELEASE_DIR}/sn0int completions zsh > ${WRKBUILD}/_sn0int
 	${RELEASE_DIR}/sn0int completions fish > ${WRKBUILD}/sn0int.fish
 
 do-install:
+	${INSTALL_PROGRAM} ${RELEASE_DIR}/sn0int ${PREFIX}/bin/
+	${INSTALL_MAN} ${WRKBUILD}/sn0int.1 ${PREFIX}/man/man1/
 	${INSTALL_PROGRAM} ${RELEASE_DIR}/sn0int ${PREFIX}/bin/
 	${INSTALL_DATA_DIR} ${PREFIX}/share/bash-completion/completions
 	${INSTALL_DATA} ${WRKBUILD}/sn0int.bash \
