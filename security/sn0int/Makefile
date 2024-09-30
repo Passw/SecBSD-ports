@@ -7,7 +7,7 @@ COMMENT =	semi-automatic OSINT framework and package manager
 
 GH_ACCOUNT =	kpcyrd
 GH_PROJECT =	sn0int
-GH_TAGNAME =	v0.26.0
+GH_TAGNAME =	v0.26.1
 
 CATEGORIES =	security
 
@@ -25,8 +25,8 @@ MODLUA_SA =		Yes
 
 MODULES =		devel/cargo \
 			lang/lua
-BUILD_DEPENDS =		security/rust-ring \
-			textproc/py-sphinx,python3
+BUILD_DEPENDS =		security/rust-ring
+
 RUN_DEPENDS =		net/libmaxminddb,-asn \
 			net/libmaxminddb,-city
 
@@ -41,14 +41,12 @@ RELEASE_DIR =		${MODCARGO_TARGET_DIR}/release
 
 do-build:
 	@${MODCARGO_BUILD_TARGET}
-	${LOCALBASE}/bin/sphinx-build -Nb man ${WRKSRC}/docs ${WRKBUILD}
 	${RELEASE_DIR}/sn0int completions bash > ${WRKBUILD}/sn0int.bash
 	${RELEASE_DIR}/sn0int completions zsh > ${WRKBUILD}/_sn0int
 	${RELEASE_DIR}/sn0int completions fish > ${WRKBUILD}/sn0int.fish
 
 do-install:
 	${INSTALL_PROGRAM} ${RELEASE_DIR}/sn0int ${PREFIX}/bin/
-	${INSTALL_MAN} ${WRKBUILD}/sn0int.1 ${PREFIX}/man/man1/
 	${INSTALL_DATA_DIR} ${PREFIX}/share/bash-completion/completions
 	${INSTALL_DATA} ${WRKBUILD}/sn0int.bash \
 	    ${PREFIX}/share/bash-completion/completions/sn0int

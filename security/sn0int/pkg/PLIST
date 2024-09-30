@@ -1,5 +1,4 @@
 @bin bin/sn0int
-@man man/man1/sn0int.1
 share/bash-completion/
 share/bash-completion/completions/
 share/bash-completion/completions/sn0int
