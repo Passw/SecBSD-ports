@@ -1,7 +1,7 @@
 COMMENT=	audit git repos for secrets
 
 MODGO_MODNAME=	github.com/zricethezav/gitleaks/v8
-MODGO_VERSION=	v8.19.2
+MODGO_VERSION=	v8.20.0
 
 DISTNAME=	gitleaks-${MODGO_VERSION}
 
