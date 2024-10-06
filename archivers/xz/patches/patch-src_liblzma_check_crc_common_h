@@ -7,7 +7,7 @@ Index: src/liblzma/check/crc_common.h
  		|| defined(HAVE_ELF_AUX_INFO) \
 -		|| (defined(__APPLE__) && defined(HAVE_SYSCTLBYNAME))
 +		|| (defined(__APPLE__) && defined(HAVE_SYSCTLBYNAME)) \
-+		|| defined(__OpenBSD__)
++		|| defined(__SecBSD__)
  #	define ARM64_RUNTIME_DETECTION 1
  #endif
  

@@ -5,7 +5,7 @@ Index: src/liblzma/check/crc32_arm64.h
  #		include <processthreadsapi.h>
  #	elif defined(__APPLE__) && defined(HAVE_SYSCTLBYNAME)
  #		include <sys/sysctl.h>
-+#	elif defined(__OpenBSD__)
++#	elif defined(__SecBSD__)
 +#		include <sys/types.h>
 +#		include <sys/sysctl.h>
 +#		include <machine/cpu.h>
@@ -18,7 +18,7 @@ Index: src/liblzma/check/crc32_arm64.h
  
  	return has_crc32;
 +
-+#elif defined(__OpenBSD__)
++#elif defined(__SecBSD__)
 +	const int isar0_mib[] = { CTL_MACHDEP, CPU_ID_AA64ISAR0 };
 +	uint64_t isar0;
 +	size_t len = sizeof(isar0);
