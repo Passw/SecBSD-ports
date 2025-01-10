@@ -1,5 +1,6 @@
      SUBDIR =
      SUBDIR += awscli
+     SUBDIR += binwalk
      SUBDIR += coreutils
      SUBDIR += flock
      SUBDIR += ggrep

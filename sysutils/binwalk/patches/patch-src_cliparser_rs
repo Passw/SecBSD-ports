@@ -1,0 +1,15 @@
+Index: src/cliparser.rs
+--- src/cliparser.rs.orig
++++ src/cliparser.rs
+@@ -56,5 +56,11 @@ pub struct CliArgs {
+ }
+ 
+ pub fn parse() -> CliArgs {
++    let args = std::env::args().collect::<Vec<String>>();
++    
++    if args.len() == 1 {
++        CliArgs::parse_from(["", "--help"]);
++    }
++
+     CliArgs::parse()
+ }
