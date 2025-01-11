@@ -7,34 +7,34 @@
 Index: configure.ac
 --- configure.ac.orig
 +++ configure.ac
-@@ -249,7 +249,7 @@ VERSION=PYTHON_VERSION
+@@ -251,7 +251,7 @@ VERSION=PYTHON_VERSION
  
  # Version number of Python's own shared library file.
- AC_SUBST(SOVERSION)
+ AC_SUBST([SOVERSION])
 -SOVERSION=1.0
-+SOVERSION=${LIBpython3.11_VERSION}
++SOVERSION=0.0
  
  # The later definition of _XOPEN_SOURCE and _POSIX_C_SOURCE disables
  # certain features on NetBSD, so we need _NETBSD_SOURCE to re-enable
-@@ -645,7 +645,7 @@ case $ac_sys_system/$ac_sys_release in
-     # As this has a different meaning on Linux, only define it on OpenBSD
-     AC_DEFINE(_BSD_SOURCE, 1, [Define on OpenBSD to activate all library features])
+@@ -651,7 +651,7 @@ case $ac_sys_system/$ac_sys_release in
+     AC_DEFINE([_BSD_SOURCE], [1],
+               [Define on OpenBSD to activate all library features])
      ;;
 -  OpenBSD/*)
 +  OpenBSD/*|SecBSD/*)
      # OpenBSD undoes our definition of __BSD_VISIBLE if _XOPEN_SOURCE is
      # also defined. This can be overridden by defining _BSD_SOURCE
      # As this has a different meaning on Linux, only define it on OpenBSD
-@@ -1104,6 +1104,8 @@ AC_MSG_CHECKING([for multiarch])
+@@ -1123,6 +1123,8 @@ AC_MSG_CHECKING([for multiarch])
  AS_CASE([$ac_sys_system],
    [Darwin*], [MULTIARCH=""],
    [FreeBSD*], [MULTIARCH=""],
 +  [OpenBSD*], [MULTIARCH=""],
-+  [SecBSD*], [MULTIARCH=""],
++  [SecBSD*],  [MULTIARCH=""],
    [MULTIARCH=$($CC --print-multiarch 2>/dev/null)]
  )
  AC_SUBST([MULTIARCH])
-@@ -1493,7 +1495,7 @@ if test $enable_shared = "yes"; then
+@@ -1517,7 +1519,7 @@ if test $enable_shared = "yes"; then
  	      PY3LIBRARY=libpython3.so
  	  fi
            ;;
@@ -43,8 +43,8 @@ Index: configure.ac
  	  LDLIBRARY='libpython$(LDVERSION).so'
  	  BLDLIBRARY='-L. -lpython$(LDVERSION)'
  	  RUNSHARED=LD_LIBRARY_PATH=`pwd`${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-@@ -1843,13 +1845,13 @@ esac
- [AC_MSG_RESULT(no)])
+@@ -1858,13 +1860,13 @@ esac
+ [AC_MSG_RESULT([no])])
  if test "$Py_LTO" = 'true' ; then
    case $CC in
 -    *clang*)
@@ -53,13 +53,13 @@ Index: configure.ac
        dnl Clang linker requires -flto in order to link objects with LTO information.
        dnl Thin LTO is faster and works for object files with full LTO information, too.
        AX_CHECK_COMPILE_FLAG([-flto=thin],[LDFLAGS_NOLTO="-flto=thin"],[LDFLAGS_NOLTO="-flto"])
-       AC_SUBST(LLVM_AR)
--      AC_PATH_TOOL(LLVM_AR, llvm-ar, '', ${llvm_path})
-+      AC_PATH_TOOL(LLVM_AR, ar, '', ${llvm_path})
-       AC_SUBST(LLVM_AR_FOUND)
+       AC_SUBST([LLVM_AR])
+-      AC_PATH_TOOL([LLVM_AR], [llvm-ar], [''], [${llvm_path}])
++      AC_PATH_TOOL([LLVM_AR], [ar], [''], [${llvm_path}])
+       AC_SUBST([LLVM_AR_FOUND])
        if test -n "${LLVM_AR}" -a -x "${LLVM_AR}"
        then
-@@ -1964,7 +1966,7 @@ then
+@@ -1987,7 +1989,7 @@ then
  fi
  LLVM_PROF_ERR=no
  case $CC in
@@ -67,8 +67,8 @@ Index: configure.ac
 +  *clang*|cc)
      # Any changes made here should be reflected in the GCC+Darwin case below
      PGO_PROF_GEN_FLAG="-fprofile-instr-generate"
-     PGO_PROF_USE_FLAG="-fprofile-instr-use=code.profclangd"
-@@ -3193,7 +3195,7 @@ then
+     PGO_PROF_USE_FLAG="-fprofile-instr-use=\"\$(shell pwd)/code.profclangd\""
+@@ -3373,7 +3375,7 @@ then
  		else
  			LDSHARED="ld -Bshareable"
  		fi;;
@@ -77,7 +77,7 @@ Index: configure.ac
  		if [[ "`$CC -dM -E - </dev/null | grep __ELF__`" != "" ]]
  		then
  				LDSHARED='$(CC) -shared $(CCSHARED)'
-@@ -3269,7 +3271,7 @@ then
+@@ -3449,7 +3451,7 @@ then
  		AS_VAR_IF([enable_wasm_dynamic_linking], [yes], [
  			CCSHARED="-fPIC"
  		]);;
@@ -86,7 +86,7 @@ Index: configure.ac
  	Haiku*) CCSHARED="-fPIC";;
  	OpenUNIX*|UnixWare*)
  		if test "$GCC" = "yes"
-@@ -3326,7 +3328,7 @@ then
+@@ -3506,7 +3508,7 @@ then
  	OpenUNIX*|UnixWare*) LINKFORSHARED="-Wl,-Bexport";;
  	SCO_SV*) LINKFORSHARED="-Wl,-Bexport";;
  	ReliantUNIX*) LINKFORSHARED="-W1 -Blargedynsym";;
@@ -95,7 +95,7 @@ Index: configure.ac
  		if [[ "`$CC -dM -E - </dev/null | grep __ELF__`" != "" ]]
  		then
  			LINKFORSHARED="-Wl,--export-dynamic"
-@@ -3888,11 +3890,7 @@ dnl Detect Tcl/Tk. Use pkg-config if available.
+@@ -4128,11 +4130,7 @@ dnl Detect Tcl/Tk. Use pkg-config if available.
  dnl
  found_tcltk=no
  for _QUERY in \

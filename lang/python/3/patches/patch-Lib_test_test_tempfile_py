@@ -1,7 +1,7 @@
 Index: Lib/test/test_tempfile.py
 --- Lib/test/test_tempfile.py.orig
 +++ Lib/test/test_tempfile.py
-@@ -25,7 +25,7 @@ has_spawnl = hasattr(os, 'spawnl')
+@@ -28,7 +28,7 @@ has_spawnl = hasattr(os, 'spawnl')
  
  # TEST_FILES may need to be tweaked for systems depending on the maximum
  # number of files that can be opened at one time (see ulimit -n)

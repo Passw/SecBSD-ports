@@ -110,8 +110,6 @@ LIB_DEPENDS-tkinter =	lang/python/${V_SUBDIR},-main \
 WANTLIB-tkinter =	pthread python${VERSION} \
 			${MODTK_WANTLIB}
 
-AUTOCONF_VERSION =	2.69
-
 CONFIGURE_STYLE =	autoconf
 CONFIGURE_ARGS +=	--enable-shared
 CONFIGURE_ARGS +=	--enable-ipv6 \
@@ -146,7 +144,7 @@ MAKE_FLAGS +=	LD_LIBRARY_PATH=${WRKSRC} PATH="${WRKDIST}:${PORTPATH}"
 MAKE_FLAGS +=	CFLAGS_NODIST='-I${LOCALBASE}/include' LDFLAGS_NODIST='-L${WRKSRC} -L${LOCALBASE}/lib/'
 FAKE_FLAGS +=	RANLIB=:
 
-PY_PLATFORM =	openbsd${OSMAJOR}
+PY_PLATFORM =	secbsd${OSMAJOR}
 SUBST_VARS +=	FULL_VERSION VERSION_SPEC PY_PLATFORM
 
 # Python itself is clean, but some dlopen()'d extensions e.g. QtWebKit

@@ -1,0 +1,12 @@
+Index: Lib/test/test_asyncio/test_events.py
+--- Lib/test/test_asyncio/test_events.py.orig
++++ Lib/test/test_asyncio/test_events.py
+@@ -2226,7 +2226,7 @@ else:
+             @support.requires_mac_ver(10, 9)
+             # Issue #20667: KqueueEventLoopTests.test_read_pty_output()
+             # hangs on OpenBSD 5.5
+-            @unittest.skipIf(sys.platform.startswith('openbsd'),
++            @unittest.skipIf(sys.platform.startswith('secbsd'),
+                              'test hangs on OpenBSD')
+             def test_read_pty_output(self):
+                 super().test_read_pty_output()
