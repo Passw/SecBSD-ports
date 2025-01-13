@@ -1,4 +1,4 @@
-COMMENT =	firmware analysis tool 
+COMMENT =	firmware analysis tool
 
 DIST_TUPLE =	github ReFirmLabs binwalk v3.1.0 .
 
