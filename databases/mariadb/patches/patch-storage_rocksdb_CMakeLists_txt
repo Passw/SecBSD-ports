@@ -1,7 +1,24 @@
 Index: storage/rocksdb/CMakeLists.txt
 --- storage/rocksdb/CMakeLists.txt.orig
 +++ storage/rocksdb/CMakeLists.txt
-@@ -58,15 +58,6 @@ IF(MSVC_ARM64)
+@@ -32,6 +32,16 @@ IF(HAVE_SCHED_GETCPU)
+   ADD_DEFINITIONS(-DHAVE_SCHED_GETCPU=1 -DROCKSDB_SCHED_GETCPU_PRESENT)
+ ENDIF()
+ 
++CHECK_FUNCTION_EXISTS(getauxval "sys/auvx.h" HAVE_AUXV_GETAUXVAL)
++if(HAVE_AUXV_GETAUXVAL)
++  add_definitions(-DROCKSDB_AUXV_GETAUXVAL_PRESENT)
++endif()
++
++CHECK_FUNCTION_EXISTS(elf_aux_info "sys/auxv.h" HAVE_AUXV_ELF_AUX_INFO)
++if(HAVE_AUXV_ELF_AUX_INFO)
++  add_definitions(-DROCKSDB_AUXV_ELF_AUX_INFO_PRESENT)
++endif()
++
+ IF(WITH_VALGRIND)
+   ADD_DEFINITIONS(-DROCKSDB_VALGRIND_RUN=1)
+ ENDIF()
+@@ -64,15 +74,6 @@ IF(MSVC_ARM64)
   SKIP_ROCKSDB_PLUGIN("Windows ARM64 not supported")
  ENDIF()
  
@@ -17,16 +34,16 @@ Index: storage/rocksdb/CMakeLists.txt
  # This plugin needs recent C++ compilers (it is using C++11 features)
  # Skip build for the old compilers
  SET(CXX11_FLAGS)
-@@ -198,7 +189,7 @@ ADD_DEPENDENCIES(rocksdb_aux_lib GenError)
+@@ -206,7 +207,7 @@ ADD_DEPENDENCIES(rocksdb_aux_lib GenError)
  
  # MARIAROCKS-TODO: how to properly depend on -lrt ?
- TARGET_LINK_LIBRARIES(rocksdb_aux_lib rocksdblib ${ZLIB_LIBRARY})
+ TARGET_LINK_LIBRARIES(rocksdb_aux_lib rocksdblib ${ZLIB_LIBRARIES})
 -if (UNIX AND NOT APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
 +if (UNIX AND NOT APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "SecBSD")
    TARGET_LINK_LIBRARIES(rocksdb_aux_lib -lrt)
  endif()
  TARGET_LINK_LIBRARIES(rocksdb_aux_lib ${ATOMIC_EXTRA_LIBS})
-@@ -249,7 +240,7 @@ ENDIF()
+@@ -257,7 +258,7 @@ ENDIF()
  #  ADD_SUBDIRECTORY(unittest)
  #ENDIF()
  
