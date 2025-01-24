@@ -3,7 +3,7 @@ COMMENT-lang=	vi clone, NLS subpackage
 
 # careful with PLISTs if updating; it usually works best if you use
 # a gui flavour rather than no_x11
-V=		9.1.0404
+V=		9.1.1043
 VS=		${V:C/\.0+/./}
 
 DIST_TUPLE+=	github vim vim v$V . \
@@ -62,7 +62,7 @@ CONFIGURE_ARGS+= --with-tlib="curses" \
 AUTOCONF_VERSION= 2.71
 BUILD_DEPENDS=	${MODGNU_AUTOCONF_DEPENDS} \
 		devel/gettext,-tools
-
+DEBUG_PACKAGES=	-main
 .if defined(DEBUG)
 MAKE_FLAGS+= STRIP=:
 .endif
