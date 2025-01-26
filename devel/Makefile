@@ -184,7 +184,6 @@
      SUBDIR += py-setuptools-rust,python3
      SUBDIR += py-setuptools_git,python3
      SUBDIR += py-setuptools_scm,python3
-     SUBDIR += py-setuptools_scm_git_archive,python3
      SUBDIR += py-six,python3
      SUBDIR += py-slowapi,python3
      SUBDIR += py-smmap,python3
