@@ -2,16 +2,16 @@ COMMENT-runtime=	GNU gettext runtime libraries and programs
 COMMENT-textstyle=	text styling library
 COMMENT-tools=		GNU gettext development and translation tools
 
-VERSION=		0.22.5
+VERSION=		0.23.1
 DISTNAME=		gettext-${VERSION}
 PKGNAME-textstyle=	libtextstyle-${VERSION}
 
-SHARED_LIBS +=  intl                 8.0      # 12.0
+SHARED_LIBS +=  intl                 8.1      # 12.2
 SHARED_LIBS +=  asprintf             3.0      # unknown
-SHARED_LIBS +=  textstyle            0.2      # 2.1
-SHARED_LIBS +=  gettextlib           14.0     # unknown
-SHARED_LIBS +=  gettextsrc           10.0     # unknown
-SHARED_LIBS +=  gettextpo            12.0     # 5.10
+SHARED_LIBS +=  textstyle            0.2      # 2.3
+SHARED_LIBS +=  gettextlib           15.0     # unknown
+SHARED_LIBS +=  gettextsrc           11.0     # unknown
+SHARED_LIBS +=  gettextpo            13.0     # 5.12
 
 SUBST_VARS=	VERSION
 
@@ -31,9 +31,9 @@ PERMIT_PACKAGE=	Yes
 MULTI_PACKAGES=	-runtime -textstyle -tools
 SUBPACKAGE?=	-runtime
 
-WANTLIB-runtime=	c iconv m ${COMPILER_LIBCXX}
-WANTLIB-textstyle=	curses iconv m
-WANTLIB-tools=		c curses iconv intl m textstyle
+WANTLIB-runtime=	c curses iconv m ${COMPILER_LIBCXX}
+WANTLIB-textstyle=	curses iconv m pthread
+WANTLIB-tools=		c curses iconv intl m pthread textstyle
 
 LIB_DEPENDS=		converters/libiconv
 LIB_DEPENDS-tools=	${BASE_PKGPATH},-runtime \
@@ -45,7 +45,7 @@ DEBUG_PACKAGES=	${BUILD_PACKAGES}
 
 # on critical path to lang/gcc.  XXX c++ used in libasprintf but seems
 # unused at present; may need to revisit if this changes
-COMPILER =		base-clang base-gcc
+COMPILER =		base-clang base-gcc gcc3
 
 CONFIGURE_STYLE=gnu
 CONFIGURE_ARGS=	--disable-csharp \
@@ -73,6 +73,7 @@ EXTRA_LOCALES=	en he lv no
 EXTRA_LOCALES+=	eu pa
 
 post-install:
+	rmdir ${PREFIX}/lib/gettext
 	for l in ${EXTRA_LOCALES}; do \
 		${INSTALL_DATA_DIR} ${PREFIX}/share/locale/$$l/LC_MESSAGES; \
 	done
