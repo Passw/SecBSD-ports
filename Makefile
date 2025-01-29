@@ -53,6 +53,7 @@ SUBDIR += sysutils
 SUBDIR += telephony
 SUBDIR += textproc
 SUBDIR += wayland
+SUBDIR += wordlists
 SUBDIR += www
 SUBDIR += x11
 .endif
