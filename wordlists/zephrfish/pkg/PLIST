@@ -1,0 +1,15 @@
+share/zephrfish/
+share/zephrfish/AEM-Enum.txt
+share/zephrfish/BlindXSS-ZephrFish.txt
+share/zephrfish/Directories-Bigger.txt
+share/zephrfish/EnormousDNS.txt
+share/zephrfish/Files-PHP-Bigger.txt
+share/zephrfish/Generic-XSS-Vectors.txt
+share/zephrfish/Oracle-PeopleSoft-Dirs.txt
+share/zephrfish/Oracle-PeopleSoft-Fuzz.txt
+share/zephrfish/OraclePasswords.txt
+share/zephrfish/OracleUsers.txt
+share/zephrfish/Recon_SmallWins.txt
+share/zephrfish/SSRF-VarNames-Lower.txt
+share/zephrfish/SSRF-VarNames-Upper.txt
+share/zephrfish/eBiz.txt
