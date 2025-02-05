@@ -93,7 +93,6 @@
      SUBDIR += p5-Mozilla-CA-Fake
      SUBDIR += p5-Net-SSLeay
      SUBDIR += p11-kit
-     SUBDIR += photon
      SUBDIR += pretender
      SUBDIR += pwntools
      SUBDIR += py-bcrypt,python3
