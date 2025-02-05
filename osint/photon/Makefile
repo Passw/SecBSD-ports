@@ -1,13 +1,13 @@
 COMMENT=		fast crawler designed for OSINT
 
-MODPY_EGG_VERSION= 	1.3.2
-GH_COMMIT=		d4af460e95e5d962a53594d94d71d34d3a93f256
+MODPY_DISTV= 		1.3.2
+GH_COMMIT=		d88d5f3569f04390afb465c102bb8e5f59efb5fb
 GH_ACCOUNT=		s0md3v
 GH_PROJECT=		Photon
 
-DISTNAME=		photon-${MODPY_EGG_VERSION}
+DISTNAME=		photon-${MODPY_DISTV}
 
-CATEGORIES=		security
+CATEGORIES=		osint
 
 HOMEPAGE=		https://github.com/s0md3v/Photon
 
@@ -19,9 +19,9 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/python
 MODPY_ADJ_FILES=	photon.py
 
-RUN_DEPENDS=		www/py-requests${MODPY_FLAVOR} \
-			www/py-urllib3${MODPY_FLAVOR} \
-			net/py-tld${MODPY_FLAVOR}
+RUN_DEPENDS=		www/py-requests \
+			www/py-urllib3 \
+			net/py-tld
 
 NO_BUILD=		Yes
 

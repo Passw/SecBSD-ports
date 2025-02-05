@@ -1,5 +1,6 @@
      SUBDIR =
      SUBDIR += chronos
+     SUBDIR += photon
      SUBDIR += recong-ng
      SUBDIR += sherlock
      SUBDIR += sn0int
