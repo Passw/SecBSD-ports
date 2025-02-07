@@ -2,7 +2,7 @@ COMMENT=		Zed attack proxy
 CATEGORIES=		security
 MAINTAINER=		Purple Rain <purplerain@secbsd.org>
 
-VERSION=		2.15.0
+VERSION=		2.16.0
 DISTNAME=		ZAP_${VERSION}_Linux
 PKGNAME=		zaproxy-${VERSION}
 
@@ -14,7 +14,7 @@ PERMIT_PACKAGE=		Yes
 SITES=			https://github.com/zaproxy/zaproxy/releases/download/v${VERSION}/
 
 MODULES=		java
-MODJAVA_VER=		11+
+MODJAVA_VER=		17+
 
 RUN_DEPENDS=		java/javaPathHelper
 
